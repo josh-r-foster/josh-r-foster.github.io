@@ -1,1 +1,1 @@
-Sitemap: josh-r-foster.github.io/sitemap.xml
+Sitemap: https://josh-r-foster.github.io/sitemap.xml
