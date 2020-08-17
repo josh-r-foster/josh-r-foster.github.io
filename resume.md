@@ -171,17 +171,11 @@ UW-Oshkosh Faculty Development Summer Grant, 15\% CAS, 2017, 2019.
 
 ## Teaching
 * **Microeconomics**
-
 * **Behavioral Economics**
-
 * **Industrial Organization**
-
 * Business Statistics
-
 * Field Experiments
-
 * Computational Economics
-
 * Econometrics
 
 <!-- ### Footer
