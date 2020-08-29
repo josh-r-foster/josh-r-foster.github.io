@@ -50,6 +50,7 @@ __Small town kid__
  * Behavioral Economics 
  * Experimental Economics
  * <span>&#8203;</span>
+ * <span>&#8203;</span>
 
 ## Publications
 
@@ -184,6 +185,7 @@ UW-Oshkosh Faculty Development Summer Grant, 15\% CAS, 2017, 2019.
 * Computational Economics
 * <span>&#8203;</span>
 * Econometrics
+* <span>&#8203;</span>
 * <span>&#8203;</span>
 
 <!-- ### Footer
