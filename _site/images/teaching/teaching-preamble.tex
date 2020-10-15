@@ -1,0 +1,59 @@
+\usetheme{Darmstadt}
+
+\usepackage[T1]{fontenc}
+\definecolor{canvascolor}{HTML}{FFCC00}
+\usecolortheme[named=canvascolor]{structure}
+
+\usepackage{hyperref}
+\hypersetup{
+  pdfauthor={...},
+  pdftitle={...},
+  pdfsubject={...},
+  urlcolor=blue,
+}
+
+\setbeamertemplate{caption}[numbered]
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{fit,trees,shapes,snakes,spy,calc}
+\usetikzlibrary{arrows}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{enumerate}
+%\usepackage{tabularx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.4} 
+% \usepackage{framed}
+\usepackage{setspace}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{pifont}
+\usepackage{etoolbox}
+\usepackage{sgame}
+\def\hangUnder#1{\hbox to 0pt{\hspace{-11pt}\raisebox{-4mm}[0pt][0pt]{#1}}}
+\usepackage{wasysym}
+\usepackage{soul}
+\usepackage{scrextend}
+\usepackage{adjustbox}
+
+\newenvironment{packed_enum}{
+\begin{enumerate}[I]
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+\newenvironment{nscenter}
+ {\parskip=0pt\par\nopagebreak\centering}
+ {\par\noindent\ignorespacesafterend}
+
+\setbeamertemplate{itemize items}[circle]
+\setbeamercolor*{block title example}{fg=white,bg=canvascolor}
+\setbeamercolor*{block body example}{fg= black,bg= canvascolor!5}
+\AtBeginEnvironment{exampleblock}{\setbeamercolor{itemize item}{fg=canvascolor}}
+\AtBeginEnvironment{exampleblock}{\setbeamercolor{itemize subitem}{fg=canvascolor}}
