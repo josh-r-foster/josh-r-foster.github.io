@@ -11,7 +11,7 @@ I am an assistant professor at the [University of Wisconsin, Oshkosh](https://ww
 
 Over the last decade I have taught over 1500 students in the field of microeconomics through the courses Principles of Microeconomics, Intermediate Microeconomics, Industrial Organization, Behavioral Economics and Business Statistics. In addition to these courses, my teaching interests include Field Experiments in Economics, Computational Economics, Managerial Economics and Econometrics.
 
-My research specializes in fundraising methods for both non-profit and for-profit organizations, primarily focusing on charity auctions and crowdfunded campaigns (i.e. Kickstarter). I am trained in the experimental method, and often test theoretical models of fundraising with field and laboratory experiments for their policy and behavioral implications.
+My research specializes in fundraising methods for both non-profit and for-profit organizations, primarily focusing on charity auctions and crowdfunded campaigns (e.g. Kickstarter). I am trained in the experimental method, and often test theoretical models of fundraising with field and laboratory experiments for their policy and behavioral implications.
 
 I am also a Co-founder of [Thrive Mind Consulting, LLC](https://www.thrivemindconsulting.com/) and a Co-creator of [Transform Workplaces](https://www.transformworkplaces.com/).
 
