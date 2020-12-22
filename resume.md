@@ -57,6 +57,8 @@ __Small town kid__
 `2020`
 <a href="https://www.nber.org/papers/w27187">__The Relationship between In-Person Voting and COVID-19: Evidence from the Wisconsin Primary__</a>
 
+<em>Contemporary Economic Policy</em>, forthcoming. 
+
 `with`
  * Chad Cotti 
  * Bryan Engelhardt 
