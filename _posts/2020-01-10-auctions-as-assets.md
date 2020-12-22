@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      'Running fundraising events like a financier'
+title:      'Fundraising like a financier'
 date:       2020-01-10 10:00:00
 summary:    '[manuscript] Charity Auctions as Assets: All-Pay vs. Winner-Pay Mechanisms in Mean-Variance Space'
 categories: research publication
