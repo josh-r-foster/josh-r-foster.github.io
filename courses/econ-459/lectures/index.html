@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Econ 459: Behavioral Economics | Lecture 8</title>
+
+		<meta name="description" content="Lecture slides for Econ 459 at UW-Oshkosh">
+		<meta name="author" content="Joshua Foster">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail.png">
+					<h2 style="background-color: white;">Behavioral Economics</h2>
+
+					<h3 style="background-color: white;">Lecture 8: Choice Over Time</h3>
+					<h4 style="background-color: white;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://uwosh.edu/">UW-Oshkosh</a></h4>
+				</section>
+
+				<div class="topbar">
+    				<img src="/images/teaching/uwo-logo.png" style="width: 100px;" align="right">
+				</div>
+
+				<section>
+					<h1>Introduction</h1>
+				</section>
+
+				<section>
+				<h2>Multiple Selves Approach</h2>
+				<img class="r-stretch" src="/images/teaching/comic.png">
+				</section>
+
+				<section>
+				<h2>Effects of Hyperbolic Discounting</h2>
+				<img class="r-stretch" src="/images/teaching/simpsons.png">
+				Oh, boy!  The deep fryer's here.  Heheh, I got it used from the navy.  You can flash-fry a buffalo in forty seconds. <br> 
+				Forty seconds?!?  But I want it now! 
+				</section>
+
+				<section>
+				<h2>The Student's Predicament</h2>
+				Hyperbolic discounting leads to procrastination. <br>
+
+				Example: Doing problem sets...<br>
+				<table>
+				<tr><td>  \caption*{Decisions with Hyperbolic Discounting}</tr>
+				<tr><td>  </tr>
+				<tr><td>    Time Step </td><td> Commitment Date </td></tr>
+				<tr><td>     </td> </tr>
+				<tr><td>     $t=0$ </td><td> $t=1$ </td><td> "I'll do it tomorrow" </td></tr>
+				<tr><td>     $t=1$ </td><td> $t=2$ </td><td> "I'll do it tomorrow"} </td></tr>jdsso
+				<tr><td>    </tr>
+				</table>
+				</section>
+
+				<section>
+				<h2>Naivete Vs. Sophistication</h2>
+				Extreme assumptions of behavior over time:
+				<h2>Naivete:</h2>
+				An individual who does not realize they will change their mind. That is, they assume their future self will follow through on their (current) preferred plan.
+
+
+
+				<h2>Sophistication:</h2>
+				An individual who understands perfectly that they will change their mind, and does the best given future self's anticipated behavior.
+
+				</section>
+
+				<section>
+				<h2>Naivete Vs. Sophistication</h2>
+				How could we tell whether a student is naive or sophisticated?
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> The use of commitment devices indicates sophistication</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Ulysses is (at least partly) sophisticated.</li>
+				</ul>
+				<li class ="fragment fade-in-then-semi-out"> Misprediction of future behavior indicates naivete.</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Teenage smokers who predict that they will not be smoking in five years have a slightly higher probability of smoking (74%) than those who predict they will be smoking (72%).</li>
+				</ul>
+				</ul>
+
+				(BTW, awareness issues don't arise with exponential discounting.)
+				</section>
+
+				<section><h1>Naivete Vs. Sophistication</h1></section>
+
+
+				<section>
+				<h2>Behavior of a Naive Student</h2>
+				The naive makes their decision one day at a time. 
+				<table>
+				<tr><td>  \caption*{Assume $\beta=\frac{1}{2}$ and $\delta=1$ | $u_0=-1$, $u_1=-\frac{3}{2}$, and $u_2=-\frac{5}{2}$}</tr>
+				<tr><td>  </tr>
+				<tr><td>     </td><td> \emph{Period 0 Self} </td><td> \emph{Period 1 Self} </td><td> \emph{Period 2 Self} </td></tr>
+				<tr><td>     </td> </tr>
+				<tr><td>     $t=0$ </td><td> $-1+\frac{1}{2}\cdot =-1$} </td><td>  </td><td>  </td> [2ex</tr>jdsso
+				<tr><td>     $t=1$ </td><td> $0+\frac{1}{2}\cdot =-\frac{3}{4}$} </td><td> $-\frac{3}{2}+\frac{1}{2}\cdot [0</tr>jdssojdsso
+				<tr><td>     $t=2$ </td><td> $0+\frac{1}{2}\cdot =-\frac{5}{4}$} </td><td> $0+\frac{1}{2}\cdot [-\frac{5}{2}</tr>jdssojdsso
+				<tr><td>    </tr>
+				</table>
+				Waiting until $t=2$ is irrational procrastination.
+				</section>
+
+				<section>
+				<h2>Behavior of a Sophisticated Student</h2>
+				The sophisticate knows exactly what their future selves will do. 
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> They solve their own decisions backward...</li>
+				</ul>
+				<table>
+				<tr><td>  \caption*{Assume $\beta=\frac{1}{2}$ and $\delta=1$ | $u_0=-1$, $u_1=-\frac{3}{2}$, and $u_2=-\frac{5}{2}$}</tr>
+				<tr><td>  </tr>
+				<tr><td>     </td><td> \emph{Period 0 Self} </td><td> \emph{Period 1 Self} </td><td> \emph{Period 2 Self} </td></tr>
+				<tr><td>     </td> </tr>
+				<tr><td>     $t=0$ </td><td> $-1+\frac{1}{2}\cdot =-1$} </td><td>  </td><td>  </td> [2ex</tr>jdsso
+				<tr><td>     $t=1$ </td><td> $0+\frac{1}{2}\cdot =-\frac{3}{4}$} </td><td> $-\frac{3}{2}+\frac{1}{2}\cdot [0</tr>jdssojdsso
+				<tr><td>     $t=2$ </td><td> $0+\frac{1}{2}\cdot =-\frac{5}{4}$} </td><td> $0+\frac{1}{2}\cdot [-\frac{5}{2}</tr>jdssojdsso
+				<tr><td>    </tr>
+				</table>
+				Predictions of the future leads to doing the problem set at $t=0$.
+				</section>
+
+				<section>
+				<h2>Let's Go to the Movies</h2>
+				Let's consider a \emph{pleasant} task. <br>
+
+
+				Someone can go to a movie in exactly one of four periods:
+				<table>
+				<tr><td>  </tr>
+				<tr><td>  \caption*{Assume $\beta=\frac{1}{2}$ and $\delta=1$}</tr>
+				<tr><td>     </td> </tr>
+				<tr><td>     Time </td><td> $t=0$ </td><td> $t=1$ </td><td> $t=2$ </td><td> $t=3$ </td> </tr>
+				<tr><td>     Utility </td><td> $u=1$ </td><td> $u=\frac{3}{2}$ </td><td> $u=\frac{9}{4}$ </td><td> $u=\frac{27}{8}$ </td> </tr>
+				<tr><td>    </tr>
+				</table> 
+				When do they go to the movie?
+				</section>
+
+				<section>
+				<h2>Solving Problems with Hyperbolic Discounting</h2>
+				Naive decision-makers:
+				<ol>
+				<li class ="fragment fade-in-then-semi-out"> Start at the beginning (i.e. first time step).</li>
+				<li class ="fragment fade-in-then-semi-out"> Solve for the optimal plan at that time step.</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> (Assuming future selves will follow the plan.)</li>
+				</ul>
+				<li class ="fragment fade-in-then-semi-out"> The person takes the first step in that plan.</li>
+				<li class ="fragment fade-in-then-semi-out"> Go to the next period and repeat.</li>
+				</ol>
+				</section>
+
+				<section>
+				<h2>Solving Problems with Hyperbolic Discounting</h2>
+				Sophisticated decision-makers:
+				<ol>
+				<li class ="fragment fade-in-then-semi-out"> Start at the end (i.e. last time step).</li>
+				<li class ="fragment fade-in-then-semi-out"> Solve for optimal action.</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> (Assuming the person made it that far.)</li>
+				</ul>
+				<li class ="fragment fade-in-then-semi-out"> Go back to the previous period.</li>
+				<li class ="fragment fade-in-then-semi-out"> Solve for the optimal action, taking into account what happens in the future.</li>
+				<li class ="fragment fade-in-then-semi-out"> Go back to the previous period, and repeat.</li>
+				</ol>
+				</section>
+
+				<section>
+				<h2>Going to the Movies: The Naive Person</h2>
+				<table>
+				<tr><td>  </tr>
+				<tr><td>  \caption*{Assume $\beta=\frac{1}{2}$ and $\delta=1$}</tr>
+				<tr><td>     $u(t)$: </td><td> $u(0)=1$ </td><td> $u(1)=\frac{3}{2}$ </td><td> $u(2)=\frac{9}{4}$ </td><td> $u(3)=\frac{27}{8}$ </td> </tr>
+				<tr><td>     </td> </tr>
+				<tr><td>     Time Step </td><td> $t=0$ </td><td> $t=1$} </td><td> $t=2$} </td><td> $t=3$} </td> </tr>jdsso
+				<tr><td>      </td> </tr>
+				<tr><td>     Go in $t=0$ </td><td> $\frac{16}{16}$} </td><td> - </td><td> - </td><td> - </td> </tr>jdsso
+				<tr><td>     Go in $t=1$ </td><td> $\frac{12}{16}$} </td><td> $\frac{24}{16}$} </td><td> - </td><td> - </td> </tr>jdssojdsso
+				<tr><td>     Go in $t=2$ </td><td> $\frac{18}{16}$} </td><td> $\frac{18}{16}$} </td><td> $\frac{36}{16}$} </td><td> - </td> </tr>jdssojdsso
+				<tr><td>     Go in $t=3$ </td><td> $\frac{27}{16}$} </td><td> $\frac{27}{16}$} </td><td> $\frac{27}{16}$} </td><td> $\frac{54}{16}$} </td> </tr>jdssojdsso
+				<tr><td>    </tr>
+				<tr><td>     Decision} </td><td> WAIT} </td><td> WAIT} </td><td> GO} </td><td>  </td> </tr>jdssojdssojdssojdsso
+				</table>
+				\only<2-3>{When $t=0$: Going in $t=0$ yields $1+\frac{1}{2}\cdot [0+0+0]=1=\frac{16}{16}$}
+				\only<4-5>{When $t=0$: Going in $t=1$ yields $0+\frac{1}{2}\cdot [\frac{3}{2}+0+0]=\frac{3}{4}=\frac{12}{16}$}
+				\only<6-7>{When $t=0$: Going in $t=2$ yields $0+\frac{1}{2}\cdot [0+\frac{9}{4}+0]=\frac{9}{8}=\frac{18}{16}$}
+				\only<8-9>{When $t=0$: Going in $t=3$ yields $0+\frac{1}{2}\cdot [0+0+\frac{27}{8}]=\frac{27}{16}$}
+				</section>
+
+				<section>
+				<h2>Going to the Movies: The Sophisticated Person</h2>
+				<table>
+				<tr><td>  </tr>
+				<tr><td>  \caption*{Assume $\beta=\frac{1}{2}$ and $\delta=1$}</tr>
+				<tr><td>     $u(t)$: </td><td> $u(0)=1$ </td><td> $u(1)=\frac{3}{2}$ </td><td> $u(2)=\frac{9}{4}$ </td><td> $u(3)=\frac{27}{8}$ </td> </tr>
+				<tr><td>     </td> </tr>
+				<tr><td>     Time Step </td><td> $t=0$ </td><td> $t=1$ </td><td> $t=2$ </td><td> $t=3$ </td> </tr>
+				<tr><td>      </td> </tr>
+				<tr><td>     Go in $t=0$ </td><td> $\frac{16}{16}$ </td><td> - </td><td> - </td><td> - </td> </tr>
+				<tr><td>     Go in $t=1$ </td><td> $\frac{12}{16}$ </td><td> $\frac{24}{16}$ </td><td> - </td><td> - </td> </tr>
+				<tr><td>     Go in $t=2$ </td><td> $\frac{18}{16}$ </td><td> $\frac{18}{16}$ </td><td> $\frac{36}{16}$ </td><td> - </td> </tr>
+				<tr><td>     Go in $t=3$ </td><td> $\frac{27}{16}$ </td><td> $\frac{27}{16}$ </td><td> $\frac{27}{16}$ </td><td> $\frac{54}{16}$ </td> </tr>
+				<tr><td>    </tr>
+				<tr><td>     Decision: GO AT </td><td> $t^*=0$} </td><td> $t^*=1$} </td><td> $t^*=2$} </td><td> $t^*=3$} </td> </tr>jdssojdssojdssojdsso
+				</table>
+				This sophisticate wishes they were naive!
+				</section>
+
+				<section>
+				<h2>The General Lesson</h2>
+				The sophisticated movie-goer's problem is their pessimism.
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Knows they won't have the patience to wait.</li>
+				<li class ="fragment fade-in-then-semi-out"> So they go immediately.</li>
+				</ul>
+
+
+				This pessimism also leads them to do better with problem sets. <br>
+
+
+				Principle:
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Knowing their future selves will do it tomorrow makes sophisticates more impatient today.</li>
+				<li class ="fragment fade-in-then-semi-out"> Additionally, knowing their future selves will cost them tomorrow warrants taking action today.</li>
+				</ul>
+				</section>
+
+				<section>
+				<h2>So Is It Really Worse to be Sophisticated?} </h2>
+				Theoretically speaking, it's unclear. <br>
+
+
+				Raises a number of concerns:
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Finishing reports/papers/presentations.</li>
+				<li class ="fragment fade-in-then-semi-out"> Finding good investments for retirement.</li>
+				<li class ="fragment fade-in-then-semi-out"> Quitting bad habits.</li>
+				<li class ="fragment fade-in-then-semi-out"> Finding a job (e.g. for unemployed).</li>
+				</ul>
+				</section>
+
+				<section><h1>Applications of Hyperbolic Discounting</h1></section>
+
+
+				<section>
+				<h2>Default Effects <br></h2>
+				 Madrian and Shea (2001) \emph{Quarterly Journal of Economics}}
+				401(k) Participation
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> 401(k)s are offered by many employers</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Primary way employees privately save for retirement.</li>
+				</ul>
+				<li class ="fragment fade-in-then-semi-out"> Employees decide themselves whether to participate:</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> How much of their pay to allocate to the 401(k), and</li>
+				<li class ="fragment fade-in-then-semi-out"> How to invest their funds.</li>
+				</ul>
+				<li class ="fragment fade-in-then-semi-out"> This company offered a match (up to 6% of income):</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> For every $1 an employee put in their 401(k)</li>
+				<li class ="fragment fade-in-then-semi-out"> The company added 50 cents.</li>
+				</ul>
+				</ul>
+				</section>
+
+				<section>
+				On April 1, 1998, the company changed their 401(k) policy:
+				<ol>
+				<li class ="fragment fade-in-then-semi-out"> Before: could only participate after one year of employment. <br></li>
+				After: all employees could enroll.
+				<li class ="fragment fade-in-then-semi-out"> Before: employees were not automatically enrolled.</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> (Could enroll easily at any time.)</li>
+				</ul>
+				After: employees were automatically enrolled.
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> (Could unenroll easily at any time.)</li>
+				</ul>
+				</ol> 
+				The authors compare the choices of two groups of employees:
+				<ol>
+				<li class ="fragment fade-in-then-semi-out"> "Window" cohort: those hired in 1998 before April 1</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> (Not automatically enrolled.)</li>
+				</ul>
+				<li class ="fragment fade-in-then-semi-out"> "New" cohort: those hired in 1998 after April 1</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> (Automatically enrolled.)</li>
+				</ul>
+				</ol>
+				</section>
+
+				<section>
+				<h2>Results: Participation and Contribution Rates</h2>
+				3-15 months after being hired, participation rates were:
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> 37% for the Window cohort</li>
+				<li class ="fragment fade-in-then-semi-out"> 86% for the New cohort</li>
+				 </ul> 
+				The contribution rates were as follows:
+				 <p align="center">
+				<img src="/images/teaching/participation.png">
+				</p> 
+				The finding that defaults matter is one of the most important discoveries in applied microeconomics.
+				</section>
+
+				<section>
+				<h2>Getting a Grip on the Default Effect</h2>
+				This appears to be a big mistake by not participating in the 401(k)
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Being offered a 50% return on up to 6% of your income.</li>
+				</ul> 
+				Example: for an employee making $40,000
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> That's giving up a $1,200 gift from the company.</li>
+				</ul> 
+				Even if it is not a mistake, why does the default matter so much?
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> It only takes a phone call to change enrollment.</li>
+				</ul> 
+				Would people not bother making a phone call for $1,200? <br>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> If they are naive hyperbolic discounters, they might not.</li>
+				<li class ="fragment fade-in-then-semi-out"> And as a result, defaults can be extremely important.</li>
+				</ul>
+				</section>
+
+				<section>
+				<h2>Making the Call: "I'll do it tomorrow"</h2>
+				Costs and Benefits of Making the Call: <br>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Benefit: will get $5 per day ($1,825 per year) extra for the next 30 years starting tomorrow.</li>
+				<li class ="fragment fade-in-then-semi-out"> Cost: pain of the phone call today costs $30</li>
+				</ul> 
+				Assume a naive hyperbolic discounter has a daily $\beta = 0.8$, $\delta = 1$. <br>
+
+
+				When to make the call:
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Today: $-30+0.8\cdot[5\cdot 365\cdot 30] = 43770$ </li>
+				<li class ="fragment fade-in-then-semi-out"> Tomorrow: $0+0.8\cdot[-30+5\cdot 365\cdot 30 - 5] = 43772$</li>
+				</ul> 
+				Hence, they put off making the phone call. 
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> If nothing changes, they put off the phone call forever.</li>
+				</ul>
+				</section>
+
+				<section>
+				<h2>Making the Call: "I'll do it this week (Really, I will)"</h2>
+				This prediction is extreme - and it's because the model is extreme. 
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> More reasonable prediction might be they delay for a long time.</li>
+				</ul>
+
+
+				Let's change the model:
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> What would a sophisticate do? </li>
+				<li class ="fragment fade-in-then-semi-out"> It's easy to argue they'd do it within a week. </li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Waiting 8 days costs $40, valued at $0.8\cdot 40=32$</li>
+				<li class ="fragment fade-in-then-semi-out"> Would rather pay the $30 cost today to avoid this outcome.</li>
+				</ul>
+				</ul>
+
+
+				When \emph{exactly} they make the call is a more difficult question.
+				</section>
+
+				<section>
+				<h2>Other Studies on Procrastination</h2>
+				Choi, et al. (2004) in \emph{NBER}
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> 401(k) contribution patterns generalize.</li>
+				<li class ="fragment fade-in-then-semi-out"> Remarkably similar results across three different industries.</li>
+				</ul>
+
+
+				Cronqvist and Thaler (2004) in \emph{American Economic Review}
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Looks at the privatization of retirement funds in Sweden.</li>
+				<li class ="fragment fade-in-then-semi-out"> Heavily advertised by the government - 456 plans available. </li>
+				<li class ="fragment fade-in-then-semi-out"> Initially, 43.3% of participants chose the default. </li>
+				<li class ="fragment fade-in-then-semi-out"> After 3 years, 91.6% of participants chose the default plan.</li>
+				</ul>
+
+
+				Traditional economics: this is due to transaction costs.
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> But actual transaction costs are too small to explain this.</li>
+				</ul>
+				</section>
+
+				<section>
+				<h2>Other Studies on Procrastination (Cont.)</h2>
+				O'Donoghue and Rabin (1999, 2001) in \emph{AER} and \emph{QJE}
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Self-control problems can explain this behavior.</li>
+				<li class ="fragment fade-in-then-semi-out"> Naivete can create infinite procrastination. </li>
+				<li class ="fragment fade-in-then-semi-out"> Increasing importance makes it more likely you procrastinate.</li>
+				</ul>
+				DellaVigna and Malmendier (2006) in \emph{AER}
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Study gym-goers' behavior at three US health clubs. </li>
+				<li class ="fragment fade-in-then-semi-out"> Customers had two options for how to pay for using the gym:</li>
+				<ol>
+				<li class ="fragment fade-in-then-semi-out"> Monthly fee of over $80 for unlimited use of the gym.</li>
+				<li class ="fragment fade-in-then-semi-out"> Pay-per-visit fee of $10.</li>
+				</ol> 
+				<li class ="fragment fade-in-then-semi-out"> Most choose the monthly contract (89%)</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Those who do exercise on average 4.8 times/month </li>
+				<li class ="fragment fade-in-then-semi-out"> That's about $17 per visit.</li>
+				</ul> 
+				<li class ="fragment fade-in-then-semi-out"> \emph{Default Effect:} go 2.31 months (average) without using membership before canceling.</li>
+				</ul>
+				</section>
+
+				<section>
+				It can be argued these findings are consistent with both extreme assumptions of hyperbolic discounting. <br>
+
+
+				\underline{Naive hyperbolic discounters:} 
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Gym-goers prefer they exercise a lot in the future. </li>
+				<li class ="fragment fade-in-then-semi-out"> Being naive, that's what they think they'll do. </li>
+				<li class ="fragment fade-in-then-semi-out"> To save money on gym they buy the monthly membership. </li>
+				<li class ="fragment fade-in-then-semi-out"> Short-run impatience kicks in, and they don't use the membership much.</li>
+				</ul>
+
+
+				\underline{Sophisticated hyperbolic discounters:} 
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Also prefer to exercise a lot in the future, but realize they won't. </li>
+				<li class ="fragment fade-in-then-semi-out"> Use the monthly membership as a commitment tool. </li>
+				<li class ="fragment fade-in-then-semi-out"> Willing to pay more (per-visit) if it helps get them to the gym.</li>
+				</ul>
+				</section>
+
+				<section>
+				<h2>Credit Card Teaser Rates</h2>
+				Ausubel (1991) in \emph{American Economic Review}
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Large-scale field experiment run by a credit card company. </li>
+				<li class ="fragment fade-in-then-semi-out"> Mailed randomized credit card offers of three types:</li>
+				<ol>
+				<li class ="fragment fade-in-then-semi-out"> Standard: 6.9% rate for six months and 16% thereafter.</li>
+				<li class ="fragment fade-in-then-semi-out"> Teaser deal: 4.9% followed by 16%.</li>
+				<li class ="fragment fade-in-then-semi-out"> Post-teaser deal: 6.9% followed by 14%.</li>
+				</ol> 
+				<li class ="fragment fade-in-then-semi-out"> Data on take-up rates and 21 months of borrowing history. </li>
+				<li class ="fragment fade-in-then-semi-out"> Results:</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Teaser is 2.5 more successful than Post-teaser</li>
+				<li class ="fragment fade-in-then-semi-out"> Given borrowing history, Post-teaser is a much better deal.</li>
+				</ul>
+				</ul>
+				</section>
+
+				<section>
+				<h2>Credit Card Teaser Rates - Explanations</h2>
+				Possible explanations based on hyperbolic discounting: 
+				<ol>
+				<li class ="fragment fade-in-then-semi-out"> Naive borrowers believe they'll repay the loan quickly.</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Hence think the teaser interest rate is the most important.</li>
+				</ul> 
+				<li class ="fragment fade-in-then-semi-out"> Sophisticated borrowers don't want to use their credit cards much in the future.</li>
+				<ul>
+				<li class ="fragment fade-in-then-semi-out"> Hence choose a high interest rate to restrain future borrowing.</li>
+				</ul>
+				</ol>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>

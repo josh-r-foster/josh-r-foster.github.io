@@ -55,6 +55,15 @@ __Small town kid__
 ## Publications
 
 `2020`
+<a href="https://www.nber.org/papers/w27187">__The Relationship between In-Person Voting and COVID-19: Evidence from the Wisconsin Primary__</a>
+
+`with`
+ * Chad Cotti 
+ * Bryan Engelhardt 
+ * Erik Nesson 
+ * Paul Niekamp
+
+`2020`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3438244">__A Natural Field Experiment Comparing the Duluth and Cognitive Behavioral Therapy Treatment Options for Intimate Partner Violence Diversion Programs: The Winnebago County Experience__</a>
 
 <em>Journal of Experimental Psychology: Applied</em>, 26 (2), 2020, 384–395.
@@ -136,15 +145,6 @@ Abbreviated version published in  <em>Academy of Management Annual Meeting Proce
  * Shannon L. Rawski
  * Emilija Djurdjevic
  * Andrew Soderberg
-
-`2020`
-<a href="https://www.nber.org/papers/w27187">__The Relationship between In-Person Voting and COVID-19: Evidence from the Wisconsin Primary__</a>
-
-`with`
- * Chad Cotti 
- * Bryan Engelhardt 
- * Erik Nesson 
- * Paul Niekamp
 
 ### In Preparation
 
