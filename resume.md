@@ -125,6 +125,11 @@ __Small town kid__
 
 ### Under Review
 
+`2021`
+__Non-parametric Estimation of Secret Reserve Prices in Auctions__
+
+ * 
+
 `2020`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3472119">__On the Relative Efficiency of Crowdsourced Rating Mechanisms: Experimental Evidence__</a>
 
@@ -149,10 +154,6 @@ Abbreviated version published in  <em>Academy of Management Annual Meeting Proce
  * Andrew Soderberg
 
 ### In Preparation
-
-__Non-parametric Estimation of Secret Reserve Prices in Auctions__
-
- * 
 
 __A Comprehensive Evaluation of Auctions for Charity__
 
