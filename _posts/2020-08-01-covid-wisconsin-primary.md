@@ -9,7 +9,7 @@ categories: research publication
 <h2>&#91;manuscript&#93; The Relationship between In-Person Voting and COVID-19: Evidence from the Wisconsin Primary
 </h2>
 
-&#91;published version&#93; 
+&#91;published version&#93;  <em>[Contemporary Economic Policy](https://onlinelibrary.wiley.com/doi/abs/10.1111/coep.12519)</em>
 
 &#91;working version&#93; <em>[NBER](https://www.nber.org/papers/w27187)</em>
 
