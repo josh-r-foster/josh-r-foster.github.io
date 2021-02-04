@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Bus 259: Predictably Misbehaving</title>
+
+		<meta name="description" content="Lecture Slides for Bus 259 at UW-Oshkosh">
+		<meta name="author" content="Joshua Foster">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail.png">
+					<h2 style="background-color: white;">Predictably Misbehaving</h2>
+
+					<h3 style="background-color: white;">Lecture 2: Introduction to Behavioral Economics</h3>
+					<h4 style="background-color: white;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://uwosh.edu/">UW-Oshkosh</a></h4>
+				</section>
+
+				<div class="topbar">
+    				<img src="/images/teaching/uwo-logo.png" style="width: 100px;" align="right">
+				</div>
+
+				<section>
+					<h2>What is Behavioral Economics?</h2>
+					<p align="left" class="fragment fade-in-then-semi-out">A study of the joint influence of psychological and economic factors on behavior.</p> 
+					<p align="left" class="fragment fade-in-then-semi-out">Behavioral economics is a modification of mainstream economics.</p> 
+					<p align="left" class="fragment fade-in-then-semi-out"> Mainstream economics is called <span style="color:#ffcc00;">Neoclassical economics</span>.</p>
+				</section>
+
+				<section>
+					<p align="left">Like neoclassical economics, behavioral:</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out"> Uses mathematical models to predict choices. </li>
+						<li class="fragment fade-in-then-semi-out"> Assumes that individuals have goals (which provide <span style="color:#ffcc00;">utility</span>). </li>
+						<li class="fragment fade-in-then-semi-out"> Explores how individual behavior varies across economic environments. </li>
+						<li class="fragment fade-in-then-semi-out"> Is concerned with welfare consequences.</li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">How is behavioral economics different from Neoclassical economics?</p>
+					<p align="left" class ="fragment fade-in">Unlike neoclassical economics, behavioral:</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out"> Cares a lot about what <em>actually</em> motivates people. </li>
+						<li class="fragment fade-in-then-semi-out"> Relies on experiments, surveys, psychology and neurology. </li>
+						<li class="fragment fade-in-then-semi-out"> Emphasizes preferences, beliefs and cognition together.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Traditional Economic Assumptions</h2>
+					<p align="left" class="fragment fade-in">We will critically examine the following assumptions:</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out"> People are purely self-interested.</li>
+						<li class="fragment fade-in-then-semi-out"> People perfectly understand the laws of probability.</li>
+						<li class="fragment fade-in-then-semi-out"> People have correct beliefs about all information.</li>
+						<li class="fragment fade-in-then-semi-out"> People have preferences over final outcomes.</li>
+						<li class="fragment fade-in-then-semi-out"> People have well-defined and stable preferences.</li>
+						<li class="fragment fade-in-then-semi-out"> People discount tradeoffs over time optimally.</li>
+					</ul>
+					<p align="left" class ="fragment fade-in">These assumptions describe how people <em>should</em> behave.</p>
+				</section>
+
+				<section><h1>The Survey</h1></section>
+
+				<section>
+					<h2>The Survey</h2>
+					<p align="left">For your homework you will fill out a survey asking:</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">A few things about you.</li>
+						<li class="fragment fade-in-then-semi-out">Your impressions of the world.</li>
+						<li class="fragment fade-in-then-semi-out">How you would behave in certain situations.</li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">There are actually <em>two versions</em> of the survey.</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">The two versions contained slightly different questions.</li>
+						<li class="fragment fade-in-then-semi-out">The two surveys were randomly assigned, so that it was random which version each of you received.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>The Survey</h2>
+					<p align="left">Economics experiments always contain two features.</p>
+					<div class="fragment fade-in-then-semi-out">
+						<h3>Randomization:</h3>
+						<p align="left">Random assignment of subjects ensures that there are no inherent differences between the groups answering the different questions. The differences in behavior can be attributed solely to the different questions.</p>
+					</div>
+					<div class="fragment fade-in-then-semi-out">
+						<h3>Experimental Manipulation:</h3>
+						<p align="left">To learn what difference something makes in people's behavior, we vary that one thing between subjects.</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>The Survey</h2>
+					<p align="left">Ideally, we would observe people in their natural environments.</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">Occasionally this is possible.</li>
+						<li class="fragment fade-in-then-semi-out">However, the real world can be messy to study.</li>
+						<li class="fragment fade-in-then-semi-out">We cannot always randomize or manipulate situations.</li>
+						<li class="fragment fade-in-then-semi-out">In these cases, we run controlled experiments.</li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">As a first look at experimentation, today let's</p>
+					<ol>
+						<li class="fragment fade-in-then-semi-out">Motivate individual behavior theoretically.</li>
+						<li class="fragment fade-in-then-semi-out">Look at a natural experiment.</li>
+						<li class="fragment fade-in-then-semi-out">Consider our surveys from the homework.</li>
+					</ol>
+				</section>
+
+				<section><h1>Modeling Humans</h1></section>
+
+				<section>
+					<p align="left">Economists break down individual behavior into:</p>
+					<ol>
+						<li class="fragment fade-in"><span style="color:#ffcc00;">Utility</span>: What makes people happy in the moment.</li>
+						<div class="fragment fade-in">
+							<ul>
+								<li>How people react towards risk.</li>
+								<li>How people value the future.</li>
+							</ul>
+						</div>
+						<li class="fragment fade-in"><span style="color:#ffcc00;">Beliefs</span>: What one believes about their environment.</li>
+						<div class="fragment fade-in">
+							<ul>
+								<li>How new information change people's beliefs.</li>
+								<li>How people view themselves and others.</li>
+							</ul>
+						</div>
+						<li class="fragment fade-in"><span style="color:#ffcc00;">Optimization</span>: How utility+beliefs produce decisions.</li>
+						<ul>
+							<li class="fragment fade-in">And their sensitivity to other factors.</li>
+						</ul>
+					</ol>
+				</section>
+
+				<section><h1>Utility</h1></section>
+
+				<section data-background="https://media.giphy.com/media/mB9wUiXcchdAcOz54l/giphy.gif"></section>
+
+				<section>
+					<h2>Losses and Risk-taking</h2>
+					<p align="left">Facts about horserace betting:</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">Many races on any given day.</li>
+						<li class="fragment fade-in-then-semi-out">Payouts in each race are balanced by the bets made.</li>
+						<div class="fragment fade-in-then-semi-out">
+							<li>Betting on "long shots" increases toward the end of the day.</li>
+							<ul>
+								<li>Spikes especially in the very last race.</li>
+							</ul>
+						</div>
+						<li class="fragment fade-in-then-semi-out">Betting on the favorite to show in the last race is profitable.</li>
+					</ul>
+				</section>
+
+				<section data-background="https://media.giphy.com/media/fUZHXuE94BN2wtSbUS/giphy.gif">
+					<!--<h2 style="background-color: white;">Let's do some (social) sciencing.</h2>
+					<h2 style="background-color: white;">Why do you think this type of behavior occurs?</h2>-->
+				</section>
+
+				<section>
+					<h2>Losses and Risk-taking</h2>
+					<div align="left" class="fragment fade-in-then-semi-out">
+						<p align="left">Possible explanation: bettors take risks to "get even".</p>
+						<ul>
+							<li>That is, to finish the day without losses.</li>
+						</ul>
+					</div> 
+					<p align="left" class="fragment fade-in">It is possible that:</p>
+					<ul>
+					<li class ="fragment fade-in"> Toward the end of the day, most bettors have lost money. </li>
+					<li class ="fragment fade-in"> The only reasonable way to get back even is to spend a little more and make a bet with a potentially high payoff.</li>
+					</ul>
+				</section>
+
+				<section>
+					An actual quote from a horse betting strategy website:
+					<blockquote style="font-size:33px;">
+						"The best way to play a show parlay is to set a reasonable goal of how much you want to win and to keep betting the show parlay until you get there. You then start over. If you don't make it to your goal on the first try, you have only lost $10.<br><br>
+
+						"Show parlays are affordable, fun and can be lucrative. They give you action on every race at a very low cost and the closer you get to your monetary goal, the more the tension and excitement builds." - predictem.com
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Survey Questions</h2>
+					<table>
+						<tr><td>"Would you choose to <span style="color:#ffcc00;">gain</span> 500 dollars with a 100% chance or <span style="color:#ffcc00;">gain</span> 1000 dollars with a 50% chance?"</td><td class="fragment fade-in">Would you choose to <span style="color:#ffcc00;">lose</span> 500 dollars with 100% chance or <span style="color:#ffcc00;">lose</span> 1000 dollars with a 50% chance?</td></tr>
+						<tr><td class="fragment fade-in">76% preferred to <span style="color:#ffcc00;">gain</span> 500 with 100% chance.<br>(Risk-averse behavior)</td><td class="fragment fade-in">28% preferred to <span style="color:#ffcc00;">lose</span> 500 with 100% chance.<br>(Risk-loving behavior)</td></tr>
+					</table>
+					<p align="left" class="fragment fade-in">When have you tried taking big risks to avoid losses?</p>
+				</section>
+
+				<section>
+					<p align="left">This exemplifies <span style="color:#ffcc00;">Reference-dependent Preferences</span>.</p>
+					<div align="left" class="fragment fade-in-then-semi-out">
+						<ul>
+							<li>People evaluate <em>relative</em>, not <em>absolute</em> outcomes.</li>
+							<ul>
+								<li>Relative outcomes come from a <span style="color:#ffcc00;">reference point</span>.</li>
+							</ul>
+						</ul>
+					</div>
+					<div align="left" class="fragment fade-in-then-semi-out">
+						<ul>
+							<li>People hate falling short of their reference point.</li>
+							<ul>
+								<li>This motivates them to take risks to reach it.</li>
+							</ul>
+						</ul>
+					</div>
+					<div align="left" class="fragment fade-in-then-semi-out">
+						<ul>
+							<li>Natural reference point: finishing where you started.</li>
+							<ul>
+								<li>Individuals more willing to gamble to not lose.</li>
+							</ul>
+						</ul>
+				</section>
+
+				<section><h1>Decisions Over Time</h1></section>
+
+				<section data-background="https://media.giphy.com/media/kiX1wcbKvP4lz6hqVk/giphy.gif"></section>
+
+				<section>
+					<h2>Strange Super Bowl Bets</h2>
+					<p align="left">There are many odd bets bookies will take:</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">Someone will streak on the field (4:1).</li>
+						<li class="fragment fade-in-then-semi-out">Someone catches fire during the halftime show (25:1).</li>
+						<li class="fragment fade-in-then-semi-out">Primary Color in Miley Cyrus’ hair in her tailgate show (various).</li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">(Not Super Bowl related, but) An odd bet you can make:</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">You (a person on a diet) will reach your desired weight.</li>
+						<li class="fragment fade-in-then-semi-out">In principle, you have complete control over the outcome...</li>
+						<li class="fragment fade-in-then-semi-out">Yet 82% of these bettors lose.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Internal Conflicts</h2>
+					<p align="left">Two possible explanations:</p>
+					<ol>
+						<li class="fragment fade-in-then-semi-out">Bettors think they can lose weight, try to make money.</li>
+						<li class="fragment fade-in-then-semi-out">They make the bet to incentivize them to lose weight.</li>
+					</ol>
+					<p align="left" class="fragment fade-in-then-semi-out">In either case, they don't typically carry it through.</p>
+				</section>
+
+				<section>
+					<p align="left">Consider the survey:</p>
+					<table>
+						<tr><td class="fragment fade-in">50% of students were asked how much they <span style="color:#ffcc00;">should</span> exercise.</td>
+						<td class="fragment fade-in">50% of students were asked how much they <span style="color:#ffcc00;">do</span> exercise.</td></tr>
+						<tr><td class="fragment fade-in"> On average: <span style="color:#ffcc00;">17</span> times/month</td>
+						<td class="fragment fade-in"> On average: <span style="color:#ffcc00;">12</span> times/month</td></tr>
+					</table>
+					<p align="left" class="fragment fade-in">We sometimes fail to <span style="color:#ffcc00;">do</span> what we think we <span style="color:#ffcc00;">should</span>.</p>
+				</section>
+
+				<section>
+					<p align="left">Other question on the survey:</p>
+					<table>
+						<tr><td>Suppose I could give you 100 dollars in cash <span style="color:#ffcc00;">right now</span>, or $X$ in cash in <span style="color:#ffcc00;">two weeks</span>.  What is the smallest $X$ for which you would be indifferent between the two options?</td><td class ="fragment fade-in">Suppose I could give you 100 dollars in cash in <span style="color:#ffcc00;">eight weeks</span>, or $X$ in cash in <span style="color:#ffcc00;">ten weeks</span>.  What is the smallest $X$ for which you would be indifferent between the two options?</td></tr>
+						<tr><td class="fragment fade-in">$\overline{X}=178$</td><td class ="fragment fade-in">$\overline{X}=122$</td></tr>
+					</table>
+					<p align="left" class="fragment fade-in">We are relatively patient with far-off tradeoffs.</p>
+				</section>
+
+				<section>
+					<h2>Credit</h2>
+					<p align="left">United States in 2018:</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">$\sim$1.1 trillion credit cards in circulation.</li>
+						<li class="fragment fade-in-then-semi-out">Average debt per household: 7800 dollars.</li>
+						<li class="fragment fade-in-then-semi-out">Average debt-weighted interest rate: 13% <br/>($\approx$ 800/year)</li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">About 12 million Americans rely on <span style="color:#ffcc00;">payday loans</span>.</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">A short-term loan that collects a portion (or all) of the borrower's paycheck.</li>
+					</ul>
+					<div align="left" class="fragment fade-in-then-semi-out">
+						<ul>
+							<li>More payday stores than McDonald's and Starbucks combined.</li>
+						</ul>
+						<table>
+							<tr><td><img src="/images/teaching/paydaystore.jpeg" style="width: 100px;" align="center"></td><td style="vertical-align: middle;">></td><td><img src="/images/teaching/mcdonalds.jpeg" style="width: 100px;" align="center"></td><td style="vertical-align: middle;">+</td><td><img src="/images/teaching/starbucks.jpeg" style="width: 100px;" align="center"></td></tr>
+						</table>
+					</div>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">Average loan of 350 dollars includes 60 dollars in fees, so receives only 290 dollars.</li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">Two major issues with decisions involving time:</p>
+					<ol>
+						<li class="fragment fade-in-then-semi-out">There is a prominent conflict between short-run desires and long-run goals.</li>
+						<li class="fragment fade-in-then-semi-out">People don't always predict their own future utility and behavior very well.</li>
+					</ol>
+					<p align="left" class="fragment fade-in-then-semi-out">We will explore these issues in great detail in many varied contexts.</p>
+				</section>
+
+				<section><h1>Probability Judgments</h1></section>
+
+				<section>
+					<h2>Mistakes in Objective Probability Judgments</h2>
+					<p align="left">Survey question:</p>
+					<blockquote style="font-size:33px;">
+					Suppose $\frac{1}{100}$ people have COVID-19.  We have a test for the virus that is 99% accurate.  This means that if a person has COVID-19, the test returns a positive result with 99% probability, and if a person does not have COVID-19, it returns a negative result with 99% probability.  If a person's test comes back positive, what is the probability that she has COVID-19?
+					</blockquote>
+				</section>
+
+				<section>
+					<p align="left">The majority of students (90%+) answered 99%. <span class="fragment fade-in">Possible logic:</span></p>
+					<ul>
+					<li class="fragment fade-in-then-semi-out">Positive person will probably receive a positive result (99% chance).</li>
+					<li class="fragment fade-in-then-semi-out">  So if they tested positive, she is likely to have COVID-19 (also 99% chance).</li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">Correct answer: 50% ($\sim$1% answers correctly)</p>
+					<p align="left" class="fragment fade-in">Mistake made:</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">Ignoring the base rate of COVID-19 in the population.</li>
+						<li class="fragment fade-in-then-semi-out">Very few people have COVID-19.</li>
+						<li class="fragment fade-in-then-semi-out">So, a positive test is very likely to be a false positive.</li>
+					</ul>
+					<p align="left" class="fragment fade-in">What is often a natural and correct way of reasoning will mislead us with objective probabilities.</p>
+				</section>
+
+				<section>
+					<iframe width="875" height="500" src="https://www.youtube.com/embed/lG4VkPoG3ko" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</section>
+
+				<section>
+					<p align="left">Survey question:</p>
+					<table>
+						<tr>
+							<td>What do you think is the probability that upon finishing <span style="color:#ffcc00;">your</span> studies <span style="color:#ffcc00;">you</span> will land a job with a starting salary over 45,000 dollars?</td><td class="fragment fade-in">If I picked <span style="color:#ffcc00;">a random student</span> out of this class, what would you say the probability is that upon finishing <span style="color:#ffcc00;">their</span> studies <span style="color:#ffcc00;">they</span> will land a job with a starting salary over 45,000 dollars? </td>
+						</tr>
+						<tr>
+							<td class="fragment fade-in">$\overline{X}=68$%</td><td class="fragment fade-in">$\overline{X}=42$%</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<p align="left">A bias toward oneself revealed.</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">People are often overly optimistic about their prospects relative to others.</li>
+						<li class="fragment fade-in-then-semi-out">These results here suggest over-confidence.</li>
+					</ul>
+					<p align="left" class="fragment fade-in">Other examples of overconfidence:</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">93% of US students believe they're above-average drivers.</li>
+						<li class="fragment fade-in-then-semi-out">84% of the French believe they're above-average lovers.</li>
+						<li class="fragment fade-in-then-semi-out">68% of professors believe they're in the top 25% of teachers.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>In Conclusion</h2>
+					<p align="left">I encourage you to observe your friends, family, strangers, etc. carefully while taking this course.</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">Some of them are bound to behave in ways we're discussing.</li>
+						<li class="fragment fade-in-then-semi-out">You'll often see puzzles for which you might want to think about another behavioral economic theory.</li>
+					</ul>
+					<p align="left" class="fragment fade-in-then-semi-out">Finally, think about how we can work to improve outcomes.</p>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
