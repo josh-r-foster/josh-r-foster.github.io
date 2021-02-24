@@ -2,15 +2,15 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://localhost:4000/portfolio/bus-259/</loc>
-<lastmod>2021-02-16T19:37:12-06:00</lastmod>
+<lastmod>2021-02-24T07:58:45-06:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/portfolio/econ-202/</loc>
-<lastmod>2021-02-16T19:37:12-06:00</lastmod>
+<lastmod>2021-02-24T07:58:45-06:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/portfolio/econ-459/</loc>
-<lastmod>2021-02-16T19:37:12-06:00</lastmod>
+<lastmod>2021-02-24T07:58:45-06:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/research/publication/2014/09/28/working-social-preferences/</loc>
@@ -85,6 +85,10 @@
 <url>
 <loc>http://localhost:4000/courses/bus-259/lectures/3-libertarian-paternalism.html</loc>
 <lastmod>2021-02-16T19:29:26-06:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/courses/bus-259/lectures/4-choice-over-time.html</loc>
+<lastmod>2021-02-24T07:57:56-06:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/courses/econ-202/lectures/1-syllabus.html</loc>

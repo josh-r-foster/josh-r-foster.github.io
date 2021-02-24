@@ -1,0 +1,1009 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Bus 259: Predictably Misbehaving | Lecture 4</title>
+
+		<meta name="description" content="Lecture Slides for Bus 259 at UW-Oshkosh">
+		<meta name="author" content="Joshua Foster">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail.png">
+					<h2 style="background-color: white;">Predictably Misbehaving</h2>
+
+					<h3 style="background-color: white;">Lecture 4: Choice Over Time</h3>
+					<h4 style="background-color: white;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://uwosh.edu/">UW-Oshkosh</a></h4>
+				</section>
+
+				<div class="topbar">
+    				<img src="/images/teaching/uwo-logo.png" style="width: 100px;" align="right">
+				</div>
+
+				<section>
+					<h2>Choice Over Time</h2>
+					<p align="left">Many economic choices involve tradeoffs over time.</p>
+
+					<p align="left">Simple example: learning a new instrument.</p>
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> Costly money outlay at the beginning ($\downarrow$ utility)</li>
+					<li class ="fragment fade-in-then-semi-out"> Pain and frustration of learning it ($\downarrow$ utility)</li>
+					<li class ="fragment fade-in-then-semi-out"> Mastery ($\uparrow$ utility)</li>
+					</ul>
+					<p class ="fragment fade-in-then-semi-out"; align="left">Key economic examples: savings/investment, education, health.</p>
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> Timing of $\uparrow$/$\downarrow$ utility introduces mistakes.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>A Quick History</h2>
+					<p align="left">Four stages in the theory of intertemporal choice:</p>
+					<ol>
+					<li class ="fragment fade-in-then-semi-out"> Senior and Jevons (late 1800's): emotions are a large part of decisions involving time.</li>
+					<li class ="fragment fade-in-then-semi-out"> Bohm-Bawerk and Fisher (early 1900's): cognitive issue - a tradeoff between today's satisfaction and tomorrow's satisfaction.</li>
+					<li class ="fragment fade-in-then-semi-out"> Samuelson et al. (mid 1900's): removed psychological content for simplicity.</li>
+					<li class ="fragment fade-in-then-semi-out"> Thaler et al. (late 1900's): A re-emergence of the influence of psychology on intertemporal choice.</li>
+					</ol>
+				</section>
+
+				<section><h1>Exponential Discounting</h1></section>
+
+				<section>
+					<section>
+						<h2>Traditional economics</h2>
+						<h4>Samuelson's discounted utility model.</h4>
+
+						Individuals choose the consumption bundle at each point in time $t$, $(c_t,c_{t+1},...,c_T)$, to maximize:
+						<h1>FIX</h1>
+						where $\delta$ (usually $\leq 1$) is the discount factor.
+						<ul>
+						<li class ="fragment fade-in"> Measures how consumption is valued across time.</li>
+						<li class ="fragment fade-in"> Interpretation: consumption next time step is always worth $\delta$ as much as the consumption now.</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Example: utility from 100 bucks every day</h4>
+						<h4>Assume $u(100)=100$ and $\delta=0.9$</h4>
+						\begin{equation*}
+						U = u(c_t) + \delta u(c_{t+1}) + \delta^2u(c_{t+2}) + \delta^3u(c_{t+3}) + ...
+						\end{equation*}
+						<p align="left" class="fragment fade-in-then-semi-out">Then
+						\begin{equation*}
+						U = 100 + 0.9\cdot 100 + 0.9^2\cdot 100 + 0.9^3\cdot 100\; + ...
+						\end{equation*}
+						</p>
+						<p align="left" class="fragment fade-in-then-semi-out">Or
+						\begin{equation*}
+						U = 100 + 90 + 81 + 72.9\; + ...
+						\end{equation*}
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Dynamic Consistency</h2>
+					<h4>A truly magnificent property.</h4>
+					<p align="left" class="fragment fade-in">The action a person thinks they should take in the future always coincides with the action that they actually prefer once the time comes.</p>
+
+					<p align="left" class="fragment fade-in">Examples:</p>
+					<ul>
+					<li class ="fragment current-visible"> If today we wish ourselves to work on a problem set tomorrow, then tomorrow we prefer to work on the problem set immediately. </li>
+					<li class ="fragment current-visible"> If today we prefer to quit smoking tomorrow, then tomorrow we prefer to quit smoking immediately. </li>
+					<li class ="fragment fade-in"> If today we prefer to diet tomorrow, tomorrow we will want to diet immediately.</li>
+					</ul>
+				</section>
+
+				<section>
+					<section data-background="/images/teaching/marshmallow.png">
+						<h3>Marshmallow Example</h3>
+						On Day 0 a child has to decide between eating one marshmallow in Day 1 or two marshmallows in Day 2. <br>
+
+						<div class="fragment fade-in">
+						<p align="left">Their consumption utility for marshmallows in each period is:</p>
+						<table>
+						<tr><td></td><td></td><td></td></tr>
+						<tr><td>u(no marshmallows)</td><td> = </td><td> 0 </td></tr>
+						<tr><td>u(1 marshmallow)</td><td> = </td><td> 20 </td></tr>
+						<tr><td>u(2 marshmallows)</td><td> = </td><td> 30 </td></tr>
+						<tr><td></td><td></td><td></td></tr>
+						</table> 
+						</div>
+						</section>
+						
+						<section>
+						<table>
+						<tr><td></td><td></td><td></td></tr>
+						<tr><td>u(no marshmallows)</td><td> = </td><td> 0 </td></tr>
+						<tr><td>u(1 marshmallow)</td><td> = </td><td> 20 </td></tr>
+						<tr><td>u(2 marshmallows)</td><td> = </td><td> 30 </td></tr>
+						<tr><td></td><td></td><td></td></tr>
+						</table> 
+						With exponential discounting: $U = u(c_0) + \delta u(c_1) + \delta^2u(c_2)$ 
+
+						<p align="left" class="fragment fade-in">Let $\delta = 0.9$.  Then:</p>
+						<div class="fragment fade-in" style="font-size: 35px">
+						$U(\text{1 MM on Day 1}) = 0 + \delta(20) + \delta^2(0) = 0.9 \cdot (20) = 18$
+						</div>
+						<div class="fragment fade-in" style="font-size: 35px">
+						$U(\text{2 MM on Day 2}) = 0 + \delta(0) + \delta^2(30) = 0.9^2 \cdot (30) = 24.3$
+						</div>
+						<p class="fragment fade-in">For "reasonable" discount rates, child will prefer to wait for two marshmallows.</p>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Now it is Day 1</h2>
+						On Day 1 a child has to decide between eating one marshmallow in Day 1 or two marshmallows in Day 2.
+						<div class="fragment fade-in">
+						<p align="left">Their consumption utility for marshmallows in each period is:</p>
+						<table>
+						<tr><td></td><td></td><td></td></tr>
+						<tr><td>u(no marshmallows)</td><td> = </td><td> 0 </td></tr>
+						<tr><td>u(1 marshmallow)</td><td> = </td><td> 20 </td></tr>
+						<tr><td>u(2 marshmallows)</td><td> = </td><td> 30 </td></tr>
+						<tr><td></td><td></td><td></td></tr>
+						</table> 
+						</div>
+					</section>
+				
+					<section>
+						<table>
+						<tr><td></td><td></td><td></td></tr>
+						<tr><td>u(no marshmallows)</td><td> = </td><td> 0 </td></tr>
+						<tr><td>u(1 marshmallow)</td><td> = </td><td> 20 </td></tr>
+						<tr><td>u(2 marshmallows)</td><td> = </td><td> 30 </td></tr>
+						<tr><td></td><td></td><td></td></tr>
+						</table> 
+						With exponential discounting:<br> 
+						$U = u(c_1) + \delta u(c_2)$ 
+
+						<p align="left" class="fragment fade-in">Let $\delta = 0.9$.  Then:</p>
+
+						<div class="fragment fade-in">
+						$U(\text{1 on Day 1}) = 20 + \delta(0) = 20$ 
+						</div>
+						<div class="fragment fade-in">
+						$U(\text{2 on Day 2}) = 0 + \delta(30) = 0.9 \cdot (30) = 27$ 
+						</div>
+						<p class="fragment fade-in">Despite the immediate temptation, the child will still prefer to wait for two marshmallows.</p>
+					</section>
+				</section>
+
+				<section>
+					<a href="http://www.youtube.com/embed/G7LN96jEXHc" target="_blank"><img src="/images/teaching/mm-test-1.jpg" style="width:800px;"></a>
+				</section>
+
+				<section>
+					<h2>Conclusions of<br> 
+					Dynamic Consistency</h2>
+					<p align="left">Dynamic consistency implies:</p>
+					<ol>
+					<li class ="fragment fade-in"> People form lifetime consumption plans, and execute them.</li>
+					<li class ="fragment fade-in"> People should have no regrets about <span class ="fragment current-visible">smoking.</span><span class ="fragment current-visible">over-eating.</span><span class ="fragment current-visible">being in debt.</span><span class ="fragment fade-in">dropping out of school.</span></li> 
+					<li class ="fragment fade-in"> They have optimally weighed the benefits and costs of their actions.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Policy implications of dynamic consistency</h2><br>
+					<h4 class ="fragment fade-in"> Drug addicts optimally chose their<br> plan for themselves.</h4><br>
+					<h4 class ="fragment fade-in"> We should not try and interfere. <br>We will only make them less happy.</h4>
+				</section>
+
+				<section>
+					<section>
+						<h4>In actuality, people have a strong tendency to over-value immediate gratification,<br>
+						Relative to <em>their own</em> long-term preferences.</h4>
+						<ul>
+						<li class ="fragment fade-in"> If so, then dynamic consistency no longer holds.</li>
+						</ul>
+						<p align="left" class="fragment fade-in">Samuelson: his functional form was arbitrary.</p>
+						<ul>
+						<li class ="fragment fade-in"> He chose it purely for mathematical convenience.</li>
+						</ul>
+					</section>
+
+					<section>
+						<blockquote>
+						<em>"It is completely arbitrary to assume that the individual behaves so as to maximize an integral of the form envisaged."</em><br>
+						</blockquote>
+						- Samuelson (1937) A Note on Measurement of Utility<br> 
+
+						<p align="left" class="fragment fade-in">In some sense, dynamic consistency was a revolution.</p>
+						<ul>
+						<li class ="fragment fade-in"> It clarified a lot of the issues and simplified analysis. </li>
+						<li class ="fragment fade-in"> But also distilled the psychology into a variable, $\delta$.</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2>Progress Report<br></h2>
+					Evidence from Frederick et al. (2002):
+					If you (economists) insist, what is $\delta$, then? <br>
+
+					<div class="fragment current-visible">
+					<p align="center">
+					<img src="/images/teaching/deltaReport.png">
+					</p>
+					</div>
+
+					<h2 class="fragment fade-up"><br>Economists have no idea what it is!</h2>
+				</section>
+
+				<section>
+					<h1>Short-run Vs. Long-run Goals</h1>
+				</section>
+
+				<section>
+					<h2>Short-run Impatience</h2>
+					Reality: People are very impatient in the short run. <br>
+
+					<blockquote align="left" class="fragment fade-in"><em>
+					"Suppose I could give you:
+						<ul>
+							<li>100 in cash right now, or</li>
+							<li>X in cash in two weeks.</li>
+						</ul><br><br>
+					What is the smallest amount of money, X, I could offer you in two weeks to make you forgo the 100 right now?"
+					</em></blockquote> 
+					<p align="center" class="fragment fade-in">
+					$\overline{X}=164$
+					</p> 
+				</section>
+
+				<section>
+					<h2>Lots of people borrow on payday loans</h2>
+					<ul>
+					<li class ="fragment fade-in-then-semi-out" data-fragment-index="1"> Pay up to 7000% annualized compounded interest.</li>
+					<li class ="fragment fade-in" data-fragment-index="2"> $40 billion industry 
+						<ul>
+							<li>More locations than McD's and Starbucks combined.</li>
+						</ul>
+					</li>
+					</ul>
+					<div style="display: table; width: 100%; overflow: hidden;" class="fragment fade-in" data-fragment-index="2">
+						<div style="display: table-cell; vertical-align: middle; width: 25%; margin: 0 auto;">
+							<img src="/images/teaching/paydaystore.jpeg" style="width:100%">
+						</div>
+						<div style="display: table-cell; vertical-align: middle; width: 3%; margin: 0 auto;">
+							$>$
+						</div>
+						<div style="display: table-cell; vertical-align: middle; width: 25%; margin: 0 auto;">
+							<img src="/images/teaching/mcdonalds.jpeg" style="width:100%">
+						</div>
+						<div style="display: table-cell; vertical-align: middle; width: 3%; margin: 0 auto;">
+							$+$
+						</div>
+						<div style="display: table-cell; vertical-align: middle; width: 25%; margin: 0 auto;">
+							<img src="/images/teaching/starbucks.jpeg" style="width:100%">
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h2>Short-run Impatience</h2>
+						<h4>Payday effect:</h4>
+
+						<p align="left">Consumption of various forms follows the pay cycle.</p>
+						<p align="left" class="fragment fade-in">That is, people buy steaks, cigarettes, and alcohol on their payday, and struggle to coast through the end of the month.</p>
+					</section>
+					<section>
+						Examples:
+						<ol>
+						<li class ="fragment fade-in-then-semi-out"> Shapiro (2005): the caloric intake of food-stamp recipients declines 13-14% over the food-stamp cycle.  </li>
+						<li class ="fragment fade-in"> Huffman and Barenstein (2005): the expenditure of working households in the UK is 12% lower the week before payday compared to the week after.</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Mathematical Argument</h2><br>
+					
+						<h3>This is evidence on choices over immediate consumption.</h3><br>
+						<h3 class ="fragment fade-in">What happens to similar tradeoffs further in the future?</h3>
+					</section>
+
+					<section>
+						<h4>Example from survey</h4>
+						<p align="left">On average...</p>
+						<ul>
+						<li class ="fragment fade-in">100 dollars now $\sim$ 164 dollars in two weeks.</li>
+						<li class ="fragment fade-in"> To wait two weeks, must be paid $\frac{164}{100}$ times more. </li>
+						</ul>
+						<div class ="fragment fade-in-then-semi-out">
+						<p align="left"> If applied to an additional two weeks:</p>
+						100 now $\sim\frac{164}{100}\cdot 164\approx 269$ in four weeks. 
+						</div>
+						<div class ="fragment current-visible">
+						<p align="left"> If applied to a year delay:</p>
+						100 now $\sim\left(\frac{164}{100}\right)^{26}\cdot 100\approx 38.5$M in a year.
+						</div>
+						<div class ="fragment fade-in-then-semi-out">
+						<p align="left"> If applied to a two year delay:</p>
+						100 now $\sim\left(\frac{164}{100}\right)^{52}\cdot 100\approx 1.5$T in two years.
+						</div>
+					</section>
+				</section>
+
+				<section data-background="https://media.giphy.com/media/VeB9ieebylsaN5Jw8p/giphy.gif"></section>
+
+				<section>
+					<h2>Very Small Discount Rates</h2>
+					<h4>Let's take a very small discount rate</h4>
+					<p align="left">100 today $\sim$ 101 tomorrow</p>
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> To wait one day, must be paid $\frac{101}{100}$ times more. </li>
+					</ul>
+					<div class ="fragment fade-in-then-semi-out">
+					<p align="left">If applied to the next day:</p>
+					100 now $\sim\frac{101}{100}\cdot 101=102.01$ in two days.
+					</div>
+					<div class ="fragment current-visible">
+					<p align="left">If applied recursively for a year:</p>
+					100 now $\sim\left(\frac{101}{100}\right)^{365}\cdot 100\approx 617,487$ in a year. 
+					</div>
+					<div class ="fragment current-visible">
+					<p align="left"> If applied to a two year delay:</p>
+					Indifferent between 100 now and 1T in two years.
+					</div>
+					<div class ="fragment fade-in">
+					<p align="left"> Also means indifferent between</p>
+					<ul>
+					<li>100 in 10 years and 143,000 in 12 years.</li>
+					</ul>
+				</section>
+
+				<section data-background="https://media.giphy.com/media/5t9wJjyHAOxvnxcPNk/giphy.gif"></section>
+
+				<section>
+					<h2>Long-run Patience</h2>
+					<blockquote align="left" class="fragment fade-in"><em>
+						"Suppose I could give you:
+							<ul>
+								<li>100 in cash in eight weeks, or</li>
+								<li>X in cash in ten weeks.</li>
+							</ul><br><br>
+						What is the smallest amount of money, X, I could offer you in ten weeks to make you forgo the 100 in eight weeks?"
+					</em></blockquote> 
+					<p align="center" class="fragment fade-in">
+					$\overline{X}=122$
+					</p> 
+				</section>
+
+				<section>
+					<h2 class="r-fit-text">Long-run Patience - from Thaler (1981)</h2>
+					<blockquote style="font-size: 35px;">
+					"What $x$ makes you indifferent between $y$ today and $x$ in $z$ time?" $\rightarrow\delta$.
+					</blockquote> 
+					<div class="fragment fade-in">
+					<table style="font-size: 35px;">
+					<tr><td></td><td></td><td></td><td></td></tr>
+					<tr><td>$y$ </td><td>$z$</td><td><b>Median $x$</b> </td><td><b>Discount factor $\delta$</b></td></tr>
+					<tr><td></td><td></td><td></td><td></td></tr>
+					<tr><td>15</td><td> 1 month </td><td> 20 </td><td> 0.032 </td></tr>
+					<tr><td>15</td><td> 10 years </td><td> 100 </td><td> 0.83 </td></tr>
+					<tr><td>40</td><td> 6 months </td><td> 50 </td><td> 0.64 </td></tr>
+					<tr><td>40</td><td> 4 years </td><td> 90 </td><td> 0.82 </td></tr>
+					<tr><td></td><td></td><td></td><td></td></tr>
+					</table> 
+					</div>
+					<p align="center" class="fragment fade-in" style="font-size: 35px;">The discount factor is increasing in the time delay, indicating subjects were more patient in the long run.</p>
+				</section>
+
+				<section>
+					<h2>Discount Factors and Time</h2>
+					<p style="font-size: 35px;">Back to Frederick, Loewenstein and O'Donoghue (2002)</p>
+					<p align="left" style="font-size: 35px;">In the real world...<span class="fragment fade-in">behavior is not consistent with exponential discounting, which claims the discount rate is always the same.</span></p>
+					<img class="r-stretch" src="/images/teaching/deltaReport2.png">
+				</section>
+
+				<section>
+					<h2>Intrapersonal Conflicts</h2>
+					<h4>One ancient and two modern examples...</h4>
+					<div class="fragment current-visible">
+						<p align="left">Ulysses and the Sirens:</p>
+						<blockquote style="font-size: 32px;">
+							"These nymphs had the power...of charming by their song all who heard them, so that mariners were impelled to cast themselves into the sea to destruction. Circe directed Ulysses to stop the ears of his sailors with wax, so that they should not hear the strain; to have himself bound to the mast, and to enjoin his people, whatever he might say or do, by no means to release him till they should have passed the Sirens' island."
+						</blockquote>
+					</div>
+					<div class="fragment current-visible">
+						<p align="left">Financial advice:</p>
+						<blockquote style="font-size: 32px;">
+							"Cut up your credit and store cards! If possible get rid of all of your credit cards...Put temptation out of reach. If you really can't do without a credit card, limit yourself to only one.  Put it in a tub of water and stick it in the freezer. Extreme? Maybe, but it will make you think hard about any impulse purchases you make in the future while you are standing there waiting for it to defrost."
+						</blockquote>
+					</div>
+					<div class="fragment fade-in">
+						<p align="left">Anonymous teacher evaluation:</p>
+						<blockquote style="font-size: 32px;">
+						"The problem sets should have been graded. I had no incentive to do them, and as a result did poorly on the exams."
+						</blockquote>
+					</div>
+				</section>
+
+				<section><h1>Hyperbolic Discounting</h1></section>
+
+				<section>
+					<section>
+						<h2>Hyperbolic Discounting</h2>
+						<p align="left" class="fragment fade-in">Let's modify utility to take into account:</p>
+						<ol>
+						<li class ="fragment fade-in"> People heavily discount the near future. </li>
+						<li class ="fragment fade-in"> People don't discount much in the 'further' future.</li>
+						</ol>
+
+						<div class="fragment current-visible">
+							<p align="left">Start with exponential discounting:</p>
+							\begin{equation*}
+							u_t + \delta u_{t+1} + \delta^2 u_{t+2} + \delta^3 u_{t+3} + ...
+							\end{equation*}
+						</div>
+						<div class="fragment fade-in">
+							<p align="left">But add a short-term discount factor $\beta < 1$.</p>
+							\begin{equation*}
+							u_t + \beta\left[\delta u_{t+1} + \delta^2 u_{t+2} + \delta^3 u_{t+3} + ...\right]
+							\end{equation*} 
+						</div>
+						<h4 class ="fragment fade-in">Purpose: $\beta$ underweights all future periods.</h4>
+					</section>
+
+					<section>
+						<div class="fragment current-visible" data-fragment-index="1" style="font-size: 35px">
+							\begin{equation*}
+							u_t + \beta\left[\delta u_{t+1} + \delta^2 u_{t+2}\right]
+							\end{equation*} 
+						</div>
+						<p align="left" class="fragment fade-in" data-fragment-index="1" style="font-size: 35px">Example: suppose $\beta=\frac{1}{2}$ and $\delta=0.9$.</p>
+						<div class="fragment fade-up" data-fragment-index="2" style="font-size: 35px">
+							\begin{equation*}
+							u_t + \frac{1}{2}\left[0.9\cdot u_{t+1} + 0.9^2\cdot u_{t+2}\right]
+							\end{equation*} 
+						</div>
+						<p class="fragment fade-in" data-fragment-index="3" style="font-size: 35px;"><b>One marshmallow at $t=1$...or two at $t=2$?</b></p>
+						<table class="fragment fade-in"  data-fragment-index="3" style="font-size: 30px">
+							<tr><td></td><td></td><td></td></tr>
+							<tr><td>u(no marshmallows)</td><td>=</td><td>0</td></tr>
+							<tr><td>u(1 marshmallow)</td><td>=</td><td>20</td></tr>
+							<tr><td>u(2 marshmallows)</td><td>=</td><td>30</td></tr>
+							<tr><td></td><td></td><td></td></tr>
+						</table> 
+						<p align="left" class="fragment fade-in" data-fragment-index="4" style="font-size: 35px">Decision at $t=0$: <span class="fragment fade-right" data-fragment-index="7">Waits for 2!</span></p>
+						<div style="font-size: 25px;" class="fragment fade-in" data-fragment-index="5">
+							\begin{equation*}
+							U(\text{1 MM on Day 1}) = 0+\frac{1}{2}\left[0.9\cdot 20+0.9^2\cdot 0\right]=\frac{1}{2}\cdot 0.9\cdot 20=9
+							\end{equation*}
+						</div>
+						<div style="font-size: 25px;" class="fragment fade-in" data-fragment-index="6">
+							\begin{equation*}
+							U(\text{2 MM on Day 2}) = 0+\frac{1}{2}\left[0.9\cdot 0+0.9^2\cdot 30\right]=\frac{1}{2}\cdot 0.9^2\cdot 30=12.15
+							\end{equation*}
+						</div>
+					</section>
+
+					<section>
+						<div>
+							<p align="left" style="font-size: 35px">Example: suppose $\beta=\frac{1}{2}$ and $\delta=0.9$.</p>
+							<div style="font-size: 35px">
+								\begin{equation*}
+								u_t + \frac{1}{2}\left[0.9\cdot u_{t+1} + 0.9^2\cdot u_{t+2}\right]
+								\end{equation*} 
+							</div>
+							<p style="font-size: 35px;"><b>One marshmallow at $t=1$...or two at $t=2$?</b></p>
+							<table style="font-size: 25px">
+								<tr><td></td><td></td><td></td></tr>
+								<tr><td>u(no marshmallows)</td><td>=</td><td>0</td></tr>
+								<tr><td>u(1 marshmallow)</td><td>=</td><td>20</td></tr>
+								<tr><td>u(2 marshmallows)</td><td>=</td><td>30</td></tr>
+								<tr><td></td><td></td><td></td></tr>
+							</table> 
+							<p align="left" class="fragment fade-in" data-fragment-index="1" style="font-size: 35px">Decision at $t=1$: <span class="fragment fade-right" data-fragment-index="4">Take 1 now!</span></p>
+							<div style="font-size: 25px;" class="fragment fade-in" data-fragment-index="2">
+								\begin{equation*}
+								U(\text{1 MM on Day 1}) = 20+\frac{1}{2}\left[0.9\cdot 0\right]=20
+								\end{equation*}
+							</div>
+							<div style="font-size: 25px;" class="fragment fade-in" data-fragment-index="3">
+								\begin{equation*}
+								U(\text{2 MM on Day 2}) = 0+\frac{1}{2}\left[0.9\cdot 30\right]=\frac{1}{2}\cdot 0.9\cdot 30=13.5
+								\end{equation*}
+							</div>
+						</div>
+					</section>
+					
+					<section>
+						<h2 class="r-fit-text">Major Takeaway</h2><br>
+						We smoke more, eat more, and work less tomorrow than today we wish our tomorrow selves to do.
+					</section>
+				</section>
+
+				<section>
+					<h2>Multiple Selves Approach</h2>
+					<img class="r-stretch" src="/images/teaching/comic.png">
+				</section>
+
+				<section>
+					<section>
+						<h2 class="r-fit-text">A student has three nights to complete a problem set</h2>
+						<table style="font-size: 35px">
+							<tr><td>Dates:</td><td>$t = 0$</td><td>$t = 1$</td><td>$t = 2$</td></tr>
+							<tr><td>Utility:</td><td>$u_0=-1$</td><td>$u_1=-\frac{3}{2}$</td><td>$u_2=-\frac{5}{2}$</td></tr>
+							<tr><td>Assume:</td><td>$\beta=\frac{1}{2}$</td><td>and</td><td>$\delta=1$</td></tr>
+						</table>
+						<p class="fragment fade-in" data-fragment-index="1" style="font-size: 35px">What will this student elect to do at time $t=0$?</p>
+						<p style="align: left; font-size: 35px;" class="fragment fade-in" data-fragment-index="2">Utility of completing the problem set on $t=0$: <span class="fragment fade-up" data-fragment-index="4">$-1$</span></p>
+						<div class="fragment current-visible" data-fragment-index="3" style="font-size: 35px">
+							\begin{equation*}
+							-1+\frac{1}{2}\left[0+0\right]=-1
+							\end{equation*}
+						</div>
+						<p style="align: left; font-size: 35px;" class="fragment fade-in" data-fragment-index="5">Utility of completing the problem set on $t=1$: <span class="fragment fade-up" data-fragment-index="7">$-\frac{3}{4}$</span></p>
+						<div class="fragment current-visible" data-fragment-index="6" style="font-size: 35px">
+							\begin{equation*}
+							0+\frac{1}{2}\left[-\frac{3}{2}+0\right]=-\frac{3}{4}
+							\end{equation*}
+						</div>
+						<p style="align: left; font-size: 35px;" class="fragment fade-in" data-fragment-index="8">Utility of completing the problem set on $t=2$: <span class="fragment fade-up" data-fragment-index="10">$-\frac{5}{4}$</span></p>
+						<div class="fragment current-visible" data-fragment-index="9" style="font-size: 35px">
+							\begin{equation*}
+							0+\frac{1}{2}\left[0-\frac{5}{2}\right]=-\frac{5}{4}
+							\end{equation*}
+						</div>
+						<p class="fragment fade-in r-fit-text" data-fragment-index="11">"I'll do it tomorrow night..."</p>
+					</section>
+
+					<section>
+						<h2 class="r-fit-text">A student has three nights to complete a problem set</h2>
+						<table style="font-size: 35px">
+							<tr><td>Dates:</td><td>$t = 0$</td><td>$t = 1$</td><td>$t = 2$</td></tr>
+							<tr><td>Utility:</td><td>$u_0=-1$</td><td>$u_1=-\frac{3}{2}$</td><td>$u_2=-\frac{5}{2}$</td></tr>
+							<tr><td>Assume:</td><td>$\beta=\frac{1}{2}$</td><td>and</td><td>$\delta=1$</td></tr>
+						</table>
+						<p class="fragment fade-in" data-fragment-index="1" style="font-size: 35px">What will this student elect to do at time $t=1$?</p>
+						<p style="align: left; font-size: 35px;" class="fragment fade-in" data-fragment-index="2">Utility of completing the problem set on $t=1$: <span class="fragment fade-up" data-fragment-index="4">$-\frac{3}{2}$</span></p>
+						<div class="fragment current-visible" data-fragment-index="3" style="font-size: 35px">
+							\begin{equation*}
+							-\frac{3}{2}+\frac{1}{2}\left[0\right]=-\frac{3}{2}
+							\end{equation*}
+						</div>
+						<p style="align: left; font-size: 35px;" class="fragment fade-in" data-fragment-index="5">Utility of completing the problem set on $t=2$: <span class="fragment fade-up" data-fragment-index="7">$-\frac{5}{4}$</span></p>
+						<div class="fragment current-visible" data-fragment-index="6" style="font-size: 35px">
+							\begin{equation*}
+							0+\frac{1}{2}\left[-\frac{5}{2}\right]=-\frac{5}{4}
+							\end{equation*}
+						</div>
+						<p class="fragment fade-in r-fit-text" data-fragment-index="8">"I'll do it tomorrow night..."</p>
+					</section>
+				</section>
+
+
+
+				<!--Beginning of Original Bus 259 Material
+
+				<section><h1>Exponential Discounting</h1></section>
+
+				<section>
+					<h2>Samuelson and Exponential Discounting</h2>
+					Traditional economics: Samuelson's discounted utility model. <br>
+
+
+					<h2>Exponentially Discounted Utility Model:</h2>
+					Individuals choose the `consumption bundle' that maximizes their utility through time.
+
+
+
+					$\delta$ is a variable (usually $\leq 1$) called the discount factor.
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> Measures how tomorrow's utility is discounted relative to today. </li>
+					<li class ="fragment fade-in-then-semi-out"> Interpretation: utility in the next period is always worth $\delta$ times the utility of today.</li>
+					</ul>
+				</section>
+
+				<section>
+					\begin{columns}
+					\column{0.35\textwidth}
+					<p align="center">
+					Marshmallow Example:
+					<img class="r-stretch" src="/images/teaching/marshmallow.png">
+					</p>
+					\column{0.65\textwidth}
+					Today is Day 0: a child has to decide <br>
+					between eating one marshmallow in Day 1 <br>
+					or two marshmallows in Day 2.
+					\end{columns}
+
+
+					Their consumption utility for marshmallows in each period is:
+					<table>
+					<tr><td>  </tr>
+					<tr><td>     </td> </tr>
+					<tr><td>     u(no marshmallows) </td><td> = </td><td> 0 </td></tr>
+					<tr><td>     u(1 marshmallow) </td><td> = </td><td> 20 </td></tr>
+					<tr><td>     u(2 marshmallows) </td><td> = </td><td> 30 </td></tr>
+					<tr><td>    </tr>
+					</table> 
+					With exponential discounting:
+					<table>
+					<tr><td>  </tr>
+					<tr><td>     </td> </tr>
+					<tr><td>     Point in Time: </td><td> Day 0 </td><td> Day 1 </td><td> Day 2 </td></tr>
+					<tr><td>     Patience Level: </td><td> Medium </td><td> Medium </td><td> Medium </td></tr>
+					<tr><td>     Reward: </td><td> 0 </td><td> 20 </td><td> 30 </td></tr>
+					<tr><td>    </tr>
+					</table> 
+					Suppose they choose to wait until Day 2.
+				</section>
+
+				<section>
+					\begin{columns}
+					\column{0.35\textwidth}
+					<p align="center">
+					Marshmallow Example:
+					<img class="r-stretch" src="/images/teaching/http://www.youtube.com/watch?v=G7LN96jEXHc">
+					</p>
+					\column{0.65\textwidth}
+					Now it is Day 1: a child has to decide <br>
+					between eating one marshmallow in Day 1 <br>
+					or two marshmallows in Day 2.
+					\end{columns}
+
+
+					Their consumption utility for marshmallows in each period is:
+					<table>
+					<tr><td>  </tr>
+					<tr><td>     </td> </tr>
+					<tr><td>     u(no marshmallows) </td><td> = </td><td> 0 </td></tr>
+					<tr><td>     u(1 marshmallow) </td><td> = </td><td> 20 </td></tr>
+					<tr><td>     u(2 marshmallows) </td><td> = </td><td> 30 </td></tr>
+					<tr><td>    </tr>
+					</table> 
+					With exponential discounting:
+					<table>
+					<tr><td>  </tr>
+					<tr><td>     </td> </tr>
+					<tr><td>     Point in Time: </td><td> Day 1 </td><td> Day 2 </td></tr>
+					<tr><td>     Patience Level: </td><td> Medium </td><td> Medium </td></tr>
+					<tr><td>     Reward: </td><td> 20 </td><td> 30 </td></tr>
+					<tr><td>    </tr>
+					</table> 
+					Notice: nothing about this problem has changed. <br>
+					They should still choose Day 2.
+				</section>
+
+				<section>
+					<h2>Conclusions of Dynamic Consistency</h2>
+					Dynamic consistency implies:
+					<ol>
+					<li class ="fragment fade-in-then-semi-out"> People form lifetime consumption plans, and execute them.</li>
+					<li class ="fragment fade-in-then-semi-out"> People should have no regrets about</li>
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> being smokers,</li>
+					<li class ="fragment fade-in-then-semi-out"> obese,</li>
+					<li class ="fragment fade-in-then-semi-out"> in-debt,</li>
+					<li class ="fragment fade-in-then-semi-out"> or high-school dropouts.</li>
+					</ul>
+					<li class ="fragment fade-in-then-semi-out"> They have optimally weighed the benefits and costs of their actions.</li>
+					</ol>
+
+					Policy implications of dynamic consistency:
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> Drug addicts optimally chose their plan for themselves.</li>
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> We should not try and interfere. We will only make them less happy.</li>
+					</ul>
+					</ul>
+				</section>
+
+				<section>
+					In actuality, people have a strong tendency to over-value immediate gratification - relative to \emph{their own} long-term preferences. 
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> If so, the time consistency property no longer holds.</li>
+					</ul>
+
+
+					Samuelson: the functional form he chose was arbitrary.
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> He chose it purely for mathematical convenience.</li>
+					</ul>
+
+
+					<blockquote>
+					"It is completely arbitrary to assume that the individual behaves so as to maximize an integral of the form envisaged." <br>
+					{\normalfont - Samuelson (1937) A Note on Measurement of Utility}
+					</blockquote>
+					%It caught on quickly and everybody forgot how it was introduced, and thought of it as the natural model of inter-temporal decision making.
+					%Summary: the history of decision-making over time was a gradual distillation of all the psychological processes that enter such decisions into a pure, cold tradeoff.
+
+
+					In some sense, dynamic consistency was a revolution. 
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> It clarified a lot of the issues and simplified analysis. </li>
+					<li class ="fragment fade-in-then-semi-out"> But it also distilled all of psychology into a single variable, $\delta$.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Progress Report Thus Far <br></h2>
+					 Evidence from Frederick, Loewenstein and O'Donoghue (2002)}
+					If you (economists) insist, what is $\delta$, then? <br>
+
+
+					<p align="center">
+					<img class="r-stretch" src="/images/teaching/deltaReport.png">
+					</p>
+
+
+					Economists have no idea what it is!
+				</section>
+
+				<section><h1>Short-run Vs. Long-run Goals</h1></section>
+
+				<section>
+					<h2>Short-run Impatience</h2>
+					Reality: People are very impatient over short-run decisions. <br>
+
+					From the survey:
+					<blockquote>
+					"Suppose I could give you $100 in cash right now, or $$X$ in cash in two weeks.  What is the smallest $X$ for which you would be indifferent between the two options?"
+					</blockquote> 
+					<p align="center">
+					$\overline{X}=141$
+					</p> 
+					Lots of people borrow on payday loans:
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> Pay up to 7000% annualized compounded interest.</li>
+					<li class ="fragment fade-in-then-semi-out"> $40 billion industry (more locations than McD's and Starbucks combined)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Short-run Impatience</h2>
+					<h2>Payday effect:</h2>
+					Consumption of various forms follows the pay cycle. That is, people buy steaks, cigarettes, and alcohol on their payday, and struggle to coast through the end of the month.
+
+
+
+					Examples:
+					<ol>
+					<li class ="fragment fade-in-then-semi-out"> Shapiro (2005): the caloric intake of food-stamp recipients declines 13-14% over the food-stamp cycle.  </li>
+					<li class ="fragment fade-in-then-semi-out"> Huffman and Barenstein (2005): the expenditure of working households in the UK is 12% lower the week before payday compared to the week after.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Mathematical Argument</h2>
+					This evidence is on choices involving immediate consumption. <br>
+
+
+					What happens to similar tradeoffs further in the future? <br>
+
+
+					Example from class: on average, $100 now $\sim$ $141 in two weeks. 
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> To wait two weeks they have to be paid $\frac{141}{100}$ times the money. </li>
+					<li class ="fragment fade-in-then-semi-out"> If applied to an additional two weeks: <br></li>
+					 $100 now $\sim$ $$\frac{141}{100}\cdot 141=$ $$199$ in four weeks. 
+					<li class ="fragment fade-in-then-semi-out"> If applied to a year delay: <br></li>
+					 $100 now $\sim$ $$\left(\frac{141}{100}\right)^{26}\cdot 100\approx$ $$758,048$ in a year. 
+					 <li class ="fragment fade-in-then-semi-out"> Indifferent between $100 now and $5.7B in two years.   What?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Very Small Discount Rates</h2>
+					Let's take a very small discount rate: <br>
+					\hspace{0.5cm} $100 today $\sim$ $101 tomorrow. 
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> To wait until tomorrow,  must be paid $\frac{101}{100}$ times the money. </li>
+					<li class ="fragment fade-in-then-semi-out"> If applied to the next day: <br></li>
+					 $100 now $\sim$ $$\frac{101}{100}\cdot 101=$ $$102.01$ in two days. 
+					<li class ="fragment fade-in-then-semi-out"> If applied recursively for a year: <br></li>
+					 $100 now $\sim$ $$\left(\frac{101}{100}\right)^{365}\cdot 100\approx$ $$3,778$ in a year. 
+					<li class ="fragment fade-in-then-semi-out"> Indifferent between $100 now and $143,000 in two years.  </li>
+					<li class ="fragment fade-in-then-semi-out"> Also means indifferent between</li>
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> $100 in 10 years and</li>
+					<li class ="fragment fade-in-then-semi-out"> $143,000 in 12 years.</li>
+					 </ul>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Long-run Patience</h2>
+					From survey:
+					<blockquote>
+					"Suppose I could give you $100 in cash in eight weeks, or $$X$ in cash in ten weeks.  What is the smallest $X$ for which you would be indifferent between the two options?"
+					</blockquote> 
+					<p align="center">
+					$\overline{X}=115$
+					</p>
+				</section>
+
+				<section>
+					<h2>Long-run Patience</h2>
+					From Thaler (1981):
+					<blockquote>
+					"What $x$ makes you indifferent between $$y$ today and $$x$ in $z$ time?"  {\normalfont $\rightarrow$ Calculated $\delta$.}
+					</blockquote> 
+					<table>
+					<tr><td>  </tr>
+					<tr><td>    $y$ </td><td> $z$ </td><td> \textbf{median} $x$ </td><td> \textbf{discount factor} $\delta$ </td></tr>
+					<tr><td>     </td> </tr>
+					<tr><td>     $15 </td><td> 1 month </td><td> 20 </td><td> 0.032 </td></tr>
+					<tr><td>     $15 </td><td> 10 years </td><td> 100 </td><td> 0.83 </td></tr>
+					<tr><td>     $40 </td><td> 6 months </td><td> 50 </td><td> 0.64 </td></tr>
+					<tr><td>     $40 </td><td> 4 years </td><td> 90 </td><td> 0.82 </td></tr>
+					<tr><td>    </tr>
+					</table> 
+					The discount factor is increasing in the time delay, indicating that subjects are more patient for longer-run decisions.
+				</section>
+
+				<section>
+					<h2>Discount Factors and Time Horizons <br></h2>
+					 Evidence from Frederick, Loewenstein and O'Donoghue (2002)}
+					Real-life decisions:
+					<p align="center">
+					<img class="r-stretch" src="/images/teaching/deltaReport2.png">
+					</p> 
+					This is not consistent with exponential discounting, which claims the discount rate is always the same.
+				</section>
+
+				<section>
+					<h2>Dynamic Inconsistency Explains Intrapersonal Conflicts <br></h2>
+					 One ancient and two modern examples}
+					\only<1-1>{Ulysses and the Sirens:
+					<blockquote>
+					"These nymphs had the power...of charming by their song all who heard them, so that mariners were impelled to cast themselves into the sea to destruction. Circe directed Ulysses to stop the ears of his sailors with wax, so that they should not hear the strain; to have himself bound to the mast, and to enjoin his people, whatever he might say or do, by no means to release him till they should have passed the Sirens' island."
+					</blockquote>}
+					\only<2-2>{Financial advice:
+					<blockquote>
+					"Cut up your credit and store cards! If possible get rid of all of your credit cards...Put temptation out of reach. If you really can't do without a credit card, limit yourself to only one.  Put it in a tub of water and stick it in the freezer. Extreme? Maybe, but it will make you think hard about any impulse purchases you make in the future while you are standing there waiting for it to defrost."
+					</blockquote>}
+					\only<3-3>{
+					Anonymous teacher evaluation:
+					<blockquote>
+					"The problem sets should have been graded. I had no incentive to do them, and as a result did poorly on the exams."
+					</blockquote>}
+				</section>
+
+				<section><h1>Multiple Selves</h1></section>
+
+				<section>
+					<h2>Hyperbolic Discounting</h2>
+					Let's modify the utility to take into account: 
+					<ol>
+					<li class ="fragment fade-in-then-semi-out"> People heavily discount the near future. </li>
+					<li class ="fragment fade-in-then-semi-out"> People don't discount much in the `further' future. </li>
+					</ol>
+
+					Doing this gives us Hyperbolic Discounting. 
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> Difference: it underweights all future periods relative to the present.</li>
+					</ul>
+				</section>
+
+				<section>
+					\begin{columns}
+					\column{0.35\textwidth}
+					<p align="center">
+					Marshmallow Example:
+					<img class="r-stretch" src="/images/teaching/marshmallow.png">
+					</p>
+					\column{0.65\textwidth}
+					Today is Day 0: a child has to decide <br>
+					between eating one marshmallow in Day 1 <br>
+					or two marshmallows in Day 2.
+					\end{columns}
+
+
+					Their consumption utility for marshmallows in each period is:
+					<table>
+					<tr><td>  </tr>
+					<tr><td>     </td> </tr>
+					<tr><td>     u(no marshmallows) </td><td> = </td><td> 0 </td></tr>
+					<tr><td>     u(1 marshmallow) </td><td> = </td><td> 20 </td></tr>
+					<tr><td>     u(2 marshmallows) </td><td> = </td><td> 30 </td></tr>
+					<tr><td>    </tr>
+					</table> 
+					With hyperbolic discounting:
+					<table>
+					<tr><td>  </tr>
+					<tr><td>     </td> </tr>
+					<tr><td>     Point in Time: </td><td> Day 0 </td><td> Day 1 </td><td> Day 2 </td></tr>
+					<tr><td>     Patience Level: </td><td> Low </td><td> Medium </td><td> High </td></tr>
+					<tr><td>     Reward: </td><td> 0 </td><td> 20 </td><td> 30 </td></tr>
+					<tr><td>    </tr>
+					</table> 
+					Suppose they choose to wait until Day 2.
+				</section>
+
+				<section>
+					\begin{columns}
+					\column{0.35\textwidth}
+					<p align="center">
+					Marshmallow Example:
+					<img class="r-stretch" src="/images/teaching/http://www.youtube.com/watch?v=G7LN96jEXHc">
+					</p>
+					\column{0.65\textwidth}
+					Now it is Day 1: a child has to decide <br>
+					between eating one marshmallow in Day 1 <br>
+					or two marshmallows in Day 2.
+					\end{columns}
+
+
+					Their consumption utility for marshmallows in each period is:
+					<table>
+					<tr><td>  </tr>
+					<tr><td>     </td> </tr>
+					<tr><td>     u(no marshmallows) </td><td> = </td><td> 0 </td></tr>
+					<tr><td>     u(1 marshmallow) </td><td> = </td><td> 20 </td></tr>
+					<tr><td>     u(2 marshmallows) </td><td> = </td><td> 30 </td></tr>
+					<tr><td>    </tr>
+					</table> 
+					With hyperbolic discounting:
+					<table>
+					<tr><td>  </tr>
+					<tr><td>     </td> </tr>
+					<tr><td>     Point in Time: </td><td> Day 1 </td><td> Day 2 </td></tr>
+					<tr><td>     Patience Level: </td><td> Low </td><td> Medium </td></tr>
+					<tr><td>     Reward: </td><td> 20 </td><td> 30 </td></tr>
+					<tr><td>    </tr>
+					</table> 
+					Notice: their patience level has dropped. <br>
+					It is more likely they switch to Day 1.
+				</section>
+
+				-->
+				
+			</div>
+
+		</div>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
