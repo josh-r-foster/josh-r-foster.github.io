@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Bus 259: Predictably Misbehaving | Lecture 5</title>
+
+		<meta name="description" content="Lecture Slides for Bus 259 at UW-Oshkosh">
+		<meta name="author" content="Joshua Foster">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="images/teaching/thumbnail.png">
+					<h2 style="background-color: white;">Predictably Misbehaving</h2>
+
+					<h3 style="background-color: white;">Lecture 5: Choice Over Time (Again)</h3>
+					<h4 style="background-color: white;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://uwosh.edu/">UW-Oshkosh</a></h4>
+				</section>
+
+				<div class="topbar">
+    				<img src="images/teaching/uwo-logo.png" style="width: 100px;" align="right">
+				</div>
+
+				<section>
+					<h2>Multiple Selves Approach</h2>
+					<p align="center">
+						<img class="r-stretch" src="images/teaching/comic.png" style="width:500px;height:500px;">
+					</p>
+				</section>
+
+				<section>
+					<p align="center">
+						<img class="r-stretch" src="images/teaching/simpsons.png" style="width:400px;height:300px;">
+					</p>
+					<p align="left">
+						<span style="color:#ffcc00;">Moe:</span> Oh, boy!  The deep fryer's here.  Heheh, I got it used from the navy.  You can flash-fry a buffalo in forty seconds.
+					</p>
+					<p align="left">
+						<span style="color:#ffcc00;">Homer:</span> Forty seconds?!?  But I want it now!
+					</p>
+				</section>
+
+				<section>
+					<h2>Extreme assumptions of behavior over time</h2>
+					<div class="fragment current-visible">
+						<h3><span style="color:#ffcc00;">Naivete:</span></h3>
+						<p align="center">An individual who does not realize they will change their mind. That is, they assume their future self will follow through on their (current) preferred plan.</p>
+					</div>
+					<div class="fragment fade-in">
+						<h3><span style="color:#ffcc00;">Sophistication:</span></h3>
+						<p align="center">An individual who understands perfectly that they will change their mind, and does the best given future self's anticipated behavior.</p>
+					</div>
+				</section>
+
+				<section>
+					<p align="left">How could we tell whether someone is <span style="color:#ffcc00;">naive</span> or <span style="color:#ffcc00;">sophisticated?</span></p>
+					<ul>
+						<li class ="fragment fade-in"> The use of <span style="color:#ffcc00;">commitment devices</span> indicates <span style="color:#ffcc00;">sophistication</span>.</li>
+						<ul>
+							<li class ="fragment fade-in"> Ulysses is (at least partly) sophisticated.</li>
+						</ul>
+						<li class ="fragment fade-in"> <span style="color:#ffcc00;">Misprediction</span> of future behavior indicates <span style="color:#ffcc00;">naivete</span>.</li>
+						<ul>
+							<li class ="fragment fade-in"> Teenage smokers who predict that they will not be smoking in five years have a slightly higher probability of smoking (74%) than those who predict they will be smoking (72%).</li>
+						</ul>
+					</ul>
+					<p align="left" class="fragment fade-up">(BTW, non-issue under <span style="color:#ffcc00;">dynamic consistency</span>.)</p>
+				</section>
+
+				<section><h1><span style="color:#ffcc00;">Naivete</span> Vs. <span style="color:#ffcc00;">Sophistication</span></h1></section>
+
+				<section>
+					<h2>Ex: When to quit smoking</h2>
+					<p align="left"><span style="color:#ffcc00;">Naive decision-makers:</span></p>
+					<ol>
+						<li class ="fragment fade-in"> Start at the beginning (i.e. first time step).</li>
+						<li class ="fragment fade-in"> Solve for the optimal plan at that time step.</li>
+						<ul>
+							<li class ="fragment fade-in"> (Assuming future selves will follow the plan.)</li>
+						</ul>
+						<li class ="fragment fade-in"> The person takes the first step in that plan.</li>
+						<li class ="fragment fade-in"> Go to the next period and repeat.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Ex: When to quit smoking</h2>
+					<p align="left"><span style="color:#ffcc00;">Sophisticated decision-makers:</span></p>
+					<ol>
+						<li class ="fragment fade-in"> Start at the end (i.e. last time step).</li>
+						<li class ="fragment fade-in"> Solve for optimal action.</li>
+						<ul>
+							<li class ="fragment fade-in"> (Assuming the person made it that far.)</li>
+						</ul>
+						<li class ="fragment fade-in"> Go back to the previous period.</li>
+						<li class ="fragment fade-in"> Solve for the optimal action, taking into account what happens in the future.</li>
+						<li class ="fragment fade-in"> Go back to the previous period, and repeat.</li>
+					</ol>
+				</section>
+
+				<section><h1>Applications of Hyperbolic Discounting</h1></section>
+
+				<section>
+					<p align="center">
+						<img class="r-stretch" src="images/teaching/washpost.png" style="width:600px;height:150px;"><br>
+						<img class="r-stretch" src="images/teaching/retire.png" style="width:600px;height:400px;">
+					</p>
+				</section>
+
+				<section>
+					<h2>Default Effects</h2>
+					<p align="left"> Madrian and Shea (2001) <em><span style="color:#ffcc00;">QJE</span></em> 401(k) Participation
+					<ul>
+						<li class ="fragment fade-in"> These plans are offered by many employers.</li>
+						<ul>
+							<li class ="fragment fade-in"> Primary way to privately save for retirement.</li>
+						</ul>
+						<li class ="fragment fade-in"> Employees often decide themselves:</li>
+						<ul>
+							<li class ="fragment fade-in"> How much of their pay to allocate to the 401(k)</li>
+							<li class ="fragment fade-in"> How to invest their funds.</li>
+						</ul>
+						<li class ="fragment fade-in"> This company offered a match (up to 6% of income):</li>
+						<ul>
+							<li class ="fragment fade-in"> For every $1 an employee put in their 401(k)</li>
+							<li class ="fragment fade-in"> The company added 50 cents.</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left"> On April 1, 1998, the company changed their policy.</p>
+					<p align="left"> <span style="color:#ffcc00;">Before:</span></p>
+					<ul>
+						<li class ="fragment fade-in"> Employees could participate after one year.</li>
+						<li class ="fragment fade-in"> Were not automatically enrolled.</li>
+						<li class ="fragment fade-in"> (Could enroll easily at any time.)</li>
+					</ul>
+					<p align="left"> <span style="color:#ffcc00;">After: </span></p>
+					<ul>
+						<li class ="fragment fade-in"> All employees were immediately eligible.</li>
+						<li class ="fragment fade-in"> And they were automatically enrolled.</li>
+						<li class ="fragment fade-in"> (Could unenroll easily at any time.)</li>
+					</ul> 
+				</section>
+
+				<section>
+					<p align="left"> The authors compare the choices of these groups:</p>
+					<ol>
+					<li class ="fragment fade-in-then-semi-out"> "Window" cohort: those hired in 1998 before April 1</li>
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> (Not automatically enrolled.)</li>
+					</ul>
+					<li class ="fragment fade-in-then-semi-out"> "New" cohort: those hired in 1998 after April 1</li>
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> (Automatically enrolled.)</li>
+					</ul>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Results: Participation and Contribution Rates</h2>
+					<p align="left"> Participation rates 3-15 months after being hired:</p>
+					<ul>
+						<li class ="fragment fade-in"> 37% for the Window cohort</li>
+						<li class ="fragment fade-in"> 86% for the New cohort</li>
+					</ul> 
+				</section>
+
+				<section>
+					<p align="left"> The contribution rates were as follows:</p>
+					<p align="center">
+					<img class="r-stretch" src="images/teaching/participation.png">
+					</p> 
+					<p align="left" class="fragment fade-up"> <span style="color:#ffcc00;">The finding that defaults matter is one of the most important discoveries in applied microeconomics.</span></p>
+				</section>
+
+				<section>
+					<h2>Getting a Grip on the Default Effect</h2>
+					<p align="left"> This appears to be a big mistake by not participating. </p>
+					<ul>
+						<li class ="fragment fade-in"> Offered a 50% return on up to 6% of your income.</li>
+					</ul> 
+					<p align="left" class="fragment fade-in"> Example: for an employee making $40,000.</p>
+					<ul>
+						<li class ="fragment fade-in"> That's giving up a $1,200 gift from the company.</li>
+					</ul> 
+					<p align="left" class="fragment fade-in"> Even if it is not a mistake, why does the default matter so much?</p>
+					<ul>
+						<li class ="fragment fade-in"> It only takes a phone call to change enrollment.</li>
+					</ul> 
+				</section>
+
+				<section>
+					<p align="left"> Would people not bother making a phone call for $1,200? </p>
+					<ul>
+						<li class ="fragment fade-in"> If they are <span style="color:#ffcc00;">naive hyperbolic discounters</span>, they might not.</li>
+						<li class ="fragment fade-in"> And as a result, defaults can be extremely important.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Making the Call:</h2>
+					<h2>"I'll do it tomorrow"</h2>
+					<p align="left" class="fragment fade-in">Costs and Benefits of Making the Call:</p>
+					<ul>
+						<li class ="fragment fade-in"> Benefit: will get 5 per day (1,825 per year) extra for the next 30 years starting tomorrow.</li>
+						<li class ="fragment fade-in"> Cost: pain of the phone call today costs 30</li>
+					</ul> 
+					<p align="left" class="fragment fade-in">Assume a <span style="color:#ffcc00;">naive hyperbolic discounter</span> discounts the future at 80%.</p>
+				</section>
+
+				<section>
+					<p align="left">When to make the call:</p>
+					<ul>
+						<li class ="fragment fade-in"> Today: $-30+0.8\cdot[5\cdot 365\cdot 30] = 43770$ </li>
+						<li class ="fragment fade-in"> Tomorrow: $0+0.8\cdot[-30+5\cdot 365\cdot 30 - 5] = 43772$</li>
+					</ul> 
+					<p align="left" class="fragment fade-in">Hence, they put off making the phone call. </p>
+					<ul>
+						<li class ="fragment fade-in"> If nothing changes they put off the phone call forever.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>"I'll do it this week"</h2>
+					<h2>(Really, I will)</h2>
+					<p align="left" class="fragment fade-in">This prediction is extreme - and it's because the model is extreme. </p>
+					<ul>
+						<li class ="fragment fade-in"> More reasonable prediction might be they delay for a long time.</li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">Let's change the model:</p>
+					<ul>
+						<li class ="fragment fade-in"> What would a <span style="color:#ffcc00;">sophisticate</span> do? </li>
+						<li class ="fragment fade-in"> It's easy to argue they'd do it within a week. </li>
+						<ul>
+							<li class ="fragment fade-in"> Waiting 8 days costs 40, valued at $0.8\cdot 40=32$</li>
+							<li class ="fragment fade-in"> Would rather pay the 30 cost today to avoid this outcome.</li>
+						</ul>
+					</ul>
+					<p align="left" class="fragment fade-in">When <em>exactly</em> they make the call is a more difficult question.
+				</section>
+
+				<section>
+					<h2>Other Studies on Procrastination</h2>
+					<p align="left" class="fragment fade-in">Choi, et al. (2004) in <em><span style="color:#ffcc00;">NBER</span></em></p>
+					<ul>
+						<li class ="fragment fade-in"> 401(k) contribution patterns generalize.</li>
+						<li class ="fragment fade-in"> Remarkably similar results across three industries.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Other Studies on Procrastination</h2>
+					<p align="left" class="fragment fade-in">Cronqvist and Thaler (2004) in <em><span style="color:#ffcc00;">AER</span></em>:</p>
+					<ul>
+						<li class ="fragment fade-in"> Looks at privatized retirement funds in Sweden.</li>
+						<li class ="fragment fade-in"> Heavily advertised by the government - 456 plans. </li>
+						<li class ="fragment fade-in"> Initially, 43% of participants chose the default. </li>
+						<li class ="fragment fade-in"> After 3 years, 92% of participants chose the default.</li>
+					</ul>
+					<!--
+					Traditional economics says this is due to transaction costs.
+					<ul>
+						<li class ="fragment fade-in"> But actual transaction costs are too small to explain this.</li>
+					</ul>
+					-->
+				</section>
+
+				<section>
+					<h2>Other Studies on Procrastination</h2>
+					<!--
+					O'Donoghue and Rabin (1999, 2001) in \emph{AER} and \emph{QJE}
+					<ul>
+					<li class ="fragment fade-in-then-semi-out"> Self-control problems can explain this behavior.</li>
+					<li class ="fragment fade-in-then-semi-out"> Naivete can create infinite procrastination. </li>
+					<li class ="fragment fade-in-then-semi-out"> Increasing importance makes it more likely you procrastinate.</li>
+					</ul>
+					-->
+					<p align="left" class="fragment fade-in">DellaVigna and Malmendier (2006) in <em><span style="color:#ffcc00;">AER</span></em>:</p>
+					<ul>
+						<li class ="fragment fade-in"> Study gym-goers' behavior at three US health clubs. </li>
+						<li class ="fragment fade-in"> Customers had two options for how to pay:</li>
+							<ol>
+							<li class ="fragment fade-in"> Monthly fee of ~80 for unlimited use.</li>
+							<li class ="fragment fade-in"> Pay-per-visit fee of 10.</li>
+							</ol> 
+					</ul>
+				</section>
+
+				<section>
+					<p align="left"> Most choose the monthly contract (89%)</p>
+					<ul>
+						<li class ="fragment fade-in"> Those who do exercise 4.8 times/month (average) </li>
+						<li class ="fragment fade-in"> That's about 17 per visit.</li>
+					</ul> 
+					<p align="left" class ="fragment fade-in"> <em><span style="color:#ffcc00;">Default Effect:</span></em> go 2.31 months (average) without using membership before canceling.</p>
+				</section>
+
+				<section>
+					<p align="left">It can be argued these findings are consistent with both extreme assumptions of <span style="color:#ffcc00;">hyperbolic discounting</span>.</p>
+					<p align="left" class ="fragment fade-in"> <em><span style="color:#ffcc00;">Naive hyperbolic discounters:</span></em></p>
+					<ul>
+						<li class ="fragment fade-in"> Gym-goers prefer they exercise a lot in the future. </li>
+						<li class ="fragment fade-in"> Being naive, that's what they think they'll do. </li>
+						<li class ="fragment fade-in"> To save money on gym they buy the monthly membership. </li>
+						<li class ="fragment fade-in"> Short-run impatience kicks in, and they don't use the membership much.</li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left"> <em><span style="color:#ffcc00;">Sophisticated hyperbolic discounters:</span></em></p>
+					<ul>
+						<li class ="fragment fade-in"> Also prefer to exercise a lot in the future, but realize they won't. </li>
+						<li class ="fragment fade-in"> Use the monthly membership as a commitment tool. </li>
+						<li class ="fragment fade-in"> Willing to pay more (per-visit) if it helps get them to the gym.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Credit Card Teasers</h2>
+					<p align="left"> Ausubel (1991) in <em><span style="color:#ffcc00;">AER</span></em></p>
+					<ul>
+						<li class ="fragment fade-in"> Large experiment run by a credit card company. </li>
+						<li class ="fragment fade-in"> Mailed randomized credit card offers of three types:</li>
+						<ol>
+							<li class ="fragment fade-in"> Standard: 6.9% rate for six months and then 16%.</li>
+							<li class ="fragment fade-in"> Teaser deal: 4.9% followed by 16%.</li>
+							<li class ="fragment fade-in"> Post-teaser deal: 6.9% followed by 14%.</li>
+						</ol> 
+						<li class ="fragment fade-in"> 21 months of data on take-ups and borrowing debt. </li>
+						<li class ="fragment fade-in"> Results:</li>
+						<ul>
+							<li class ="fragment fade-in"> Teaser is 2.5 more successful than Post-teaser</li>
+							<li class ="fragment fade-in"> Given behavior, Post-teaser is a much better deal.</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Credit Card Teasers</h2>
+					<h2>Explanations</h2>
+					<p align="left">Possible explanations from <span style="color:#ffcc00;">hyperbolic discounting</span>: </p>
+					<ol>
+						<li class ="fragment fade-in"> <span style="color:#ffcc00;">Naive</span> borrowers believe they'll repay quickly.</li>
+						<ul>
+							<li class ="fragment fade-in"> Hence the teaser interest rate is most important.</li>
+						</ul> 
+						<li class ="fragment fade-in"> <span style="color:#ffcc00;">Sophisticated</span> borrowers don't want to use their credit cards much in the future.</li>
+						<ul>
+							<li class ="fragment fade-in"> Hence choose a high interest rate to restrain future borrowing.</li>
+						</ul>
+					</ol>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
