@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Bus 259: Predictably Misbehaving | Lecture 6</title>
+
+		<meta name="description" content="Lecture Slides for Bus 259 at UW-Oshkosh">
+		<meta name="author" content="Joshua Foster">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail.png">
+					<h2 style="background-color: white;">Predictably Misbehaving</h2>
+
+					<h3 style="background-color: white;">Lecture 6: Projection Bias</h3>
+					<h4 style="background-color: white;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://uwosh.edu/">UW-Oshkosh</a></h4>
+				</section>
+
+				<div class="topbar">
+    				<img src="/images/teaching/uwo-logo.png" style="width: 100px;" align="right">
+				</div>
+
+				<section>
+					<h2 style="margin-top: 10%">Predicting the Future</h2>
+					<div class="fragment current-visible">
+							<blockquote>
+							"Heavier-than-air flying machines are impossible." <br> 
+							- Baron Kelvin
+							</blockquote> 
+					</div>
+					<div class="fragment current-visible">
+						<blockquote>
+						"Man will not fly for fifty years." <br> 
+						- Wilbur Wright (1901)
+						</blockquote> 
+					</div>
+					<div class="fragment current-visible">
+						<blockquote>
+						"Everything that can be invented has been invented." <br> 
+						- Charles Duell, US Patent Office Commissioner (1899)
+						</blockquote> 
+					</div>
+					<div class="fragment fade-up">
+						<blockquote>
+						"I will never eat again..." <br> 
+						- America, Thanksgiving Day around 3:00 PM
+						</blockquote> 
+					</div>
+					<p align="left" class="fragment fade-up">People have a tough time imagining a future different from today.</p>
+				</section>
+
+				<section>
+					<h2>Why are people wrong this way?</h2>
+					<p align="left">Our imaginations are imperfect models of reality.</p>
+					  
+					<p align="left" class="fragment fade-in">If we imagine what something/someone could be like:</p>
+					<ul>
+						<li class ="fragment fade-in"> We typically see a sketchy image of it in our heads. </li>
+						<li class ="fragment fade-in"> Our brain is activated in similar ways as when we are actually looking at it/them. </li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">Imagining the future is a similar process.  Example:</p>
+					<ul>
+						<li class ="fragment fade-in"> "How would you feel if you found 100 bucks?" </li>
+						<ul>
+							<li class ="fragment fade-in"> I bet you visually imagined what would happen</li>
+							<li class ="fragment fade-in"> And that image shaped your response.</li>
+						</ul> 
+					</ul>
+					<p align="left" class ="fragment fade-in">Our ability to do this is limited, and affected by our current state.</p>
+					<ul>
+						<li class ="fragment fade-in"> When disgusted, it's hard to imagine affection.  </li>
+						<li class ="fragment fade-in"> When satiated, it's hard to imagine hunger.</li>
+					</ul>
+				</section>
+
+				<section><h1>What is Projection Bias?</h1></section>
+
+				<section>
+					<h2>Preferences Can Fluctuate Over Time</h2>
+					<p align="left">There are many ways preferences change over time.  Examples:</p>
+					<ol>
+						<li class ="fragment fade-in"> Physical: hunger, addiction, aging, etc. </li>
+						<li class ="fragment fade-in"> Experience: adventure, etc. </li>
+						<li class ="fragment fade-in"> Environment: friends, weather, etc. </li>
+					</ol>
+				</section>
+
+				<section>
+					<p align="left">When making decisions today:</p>
+					<ul>
+						<li class ="fragment fade-in"> It is important to understand changes in future preferences. </li>
+						<ul>
+							<li class ="fragment fade-in"> Making summer plans in the winter. </li>
+							<li class ="fragment fade-in"> Choosing a major and career. </li>
+							<li class ="fragment fade-in"> Having children. </li>
+						</ul>
+					</ul>
+					<p align="left" class ="fragment fade-in">Traditional economic perspective:</p>
+					<ul>
+						<li class ="fragment fade-in"> People are very good at predicting their future preferences.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Mis-prediction of Preferences</h2>
+					<p align="left">Studies in psychology suggest people exhibit a systematic bias.</p>
+					<div class ="fragment fade-in">
+						<h3 style="color:#ffcc00;">Projection Bias</h3>
+						<blockquote>
+						People under-appreciate changes in their preferences, projecting their current preferences onto their future preferences.
+						</blockquote>
+					</div>
+				</section>
+
+				<section>
+					<p align="left">Projection bias isn't just mis-prediction.</p>
+					<ul>
+						<li class ="fragment fade-in"> It is a mis-prediction with a systematic direction.</li>
+						<li class ="fragment fade-in"> People don't believe their preferences are transient.</li>
+						<li class ="fragment fade-in"> People aren't able to predict all meaningful factors. </li>
+					</ul>
+					<p align="left" class ="fragment fade-in">We will examine some evidence and discuss its consequences.</p>
+				</section>
+
+				<section><h1>Evidence of Projection Bias</h1></section>
+
+				<section>
+					<h2>Grocery Shopping</h2>
+					<p align="center">
+						<img src="/images/teaching/food.png" style="width: 90%;">
+					</p>
+				</section>
+
+				<section>
+					<h2>Hunger</h2>
+					<p align="left">We consider hunger, because:</p>
+					<ul>
+						<li class ="fragment fade-in"> It's perhaps the clearest evidence of projection bias. </li>
+						<li class ="fragment fade-in"> People have lots of experience with being hungry.</li>
+					</ul>
+					<p align="left" class="fragment fade-in" style="color:#ffcc00;">Meaning: mis-predictions aren't due to a lack of experience.</p>
+				</section>
+
+				<section>
+					<p align="left">Studies show those shopping on an empty stomach buy more.</p>
+					  
+					<p align="left" class="fragment fade-in">Consider the following simple experiment:</p>
+					<ul>
+						<li class ="fragment fade-in"> Randomly give a muffin to individuals entering a supermarket. </li>
+						<li class ="fragment fade-in"> Monitor how much food they buy.</li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">Gilbert et al. (2002) in <span style="color:#ffcc00;"><em>Org. Behavior and Human Decision Processes</em></span></p>
+					  
+					<p align="left" class="fragment fade-in">Exit surveys showed:</p>
+					<ul>
+						<li class ="fragment fade-in"> Those who did not eat muffins:</li>
+						<ul>
+							<li class ="fragment fade-in"> 51% purchased unplanned food items. </li>
+						</ul>
+						<li class ="fragment fade-in"> Those who did eat muffins:</li>
+						<ul>
+							<li class ="fragment fade-in"> 34% purchased unplanned food items. </li>
+						</ul>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">But this study isn't perfect.  It could be:</p>
+					<ul>
+						<li class ="fragment fade-in"> Shoppers may be buying food for later that day.  </li>
+						<li class ="fragment fade-in"> So those who had a muffin buy less.</li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">Read and van Leeuwen (1998) in <span style="color:#ffcc00;"><em>Org. Beh. and Human Dec. Proc.</em></span></p>
+					<ul>
+						<li class ="fragment fade-in"> Office workers were asked: <em>"Would you like a healthy or unhealthy snack in one week?"</em></li>
+						<ul>
+							<li class ="fragment fade-in"> Sometimes asked when <span style="color:#ffcc00;">hungry</span> (late afternoon) </li>
+							<li class ="fragment fade-in"> Sometimes asked when <span style="color:#ffcc00;">satiated</span> (after lunch) </li>
+						</ul>
+						<li class ="fragment fade-in">They knew snacks would be given either:</li>
+						<ul>
+							<li class ="fragment fade-in"> When they were <span style="color:#ffcc00;">hungry</span> (late afternoon), or </li>
+							<li class ="fragment fade-in"> When <span style="color:#ffcc00;">satiated</span> (immediately after lunch) </li>
+						</ul>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left"> Necessary argument:</p>
+					<ul>
+						<li class ="fragment fade-in"> Those hungry will be tempted by unhealthy food.</li>
+						<li class ="fragment fade-in"> Removing hunger allows focus on 'smart' decisions.</li>
+					</ul>
+				</section>
+
+				<section>
+					<table style="margin-top: 10%;">
+						<tr><td colspan="3" align="center">% of Participants Choosing Unhealthy Snack</td></tr>
+						<tr><td></td><td> Future Hungry </td><td> Future Satiated </td></tr>
+						<tr><td> Current Hungry </td><td> 78% </td><td> 56% </td> </tr>
+						<tr><td> Current Satiated </td><td> 42% </td><td> 26% </td> </tr>
+						<tr><td></td></tr>
+					</table> 
+					<div class="fragment current-visible">
+						<p align="left" style="color:#ffcc00;">Getting it right:</p>
+						<ul>
+							<li> People who expected to be hungry next week were more likely to opt for unhealthy snacks.</li>
+						</ul> 
+					</div>
+					<div class="fragment current-visible">
+						<p align="left" style="color:#ffcc00;">Getting it wrong:</p>
+						<ul>
+							<li> People who were currently hungry were more likely to opt for unhealthy snacks.</li>
+						</ul> 
+					</div>
+					<div class="fragment current-visible">
+						<p align="left" style="color:#ffcc00;">Takeaway:</p>
+						<ul>
+							<li> People seem to understand the direction of the preference change, but not the magnitude.</li>
+						</ul>
+					</div>
+				</section>
+
+				<section>
+					<h2>Thirst</h2>
+					<p align="left">Van Boven and Loewenstein (2003) in <span style="color:#ffcc00;"><em>Personality & Soc. Psy. Bul.</em></span></p>
+					  
+					<p align="left">Experiment procedures:</p>
+					<ul>
+						<li class ="fragment fade-in"> Ask visitors at a campus gym to fill out a survey. </li>
+						<li class ="fragment fade-in"> Two treatments:</li>
+						<ul>
+							<li class ="fragment fade-in"> <span style="color:#ffcc00;">Not thirsty</span> (before exercising) </li>
+							<li class ="fragment fade-in"> <span style="color:#ffcc00;">Thirsty</span> (after exercising) </li>
+						</ul>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">Hypothetical question about hikers who packed light:</p>
+					<ul>
+						<li class ="fragment fade-in"> "Which do you think the hikers regretted not packing more: water or food?" </li>
+						<ul>
+							<li class ="fragment fade-in"> If <span style="color:#ffcc00;">not thirsty</span>: 52% regret not packing water. </li>
+							<li class ="fragment fade-in"> If <span style="color:#ffcc00;">thirsty</span>: 92% regret not packing water. </li>
+						</ul>
+					</ul>
+					<p align="left" class="fragment fade-in">Those who are thirsty are more likely to think hikers should also be.</p>
+				</section>
+
+				<section>
+					<h2>Drugs</h2>
+					<p align="left">Giordano et al. (2002) in <span style="color:#ffcc00;"><em>Psychopharmacology</em></span></p>
+					<ul>
+						<li class ="fragment fade-in"> Study on addiction using actual drug addicts. </li>
+						<li class ="fragment fade-in"> Addicts to receive a dose of heroin substitute (BUP) </li>
+						<ul>
+							<li class ="fragment fade-in"> Some could receive it <span style="color:#ffcc00;">now</span>. </li>
+							<li class ="fragment fade-in"> Some had to <span style="color:#ffcc00;">wait 5 days</span>. </li>
+						</ul>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left"> Asked for their monetary valuation for an extra dose:</p>
+					<ul>
+						<li class ="fragment fade-in"> 10, 20, 30, etc. </li>
+						<li class ="fragment fade-in"> Some were asked <span style="color:#ffcc00;">right before</span> a dose of BUP. </li>
+						<li class ="fragment fade-in"> Some were asked <span style="color:#ffcc00;">right after</span> a dose of BUP. </li>
+					</ul>
+				</section>
+
+				<section>
+					<table style="margin-top: 5%;">
+						<tr><td></td><td></td><td></td></tr>
+						<tr><td></td><td> WTP: Delayed </td><td> WTP: Immediately </td></tr>
+						<tr><td> Current Deprived </td><td> $60 </td><td> $75 </td></tr>
+						<tr><td> Current Satiated </td><td> $35 </td><td> $50 </td></tr>
+						<tr><td></td></tr>
+					</table> 
+					<p align="left" class="fragment current-visible">Addicts valued the extra dose more if they were deprived.</p>
+					<p align="left" class="fragment fade-in">They under-appreciate their future cravings when satiated.</p>
+				</section>
+
+				<section>
+					<h2>Low- and High-brow Movies</h2>
+					<p align="center">
+						<img src="/images/teaching/movies.png" style="height: 300px;">
+					</p>
+					<p align="left">Loewenstein (1999):</p>
+					<ul>
+						<li class ="fragment fade-in"> Choose a movie today: 56% choose low-brow.</li>
+						<li class ="fragment fade-in"> Choose a movie for next week: 30% low-brow.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Low- and High-brow Movies</h2>
+					<p align="center">
+						<img src="/images/teaching/movies.png" style="height: 300px;">
+					</p>
+					<p align="left">Goldstein and Goldstein (2006) on Netflix customers:</p>
+					<ul>
+						<li class ="fragment fade-in"> Watch and return low-brow movies right away.</li>
+						<li class ="fragment fade-in"> Let high-brow movies sit around much longer.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Professors and Tenure</h2>
+					<p align="left">Gilbert, et al. (1998) in <span style="color:#ffcc00;"><em>J. of Personality and Soc. Psy.</em></span></p>
+					<h2><span style="color:#ffcc00;">Immune Neglect</span></h2>
+					<blockquote>
+					The tendency to underestimate ones own powers of adaptation to unfavorable events.
+					</blockquote>
+				</section>
+
+				<section>
+					<p align="left">Study procedures:</p>
+					<ul>
+						<li class ="fragment fade-in"> Current assistant professors at U of Texas asked: </li>
+						<ul>
+							<li class ="fragment fade-in"> How would you respond to not getting tenure? </li>
+							<ul>
+								<li class ="fragment fade-in"> Predicted significant unhappiness. </li>
+							</ul>
+							<li class ="fragment fade-in"> (This is an event five years in the future.) </li>
+						</ul>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left"> Responses from former U of Texas professors:</p>
+					<ul>
+						<li class ="fragment fade-in"> Well-being returned to current state. </li>
+						<li class ="fragment fade-in"> Did not take as long as predicted. </li>
+					</ul>
+					<p align="left" class="fragment fade-in">Accurate in predicting short-run impact of decision.</p>
+					<ul>
+						<li class ="fragment fade-in"> But exaggerated the long-term impact.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>HIV Test Results</h2>
+					<p align="left">Sieff, et al. (1999) in <span style="color:#ffcc00;"><em>American Journal of Psychology</em></span></p>
+					<ul>
+						<li class ="fragment fade-in"> Surveyed those entering a clinic for a HIV test. </li>
+						<li class ="fragment fade-in"> Predict happiness in 5 weeks after getting:</li>
+						<ul>
+							<li class ="fragment fade-in"> A test indicating HIV-positive </li>
+							<li class ="fragment fade-in"> A test indicating HIV-negative </li>
+						</ul>
+						<li class ="fragment fade-in"> Five weeks after result, filled out the same survey. </li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">People overestimated both:</p>
+					<ul>
+						<li class ="fragment fade-in"> How good they would feel after a favorable result.</li>
+						<li class ="fragment fade-in"> How bad they would feel after an unfavorable result.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Are We Getting it Wrong?</h2>
+					<p align="center">
+						<a href="http://youtu.be/LTO_dZUvbJA?t=22s"><img class="r-stretch" src="/images/teaching/gilbert.jpg"></a>
+					</p>
+				</section>
+
+				<section>
+					<h2>Naive Discounting Vs. Projection Bias</h2>
+					<p align="left">Naive hyperbolic discounting is a mis-prediction:</p>
+					<ul>
+						<li class ="fragment fade-in"> You over-estimate your self-control in the future. </li>
+					</ul>
+					<p align="left" class="fragment fade-in">Projection bias is a <span style="color:#ffcc00;">state-dependent</span> mis-prediction.</p>
+					<ul>
+						<li class ="fragment fade-in"> You're more likely to predict future temptation to over-eat when hungry. </li>
+						<li class ="fragment fade-in"> You're more likely to predict future smoking when you haven't had a cigarette for a while. </li>
+					</ul>
+				</section>
+
+				<section>
+					<p align="left">Sometimes, they're hard to distinguish in the real world.</p>
+					<ul>
+						<li class ="fragment fade-in">Though, theoretically it is straight-forward to see the difference.</li>
+					</ul>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
