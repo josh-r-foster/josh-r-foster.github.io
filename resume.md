@@ -18,6 +18,16 @@ permalink: /cv/
 ## Positions
 
 `Now`
+__Assistant Professor, Ivey Business School, Western University__ 
+
+`|` <span>&#8203;</span>
+
+`2021`
+__Associate Professor (without tenure), University of Wisconsin Oshkosh__ 
+
+`|` <span>&#8203;</span>
+
+`2020`
 __Assistant Professor, University of Wisconsin Oshkosh__ 
 
 `|` <span>&#8203;</span>
