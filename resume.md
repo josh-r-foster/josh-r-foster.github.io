@@ -7,7 +7,7 @@ permalink: /cv/
 # Joshua Foster
 
 <div id="webaddress">
-<a href="mailto:fosterj@uwosh.edu">fosterj@uwosh.edu</a>
+<a href="mailto:jfoster@ivey.ca">jfoster@ivey.ca</a>
 |
 <i class="fa fa-github"></i> <a href="https://github.com/josh-r-foster">Github</a>
 |
@@ -203,4 +203,4 @@ UW-Oshkosh Faculty Development Summer Grant, 15\% CAS, 2017, 2019.
 
 <!-- ### Footer
 
-Last updated: May 2013 -->
+Last updated: July 2021 -->
