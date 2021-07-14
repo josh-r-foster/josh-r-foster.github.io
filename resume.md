@@ -17,41 +17,34 @@ permalink: /cv/
 
 ## Positions
 
-`Now`
-__Assistant Professor, Ivey Business School, Western University__ 
+`Now` __Assistant Professor, Ivey Business School, Western University__ 
 
-`|` <span>&#8203;</span>
+<code>&uarr;</code> <span>&#8203;</span>
 
-`2021`
-__Associate Professor (without tenure), University of Wisconsin Oshkosh__ 
+`2021` __Associate Professor (without tenure), University of Wisconsin Oshkosh__
 
-`|` <span>&#8203;</span>
+<code>&uarr;</code> <span>&#8203;</span>
 
-`2020`
-__Assistant Professor, University of Wisconsin Oshkosh__ 
+`2020`  __Assistant Professor, University of Wisconsin Oshkosh__ 
 
-`|` <span>&#8203;</span>
+<code>&uarr;</code> <span>&#8203;</span>
 
-`2016`
-__Assistant Professor, Whitman College__ 
+`2016` __Assistant Professor, Whitman College__ 
 
-`|`
+<code>&uarr;</code> <span>&#8203;</span>
 
 ## Education
 
-`2014`
-__Ph.D., Economics, University of Arkansas__
 <!--* Advisor: Cary Deck -->
+`2014` __Ph.D., Economics, University of Arkansas__
 
-`|` <span>&#8203;</span>
+<code>&uarr;</code> <span>&#8203;</span>
 
-`2009`
-__B.S., Economics, Bentley University__
+`2009` __B.S., Economics, Bentley University__
 
-`|` <span>&#8203;</span>
+<code>&uarr;</code> <span>&#8203;</span>
 
-`2005`
-__Small town kid__
+`2005` __Small town kid__
 
 ## Research 
 
@@ -64,10 +57,10 @@ __Small town kid__
 
 ## Publications
 
-`2020`
+`2021`
 <a href="https://www.nber.org/papers/w27187">__The Relationship between In-Person Voting and COVID-19: Evidence from the Wisconsin Primary__</a>
 
-<em>Contemporary Economic Policy</em>, forthcoming. 
+<em>Contemporary Economic Policy</em>, 2021, 1-18. 
 
 `with`
  * Chad Cotti 

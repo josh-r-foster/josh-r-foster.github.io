@@ -640,7 +640,7 @@ body {
   -webkit-box-sizing: border-box; }
 
 a {
-  color: #0076df; }
+  color: /*#0076df;*/ #0097A0; }
 
 a:hover,
 a:focus,

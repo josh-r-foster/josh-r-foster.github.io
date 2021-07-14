@@ -75,7 +75,9 @@ p {
 #resume p code {
 	position: absolute;
 	left: -12%;
+	right:  100%;
 	background-color: #fff;
+	text-align: center;
 }
 
 
@@ -131,16 +133,16 @@ h1+p {
 #resume h2 {
 	font-size: 1.1em;
 	/* color: #a00; */
-	color: black;
+	color: #034638;
 	margin-top: 2em;
 	position: relative;
-	top: 1.4em;
+	top: 1.25em;
 	text-align: right;
 	width: 15%;
 }
 
 #resume h3 {
-	color: #000000;
+	color: #582C83;
 	font-size: 1em;
 	line-height: 2em;
 	position: relative;
@@ -151,12 +153,12 @@ h1+p {
 
 a {
 	color: inherit;
-	word-wrap: break-word
-	/*text-decoration:none*/
+	word-wrap: break-word;
+	/*text-decoration:none;*/
 }
 
 a:hover {
-	color:#39f
+	color:#582C83
 }
 
 #webaddress {
