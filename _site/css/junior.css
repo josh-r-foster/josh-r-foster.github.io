@@ -198,7 +198,7 @@ h6,
 
 .button-blue {
   color: white;
-  background-color: #0076df;
+  background-color: #0097A0;
   border-radius: 3px;
   transition-duration: .1s;
   transition-timing-function: ease-out;
@@ -213,7 +213,7 @@ h6,
 
 .button-blue:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5), 0 0 1px 4px rgba(0, 118, 223, 0.5); }
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5), 0 0 1px 4px rgba(0, 151, 160, 0.5); }
 
 .button-blue:disabled,
 .button-blue.is-disabled {
@@ -326,7 +326,7 @@ body {
   background-color: white; }
 
 a {
-  color: #0076df;
+  color: #0097A0;
   text-decoration: none; }
 
 a:hover {
@@ -351,7 +351,7 @@ hr {
   color: white; }
 
 .blue {
-  color: #0076df; }
+  color: #0097A0; }
 
 .mid-gray {
   color: #777; }
@@ -381,7 +381,7 @@ hr {
   background-color: white; }
 
 .bg-blue {
-  background-color: #0076df; }
+  background-color: #0097A0; }
 
 .bg-mid-gray {
   background-color: #777; }
@@ -646,7 +646,7 @@ a:hover,
 a:focus,
 a:active {
   border: 0;
-  color: #000a13;
+  color: black;
   text-decoration: none; }
 
 button,
@@ -669,7 +669,7 @@ button,
 .anchorjs-link:focus,
 .anchorjs-link:active {
   border: 0;
-  color: #000a13;
+  color: black;
   text-shadow: none;
   background-image: none; }
 
@@ -802,8 +802,8 @@ textarea {
 
 .field-light:focus {
   outline: none;
-  border-color: #0076df;
-  box-shadow: 0 0 2px rgba(0, 118, 223, 0.5); }
+  border-color: #0097A0;
+  box-shadow: 0 0 2px rgba(0, 151, 160, 0.5); }
 
 .field-light:disabled {
   color: #777;
@@ -834,7 +834,7 @@ textarea {
 .radio-light:focus,
 .checkbox-light:focus {
   outline: none;
-  box-shadow: 0 0 2px rgba(0, 118, 223, 0.5); }
+  box-shadow: 0 0 2px rgba(0, 151, 160, 0.5); }
 
 html {
   font-size: 14px; }
