@@ -1,0 +1,232 @@
+---
+layout: compress
+---
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  {% include head.html %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>{{ page.title }} | {{ site.name }}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="author" content="{{ site.author }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css'> -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'> -->
+
+  <script src="/js/modernizr-2.0.6.min.js"></script>
+
+  <style type="text/css">
+    canvas {
+      max-width: 40%;
+      margin: 0 0 0 10%;
+      float: left;
+    }
+
+    #slidecontainer {
+      max-width: 40%;
+      margin: 0 0 0 15%;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      width: 80%;  
+      height: 25px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: 0.2s;
+      transition: opacity 0.2s;
+    }
+
+    .slider:hover {
+      opacity: 1;
+    }
+
+    /* This rule causes the label to vertically align properly */
+    label {
+      vertical-align:middle;
+      display:inline-block;
+      margin-bottom:1em;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 1% 0 0 15%;
+      cursor: pointer;
+    }
+
+    table {
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+      margin: 1% 10% 0 0;
+      padding: 0;
+      width: 30%;
+      table-layout: fixed;
+      float: right;
+    }
+
+    table caption {
+      font-size: 1.5em;
+      margin: .5em 0 .75em;
+    }
+
+    table tr {
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      padding: .35em;
+    }
+
+    table th,
+    table td {
+      padding: .625em;
+      text-align: center;
+    }
+
+    table th {
+      font-size: .85em;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    @media screen and (max-width: 600px) {
+      table {
+        border: 0;
+      }
+
+      table caption {
+        font-size: 1.3em;
+      }
+
+      table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+      }
+
+      table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+      }
+
+      table td::before {
+          /*
+          * aria-label has no advantage, it won't be read inside a table
+          content: attr(aria-label);
+          */
+          content: attr(data-label);
+          float: left;
+          font-weight: bold;
+          text-transform: uppercase;
+      }
+
+      table td:last-child {
+        border-bottom: 0;
+      }
+
+  </style>
+
+</head>
+
+<body>
+    {% include header.html %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.5/chartjs-plugin-annotation.js"></script>
+  <script src="https://cdn.rawgit.com/chartjs/Chart.js/master/samples/utils.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCqawd_lh97dcZ5LRV1qTQz8JaaZ_O3cZI",
+      authDomain: "auctions-19ebf.firebaseapp.com",
+      databaseURL: "https://auctions-19ebf.firebaseio.com",
+      projectId: "auctions-19ebf",
+      storageBucket: "auctions-19ebf.appspot.com",
+      messagingSenderId: "242428723437",
+      appId: "1:242428723437:web:ab88643a697d6c12de4ce4",
+      measurementId: "G-DHWGTGKS3F"
+    };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      database = firebase.database();
+  </script>
+
+  <div id="container" class="clearfix">
+    <div id="main" role="main" class="clearfix">
+
+      {{ content }}
+
+    </div>
+    <footer>
+
+    </footer>
+
+  </div> <!--! end of #container -->
+
+  <script src="/js/jquery-1.10.2.min.js"></script>
+  <script defer src="/js/all.js"></script>
+  <script>
+    window._gaq = [['_setAccount','{{ site.analytics }}'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+  {% include footer.html %}
+</body>
+</html>
+
+<style>
+#main-menu {
+  position: absolute;
+}
+</style>

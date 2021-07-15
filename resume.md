@@ -81,7 +81,7 @@ permalink: /cv/
 `2020`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2924113">__Loss Aversion and Sunk Cost Sensitivity in All-pay Auctions for Charity: Theory and Experiments__</a>
 
-<em>Journal of Behavioral and Experimental Economics}</em>, 84, 2020, 101486.
+<em>Journal of Behavioral and Experimental Economics</em>, 84, 2020, 101486.
 
  * 
 
@@ -172,11 +172,17 @@ __Riding Backer Waves: Exploiting the Non-linear Funding Dynamics in Crowdfunded
 
  * 
 
+__Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing Computer-Based Practice to Virtual Reality Practice__
+
+`with`
+ * Shannon Rawski
+ * Jeremy Bailenson
+
 ## Grants
 
-IFREE Small Grant <em>Auctions for Charity and for Profit</em> (\$9,500), Principal Investigator, 2014.
-  
 UW-Oshkosh Faculty Development Summer Grant, 15\% CAS, 2017, 2019. 
+
+IFREE Small Grant <em>Auctions for Charity and for Profit</em> (\$9,500), Principal Investigator, 2014.
 
 ## Teaching
 * **Microeconomics**
@@ -194,6 +200,6 @@ UW-Oshkosh Faculty Development Summer Grant, 15\% CAS, 2017, 2019.
 * <span>&#8203;</span>
 * <span>&#8203;</span>
 
-<!-- ### Footer
+### <span>&#8203;</span>
 
-Last updated: July 2021 -->
+Last updated July, 2021
