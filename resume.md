@@ -17,34 +17,34 @@ permalink: /cv/
 
 ## Positions
 
-`Now` __Assistant Professor, Ivey Business School, Western University__ 
+<code>&uarr;</code> __Assistant Professor, Ivey Business School, Western University__ 
 
-<code>&uarr;</code> <span>&#8203;</span>
+`2021` <span>&#8203;</span>
 
-`2021` __Associate Professor (without tenure), University of Wisconsin Oshkosh__
+<code>&uarr;</code> __Associate Professor (without tenure), University of Wisconsin Oshkosh__
 
-<code>&uarr;</code> <span>&#8203;</span>
+`2021`  <span>&#8203;</span> 
 
-`2020`  __Assistant Professor, University of Wisconsin Oshkosh__ 
+<code>&uarr;</code> __Assistant Professor, University of Wisconsin Oshkosh__ 
 
-<code>&uarr;</code> <span>&#8203;</span>
+`2016` <span>&#8203;</span> 
 
-`2016` __Assistant Professor, Whitman College__ 
-
-<code>&uarr;</code> <span>&#8203;</span>
+<code>&uarr;</code> __Assistant Professor, Whitman College__ 
 
 ## Education
 
 <!--* Advisor: Cary Deck -->
-`2014` __Ph.D., Economics, University of Arkansas__
+`2014` <span>&#8203;</span> 
 
-<code>&uarr;</code> <span>&#8203;</span>
+<code>&uarr;</code> __Ph.D., Economics, University of Arkansas__ 
 
-`2009` __B.S., Economics, Bentley University__
+`2009` <span>&#8203;</span> 
 
-<code>&uarr;</code> <span>&#8203;</span>
+<code>&uarr;</code> __B.S., Economics, Bentley University__ 
 
-`2005` __Small town kid__
+`2005` <span>&#8203;</span> 
+
+<code>&uarr;</code> __Small town kid__
 
 ## Research 
 
