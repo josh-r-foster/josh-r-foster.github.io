@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 4654: Behavioural Economics</title>
+
+		<meta name="description" content="Session slides for BUS 4654">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<style type="text/css">
+			.base-timer {
+			  position: relative;
+			  width: 300px;
+			  height: 300px;
+			}
+
+			.base-timer__svg {
+			  transform: scaleX(-1);
+			}
+
+			.base-timer__circle {
+			  fill: none;
+			  stroke: none;
+			}
+
+			.base-timer__path-elapsed {
+			  stroke-width: 7px;
+			  stroke: grey;
+			}
+
+			.base-timer__path-remaining {
+			  stroke-width: 7px;
+			  stroke-linecap: round;
+			  transform: rotate(90deg);
+			  transform-origin: center;
+			  transition: 1s linear all;
+			  fill-rule: nonzero;
+			  stroke: currentColor;
+			}
+
+			.base-timer__path-remaining.green {
+			  color: rgb(65, 184, 131);
+			}
+
+			.base-timer__path-remaining.orange {
+			  color: orange;
+			}
+
+			.base-timer__path-remaining.red {
+			  color: red;
+			}
+
+			.base-timer__label {
+			  position: absolute;
+			  width: 300px;
+			  height: 300px;
+			  top: 0;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  font-size: 48px;
+			}
+
+			.child {
+				position: absolute;
+				top: 30%;
+				left: 65%;
+				margin: -25px 0 0 -25px;
+			}
+
+			.float-container {
+			    border: 3px;
+			    padding: 20px;
+			}
+
+			.float-child {
+			    width: 50%;
+			    float: left;
+			    padding: 20px;
+			    border: 2px;
+			} 
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h2 style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Walbaum';">Behavioural Economics</h2>
+
+					<!-- <h3 style="background-color: #f7f7f7; width: 600px; margin-left: 190px; text-align: center;">Quick Pitch</h3> -->
+					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				</section>
+
+				<div class="topbar">
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section>
+					<h3 style="font-family: 'Walbaum';">Agenda</h3>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>Introduction to the Course.</li>
+						<li>Introduction to Behavioural Economics.</li>
+						<li>Case: <em>Behavioural Insights Team (A)</em>.</li>
+					</ol>
+				</section>
+
+				<section data-transition="none">
+					<img src="/images/teaching/map-1.png">
+				</section>
+
+				<section data-transition="none">
+					<img src="/images/teaching/map-2.png">
+				</section>
+
+				<section data-transition="none">
+					<img src="/images/teaching/map-3.png">
+				</section>
+
+				<section data-transition="none">
+					<img src="/images/teaching/map-4.png">
+				</section>
+
+				<section data-transition="none">
+					<img src="/images/teaching/map-5.png">
+				</section>
+
+				<section data-transition="none">
+					<img src="/images/teaching/map-6.png">
+				</section>
+
+				<section data-transition="none">
+					<img src="/images/teaching/map-7.png">
+				</section>
+
+				<section data-transition="none">
+					<img src="/images/teaching/map-8.png">
+				</section>
+
+				<section data-transition="none">
+					<img src="/images/teaching/map-9.png">
+				</section>
+
+				<section>
+					<h3 style="font-family: 'Walbaum';">Using the Learn LMS</h3>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>This course will try to be paperless.</li>
+					</ol>
+				</section> 
+
+				<section>
+					<h3 style="font-family: 'Walbaum';">Course Objectives</h3>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>Item.</li>
+					</ol>
+				</section> 
+
+				<section>
+					<h3 style="font-family: 'Walbaum'; position: relative; top: -200px;">Tweet-sized Case Summary</h3>
+				</section>
+
+				<section>
+					<h3 style="font-family: 'Walbaum';">Small Group Task</h3>
+					<div class="float-container">
+						<div class="float-child">
+							<p align="left">Take the next ten minutes and construct your own version of the tax letter with the members of your group.</p>
+						</div>
+						<div class="child float-child" id="app"></div>
+					</div>
+
+					<script type="text/javascript">
+						// Credit: Mateusz Rybczonec
+						const FULL_DASH_ARRAY = 283;
+						const WARNING_THRESHOLD = 60;
+						const ALERT_THRESHOLD = 10;
+
+						const COLOR_CODES = {
+						  info: {
+						    color: "green"
+						  },
+						  warning: {
+						    color: "orange",
+						    threshold: WARNING_THRESHOLD
+						  },
+						  alert: {
+						    color: "red",
+						    threshold: ALERT_THRESHOLD
+						  }
+						};
+
+						const TIME_LIMIT = 600;
+						let timePassed = 0;
+						let timeLeft = TIME_LIMIT;
+						let timerInterval = null;
+						let remainingPathColor = COLOR_CODES.info.color;
+
+						document.getElementById("app").innerHTML = `
+						<div class="base-timer">
+						  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+						    <g class="base-timer__circle">
+						      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+						      <path
+						        id="base-timer-path-remaining"
+						        stroke-dasharray="283"
+						        class="base-timer__path-remaining ${remainingPathColor}"
+						        d="
+						          M 50, 50
+						          m -45, 0
+						          a 45,45 0 1,0 90,0
+						          a 45,45 0 1,0 -90,0
+						        "
+						      ></path>
+						    </g>
+						  </svg>
+						  <span id="base-timer-label" class="base-timer__label">${formatTime(
+						    timeLeft
+						  )}</span>
+						  <button onclick="startTimer()">Start timer</button>
+						</div>
+						`;
+
+						function onTimesUp() {
+						  clearInterval(timerInterval);
+						}
+
+						function startTimer() {
+						  timerInterval = setInterval(() => {
+						    timePassed = timePassed += 1;
+						    timeLeft = TIME_LIMIT - timePassed;
+						    document.getElementById("base-timer-label").innerHTML = formatTime(
+						      timeLeft
+						    );
+						    setCircleDasharray();
+						    setRemainingPathColor(timeLeft);
+
+						    if (timeLeft === 0) {
+						      onTimesUp();
+						    }
+						  }, 1000);
+						}
+
+						function formatTime(time) {
+						  const minutes = Math.floor(time / 60);
+						  let seconds = time % 60;
+
+						  if (seconds < 10) {
+						    seconds = `0${seconds}`;
+						  }
+
+						  return `${minutes}:${seconds}`;
+						}
+
+						function setRemainingPathColor(timeLeft) {
+						  const { alert, warning, info } = COLOR_CODES;
+						  if (timeLeft <= alert.threshold) {
+						    document
+						      .getElementById("base-timer-path-remaining")
+						      .classList.remove(warning.color);
+						    document
+						      .getElementById("base-timer-path-remaining")
+						      .classList.add(alert.color);
+						  } else if (timeLeft <= warning.threshold) {
+						    document
+						      .getElementById("base-timer-path-remaining")
+						      .classList.remove(info.color);
+						    document
+						      .getElementById("base-timer-path-remaining")
+						      .classList.add(warning.color);
+						  }
+						}
+
+						function calculateTimeFraction() {
+						  const rawTimeFraction = timeLeft / TIME_LIMIT;
+						  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+						}
+
+						function setCircleDasharray() {
+						  const circleDasharray = `${(
+						    calculateTimeFraction() * FULL_DASH_ARRAY
+						  ).toFixed(0)} 283`;
+						  document
+						    .getElementById("base-timer-path-remaining")
+						    .setAttribute("stroke-dasharray", circleDasharray);
+						}
+
+					</script>
+				</section>
+
+				<section>
+					<iframe width="800" height="500" src="https://miro.com/app/live-embed/o9J_lxm0t-s=/?moveToViewport=-593,-325,1244,652" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+				</section>
+
+				<section>
+					<section>
+						<h3 style="font-family: 'Walbaum'; position: relative; top: -200px;">Summary of Ideas</h3>
+					</section>
+
+					<section>
+						<p align="left"><b>Consider the following:</b> suppose you are standing in front of two restaurants, and deciding which to go into for dinner.  They look the same, but one restaurant is crowded while the other is completely empty.</p>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">Which would you choose, and why?</li>
+							<li class="fragment fade-in-then-semi-out">How can it sometimes be a good thing to follow social norms?</li>
+						</ul>  
+					</section>
+				</section>
+
+				<section>
+					<h3 style="font-family: 'Walbaum'; position: relative; top: -200px;">Choice Architecture</h3>
+				</section>
+
+				<!--
+					Objective of the course. 
+					What we'll do. 
+					Reminder to be respectful. 
+					What is behavioural economics? 
+					How do these approaches to public policy rely on experimentation? 
+					Relatively new, data intensive, slow and methodical. 
+					Herd behavior -- what is it, and why does it happen?  How could it backfire in this context? 
+
+					Alternatives to the tax letter (small groups?). 
+
+					What is going on here?  Consider the following: suppose you are standing in front of two restaurants, and deciding which to go into for dinner.  They look the same, but one restaurant is crowded while the other is completely empty.  Which would you choose, and why?  How can it sometimes be a good thing to follow social norms? 
+
+					This was an example of choice architecture.  Describe.  This course is going to highlight the value of thinking like a choice architect. 
+
+					Now consider implementation. 
+
+					Show of hands: who thinks the letter should focus on social norms?  On threat of repossession?  Other thoughts? 
+
+					How should we decide?  Hopefully someone suggests an experiment...
+
+					There are two innovations taking place within the BIT: (1) behavioural theory, and (2) experimentation. 
+
+					How have we seen experimentation be used in our own lives? How does it work?  
+
+					Describe the key features of any experiment (randomized groups, independent manipulation, and dependent outcomes).  
+			
+					What does success look like for this intervention?  What factors should they take into account? 
+
+					Results: social norms helped.  5% increase in the likelihood delinquent taxpayers submitted a payment in the weeks following their letter -- the difference of millions of pounds in revenue. 
+
+					Potential explanations: (1) people get utility from behaving like their peers, (2) peer behavior gives people information about the costs and benefits of their decisions (e.g. probability of being audited). 
+
+					Takeaway: small improvements can come at very little cost.
+
+					One successful letter got pulled from circulation -- the letter threatened legal action against the taxpayer. 
+
+					Switch the context: now consider similar circumstances involving a credit card company -- how, if at all, should that letter differ? 
+
+					Next class: a broader discussion of choice architecture and experimenation in a variety of contexts.   
+				-->
+
+				<section data-background="/images/teaching/closing-slide.png">
+					
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
