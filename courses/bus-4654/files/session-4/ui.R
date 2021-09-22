@@ -37,23 +37,3 @@ ui <- fluidPage(
               animate=animationOptions(100)
   )
 )
-
-# Server logic
-server <- function(input, output) {
-  output$plot1 <- renderPlot({
-    Main <- "Probability Weighting Function"
-    probs <- sapply(seq(0,1,length.out=101),wp,g=input$g)
-    plot(prob.space, probs, main = Main, col='blue',xlab = 'True Probability', ylab = 'Perceived Probability')
-    lines(prob.space,prob.space,col='black')
-  })
-  output$plot2 <- renderPlot({
-    Main2 <- paste("Powerball Ticket Sales", "(Under Old Rules)", sep="\n")
-    plot(jackpot, sales, main = Main2, col='black',xlab = 'Jackpot (in Millions of $)', ylab = 'Ticket Sales (in Millions of $)')
-    revs = (sapply(jackpot,exp.val,g=input$g)/12)^3
-    revs = revs-min(revs)+mean(sales[sales<25])
-    points(jackpot, revs, col='blue')
-  })
-}
-
-## Run shiny app
-if (interactive()) shinyApp(ui, server)

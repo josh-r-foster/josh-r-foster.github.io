@@ -27,17 +27,6 @@ exp.val = function(g,jackpot) {
   return(v)
 }
 
-## UI function
-ui <- fluidPage(
-  fluidRow(
-    splitLayout(cellWidths = c("50%", "50%"), plotOutput("plot1"), plotOutput("plot2"))
-  ),
-  sliderInput("g", "Model Parameter",
-              min=0, max=2, value=1, step=0.01,
-              animate=animationOptions(100)
-  )
-)
-
 # Server logic
 server <- function(input, output) {
   output$plot1 <- renderPlot({
@@ -55,5 +44,3 @@ server <- function(input, output) {
   })
 }
 
-## Run shiny app
-if (interactive()) shinyApp(ui, server)

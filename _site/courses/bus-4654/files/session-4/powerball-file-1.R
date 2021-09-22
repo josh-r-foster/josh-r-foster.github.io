@@ -2,7 +2,7 @@ library(shiny)
 library(intrval)
 library(qcc)
 
-df = read.csv('/Users/joshfoster/Desktop/powerball-2.csv')
+df = read.csv(url('https://josh-r-foster.github.io/courses/bus-4654/files/session-4/powerball-data-1.csv'))
 
 jackpot = df$jackpot
 sales = df$revenue
