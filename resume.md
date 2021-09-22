@@ -129,6 +129,13 @@ permalink: /cv/
 ### Under Review
 
 `2021`
+__Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing Computer-Based Practice to Virtual Reality Practice__
+
+`with`
+ * Shannon L. Rawski
+ * Jeremy Bailenson
+
+`2021`
 __Non-parametric Estimation of Secret Reserve Prices in Auctions__
 
  * 
@@ -158,7 +165,7 @@ Abbreviated version published in  <em>Academy of Management Annual Meeting Proce
 
 ### In Preparation
 
-__A Comprehensive Evaluation of Auctions for Charity__
+__Auctions for Risk Averse Charities__
 
 `with`
  * Jeffrey Carpenter 
@@ -171,12 +178,6 @@ __Sequential Auctions and the Moments of Their Cumulative Revenue Distribution: 
 __Riding Backer Waves: Exploiting the Non-linear Funding Dynamics in Crowdfunded Campaigns__
 
  * 
-
-__Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing Computer-Based Practice to Virtual Reality Practice__
-
-`with`
- * Shannon Rawski
- * Jeremy Bailenson
 
 ## Grants
 
@@ -205,4 +206,4 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> (\$9,500), Princi
 
 ### <span>&#8203;</span>
 
-Last updated July, 2021
+Last updated September, 2021
