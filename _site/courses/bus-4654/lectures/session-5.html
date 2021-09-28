@@ -53,54 +53,50 @@
 					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Simulation instructions.</p>
 						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment current-visible"><span style="color:#582C83;">The situation:</span> your community is collecting money for a project to clean up the local water supply.</li>
-							<li class="fragment current-visible"><span style="color:#582C83;">How it works:</span> if <span style="color:#582C83;">total contributions are sufficient</span> to pay for the project, then the water is cleaned and each member receives <span style="color:#582C83;">a benefit</span>. If contributions are less than the cost of the project, the water is not cleaned and there is no benefit.</li>
-							<li class="fragment"><span style="color:#582C83;">What you do:</span> each community member (each of you) starts with an endowment of cash (20), and chooses how much to contribute to the project.</li>
+							<li class="fragment current-visible"><span style="color:#582C83;">The situation:</span> your orchestra is learning a new piece.</li>
+							<li class="fragment current-visible"><span style="color:#582C83;">What you do:</span> you must divide your practice time between <span style="color:#582C83;">Solo</span> and <span style="color:#582C83;">Ensemble</span> hours.</li>
+							<li class="fragment"><span style="color:#582C83;">How it works:</span> each member of the orchestra receives a reward ("prestige") according to their Solo and Ensemble practice time.</li>
 						</ul>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><span style="color:#582C83;">The target:</span> total contributions must be 50% of the combined endowments to clean the water.</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><span style="color:#582C83;">The reward:</span> there is a 25% return to cleaning the water (reaching the target).</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><span style="color:#582C83;">Each Ensemble hour of practice your orchestra does (including you) earns everyone 1 "prestige" point.</span> </p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><span style="color:#582C83;">Each Solo hour of practice you do earns you 3 "prestige" points.</span> </p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><span style="color:#582C83;">The goal: to maximize your "prestige" points.</span> </p>
 					</section>
 
 					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How it works.</p>
 						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment current-visible">The software will randomly assign you into a "community" of 7.</li>
+							<li class="fragment current-visible">The software will randomly assign you into an orchestra of 6.</li>
 							<li class="fragment">There will be multiple rounds where:</li>
 							<ol style="font-family: 'Benton Sans'; font-size: 90%;">
-								<li class="fragment">Community members will receive money (20 each).</li>
-								<li class="fragment">Each member will decide how much to contribute.</li>
-								<li class="fragment">If total contributions are $\geq$50% of the community's money, then the project is funded.</li>
-								<li class="fragment">If total contributions are $<$50% of the community's money, then the project is <b>not</b> funded.</li>
-								<li class="fragment">Returns (if any) are distributed.</li>
-								<li class="fragment">Rinse and repeat Steps 1-5 a few times.</li>
+								<li class="fragment">Orchestra members will receive time (20 hours each).</li>
+								<li class="fragment">Each member will decide how to split their time.</li>
+								<li class="fragment">"Prestige" points are distributed.</li>
+								<li class="fragment">Rinse and repeat Steps 1-3 a few times.</li>
 							</ol>
 						</ul>
 					</section>
 
 					<section>
-						<img src="/images/teaching/session-5-simulation-1.png" width="800">
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How you're "paid" (an example).</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How you earn "prestige" (an example).</p>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 80%; color:#582C83;">Suppose the following is true: </p>
 						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment">The funding threshold is 70 with 25% return.</li>
-							<li class="fragment">Thus your potential reward is 0.25$\times$70=17.5.</li>
-							<li class="fragment"><span style="color:#582C83;">You choose:</span> Contribution = 12.</li>
-							<li class="fragment">Total contributions (including yours) are <span style="color:#582C83;">75</span>.</li>
+							<li class="fragment">You choose 8 Ensemble hours and 12 Solo hours.</li>
+							<li class="fragment">Your 5 group members chose 5, 6, 7, 8 and 9 Ensemble hours (total 35).</li>
+							<li class="fragment">Total Ensemble hours (including yours) are <span style="color:#582C83;">(35+8)</span>.</li>
 						</ul>
 						<table style="font-family: 'Benton Sans'; font-size: 80%; border:none;" class="fragment">
-							<tr><td style="border:none;">Payoff</td><td style="border:none;">=</td><td style="border:none;">Endowment</td><td style="border:none;">-</td><td style="border:none;">Contribution</td><td style="border:none;">+</td><td style="border:none;">Return</td></tr>
-							<tr class="fragment"><td style="border:none;">25.5</td><td style="border:none;">=</td><td style="border:none;">20</td><td style="border:none;">-</td><td style="border:none;">12</td><td style="border:none;">+</td><td style="border:none;">17.5</td></tr>
+							<tr><td style="border:none;">Payoff</td><td style="border:none;">=</td><td style="border:none;">1$\times$Total Ensemble</td><td style="border:none;">+</td><td style="border:none;">3$\times$ Your Solo</td></tr>
+							<tr class="fragment"><td style="border:none;">79</td><td style="border:none;">=</td><td style="border:none;">1$\times$(35+8)</td><td style="border:none;">+</td><td style="border:none;">3$\times$12</td></tr>
 						</table>
 					</section>
 
 					<section data-auto-animate>
 						<h3>Questions?</h3>
+						<!--https://media.giphy.com/media/k5PBzy5e7mLogC2XXu/giphy.gif-->
 					</section>
 
 					<section data-auto-animate data-background-image="https://media.giphy.com/media/k5PBzy5e7mLogC2XXu/giphy.gif">
+						<!--https://media.giphy.com/media/k5PBzy5e7mLogC2XXu/giphy.gif-->
 					</section>
 
 					<section data-auto-animate></section>
