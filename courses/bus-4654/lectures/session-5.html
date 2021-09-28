@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 4654: Behavioural Economics</title>
+
+		<meta name="description" content="Session slides for BUS 4654">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h2 style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Walbaum';">Behavioural Economics</h2>
+
+					<!-- <h3 style="background-color: #f7f7f7; width: 600px; margin-left: 190px; text-align: center;">Quick Pitch</h3> -->
+					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+					<p style="background-color: #f7f7f7; width: 600px; margin-left: 190px; text-align: center;">Is your MobLab account ready?</p>
+				</section>
+
+				<div class="topbar">
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section>
+					<h3 style="font-family: 'Walbaum'; color:#582C83;">Agenda</h3>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>MobLab: <em>In-class Simulation</em>.</li>
+						<li>Case: <em>Evive Health and Workplace Influenza Vaccinations</em>.</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Simulation instructions.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment current-visible"><span style="color:#582C83;">The situation:</span> your community is collecting money for a project to clean up the local water supply.</li>
+							<li class="fragment current-visible"><span style="color:#582C83;">How it works:</span> if <span style="color:#582C83;">total contributions are sufficient</span> to pay for the project, then the water is cleaned and each member receives <span style="color:#582C83;">a benefit</span>. If contributions are less than the cost of the project, the water is not cleaned and there is no benefit.</li>
+							<li class="fragment"><span style="color:#582C83;">What you do:</span> each community member (each of you) starts with an endowment of cash (20), and chooses how much to contribute to the project.</li>
+						</ul>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><span style="color:#582C83;">The target:</span> total contributions must be 50% of the combined endowments to clean the water.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><span style="color:#582C83;">The reward:</span> there is a 25% return to cleaning the water (reaching the target).</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How it works.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment current-visible">The software will randomly assign you into a "community" of 7.</li>
+							<li class="fragment">There will be multiple rounds where:</li>
+							<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+								<li class="fragment">Community members will receive money (20 each).</li>
+								<li class="fragment">Each member will decide how much to contribute.</li>
+								<li class="fragment">If total contributions are $\geq$50% of the community's money, then the project is funded.</li>
+								<li class="fragment">If total contributions are $<$50% of the community's money, then the project is <b>not</b> funded.</li>
+								<li class="fragment">Returns (if any) are distributed.</li>
+								<li class="fragment">Rinse and repeat Steps 1-5 a few times.</li>
+							</ol>
+						</ul>
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-5-simulation-1.png" width="800">
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How you're "paid" (an example).</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 80%; color:#582C83;">Suppose the following is true: </p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">The funding threshold is 70 with 25% return.</li>
+							<li class="fragment">Thus your potential reward is 0.25$\times$70=17.5.</li>
+							<li class="fragment"><span style="color:#582C83;">You choose:</span> Contribution = 12.</li>
+							<li class="fragment">Total contributions (including yours) are <span style="color:#582C83;">75</span>.</li>
+						</ul>
+						<table style="font-family: 'Benton Sans'; font-size: 80%; border:none;" class="fragment">
+							<tr><td style="border:none;">Payoff</td><td style="border:none;">=</td><td style="border:none;">Endowment</td><td style="border:none;">-</td><td style="border:none;">Contribution</td><td style="border:none;">+</td><td style="border:none;">Return</td></tr>
+							<tr class="fragment"><td style="border:none;">25.5</td><td style="border:none;">=</td><td style="border:none;">20</td><td style="border:none;">-</td><td style="border:none;">12</td><td style="border:none;">+</td><td style="border:none;">17.5</td></tr>
+						</table>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Questions?</h3>
+					</section>
+
+					<section data-auto-animate data-background-image="https://media.giphy.com/media/k5PBzy5e7mLogC2XXu/giphy.gif">
+					</section>
+
+					<section data-auto-animate></section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">What happened in the simulation?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">What made coordination difficult?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><span style="color:#582C83;">Free-rider problem:</span> a classic market failure that occurs when the costs and benefits to individuals are not wholly privatized (i.e. there is an <span style="color:#582C83;">externality</span> present).</p><br>
+
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><span style="color:#582C83;">The simulation's problem:</span> all community members can receive a return, regardless of their own contribution.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">What kind of (non-)market solutions do you think could help with this problem?</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">What service does Evive provide, and what is the specific problem they are trying to solve in this case?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 0px; color:#582C83;">More survey questions.</p>
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr><td style="border:none;">About how many days per month <span style="color:#582C83;">do you</span> exercise in a typical month?</td><td style="border:none;" class="fragment fade-in">About how many days per month <span style="color:#582C83;">do you think you should</span> exercise in a typical month?</td></tr>
+							<tr><td style="border:none;" class="fragment fade-in">$\bar{X}=12.05$</td><td style="border:none;" class="fragment fade-in">$\bar{X}=15.2$</td></tr>
+						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">What behavioural reasons (i.e. mistakes) might cause us to under-exercise?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Behavioural economics gives us the <span style="color:#582C83;">Internality</span>.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">The long-run consequences (good or bad) that are not considered when one makes a decision.</li>
+							<li class="fragment">One imposes an <span style="color:#582C83;">externality</span> on themself, according to their own preferences.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">Now, back to Evive's problem.</p>
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr><td style="border:none;"><span style="color:#582C83;">Externalities</span> of flu shots:</td><td style="border:none;"><span style="color:#582C83;">Internalities</span> of flu shots:</td></tr>
+							<tr><td style="border:none;">(Market-based aspects)</td><td style="border:none;">(Behavioural aspects)</td></tr>
+							<tr><td style="border:none;">1)</td><td style="border:none;">1)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">2)</td><td style="border:none;">2)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">3)</td><td style="border:none;">3)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">What are some potential communication designs?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">How can we measure these designs' effectiveness?</p>
+					</section>
+				</section>
+
+				<section data-auto-animate>
+					<img data-id="box" src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px; margin-top: -143px;" align="right">
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Some health-related markets suffer from:</p>
+					<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+						<li class="fragment"><span style="color:#582C83;">Externalities:</span> forced economic outcomes on non-market participants.</li>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">Can be positive/negative.</li>
+						</ul>
+						<li class="fragment"><span style="color:#582C83;">Internalities:</span> forced economic outcomes on our (future) selves.</li>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">Biases usual make them negative.</li>
+						</ul>
+					</ol>
+				</section>
+
+				<section data-auto-animate>
+					<img data-id="box" src="/images/teaching/Ivey-Main-Full-Signature.jpeg" style="width: 800px;" align="center">
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
