@@ -205,7 +205,7 @@
 
 			function display_ct() {
 				var today = new Date();
-				var time = today.getHours() + ":" + today.getMinutes();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
 				document.getElementById('ct').style.color = "#582C83";
 				document.getElementById('ct').innerHTML = time;
 				display_c();
