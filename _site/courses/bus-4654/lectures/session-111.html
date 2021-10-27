@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 4654: Behavioural Economics</title>
+
+		<meta name="description" content="Session slides for BUS 4654">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
+
+		<style type="text/css">
+			.base-timer {
+			  position: relative;
+			  width: 300px;
+			  height: 300px;
+			}
+
+			.base-timer__svg {
+			  transform: scaleX(-1);
+			}
+
+			.base-timer__circle {
+			  fill: none;
+			  stroke: none;
+			}
+
+			.base-timer__path-elapsed {
+			  stroke-width: 7px;
+			  stroke: grey;
+			}
+
+			.base-timer__path-remaining {
+			  stroke-width: 7px;
+			  stroke-linecap: round;
+			  transform: rotate(90deg);
+			  transform-origin: center;
+			  transition: 1s linear all;
+			  fill-rule: nonzero;
+			  stroke: currentColor;
+			}
+
+			.base-timer__path-remaining.green {
+			  color: rgb(65, 184, 131);
+			}
+
+			.base-timer__path-remaining.orange {
+			  color: orange;
+			}
+
+			.base-timer__path-remaining.red {
+			  color: red;
+			}
+
+			.base-timer__label {
+			  position: absolute;
+			  width: 300px;
+			  height: 300px;
+			  top: 0;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  font-size: 48px;
+			}
+
+			.child {
+				position: absolute;
+				top: 30%;
+				left: 65%;
+				margin: -25px 0 0 -25px;
+			}
+
+			.float-container {
+			    border: 3px;
+			    padding: 20px;
+			}
+
+			.float-child {
+			    width: 50%;
+			    float: left;
+			    padding: 20px;
+			    border: 2px;
+			} 
+		</style>
+	</head>
+
+	<body onload="display_ct();">
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h2 style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Walbaum';">Behavioural Economics</h2>
+					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				</section>
+
+				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section>
+					<h3 style="font-family: 'Walbaum'; color:#582C83;">Agenda</h3>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>Group project discussion.</li>
+						<li>Choice architecture problem: <span style="color: #582C83;">retirement savings plans</span>.</li> <!-- use new groups! -->
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color: #582C83;">Project overview.</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment"><b>Objective:</b> use behavioural economics to improve the outcomes within a community <em>according to its own preferences</em>.</li>
+							<li class="fragment"><b>Presentation:</b> a 10-15 minute overview of the proposal to take place during the last week of class.</li>
+							<li class="fragment"><b>Report:</b> a slide deck that provides detail including <em>and extending</em> what was shared in the presentation.  It is due the day the team's presentation is scheduled.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color: #582C83;">Recommendation for presentation structure:</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">Identify a social <b><em>or</em></b> business problem.</li>
+							<li class="fragment">Demonstrate how a behavioural theory can explain this problem.</li>
+							<li class="fragment">Provide a solution that could feasibly fix the problem.</li>
+							<li class="fragment">Describe the expected improvements that result from the policy being implemented.</li>
+						</ul>
+					</section>
+
+					<section>
+						<table style="font-size:45%; font-family: 'Benton Sans';">
+						<tbody>
+						  <tr>
+						    <td></td>
+						    <td></td>
+						    <td></td>
+						    <td></td>
+						    <td></td>
+						    <td></td>
+						  </tr>
+						  <tr>
+						    <td><b>TEAM SPEED</b></td><td>Cheng, Ryan</td>	<td>Fleisher, Sammy</td>	<td>Li, Andrew</td>	<td>San, Kate</td>	<td>Schumacher, Mark</td>	<td>Zhang, Roy</td>	<td></td>
+						  </tr>
+						  <tr>
+						    <td><b>TEAM KNOWLEDGE</b></td><td>Hartmann, Tatiana</td>	<td>Hung, Jessie</td>	<td>Li, Juliana</td>	<td>Ward, Shelby</td>	<td>Wei, Lareina</td>	<td>Zhou, Eric</td>	<td></td>
+						  </tr>
+						  <tr>
+						    <td><b>TEAM CONFIDENCE</b></td><td>Borrell, Michaela</td>	<td>Chen, Iris</td>	<td>Chen, Steven</td>	<td>Zafar, Abdul</td>	<td>Zhang, Freya</td>	<td>Zhao, Wynnie</td>	<td></td>
+						  </tr>
+						  <tr>
+						    <td><b>TEAM COURAGE</b></td><td>Bataille, Quentin</td>	<td>Fentener van Vlissingen, Victor</td>	<td>Jacquet, Gabrielle</td>	<td>Li, Clara</td>	<td>Reimers, Max</td>	<td>Si, Alisa</td>	<td>Yang, Jessica</td>
+						  </tr>
+						  <tr>
+						    <td><b>TEAM INSIGHT</b></td><td>Ajani, Aly</td>	<td>Danish, Ahsan</td>	<td>Eldred, Amy</td>	<td>Fuzeau, Paul</td>	<td>Lu, Alice</td>	<td>Ungvary, Max</td>	<td></td>
+						  </tr>
+						  <tr>
+						  	<td><b>TEAM WISDOM</b></td><td>Craps, Robin</td>	<td>Di Carlo, Alex</td>	<td>Lach, Madelaine</td>	<td>Nguyen, Kathrine</td>	<td>Noronha, Rohan</td>	<td>Selin, Theresia</td>	<td></td>
+						  </tr>
+						  <tr>
+						  	<td><b>TEAM ENERGY</b></td><td>Fan, Grace</td>	<td>Fang, Felicia</td>	<td>Huber, Mara</td>	<td>Lee,Jacob</td>	<td>Mican, Alex</td>	<td>Qurban-Ali, Reza</td>	<td></td>
+						  </tr>
+						  <tr>
+						  	<td><b>TEAM STRENGTH</b></td><td>El Alami, Ilyas</td>	<td>Garay, Matthew</td>	<td>Kocjancic, Emily</td>	<td>Losada Romera, Juan</td>	<td>Swart, Boris</td>	<td>Yang, Skye</td>	<td></td>
+						  </tr>
+						  <tr>
+						    <td></td>
+						    <td></td>
+						    <td></td>
+						    <td></td>
+						    <td></td>
+						    <td></td>
+						  </tr>
+						</tbody>
+						</table>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color: #582C83;">Choice architecture problem: retirement savings.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class="fragment"><a href="https://www.newswire.ca/news-releases/70-of-canadians-think-they-won-t-save-enough-for-retirement-scotiabank-poll-896861522.html">"70% [of Canadians] are worried that they are not saving enough."</a></li>
+							<li class="fragment">Almost no one thinks they are saving too much.</li>
+						</ul>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color: #582C83;" class="fragment">How can choice architecture guide the under-savers <em>without disturbing those who are already on track</em>?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color: #582C83;">Instructions:</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 85%;">
+							<li class="fragment fade-in-then-semi-out">Categorize a list of behavioural concepts according to their relative presence and effect on savings decisions.</li>
+							<li class="fragment fade-in-then-semi-out">Document specifically how the three most relevant behavioural concepts influence decision-making.</li>
+							<li class="fragment fade-in-then-semi-out">Using your insights above, design an environment in which a community of people will make savings decisions.</li>
+							<li class="fragment">Select a team member to report back to the class.</li>
+						</ol>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/o9J_ln-RJ9M=/?moveToViewport=-2207,-983,3309,1852" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+					</section>
+
+					<section>
+						<h3 style="font-family: 'Walbaum';">Team Task</h3>
+						<div class="float-container">
+							<div class="float-child">
+								<p align="left">With your team, take the next thirty minutes to complete the Miro board tasks.  All teams will report back when time is up.</p>
+							</div>
+							<div class="child float-child" id="app"></div>
+						</div>
+
+						<script type="text/javascript">
+							// Credit: Mateusz Rybczonec
+							const FULL_DASH_ARRAY = 283;
+							const WARNING_THRESHOLD = 180;
+							const ALERT_THRESHOLD = 60;
+
+							const COLOR_CODES = {
+							  info: {
+							    color: "green"
+							  },
+							  warning: {
+							    color: "orange",
+							    threshold: WARNING_THRESHOLD
+							  },
+							  alert: {
+							    color: "red",
+							    threshold: ALERT_THRESHOLD
+							  }
+							};
+
+							const TIME_LIMIT = 1800;
+							let timePassed = 0;
+							let timeLeft = TIME_LIMIT;
+							let timerInterval = null;
+							let remainingPathColor = COLOR_CODES.info.color;
+
+							document.getElementById("app").innerHTML = `
+							<div class="base-timer">
+							  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+							    <g class="base-timer__circle">
+							      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+							      <path
+							        id="base-timer-path-remaining"
+							        stroke-dasharray="283"
+							        class="base-timer__path-remaining ${remainingPathColor}"
+							        d="
+							          M 50, 50
+							          m -45, 0
+							          a 45,45 0 1,0 90,0
+							          a 45,45 0 1,0 -90,0
+							        "
+							      ></path>
+							    </g>
+							  </svg>
+							  <span id="base-timer-label" class="base-timer__label">${formatTime(
+							    timeLeft
+							  )}</span>
+							  <button onclick="startTimer()">Start timer</button>
+							</div>
+							`;
+
+							function onTimesUp() {
+							  clearInterval(timerInterval);
+							}
+
+							function startTimer() {
+							  timerInterval = setInterval(() => {
+							    timePassed = timePassed += 1;
+							    timeLeft = TIME_LIMIT - timePassed;
+							    document.getElementById("base-timer-label").innerHTML = formatTime(
+							      timeLeft
+							    );
+							    setCircleDasharray();
+							    setRemainingPathColor(timeLeft);
+
+							    if (timeLeft === 0) {
+							      onTimesUp();
+							    }
+							  }, 1000);
+							}
+
+							function formatTime(time) {
+							  const minutes = Math.floor(time / 60);
+							  let seconds = time % 60;
+
+							  if (seconds < 10) {
+							    seconds = `0${seconds}`;
+							  }
+
+							  return `${minutes}:${seconds}`;
+							}
+
+							function setRemainingPathColor(timeLeft) {
+							  const { alert, warning, info } = COLOR_CODES;
+							  if (timeLeft <= alert.threshold) {
+							    document
+							      .getElementById("base-timer-path-remaining")
+							      .classList.remove(warning.color);
+							    document
+							      .getElementById("base-timer-path-remaining")
+							      .classList.add(alert.color);
+							  } else if (timeLeft <= warning.threshold) {
+							    document
+							      .getElementById("base-timer-path-remaining")
+							      .classList.remove(info.color);
+							    document
+							      .getElementById("base-timer-path-remaining")
+							      .classList.add(warning.color);
+							  }
+							}
+
+							function calculateTimeFraction() {
+							  const rawTimeFraction = timeLeft / TIME_LIMIT;
+							  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+							}
+
+							function setCircleDasharray() {
+							  const circleDasharray = `${(
+							    calculateTimeFraction() * FULL_DASH_ARRAY
+							  ).toFixed(0)} 283`;
+							  document
+							    .getElementById("base-timer-path-remaining")
+							    .setAttribute("stroke-dasharray", circleDasharray);
+							}
+
+						</script>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/o9J_lnC-sj4=/?moveToViewport=-1787,-2737,3309,1852" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/o9J_lnC-vaA=/?moveToViewport=-1787,-2737,3309,1852" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/o9J_lnC-vQw=/?moveToViewport=-1787,-2737,3309,1852" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/o9J_lnC-v_M=/?moveToViewport=-1787,-2737,3309,1852" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/o9J_lnCpAHo=/?moveToViewport=-1787,-2737,3309,1852" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/o9J_lnCjhTc=/?moveToViewport=-1787,-2737,3309,1852" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/o9J_lnCjhMI=/?moveToViewport=-1787,-2737,3309,1852" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/o9J_lnCpA-I=/?moveToViewport=-1787,-2737,3309,1852" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">Thaler's Save More Tomorrow (SMarT) Plan</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 85%;">
+							<li class="fragment fade-in-then-semi-out">Found a company wanting to improve employee savings.</li>
+							<li class="fragment fade-in-then-semi-out">Thaler worked with those empolyees who refused traditional financial advisement.</li>
+							<li class="fragment">"Would you like to save more with your next raise?"</li>
+							<ul style="font-family: 'Benton Sans'; font-size: 85%;">
+								<li class="fragment">Amount was less than their raise.</li>
+								<li class="fragment">Continued with each raise.</li>
+							</ul>
+						</ol>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;" class="fragment">Ultimately saved more than those with financial advisor.</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<img data-id="box" src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px; margin-top: -164px;" align="right">
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Why did this plan work?</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment"><span style="color:#582C83;">Present bias:</span> it sidesteps short-run impatience.</li>
+							<li class="fragment"><span style="color:#582C83;">Loss aversion:</span> it didn't require a decrease in consumption.</li>
+							<li class="fragment"><span style="color:#582C83;">Default effect:</span> a small cost to switching kept employees saving.</li>
+						</ol>
+					</section>
+
+					<section data-auto-animate>
+						<img data-id="box" src="/images/teaching/Ivey-Main-Full-Signature.jpeg" style="width: 800px;" align="center">
+					</section>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+	</body>
+</html>
