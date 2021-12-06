@@ -131,17 +131,19 @@ permalink: /cv/
 `2021`
 __Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing Computer-Based Practice to Virtual Reality Practice__
 
+Revise and Resubmit at <em>Technology, Mind, and Behavior</em>
+
 `with`
  * Shannon L. Rawski
  * Jeremy Bailenson
 
 `2021`
-__Non-parametric Estimation of Secret Reserve Prices in Auctions__
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3978861">__Non-parametric Estimation of Secret Reserve Prices in Auctions__</a>
 
  * 
 
 `2020`
-<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3472119">__On the Relative Efficiency of Crowdsourced Rating Mechanisms: Experimental Evidence__</a>
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3472119">__How Rating Mechanisms Shape User Search, Quality Inference and Engagement in Online Platforms: Experimental Evidence__</a>
 
 Revise and Resubmit at the <em>Journal of Business Research</em>
 
