@@ -183,7 +183,7 @@ __Riding Backer Waves: Exploiting the Non-linear Funding Dynamics in Crowdfunded
 
 ## Grants
 
-UW-Oshkosh Faculty Development Summer Grant, 15\% CAS, 2017, 2019. 
+UW-Oshkosh Faculty Development Summer Grant, 15% CAS, 2017, 2019. 
 
 IFREE Small Grant <em>Auctions for Charity and for Profit</em> (\$9,500), Principal Investigator, 2014.
 
@@ -208,4 +208,4 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> (\$9,500), Princi
 
 ### <span>&#8203;</span>
 
-Last updated September, 2021
+Last updated December, 2021
