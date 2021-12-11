@@ -131,7 +131,7 @@ permalink: /cv/
 `2021`
 __Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing Computer-Based Practice to Virtual Reality Practice__
 
-Revise and Resubmit at <em>Technology, Mind, and Behavior</em>
+Revise and resubmit at <em>Technology, Mind, and Behavior</em>
 
 `with`
  * Shannon L. Rawski
@@ -145,7 +145,7 @@ Revise and Resubmit at <em>Technology, Mind, and Behavior</em>
 `2020`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3472119">__How Rating Mechanisms Shape User Search, Quality Inference and Engagement in Online Platforms: Experimental Evidence__</a>
 
-Revise and Resubmit at the <em>Journal of Business Research</em>
+Revise and resubmit at the <em>Journal of Business Research</em>
 
  * 
 
