@@ -58,6 +58,13 @@ permalink: /cv/
 ## Publications
 
 `2021`
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3472119">__How Rating Mechanisms Shape User Search, Quality Inference and Engagement in Online Platforms: Experimental Evidence__</a>
+
+<em>Journal of Business Research</em>, forthcoming. 
+
+ * 
+
+`2021`
 <a href="https://www.nber.org/papers/w27187">__The Relationship between In-Person Voting and COVID-19: Evidence from the Wisconsin Primary__</a>
 
 <em>Contemporary Economic Policy</em>, 2021, 1-18. 
@@ -139,13 +146,6 @@ Revise and resubmit at <em>Technology, Mind, and Behavior</em>
 
 `2021`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3978861">__Non-parametric Estimation of Secret Reserve Prices in Auctions__</a>
-
- * 
-
-`2020`
-<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3472119">__How Rating Mechanisms Shape User Search, Quality Inference and Engagement in Online Platforms: Experimental Evidence__</a>
-
-Revise and resubmit at the <em>Journal of Business Research</em>
 
  * 
 
