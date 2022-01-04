@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 9483: Global Economy, Markets and Strategy</title>
+
+		<meta name="description" content="Session slides for BUS 9483">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+	</head>
+
+	<body onload="display_ct();">
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
+
+					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				</section>
+
+				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section>
+					<h3 style="font-family: 'Walbaum'; margin-top: 15%;">Agenda</h3>
+					<div class="fragment current-visible">
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">First 80-ish minutes: </p>
+						<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li>Introduction to the Course.</li>
+							<li>MobLab Simulation: <em>Double Auction Market</em>.</li>
+							<li>Case: <em>Hurricane Sandy: Supply, Demand and Appropriate Responses to the Gas Shortage</em>.</li>
+						</ol>
+					</div>
+					<div class="fragment current-visible">
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">Second 80-ish minutes: </p>
+						<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li>Case: <em>Choosing a Price for Desdol</em>.</li>
+							<li>Marginal Analysis.</li>
+							<li>Maximum Price Heuristic.</li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<p align="center" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">About Me</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Joshua Foster, Ph.D.</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class ="fragment fade-in">Feel free to call me Josh.</li>
+							<li class ="fragment fade-in">I do research in Psychology and Economics.</li>
+							<li class ="fragment fade-in">I specialize in firm competition.</li>
+						</ul>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class ="fragment fade-in">I am always happy to help!</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class ="fragment fade-in">Email me at <a href="mailto:jfoster@ivey.ca">jfoster@ivey.ca</a>.</li>
+							<li class ="fragment fade-in">Office Hours are Tuesdays, 12:00-2:00 PM.</li>
+							<li class ="fragment fade-in">Also available by appointment.</li>
+						</ul>
+					</section>
+
+					<section data-transition="none">
+						<img src="/images/teaching/map-1.png">
+					</section>
+
+					<section data-transition="none">
+						<img src="/images/teaching/map-2.png">
+					</section>
+
+					<section data-transition="none">
+						<img src="/images/teaching/map-3.png">
+					</section>
+
+					<section data-transition="none">
+						<img src="/images/teaching/map-4.png">
+					</section>
+
+					<section data-transition="none">
+						<img src="/images/teaching/map-5.png">
+					</section>
+
+					<section data-transition="none">
+						<img src="/images/teaching/map-6.png">
+					</section>
+
+					<section data-transition="none">
+						<img src="/images/teaching/map-7.png">
+					</section>
+
+					<section data-transition="none">
+						<img src="/images/teaching/map-8.png">
+					</section>
+
+					<section data-transition="none">
+						<img src="/images/teaching/map-9.png">
+					</section>
+
+					<section data-transition="none">
+						<img src="/images/teaching/map-10.png">
+					</section>
+
+					<section data-transition="none">
+						<img src="/images/teaching/map-11.png">
+					</section>
+
+					<section>
+						<p align="center" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Course Objectives</p>
+						<ol align="left" style="font-family: 'Benton Sans'; font-size: 95%;">
+							<li class="fragment">Insert economic thinking at each decision node within an organization.</li>
+							<li class="fragment">Develop an essential library of economic insights.</li>
+							<li class="fragment">Practice making strategic economic decisions.</li> 
+						</ol>
+					</section>
+
+					<section>
+						<p align="center" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Course Themes</p>
+						<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class="fragment">Price discovery, pricing strategy, and consumer preferences.</li>
+							<li class="fragment">Market creation and costs of production.</li>
+							<li class="fragment">Market failures and the role of government.</li> 
+							<li class="fragment">Market design problems and behavioural economics.</li> 
+						</ol>
+					</section>
+
+					<section>
+						<p align="center" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Course Implementation</p>
+						<ol align="left" style="font-family: 'Benton Sans'; font-size: 95%;">
+							<li class="fragment">Everything you need will be on <a href="https://learn.ivey.ca">Learn</a>.</li>
+							<li class="fragment">Interactive resources will be provided by <a href="https://moblab.com/">MobLab</a>.</li>
+							<li class="fragment">We have a co-pilot, Ashley!</li>
+						</ol>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Evaluations & Assessments</p>
+						<table style="width: 90%;">
+			                <tbody style="font-family: 'Benton Sans'; font-size: 90%;">
+			                    <tr>
+			                        <td style="width: 75%;" width="379">
+			                            <p>Class contribution</p>
+			                        </td>
+			                        <td style="width: 15%;" width="118">
+			                            <p>30%</p>
+			                        </td>
+			                    </tr>
+			                    <tr>
+			                        <td style="width: 75%;" width="379">
+			                            <p>Midterm examination (January 21 from 8:00AM-11:00AM)</p>
+			                        </td>
+			                        <td style="width: 15%;" width="118">
+			                            <p>&nbsp; &nbsp; &nbsp; &nbsp;25%</p>
+			                        </td>
+			                    </tr>
+			                    <tr>
+			                        <td style="width: 75%;" width="379">
+			                            <p>Final examination (During elective period exams)</p>
+			                        </td>
+			                        <td style="width: 15%;" width="118">
+			                            <p>&nbsp; &nbsp; &nbsp; &nbsp;45%</p>
+			                        </td>
+			                    </tr>
+			                    <tr>
+			                        <td style="width: 75%;" width="379">
+			                            <p>&nbsp;</p>
+			                        </td>
+			                        <td style="width: 15%;" width="118">
+			                            <p><u>100%</u></p>
+			                        </td>
+			                    </tr>
+			                </tbody>
+			            </table>
+					</section>
+
+					<section>
+						<h3 style="font-family: 'Benton Sans';">Questions?</h3>
+					</section>
+				</section>  
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">Simulation instructions. </p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment"><span style="color:#582C83;">The situation:</span> there is a market for oranges in which this class will act as <span style="color:#582C83;">Buyers</span> and <span style="color:#582C83;">Sellers</span>.</li>
+							<li class="fragment"><span style="color:#582C83;">What you do:</span> make trades by negotiating on prices.</li>
+							<li class="fragment"><span style="color:#582C83;">Your objective:</span> make trades in a way that maximizes your personal return.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How it works.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li>Everyone is randomly placed in groups of 10.</li>
+							<li class="fragment">Within each grouping, each person is randomly assigned the role of either a <span style="color:#582C83;">Buyer</span> or a <span style="color:#582C83;">Seller</span>.</li>
+							<li class="fragment">The <span style="color:#582C83;">Buyers</span> will make open <span style="color:#582C83;">bids</span>, representing the prices at which they are willing to buy an orange.</li>
+							<li class="fragment">The <span style="color:#582C83;">Sellers</span> will make open <span style="color:#582C83;">asks</span>, representing the prices at which they are willing to sell an orange.</li>
+							<li class="fragment">Whenever the simulation finds a <span style="color:#582C83;">bid</span>$\geq$<span style="color:#582C83;">ask</span> in the market, it will execute the trade.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How do I decide my prices?</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">The <span style="color:#582C83;">Buyers</span> will have induced values for the oranges.  That is, <span style="color:#582C83;">Buyers</span> will be told the maximum they are willing to spend on a given orange.</li>
+							<li class="fragment">Likewise, the <span style="color:#582C83;">Sellers</span> will have induced costs for the oranges.  That is, <span style="color:#582C83;">Sellers</span> will be told the least they are willing to accept for a given orange.</li>
+						</ul>
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-14-1.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-14-2.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-14-3.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-14-4.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-14-5.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-14-6.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-14-7.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-14-8.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How you "win".</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">The <span style="color:#582C83;">Buyers</span> are seeking to maximize their <span style="color:#582C83;">consumer surplus (cs)</span>.  That is, <center>$\text{cs}=\text{value of orange}-\text{price paid}\;$</center> for each transaction.</li>
+							<li class="fragment">The <span style="color:#582C83;">Sellers</span> are seeking to maximize their <span style="color:#582C83;">producer surplus (ps)</span>.  That is, <center>$\text{ps}=\text{price received}-\text{cost of orange}\;$</center> for each transaction.</li>
+						</ul>
+					</section>
+
+					<section data-auto-animate>
+						<h3 style="font-family: 'Benton Sans';">Questions?</h3>
+					</section>
+
+					<section data-auto-animate data-background-image="https://media.giphy.com/media/wPfjALm0Xk43C/giphy.gif">
+					</section>
+
+					<section data-auto-animate></section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">What was your pricing strategy?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Market equilibrium.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">The price that ensures buyers and sellers want to buy/sell the same quantity (i.e. their market incentives are aligned).</p>
+					</section>
+
+					<section>
+						<iframe height="600" width="100%" frameborder="no" src="https://josh-r-foster.shinyapps.io/session-14/" style="position: relative; top: 100px;"> </iframe>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Regarding the case...</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Tweet-sized summary?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 95%; color:#582C83; color:#582C83;">What aspects might influence Demand? Supply?</p> 
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr><td style="border:none; width: 450px;">Demand</td><td style="border:none; width: 450px;">Supply</td></tr>
+							<tr><td style="border:none;">1)</td><td style="border:none;">1)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">2)</td><td style="border:none;">2)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">3)</td><td style="border:none;">3)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Should gas prices be allowed to adjust to equilibrium?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">What non-market (i.e. non-price) mechanisms might we consider?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">What process would you use to determine prioritization?</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Key takeaways.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 80%;">
+							<li class="fragment">When shortages arise, it is because the market price is operating below its equilibrium.</li>
+							<li class="fragment">Deliberately setting a binding price ceiling does not necessarily promote equity across various societal groups - it is a task that requires care and economic insight.</li>
+							<li class="fragment">If the objective is to protect vulnerable members of a population, it will often be worthwhile to operate through an extra-market mechanism, rather than interfering with the market directly.</li>
+						</ol>
+					</section>
+
+					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
