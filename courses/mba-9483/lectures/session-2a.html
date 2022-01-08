@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 9483: Global Economy, Markets and Strategy</title>
+
+		<meta name="description" content="Session slides for BUS 9483">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+	</head>
+
+	<body onload="display_ct();">
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
+
+					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				</section>
+
+				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section>
+					<h3 style="font-family: 'Walbaum';">Agenda</h3>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>Case: <em>Rocket Fuel: Measuring the Effectiveness of Online Advertising</em>.</li>
+						<li>Value of experimentation.</li>
+						<li>ROI in this case.</li>
+						<li>Determining optimal experimental cluster sizes.</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What is an experiment?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How did Rocket Fuel use an expeirment to determine the effectiveness of the advertising campaign?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color: #582C83;">Experimentation</p>
+						<div class="fragment fade-in-then-semi-out">
+							<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color: #582C83;">Randomization:</p>
+							<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Random assignment of subjects ensures that there are no inherent differences between the groups answering the different questions. The differences in behavior can be attributed solely to the different questions.</p>
+						</div>
+						<div class="fragment fade-in-then-semi-out">
+							<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color: #582C83;">Experimental Manipulation:</p>
+							<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">To learn what difference something makes in people's behavior, we vary that one thing between subjects.</p>
+						</div>
+					</section>
+
+					<section>
+						<img src="/images/teaching/rct-1.png">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Why was Rocket Fuel running an experiment for their client?</p>
+					</section>
+
+					<section>
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<thead>
+							  <tr>
+							    <th></th>
+							    <th>Control</th>
+							    <th>Test</th>
+							    <th>TOTAL</th>
+							  </tr>
+							</thead>
+							<tbody>
+							  <tr>
+							    <td>Did not convert</td>
+							    <td></td>
+							    <td></td>
+							    <td></td>
+							  </tr>
+							  <tr>
+							    <td>Converted</td>
+							    <td></td>
+							    <td></td>
+							    <td></td>
+							  </tr>
+							  <tr>
+							    <td>TOTAL</td>
+							    <td></td>
+							    <td></td>
+							    <td></td>
+							  </tr>
+							</tbody>
+						</table>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;" class="fragment">Did the advertising campaign work?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How much money did the campaign generate for the client?</p>
+
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 50%;" class="fragment">
+						$
+						\begin{split}
+						\text{Money Generated}\; =\; 
+						&(\text{Value of Converted User})\times(\text{Number of Exposed Users}) \\
+						&\times(\text{Conversion % of Exposed Users} - \text{Conversion % of Controlled Users}) \\
+						\end{split}
+						$
+						</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 50%;" class="fragment">
+						$
+						\begin{split}
+						\text{Money Generated}\; =\; 
+						&(40)\times(564577) \\
+						&\times(0.02555 - 0.01785) \\
+						\end{split}
+						$
+						</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 50%;" class="fragment">
+						$
+						\text{Money Generated}\; =\; 173719
+						$
+						</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How much money did the campaign cost the client?</p>
+
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 70%;" class="fragment">
+						$
+						\text{Cost of Campaign} \;=\; (\text{Number of Impressions})\times(\text{Average CPM})
+						$
+						</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 70%;" class="fragment">
+						$
+						\text{Cost of Campaign} \;=\; (\frac{14597182}{1000})\times(9) \;=\; 131375
+						$
+						</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What was the ROI of the campaign?</p>
+
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment">
+						$
+						\text{ROI} \;=\; \frac{(\text{Money Generated}) - (\text{Cost of Campaign})}{(\text{Cost of Campaign})}
+						$
+						</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment">
+						$
+						\text{ROI} \;=\; \frac{(173719) - (131375)}{(131375)} \;=\; 32\%
+						$
+						</p>	
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What was the opportunity cost of including the control group?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Required control group size.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">
+							<em>Following List et al. (2010)</em>:<br>
+							$
+								\frac{n_1}{n_0}=\sqrt{\frac{c_0}{c_1}}\frac{\sigma_1}{\sigma_0}
+
+							$<br>
+							where 
+						</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 80%;">
+							<li class="fragment">$n_1$ is the size of the treatment group.</li>
+							<li class="fragment">$n_0$ is the size of the control group.</li>
+							<li class="fragment">$c_1$ is the marginal cost of the treatment group.</li>
+							<li class="fragment">$c_0$ is the marginal cost of the control group.</li>
+							<li class="fragment">$\sigma_1$ is the standard deviation of the treatment group data.</li>
+							<li class="fragment">$\sigma_0$ is the standard deviation of the control group data.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+							<em>Following List et al. (2010)</em>:
+							$
+								\frac{n_1}{n_0}=\sqrt{\frac{c_0}{c_1}}\frac{\sigma_1}{\sigma_0}
+
+							$
+						</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 80%;" class="fragment">
+							$c_1=\frac{9}{1000}\;\;\;\;\;\;c_0=\frac{9}{1000}+40\times0.0076925$<br><br>
+							$\sigma_1=0.1578\;\;\;\;\;\;\sigma_0=0.1324$
+						</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 80%;" class="fragment">
+							$
+								\frac{n_1}{n_0}=\sqrt{\frac{\frac{9}{1000}+40\times0.0076925}{\frac{9}{1000}}}\frac{0.1578}{0.1324}\approx 7
+							$<br><span class="fragment">In the case: $\frac{n_1}{n_0}=\frac{564577}{23524}\approx 24$</span>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Key takeaways.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 80%;">
+							<li class="fragment">Experimentation is a powerful tool for market exploration.</li>
+							<li class="fragment">There are opportunity costs to running experiments.</li>
+							<li class="fragment">These tradeoffs can be balanced with relatively simple statistics.</li>
+						</ol>
+					</section>
+
+					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
