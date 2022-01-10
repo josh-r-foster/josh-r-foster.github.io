@@ -24,7 +24,7 @@
 		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
 	</head>
 
-	<body>
+	<body onload="display_ct();">
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
@@ -37,6 +37,7 @@
 				</section>
 
 				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
     				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
 				</div>
 
@@ -45,28 +46,30 @@
 					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
 						<li>Case: <em>Powerball -- Somebody's Gotta Win</em>.</li>
 					</ol>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><span style="color:#582C83;">Side note:</span> next session we will be utilizing an in-class simulation via <a href="http://www.moblab.com/">MobLab</a>.  Please make sure you have your MobLab account registered and ready to rock.</p>
-				</section>
-
-				<section>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">How does the Powerball lottery work?</p>
-				</section>
-
-				<section>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">Why were the rules changed?</p>
-				</section>
-
-				<section>
-					<img src="/images/teaching/powerball-changes-1.png" width="800">
-				</section>
-
-				<section>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">Why do people buy lottery tickets?</p>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><span style="color:#582C83;">FYI:</span> next session we will be utilizing an in-class simulation via <a href="http://www.moblab.com/">MobLab</a>.  Please make sure you have your MobLab account registered and ready to rock.</p>
 				</section>
 
 				<section>
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">How should a person calculate the value of a lottery ticket?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">How does the Powerball lottery work?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Why were the rules changed?</p>
+					</section>
+
+					<section>
+						<img src="/images/teaching/powerball-changes-1.png" width="800">
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Why do people buy lottery tickets?</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">How should a person calculate the value of a lottery ticket?</p>
 					</section>
 
 					<section>
@@ -149,7 +152,7 @@
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">Use a plot to summarize the mistakes people make.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">Let's summarize the mistakes people make with a plot.</p>
 					</section>
 				</section>
 
@@ -168,44 +171,58 @@
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">How should the prediction be modified under the new rules?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%;color:#582C83;">How should the prediction be modified under the new rules?</p>
 					</section>
 				</section>
 
 				<section>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 0px; color:#582C83;">"So you're saying there's a chance?"...IRL</p>
-					<table style="font-family: 'Benton Sans'; font-size: 80%; border: none; vertical-align: top;">
-						<tr>
-							<td style="border: none; vertical-align: top;"><img src="/images/teaching/kearney-headshot.jpg" width="400"></td><td style="border: none; vertical-align: top;">Opportunity for nudging.<br><br>Consider the "No-lose Lottery"<ul><li class="fragment">A lottery-linked savings account.</li><li class="fragment">"Save to Win" program used among some credit unions.</li></ul></td>
-						</tr>
-						<tr>
-							<td style="border: none; vertical-align: top;">Melissa Kearney, Ph.D.</td><td style="border: none; vertical-align: top;"></td>
-						</tr>
-					</table>
-				</section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 0px; color:#582C83;">"So you're saying there's a chance?"...IRL</p>
+						<table style="font-family: 'Benton Sans'; font-size: 80%; border: none; vertical-align: top;">
+							<tr>
+								<td style="border: none; vertical-align: top;"><img src="/images/teaching/kearney-headshot.jpg" width="400"></td><td style="border: none; vertical-align: top;">Opportunity for nudging.<br><br>Consider the "No-lose Lottery"<ul><li class="fragment">A lottery-linked savings account.</li><li class="fragment">"Save to Win" program used among some credit unions.</li></ul></td>
+							</tr>
+							<tr>
+								<td style="border: none; vertical-align: top;">Melissa Kearney, Ph.D.</td><td style="border: none; vertical-align: top;"></td>
+							</tr>
+						</table>
+					</section>
 
-				<section data-auto-animate>
-					<img data-id="box" src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px; margin-top: -192px;" align="right">
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Prospect theory modifies expected utility in two ways:</p>
-					<ol style="font-family: 'Benton Sans'; font-size: 90%;">
-						<li class="fragment">Preferences are subject to <span style="color:#582C83;">reference-dependence</span>.</li>
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment">Defined by gains and losses.</li>
-						</ul>
-						<li class="fragment">Perceptions of probabilities are <span style="color:#582C83;">non-linear</span>. </li>
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment">Particularly skewed at the extremes.</li>
-						</ul>
-					</ol>
-				</section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">Prospect theory modifies expected utility in two ways:</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">Preferences are subject to <span style="color:#582C83;">reference-dependence</span>.</li>
+							<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+								<li class="fragment">Defined by gains and losses.</li>
+							</ul>
+							<li class="fragment">Perceptions of probabilities are <span style="color:#582C83;">non-linear</span>. </li>
+							<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+								<li class="fragment">Particularly skewed at the extremes.</li>
+							</ul>
+						</ol>
+					</section>
 
-				<section data-auto-animate>
-					<img data-id="box" src="/images/teaching/Ivey-Main-Full-Signature.jpeg" style="width: 800px;" align="center">
+					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
 				</section>
 				
 			</div>
 
 		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
 
 		<script src="/dist/reveal.js"></script>
 		<script src="/plugin/math/math.js"></script>
