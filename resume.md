@@ -57,10 +57,10 @@ permalink: /cv/
 
 ## Publications
 
-`2021`
+`2022`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3472119">__How Rating Mechanisms Shape User Search, Quality Inference and Engagement in Online Platforms: Experimental Evidence__</a>
 
-<em>Journal of Business Research</em>, forthcoming. 
+<em>Journal of Business Research</em>, 142, 2022, 791-807. 
 
  * 
 
