@@ -208,4 +208,4 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> (\$9,500), Princi
 
 ### <span>&#8203;</span>
 
-Last updated December, 2021
+Last updated January, 2022.
