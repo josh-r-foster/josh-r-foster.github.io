@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 9483: Global Economy, Markets and Strategy</title>
+
+		<meta name="description" content="Session slides for BUS 9483">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
+	</head>
+
+	<body onload="display_ct();">
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
+
+					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				</section>
+
+				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section>
+					<h3 style="font-family: 'Walbaum';">Agenda</h3>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>Case: <em>Performance Pay at Safelite Auto Glass</em>.</li>
+						<li>Addressing asymmetric information within company.</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Why was the productivity of the installers so low in 1993?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What evidence is there for a motivation issue? The CEO seems to think this is a primary cause of the problem.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Is this an example of <span style="color:#582C83;">adverse selection</span> or <span style="color:#582C83;">moral hazard</span>?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">If we fix the movation problem, is it clear sailing for Safelite?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How does turnover burden Safelite's business?</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What is the Pay-to-Performance Plan (PPP)? How does it work?</p><br>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment">Does this plan make installers better off or worse off?</p> 
+					</section>
+
+					<section>
+				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">How exactly do incentives change for installers?</p>
+				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 85%;">Comparison: same vs. less guaranteed income.</p>
+				 		<canvas id="myPlot1" width="800" height="400"></canvas>
+							<script>
+								var c = document.getElementById("myPlot1");
+								var ctx = c.getContext("2d");
+								ctx.lineWidth = 5;
+								ctx.beginPath();
+								ctx.moveTo(20, 50);
+								ctx.lineTo(20, 350);
+								ctx.lineTo(500, 350);
+								ctx.stroke();
+								ctx.font = "30px Arial";
+								ctx.fillText("Productivity", 500, 350);
+								ctx.fillText("Income/Hour", 0, 30);
+							</script>
+							<!--
+								
+							-->
+				 	</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Anticipated Effects of PPP.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Either:</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li>There is increased motivation among the existing employees.</li>
+							<li class="fragment">The new plan attracts new, better employees.</li>
+						</ol>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment">Managers of stores potentially had a strange incentive before the PPP. What was that?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Who thinks the PPP can motivate increased productivity?</p><br>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment">What are some of the obstacles to higher productivity? <span class="fragment">Could some of these obstacles cause the plan to backfire?</span></p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Do you think the various team members will be able to negotiate through this difference in incentives?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Who can imagine the PPP motivating too much productivity? (i.e. produce a quantity over quality problem)</p><br>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment">Is this concern big enough to want to scrap the whole plan? <span class="fragment">What modifications/details should be added to avoid this problem?</span></p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Installer productivity is very narrowly defined through the "number of windscreens installed per day" metric.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li>What sorts of frictions/issues might we uncover from using this?</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">How will the attraction/retention of installers vary with these two compensation plans?</p>
+				 		<canvas id="myPlot2" width="800" height="400"></canvas>
+							<script>
+								var c = document.getElementById("myPlot2");
+								var ctx = c.getContext("2d");
+								ctx.lineWidth = 5;
+								ctx.beginPath();
+								ctx.moveTo(20, 50);
+								ctx.lineTo(20, 350);
+								ctx.lineTo(500, 350);
+								ctx.stroke();
+								ctx.strokeStyle = "#034638";
+								ctx.beginPath();
+								ctx.moveTo(20, 225);
+								ctx.lineTo(400, 225);
+								ctx.stroke();
+								ctx.beginPath();
+								ctx.strokeStyle = "#582C83";
+								ctx.moveTo(20, 225);
+								ctx.lineTo(150, 225);
+								ctx.lineTo(400, 100);
+								ctx.stroke();
+								ctx.font = "30px Arial";
+								ctx.fillText("Flat Rate", 400, 225);
+								ctx.fillText("PPP", 400, 100);
+								ctx.fillText("Productivity", 500, 350);
+								ctx.fillText("Income/Hour", 0, 30);
+							</script>
+				 	</section>
+
+				 	<section>
+				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">How would reducing the guaranteed wage magnify this attraction/retention?</p>
+				 		<canvas id="myPlot3" width="800" height="400"></canvas>
+							<script>
+								var c = document.getElementById("myPlot3");
+								var ctx = c.getContext("2d");
+								ctx.lineWidth = 5;
+								ctx.beginPath();
+								ctx.moveTo(20, 50);
+								ctx.lineTo(20, 350);
+								ctx.lineTo(500, 350);
+								ctx.stroke();
+								ctx.strokeStyle = "#034638";
+								ctx.beginPath();
+								ctx.moveTo(20, 225);
+								ctx.lineTo(400, 225);
+								ctx.stroke();
+								ctx.beginPath();
+								ctx.strokeStyle = "#582C83";
+								ctx.moveTo(20, 300);
+								ctx.lineTo(150, 300);
+								ctx.lineTo(400, 100);
+								ctx.stroke();
+								ctx.font = "30px Arial";
+								ctx.fillText("Flat Rate", 400, 225);
+								ctx.fillText("PPP", 400, 100);
+								ctx.fillText("Productivity", 500, 350);
+								ctx.fillText("Income/Hour", 0, 30);
+							</script>
+				 	</section>
+
+				 	<section> 
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Who thinks Safelite should lower the guranteed rate? <span class="fragment">Who thinks they should leave it as is?</span></p><br>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment">Are there any other modifications you would recommend for the PPP?</p>
+				 	</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Key takeaways.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 80%;">
+							<li class="fragment"><span style="color:#582C83;">Principal-agent problems</span> involve mis-aligned incentives between the owners of a firm and those hired to act on their behalf. These problems are exacerbated by the presence of <span style="color:#582C83;">asymmetric information</span>.</li>
+							<li class="fragment">Safelite considered lowering their installers' guaranteed pay as a <span style="color:#582C83;">screening</span> mechanism to avoid <span style="color:#582C83;">adverse selection</span>.</li>
+							<li class="fragment">Safelite considered raising their installers' maximum pay to align their incentives with the company's, which would avoid <span style="color:#582C83;">moral hazard</span>.</li>
+						</ol>
+					</section>
+
+					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
