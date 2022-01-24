@@ -147,7 +147,7 @@ Revise and resubmit at <em>Technology, Mind, and Behavior</em>
 `2021`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3978861">__Non-parametric Estimation of Secret Reserve Prices in Auctions__</a>
 
-Revise and resubmit at <em>Economic Letters</em>
+Revise and resubmit at <em>Economics Letters</em>
 
 `2020`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3507096">__Charity Auctions as Assets: All-Pay vs. Winner-Pay Mechanisms in Mean-Variance Space__</a>
