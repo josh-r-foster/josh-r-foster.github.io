@@ -24,7 +24,7 @@
 		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
 	</head>
 
-	<body>
+	<body onload="display_ct();">
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
@@ -38,6 +38,7 @@
 				</section>
 
 				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
     				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
 				</div>
 
@@ -202,6 +203,21 @@
 			</div>
 
 		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
 
 		<script src="/dist/reveal.js"></script>
 		<script src="/plugin/math/math.js"></script>
