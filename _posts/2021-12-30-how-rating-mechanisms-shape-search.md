@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      'How online rating mechanisms shape user search'
-date:       2021-12-11 10:00:00
+date:       2021-12-30 10:00:00
 summary:    '[manuscript] How Rating Mechanisms Shape User Search, Quality Inference and Engagement in Online Platforms: Experimental Evidence'
 categories: research publication
 ---
@@ -9,7 +9,7 @@ categories: research publication
 <h2>&#91;manuscript&#93; How Rating Mechanisms Shape User Search, Quality Inference and Engagement in Online Platforms: Experimental Evidence
 </h2>
 
-&#91;published version&#93;  Forthcoming at <em>Journal of Business Research</em>
+&#91;published version&#93;  <em>[Journal of Business Research](https://www.sciencedirect.com/science/article/pii/S0148296321009437)</em>
 
 &#91;working version&#93; <em>[SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3978861)</em>
 
