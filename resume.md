@@ -138,7 +138,7 @@ permalink: /cv/
 `2021`
 __Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing Computer-Based Practice to Virtual Reality Practice__
 
-Revise and resubmit at <em>Technology, Mind, and Behavior</em>
+Conditionally accepted at <em>Technology, Mind, and Behavior</em>
 
 `with`
  * Shannon L. Rawski
@@ -151,6 +151,8 @@ Revise and resubmit at <em>Economics Letters</em>
 
 `2020`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3507096">__Charity Auctions as Assets: All-Pay vs. Winner-Pay Mechanisms in Mean-Variance Space__</a>
+
+Revise and resubmit at <em>Socio-Economic Planning Sciences</em>
 
 `with`
  * M. Ryan Haley
@@ -208,4 +210,4 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> (\$9,500), Princi
 
 ### <span>&#8203;</span>
 
-Last updated January, 2022.
+Last updated February, 2022.
