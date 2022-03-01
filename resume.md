@@ -57,7 +57,7 @@ permalink: /cv/
 
 ## Publications
 
-`2021`
+`2022`
 __Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing Computer-Based Practice to Virtual Reality Practice__
 
 Forthcoming at <em>Technology, Mind, and Behavior</em>
@@ -210,4 +210,4 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> (\$9,500), Princi
 
 ### <span>&#8203;</span>
 
-Last updated February, 2022.
+Last updated March, 2022.
