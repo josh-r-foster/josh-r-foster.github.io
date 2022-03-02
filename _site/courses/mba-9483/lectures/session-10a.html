@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>BUS 4654: Behavioural Economics</title>
+		<title>BUS 9483: Global Economy, Markets and Strategy</title>
 
-		<meta name="description" content="Session slides for BUS 4654">
+		<meta name="description" content="Session slides for BUS 9483">
 		<meta name="author" content="Joshua Foster, Ph.D.">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,6 +22,84 @@
 		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
 
 		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
+
+		<style type="text/css">
+			.base-timer {
+			  position: relative;
+			  width: 300px;
+			  height: 300px;
+			}
+
+			.base-timer__svg {
+			  transform: scaleX(-1);
+			}
+
+			.base-timer__circle {
+			  fill: none;
+			  stroke: none;
+			}
+
+			.base-timer__path-elapsed {
+			  stroke-width: 7px;
+			  stroke: grey;
+			}
+
+			.base-timer__path-remaining {
+			  stroke-width: 7px;
+			  stroke-linecap: round;
+			  transform: rotate(90deg);
+			  transform-origin: center;
+			  transition: 1s linear all;
+			  fill-rule: nonzero;
+			  stroke: currentColor;
+			}
+
+			.base-timer__path-remaining.green {
+			  color: rgb(65, 184, 131);
+			}
+
+			.base-timer__path-remaining.orange {
+			  color: orange;
+			}
+
+			.base-timer__path-remaining.red {
+			  color: red;
+			}
+
+			.base-timer__label {
+			  position: absolute;
+			  width: 300px;
+			  height: 300px;
+			  top: 0;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  font-size: 48px;
+			}
+
+			.child {
+				position: absolute;
+				top: 30%;
+				left: 65%;
+				margin: -25px 0 0 -25px;
+			}
+
+			.float-container {
+			    border: 3px;
+			    padding: 20px;
+			}
+
+			.float-child {
+			    width: 50%;
+			    float: left;
+			    padding: 20px;
+			    border: 2px;
+			} 
+		</style>
 	</head>
 
 	<body onload="display_ct();">
@@ -29,7 +107,8 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section data-background="/images/teaching/thumbnail-2.png">
-					<h2 style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Walbaum';">Behavioural Economics</h2>
+					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
+
 					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
 				</section>
 
@@ -108,10 +187,10 @@
 
 				<section>
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 0px; color:#582C83;">Even more survey question insights.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 0px; color:#582C83;">Survey question insights.</p>
 						<table style="font-family: 'Benton Sans'; font-size: 72.5%; border:none;">
 							<tr><td style="border:none;">Suppose I could give you:<ul><li>100 in cash in <span style="color:#582C83;">right now</span>, or</li><li>X in cash in <span style="color:#582C83;">two weeks</span>.</li></ul>What is the smallest amount of money, X, I could offer you in <span style="color:#582C83;">two weeks</span> to make you forgo the 100 in <span style="color:#582C83;">right now</span>?</td><td style="border:none;" class="fragment fade-in">Suppose I could give you:<ul><li>100 in cash in <span style="color:#582C83;">eight weeks</span>, or</li><li>X in cash in <span style="color:#582C83;">ten weeks</span>.</li></ul>What is the smallest amount of money, X, I could offer you in <span style="color:#582C83;">ten weeks</span> to make you forgo the 100 in <span style="color:#582C83;">eight weeks</span>?</td></tr>
-							<tr><td style="border:none;" class="fragment fade-in">$\bar{X}=128$<br>"Cash is king." -someone</td><td style="border:none;" class="fragment fade-in">$\bar{X}=109$<br>"Because it is a small period of time, for me, there is a very small time value of money."<br>-someone else</td></tr>
+							<tr><td style="border:none;" class="fragment fade-in">$\bar{X}=194$<br>"Cash is king." -someone</td><td style="border:none;" class="fragment fade-in">$\bar{X}=124$<br>"as long as I got more than $100 in 10 weeks, I can forgo the first one and wait 2 more weeks"<br>-someone else</td></tr>
 						</table>
 					</section>
 
@@ -151,10 +230,6 @@
 					<section data-background-image="/images/teaching/session-6-2.jpeg"></section>
 
 					<section>
-						<iframe width="800" height="500" src="https://miro.com/app/live-embed/uXjVOTVtLyI=/?moveToViewport=-495,-240,1434,802" frameBorder="0" scrolling="no" allowFullScreen></iframe>
-					</section>
-
-					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How do third parties (govt./utilities) play a role here?</p>
 					</section>
 
@@ -165,6 +240,7 @@
 
 				<section>
 					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Key Takeaways.</p>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Intertemporal choice problems can lead to:</p>
 						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
 							<li class="fragment"><span style="color:#582C83;">Dynamic <em>inconsistency</em>:</span> making choices that do not align with one's own long-run preferences.</li>
