@@ -9,7 +9,7 @@ categories: research publication
 <h2>&#91;manuscript&#93; Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing 2D Video to Virtual Reality Practice
 </h2>
 
-&#91;published version&#93;  <em>[Technology, Mind and Behavior (Forthcoming)](https://www.sciencedirect.com/science/article/pii/S0148296321009437)</em>
+&#91;published version&#93;  <em>Technology, Mind and Behavior (Forthcoming)</em>
 
 &#91;working version&#93; <em>[VHIL](https://stanfordvr.com/pubs/2022/sexual-harassment-bystander-training-effectiveness-experimentally-comparing-2d-video-to-virtual-reality-practice/)</em>
 
