@@ -58,7 +58,7 @@ permalink: /cv/
 ## Publications
 
 `2022`
-__Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing Computer-Based Practice to Virtual Reality Practice__
+<a href="https://stanfordvr.com/pubs/2022/sexual-harassment-bystander-training-effectiveness-experimentally-comparing-2d-video-to-virtual-reality-practice/">__Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing Computer-Based Practice to Virtual Reality Practice__</a>
 
 Forthcoming at <em>Technology, Mind, and Behavior</em>
 
