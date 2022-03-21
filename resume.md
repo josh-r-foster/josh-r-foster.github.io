@@ -206,7 +206,7 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> (\$9,500), Princi
 * <span>&#8203;</span>
 
 ## Reviewer for 
-*Games and Economic Behavior, &nbsp; &nbsp; Journal of Economic Behavior & Organization, &nbsp; &nbsp; Southern Economic Journal, &nbsp; &nbsp; Management Science, &nbsp; &nbsp; Journal of Behavioral and Experimental Economics, &nbsp; &nbsp; European Journal of Operational Research, &nbsp; &nbsp; Finance Research Letters, &nbsp; &nbsp; Economics and Human Biology, &nbsp; &nbsp; Economic Inquiry*
+*Games and Economic Behavior, &nbsp; &nbsp; Journal of Economic Behavior & Organization, &nbsp; &nbsp; Southern Economic Journal, &nbsp; &nbsp; Management Science, &nbsp; &nbsp; PLOS One, &nbsp; &nbsp; Journal of Behavioral and Experimental Economics, &nbsp; &nbsp; European Journal of Operational Research, &nbsp; &nbsp; Finance Research Letters, &nbsp; &nbsp; Economics and Human Biology, &nbsp; &nbsp; Economic Inquiry*
 
 ### <span>&#8203;</span>
 
