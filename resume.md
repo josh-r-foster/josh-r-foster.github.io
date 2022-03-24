@@ -162,7 +162,7 @@ Revise and resubmit at <em>Socio-Economic Planning Sciences</em>
 
 Abbreviated version published in  <em>Academy of Management Annual Meeting Proceedings</em>, 2020.   
 
-Revise and resubmit at <em>Human Resources Management Journal</em>.
+Revise and resubmit at <em>Human Resources Management Journal</em>
 
 `with`
  * Shannon L. Rawski
