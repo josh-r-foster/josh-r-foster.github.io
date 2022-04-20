@@ -58,6 +58,14 @@ permalink: /cv/
 ## Publications
 
 `2022`
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3507096">__Charity Auctions as Assets: All-Pay vs. Winner-Pay Mechanisms in Mean-Variance Space__</a>
+
+Forthcoming at <em>Socio-Economic Planning Sciences</em>
+
+`with`
+ * M. Ryan Haley
+
+`2022`
 <a href="https://stanfordvr.com/pubs/2022/sexual-harassment-bystander-training-effectiveness-experimentally-comparing-2d-video-to-virtual-reality-practice/">__Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing Computer-Based Practice to Virtual Reality Practice__</a>
 
 Forthcoming at <em>Technology, Mind, and Behavior</em>
@@ -150,14 +158,6 @@ Forthcoming at <em>Technology, Mind, and Behavior</em>
 Revise and resubmit at <em>Economics Letters</em>
 
 `2020`
-<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3507096">__Charity Auctions as Assets: All-Pay vs. Winner-Pay Mechanisms in Mean-Variance Space__</a>
-
-Revise and resubmit at <em>Socio-Economic Planning Sciences</em>
-
-`with`
- * M. Ryan Haley
-
-`2020`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3541205">__An Experiment on the Effects of Media Richness, Trainer Characteristics, and Perceived Trainer Integrity in Sexual Harassment e-Training Effectiveness__</a>
 
 Abbreviated version published in  <em>Academy of Management Annual Meeting Proceedings</em>, 2020.   
@@ -187,9 +187,11 @@ __Riding Backer Waves: Exploiting the Non-linear Funding Dynamics in Crowdfunded
 
 ## Grants
 
+SSHRC Insight Grant (Co-Investigator) <em>Increasing Bystander Interventions during Sexual Harassment Incidents using Virtual Reality Methods</em> ($352,484), 2022. 
+
 UW-Oshkosh Faculty Development Summer Grant, 15% CAS, 2017, 2019. 
 
-IFREE Small Grant <em>Auctions for Charity and for Profit</em> (\$9,500), Principal Investigator, 2014.
+IFREE Small Grant <em>Auctions for Charity and for Profit</em> ($9,500), Principal Investigator, 2014.
 
 ## Teaching
 * **Microeconomics**
