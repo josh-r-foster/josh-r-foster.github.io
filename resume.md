@@ -53,7 +53,7 @@ permalink: /cv/
  * Behavioral Economics 
  * Experimental Economics
  * <span>&#8203;</span>
- * <span>&#8203;</span>
+ * Market Design
 
 ## Publications
 
@@ -69,6 +69,8 @@ Forthcoming at <em>Socio-Economic Planning Sciences</em>
 <a href="https://stanfordvr.com/pubs/2022/sexual-harassment-bystander-training-effectiveness-experimentally-comparing-2d-video-to-virtual-reality-practice/">__Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing Computer-Based Practice to Virtual Reality Practice__</a>
 
 Forthcoming at <em>Technology, Mind, and Behavior</em>
+
+Abbreviated version published in  <em>Academy of Management Annual Meeting Proceedings</em>, 2022. 
 
 `with`
  * Shannon L. Rawski
@@ -160,7 +162,7 @@ Revise and resubmit at <em>Economics Letters</em>
 `2020`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3541205">__An Experiment on the Effects of Media Richness, Trainer Characteristics, and Perceived Trainer Integrity in Sexual Harassment e-Training Effectiveness__</a>
 
-Abbreviated version published in  <em>Academy of Management Annual Meeting Proceedings</em>, 2020.   
+Abbreviated version published in  <em>Academy of Management Annual Meeting Proceedings</em>, 2020. 
 
 Revise and resubmit at <em>Human Resources Management Journal</em>
 
@@ -214,4 +216,4 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> ($9,500), Princip
 
 ### <span>&#8203;</span>
 
-Last updated March, 2022.
+Last updated April, 2022.
