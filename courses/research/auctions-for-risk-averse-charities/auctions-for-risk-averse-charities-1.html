@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Auctions for Risk Averse Charities</title>
+
+		<meta name="description" content="Session slides for BUS 4654">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css">
+	</head>
+
+	<body onload="display_ct();">
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h2 style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Walbaum';">Auctions for Risk Averse Charities</h2>
+
+					<!-- <h3 style="background-color: #f7f7f7; width: 600px; margin-left: 190px; text-align: center;">Quick Pitch</h3> -->
+					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				</section>
+
+				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section>
+					<!--<h3>Behavioural Economics</h3>
+					<p>
+						A positive approach to incenvtives and behaviour.
+					</p>
+
+					<h3>Mechanism Design</h3>
+					<p>
+						Structurally identify the objects and processes that determine outcomes.
+					</p>
+
+					<h3>Experimental Method</h3>
+					<p>
+						Highly controlled environments with unambiguous data generating processes.
+					</p>-->
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">My Research and Me</p>
+					<img src="/images/presentations/venn-2.png" style="width: 80%;">
+				</section>
+
+				<section  data-auto-animate>
+					<!--<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">A model of revenue-generation in auctions.</p>-->
+					<table>
+						<tr>
+							<td>Value</td>
+							<td>&#8594;</td>
+							<td>Bids</td>
+							<td>&#8594;</td>
+							<td>Revs</td>
+						</tr>
+						<tr>
+							<td style="vertical-align: middle;"><img src="/images/presentations/density-1.png" style="width: 250px;"></td>
+							<td style="vertical-align: middle;">&#8594;</td>
+							<td style="vertical-align: middle;"><img src="/images/presentations/bid-1.png" style="width: 250px;"></td>
+							<td style="vertical-align: middle;">&#8594;</td>
+							<td style="vertical-align: middle;"><img src="/images/presentations/rev-dist-1.png" style="width: 250px;"></td>
+						</tr>
+						<tr class="fragment">
+							<td style="vertical-align: middle;"><img src="/images/presentations/density-3.png" style="width: 100%;"></td>
+							<td style="vertical-align: middle; size: 50px;">&#8594;</td>
+							<td style="vertical-align: middle;"><img src="/images/presentations/bid-3.png" style="width: 100%;"></td>
+							<td style="vertical-align: middle;">&#8594;</td>
+							<td style="vertical-align: middle;"><img src="/images/presentations/rev-dist-3.png" style="width: 100%;"></td>
+						</tr>
+					</table>
+					<!--<p align="left" style="font-family: 'Benton Sans'; font-size: 125%;" class="fragment"><span style="color:#582C83;">Standard objective:</span> find the mechanism with the greatest expected revenue.</p>-->
+				</section>
+
+				<section>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Auction Theory Redux, for Charity</p>
+					<p align="left" style="font-family: 'Benton Sans';">When fundraising, non-profits likely care about more than expected revenue. E.g.</p>
+					<ul style="font-family: 'Benton Sans';">
+						<li>Variance of revenue.</li>
+						<li>Maintaining "warm lists" for participation.</li>
+					</ul>
+				</section>
+
+				<section>
+					<table style="border:0 none; font-family: 'Benton Sans';">
+						<tr>
+							<td style="text-align: center; vertical-align: middle; border:0 none;">Auction Revenues</td>
+							<td style="vertical-align: middle; border:0 none;"><img src="/images/presentations/rev-dist-1.png" style="width: 100%;"></td>
+							<td style="vertical-align: middle; border:0 none;">+</td>
+							<td style="vertical-align: middle; border:0 none;"><img src="/images/presentations/rev-dist-3.png" style="width: 100%;"></td>
+						</tr>
+						<tr>
+							<td style="text-align: center; vertical-align: middle; border:0 none;">&#8595;</td>
+							<td style="text-align: center; vertical-align: middle; border:0 none;"></td>
+							<td style="text-align: center; vertical-align: middle; border:0 none;">&#8595;</td>
+							<td style="text-align: center; vertical-align: middle; border:0 none;"></td>
+						</tr>
+						<tr>
+							<td style="text-align: center; vertical-align: middle; border:0 none;">Risk Management Strategies</td>
+							<td style="vertical-align: middle; border:0 none;" colspan="3"><img src="/images/presentations/frontier-demo-4.png" style="width: 150%;"></td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<img src="/images/presentations/mean-var-tradeoffs-1.png" style="width: 80%;">
+				</section>
+
+				<section>
+					<img src="/images/presentations/bullet-3.png" style="width: 80%;">
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Major Takeaways</p>
+						<ul style="font-family: 'Benton Sans';">
+							<li class="fragment fade-in-then-semi-out">Unavoidable tradeoff on the mean and variance of auction revenue.</li>
+							<li class="fragment fade-in-then-semi-out">It can be managed with the use of modern portfolio theory.</li>
+							<li class="fragment fade-in-then-semi-out">This approach resolves a long-standing paradox in the fundraising literature on auctions.</li>
+						</ul>
+					</section>
+					
+					<section data-auto-animate>
+						<img data-id="box" src="/images/teaching/Ivey-Main-Full-Signature.jpeg" style="width: 800px;" align="center">
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
