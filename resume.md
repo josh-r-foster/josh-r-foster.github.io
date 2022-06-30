@@ -53,7 +53,7 @@ permalink: /cv/
  * Behavioral Economics 
  * Experimental Economics
  * <span>&#8203;</span>
- * Market Design
+ * Mechanism Design
 
 ## Publications
 
@@ -179,13 +179,13 @@ __Auctions for Risk Averse Charities__
  * Jeffrey Carpenter 
  * Peter Hans Matthews
 
-__Sequential Auctions and the Moments of Their Cumulative Revenue Distribution: Theory and Experiments__
+<!-- __Sequential Auctions and the Moments of Their Cumulative Revenue Distribution: Theory and Experiments__ -->
 
- * 
+<!--  * 
 
 __Riding Backer Waves: Exploiting the Non-linear Funding Dynamics in Crowdfunded Campaigns__
 
- * 
+ *  -->
 
 ## Grants
 
@@ -216,4 +216,4 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> ($9,500), Princip
 
 ### <span>&#8203;</span>
 
-Last updated April, 2022.
+Last updated June, 2022.
