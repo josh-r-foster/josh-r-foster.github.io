@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      'Sexual Harassment Bystander Training in VR'
+title:      'Sexual harassment bystander training in VR'
 date:       2022-03-01 10:00:00
 summary:    '[manuscript] Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing 2D Video to Virtual Reality Practice'
 categories: research publication

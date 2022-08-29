@@ -58,9 +58,14 @@ permalink: /cv/
 ## Publications
 
 `2022`
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3978861">__Non-parametric Estimation of Secret Reserve Prices in Auctions__</a>
+
+Forthcoming at <em>Economics Letters</em>.
+
+`2022`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3507096">__Charity Auctions as Assets: All-Pay vs. Winner-Pay Mechanisms in Mean-Variance Space__</a>
 
-Forthcoming at <em>Socio-Economic Planning Sciences</em>
+<em>Socio-Economic Planning Sciences</em>, 83, 2022, 101319. 
 
 `with`
  * M. Ryan Haley
@@ -68,7 +73,7 @@ Forthcoming at <em>Socio-Economic Planning Sciences</em>
 `2022`
 <a href="https://stanfordvr.com/pubs/2022/sexual-harassment-bystander-training-effectiveness-experimentally-comparing-2d-video-to-virtual-reality-practice/">__Sexual Harassment Bystander Training Effectiveness: Experimentally Comparing Computer-Based Practice to Virtual Reality Practice__</a>
 
-Forthcoming at <em>Technology, Mind, and Behavior</em>
+<em>Technology, Mind, and Behavior</em>, 3(2:Summer), 2022.
 
 Abbreviated version published in  <em>Academy of Management Annual Meeting Proceedings</em>, 2022. 
 
@@ -154,17 +159,12 @@ Abbreviated version published in  <em>Academy of Management Annual Meeting Proce
 
 ### Under Review
 
-`2021`
-<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3978861">__Non-parametric Estimation of Secret Reserve Prices in Auctions__</a>
-
-Revise and resubmit at <em>Economics Letters</em>
-
-`2020`
+`2022`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3541205">__An Experiment on the Effects of Media Richness, Trainer Characteristics, and Perceived Trainer Integrity in Sexual Harassment e-Training Effectiveness__</a>
 
 Abbreviated version published in  <em>Academy of Management Annual Meeting Proceedings</em>, 2020. 
 
-Revise and resubmit at <em>Human Resources Management Journal</em>
+Revise and resubmit at <em>Human Resources Management Journal</em>.
 
 `with`
  * Shannon L. Rawski
@@ -216,4 +216,4 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> ($9,500), Princip
 
 ### <span>&#8203;</span>
 
-Last updated June, 2022.
+Last updated August, 2022.

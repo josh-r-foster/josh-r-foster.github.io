@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      'Auctions for Risk Averse Charities'
+title:      'Auctions for risk averse charities'
 date:       2022-05-31 10:00:00
 summary:    '[manuscript] Auctions for Risk Averse Charities'
 categories: research publication
