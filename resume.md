@@ -58,7 +58,7 @@ permalink: /cv/
 ## Publications
 
 `2022`
-<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3978861">__Non-parametric Estimation of Secret Reserve Prices in Auctions__</a>
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3978861">__Semi-nonparametric Estimation of Secret Reserve Prices in Auctions__</a>
 
 Forthcoming at <em>Economics Letters</em>.
 
