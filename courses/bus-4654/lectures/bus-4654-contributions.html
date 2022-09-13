@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 4654: Behavioural Economics</title>
+
+		<meta name="description" content="Contributions for BUS 4654">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
+
+		<link rel="stylesheet" href="contribution-counter.css">
+	</head>
+
+	<body>
+		<div class="student-container" id='students'>
+			<button class="button student">First and Last Name 1<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 2<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 3<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 4<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 5<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 6<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 7<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 8<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 9<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 10<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 11<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 12<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 13<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 14<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 15<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 16<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 17<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 18<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 19<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 20<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 21<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 22<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 23<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 24<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 25<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 26<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 27<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 28<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 29<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 30<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 31<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 32<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 33<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 34<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 35<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 36<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 37<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 38<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 39<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 40<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 41<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 42<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 43<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 44<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 45<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 46<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 47<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 48<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 49<br><br><span class="score"></span></button>
+			<button class="button student">First and Last Name 50<br><br><span class="score"></span></button>
+		</div>
+		<button onclick="export2txt()">Export contribution data</button>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+		<script src="contribution-counter.js"></script>
+
+		<!--
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/math/math.js"></script>
+		<script src="../../plugin/zoom/zoom.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/search/search.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+		-->
+	</body>
+</html>
