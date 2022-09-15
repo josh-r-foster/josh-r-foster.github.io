@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Ivey Contributions Template</title>
+
+		<meta name="author" content="Joshua Foster, Ph.D.">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="icon" type="image/png" href="https://www.ivey.uwo.ca/favicon.ico">
+		<link rel="stylesheet" href="/courses/contributions-for-all.css">
+	</head>
+
+	<body>
+		<div style="text-align: center;" id="names-prompt">
+			<img src="/images/teaching/Ivey-Main-Full-Signature.jpeg" width="400px">
+			<form>
+			  <input type="text" id="names" name="names" placeholder="Enter students names, separated by semicolons..." size="50"><br><br>
+			  <input type="button" id="submit-names" value="Make Contributions Template" onclick="makeTemplate()">
+			</form>
+		</div>
+		<div class="student-container" id="students">
+		</div>
+		<button onclick="export2txt()" id="export-button" style="display: none;">Export contribution data</button>
+	</body>
+
+	<script type="text/javascript"> 
+		function display_c(){
+			var refresh=1000; // Refresh rate in milli seconds
+			mytime=setTimeout('display_ct()',refresh)
+		}
+
+		function display_ct() {
+			var today = new Date();
+			var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+			document.getElementById('ct').style.color = "#582C83";
+			document.getElementById('ct').innerHTML = time;
+			display_c();
+		 }
+	</script>
+
+	<script>
+		var input = document.getElementById("names");
+		input.addEventListener("keypress", function(event) {
+		  if (event.key === "Enter") {
+		    event.preventDefault();
+		    document.getElementById("submit-names").click();
+		  }
+		});
+	</script>
+
+	<script src="/courses/contributions-for-all.js"></script>
+</html>
