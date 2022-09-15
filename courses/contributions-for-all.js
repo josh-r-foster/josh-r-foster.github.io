@@ -64,22 +64,24 @@ function export2txt() {
       points[index] = el.innerHTML
   });
 
+  scoreData.push(["Name","Points"])
   for (var i = 0, len = g.children.length; i < len; i++) {
-      scoreData.push({
-          name: g.children[i].innerText.split('\n')[0],
-          points: points[i]
-      });
+      scoreData.push([
+          g.children[i].innerText.split('\n')[0],
+          points[i]
+      ]);
   }
 
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(new Blob([JSON.stringify(scoreData, null, 2)], {
-    type: "text/plain"
-  }));
+  let csvContent = "data:text/csv;charset=utf-8," 
+    + scoreData.map(e => e.join(",")).join("\n");
 
+  var encodedUri = encodeURI(csvContent);
+  var link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
   const d = new Date();
   date = d.toLocaleString('default', { month: 'long', day:'numeric', year:'numeric' });
-  a.setAttribute("download", "Contributions for "+date+".txt");
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+  link.setAttribute("download", "Contributions for "+date+".txt");
+  document.body.appendChild(link); // Required for FF
+
+  link.click()
 }
