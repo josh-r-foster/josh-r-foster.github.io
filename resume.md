@@ -60,7 +60,7 @@ permalink: /cv/
 `2022`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3978861">__Semi-nonparametric Estimation of Secret Reserve Prices in Auctions__</a>
 
-Forthcoming at <em>Economics Letters</em>.
+<em>Economics Letters</em>, 220, 2022, 110843.
 
 `2022`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3507096">__Charity Auctions as Assets: All-Pay vs. Winner-Pay Mechanisms in Mean-Variance Space__</a>
@@ -179,13 +179,17 @@ __Auctions for Risk Averse Charities__
  * Jeffrey Carpenter 
  * Peter Hans Matthews
 
-<!-- __Sequential Auctions and the Moments of Their Cumulative Revenue Distribution: Theory and Experiments__ -->
+__Valuations and Market Structure: A Non-parametric Estimation of Online Auctions__
 
-<!--  * 
+ * 
+
+__On the Information Entropy of Signalling Mechanisms: An Experiment__
+
+ * 
 
 __Riding Backer Waves: Exploiting the Non-linear Funding Dynamics in Crowdfunded Campaigns__
 
- *  -->
+ * 
 
 ## Grants
 
