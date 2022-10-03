@@ -164,8 +164,6 @@ Abbreviated version published in  <em>Academy of Management Annual Meeting Proce
 
 Abbreviated version published in  <em>Academy of Management Annual Meeting Proceedings</em>, 2020. 
 
-Revise and resubmit at <em>Human Resources Management Journal</em>.
-
 `with`
  * Shannon L. Rawski
  * Emilija Djurdjevic
@@ -220,4 +218,4 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> ($9,500), Princip
 
 ### <span>&#8203;</span>
 
-Last updated August, 2022.
+Last updated October, 2022.
