@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 4654: Behavioural Economics</title>
+
+		<meta name="description" content="Contributions for BUS 4654">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
+
+		<link rel="stylesheet" href="contributions.css">
+	</head>
+
+	<body>
+		<div class="student-container" id='students'>
+			<button class="button student">Aaron Yuan<br><br><span class="score"></span></button>
+			<button class="button student">Adam Grisolia<br><br><span class="score"></span></button>
+			<button class="button student">Annika Schenkel<br><br><span class="score"></span></button>
+			<button class="button student">Ben Segal<br><br><span class="score"></span></button>
+			<button class="button student">Blake Strickland<br><br><span class="score"></span></button>
+			<button class="button student">Camille Huwart<br><br><span class="score"></span></button>
+			<button class="button student">Cathy Zhang<br><br><span class="score"></span></button>
+			<button class="button student">Channey Kim<br><br><span class="score"></span></button>
+			<button class="button student">Christina Fu<br><br><span class="score"></span></button>
+			<button class="button student">Daniel DiSanto<br><br><span class="score"></span></button>
+			<button class="button student">Danielle Brennan<br><br><span class="score"></span></button>
+			<button class="button student">Darina Urathu<br><br><span class="score"></span></button>
+			<button class="button student">Derek Deng<br><br><span class="score"></span></button>
+			<button class="button student">Dev Sharma<br><br><span class="score"></span></button>
+			<button class="button student">Francesca De Tommaso<br><br><span class="score"></span></button>
+			<button class="button student">Grant Robertson<br><br><span class="score"></span></button>
+			<button class="button student">Ian Flint<br><br><span class="score"></span></button>
+			<button class="button student">Jeffrey Kristoffy<br><br><span class="score"></span></button>
+			<button class="button student">Jerry Feng<br><br><span class="score"></span></button>
+			<button class="button student">Jocelyn Karrys<br><br><span class="score"></span></button>
+			<button class="button student">Judith Chen<br><br><span class="score"></span></button>
+			<button class="button student">Julia Kilpatrick<br><br><span class="score"></span></button>
+			<button class="button student">Julie Van<br><br><span class="score"></span></button>
+			<button class="button student">Justin Del Negro<br><br><span class="score"></span></button>
+			<button class="button student">Kaly Long<br><br><span class="score"></span></button>
+			<button class="button student">Kathy An<br><br><span class="score"></span></button>
+			<button class="button student">Keke Zhang<br><br><span class="score"></span></button>
+			<button class="button student">Kevin Hu<br><br><span class="score"></span></button>
+			<button class="button student">Kevin Zhao<br><br><span class="score"></span></button>
+			<button class="button student">Kieran Jagdeo<br><br><span class="score"></span></button>
+			<button class="button student">Kyanna Vi<br><br><span class="score"></span></button>
+			<button class="button student">Logan Thomlinson<br><br><span class="score"></span></button>
+			<button class="button student">Marie-France Thompson<br><br><span class="score"></span></button>
+			<button class="button student">Matteo Caruso<br><br><span class="score"></span></button>
+			<button class="button student">Matthew Donnelly<br><br><span class="score"></span></button>
+			<button class="button student">Mia Semeniuk<br><br><span class="score"></span></button>
+			<button class="button student">Michael Van Dalen<br><br><span class="score"></span></button>
+			<button class="button student">Muskan Agrawal<br><br><span class="score"></span></button>
+			<button class="button student">Noah Bozicevic<br><br><span class="score"></span></button>
+			<button class="button student">Parker Young<br><br><span class="score"></span></button>
+			<button class="button student">Philipp Lack<br><br><span class="score"></span></button>
+			<button class="button student">Qiyu Zhang<br><br><span class="score"></span></button>
+			<button class="button student">Stephanie Hunter<br><br><span class="score"></span></button>
+			<button class="button student" style="background-color: #4F2683;">Tahira Alarakhia<br><br><span class="score"></span></button>
+			<button class="button student">Tiger Jiang<br><br><span class="score"></span></button>
+			<button class="button student">Victoria Fedak<br><br><span class="score"></span></button>
+			<button class="button student">Zane Shad<br><br><span class="score"></span></button>
+		</div>
+		<button onclick="export2txt()">Export contribution data</button>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+		<script src="contributions.js"></script>
+
+		<!--
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/math/math.js"></script>
+		<script src="../../plugin/zoom/zoom.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/search/search.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+		-->
+	</body>
+</html>
