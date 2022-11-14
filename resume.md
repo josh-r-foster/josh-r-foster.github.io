@@ -202,6 +202,9 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> ($9,500), Princip
 
 Peloton: Keeping Users Pedalling with Behavioural Theory (under review)
 
+`with`
+ * Ryan Cheng (HBA, 2022)
+
 ## Teaching
 * **Microeconomics**
 * <span>&#8203;</span>
