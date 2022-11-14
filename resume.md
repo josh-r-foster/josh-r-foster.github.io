@@ -198,6 +198,10 @@ UW-Oshkosh Faculty Development Summer Grant, 15% CAS, 2017, 2019.
 
 IFREE Small Grant <em>Auctions for Charity and for Profit</em> ($9,500), Principal Investigator, 2014.
 
+## Cases 
+
+Peloton: Keeping Users Pedalling with Behavioural Theory (under review)
+
 ## Teaching
 * **Microeconomics**
 * <span>&#8203;</span>
