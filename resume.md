@@ -169,15 +169,16 @@ Abbreviated version published in  <em>Academy of Management Annual Meeting Proce
  * Emilija Djurdjevic
  * Andrew Soderberg
 
-### In Preparation
-
+`2022`
 __Auctions for Risk Averse Charities__
 
 `with`
  * Jeffrey Carpenter 
  * Peter Hans Matthews
 
-__Valuations and Market Structure: A Non-parametric Estimation of Online Auctions__
+### In Preparation
+
+__Fee-based Market Structures: An Empirical Application to English Auctions Using Nonparametric Identification__
 
  * 
 
@@ -218,4 +219,4 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> ($9,500), Princip
 
 ### <span>&#8203;</span>
 
-Last updated October, 2022.
+Last updated November, 2022.
