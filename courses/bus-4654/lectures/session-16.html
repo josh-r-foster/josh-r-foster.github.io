@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 4654: Behavioural Economics</title>
+
+		<meta name="description" content="Session slides for BUS 4654">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<style type="text/css">
+			.base-timer {
+			  position: relative;
+			  width: 300px;
+			  height: 300px;
+			}
+
+			.base-timer__svg {
+			  transform: scaleX(-1);
+			}
+
+			.base-timer__circle {
+			  fill: none;
+			  stroke: none;
+			}
+
+			.base-timer__path-elapsed {
+			  stroke-width: 7px;
+			  stroke: grey;
+			}
+
+			.base-timer__path-remaining {
+			  stroke-width: 7px;
+			  stroke-linecap: round;
+			  transform: rotate(90deg);
+			  transform-origin: center;
+			  transition: 1s linear all;
+			  fill-rule: nonzero;
+			  stroke: currentColor;
+			}
+
+			.base-timer__path-remaining.green {
+			  color: rgb(65, 184, 131);
+			}
+
+			.base-timer__path-remaining.orange {
+			  color: orange;
+			}
+
+			.base-timer__path-remaining.red {
+			  color: red;
+			}
+
+			.base-timer__label {
+			  position: absolute;
+			  width: 300px;
+			  height: 300px;
+			  top: 0;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  font-size: 48px;
+			}
+
+			.child {
+				position: absolute;
+				top: 30%;
+				left: 65%;
+				margin: -25px 0 0 -25px;
+			}
+
+			.float-container {
+			    border: 3px;
+			    padding: 20px;
+			}
+
+			.float-child {
+			    width: 50%;
+			    float: left;
+			    padding: 20px;
+			    border: 2px;
+			} 
+		</style>
+	</head>
+
+	<body onload="display_ct();">
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h2 style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Walbaum';">Behavioural Economics</h2>
+
+					<!-- <h3 style="background-color: #f7f7f7; width: 600px; margin-left: 190px; text-align: center;">Quick Pitch</h3> -->
+					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				</section>
+
+				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section>
+					<h3 style="font-family: 'Walbaum'; color:#582C83;">Agenda</h3>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>Case: <em>Peloton: Keeping Users Pedalling with Behavioural Theory</em>.</li>
+						<li>Choice architecture problem: <span style="color: #582C83;">pricing the Peloton ecosystem</span>.</li> 
+						<li>Writing behavioural cases.</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color: #582C83;">Why is exercising a difficult task for many people?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 0px; color:#582C83;">Our survey results.</p>
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr><td style="border:none;">About how many days per month <span style="color:#582C83;">do you</span> exercise in a typical month?</td><td style="border:none;" class="fragment fade-in">About how many days per month <span style="color:#582C83;">do you think you should</span> exercise in a typical month?</td></tr>
+							<tr><td style="border:none;" class="fragment fade-in">$\bar{X}=13.5$</td><td style="border:none;" class="fragment fade-in">$\bar{X}=18.9$<br>"Ideally 20, but realistically 10-15."</td></tr>
+						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color: #582C83;">How would you describe the Peloton Bike as a product?</p>
+					</section>
+
+					<section>
+						<a href="https://onepeloton.ca/bike"><img src="/images/teaching/peloton-bike.jpeg" style="width:600px"></a>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color: #582C83;">How would you rank order these statements?</p>
+						<ol align="left" style="font-family: 'Benton Sans'; font-size: 125%;">
+						  <li class="dropzone" id='0' draggable="true">Peloton is a tech company.</li>
+						  <li class="dropzone" id='1' draggable="true">Peloton is a media company.</li>
+						  <li class="dropzone" id='2' draggable="true">Peloton is a hardware company.</li>
+						</ol>
+
+						<script type="text/javascript">
+							let dragged;
+							let id;
+							let index;
+							let indexDrop;
+							let list;
+
+							  document.addEventListener("dragstart", ({target}) => {
+							      dragged = target;
+							      id = target.id;
+							      list = target.parentNode.children;
+							      for(let i = 0; i < list.length; i += 1) {
+							      	if(list[i] === dragged){
+							          index = i;
+							        }
+							      }
+							  });
+
+							  document.addEventListener("dragover", (event) => {
+							      event.preventDefault();
+							  });
+
+							  document.addEventListener("drop", ({target}) => {
+							   if(target.className == "dropzone" && target.id !== id) {
+							       dragged.remove( dragged );
+							      for(let i = 0; i < list.length; i += 1) {
+							      	if(list[i] === target){
+							          indexDrop = i;
+							        }
+							      }
+							      console.log(index, indexDrop);
+							      if(index > indexDrop) {
+							      	target.before( dragged );
+							      } else {
+							       target.after( dragged );
+							      }
+							    }
+							  });
+						</script>
+
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color: #582C83;">How would you rank order the profit potential of Peloton's products for the bike?</p>
+						<ol align="left" style="font-family: 'Benton Sans'; font-size: 125%;">
+						  <li class="dropzone" id='0' draggable="true">Apparel.</li>
+						  <li class="dropzone" id='1' draggable="true">Bike itself.</li>
+						  <li class="dropzone" id='2' draggable="true">Virtual spin classes.</li>
+						  <li class="dropzone" id='3' draggable="true">Bike accessories (e.g. shoes).</li>
+						</ol>
+
+						<script type="text/javascript">
+							let dragged;
+							let id;
+							let index;
+							let indexDrop;
+							let list;
+
+							  document.addEventListener("dragstart", ({target}) => {
+							      dragged = target;
+							      id = target.id;
+							      list = target.parentNode.children;
+							      for(let i = 0; i < list.length; i += 1) {
+							      	if(list[i] === dragged){
+							          index = i;
+							        }
+							      }
+							  });
+
+							  document.addEventListener("dragover", (event) => {
+							      event.preventDefault();
+							  });
+
+							  document.addEventListener("drop", ({target}) => {
+							   if(target.className == "dropzone" && target.id !== id) {
+							       dragged.remove( dragged );
+							      for(let i = 0; i < list.length; i += 1) {
+							      	if(list[i] === target){
+							          indexDrop = i;
+							        }
+							      }
+							      console.log(index, indexDrop);
+							      if(index > indexDrop) {
+							      	target.before( dragged );
+							      } else {
+							       target.after( dragged );
+							      }
+							    }
+							  });
+						</script>
+
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color: #582C83;">Choice architecture problem: pricing the Peloton Bike ecosystem.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li>Bike.</li>
+							<li>Virtual classes.</li>
+							<li>Accessories & Apparel.</li>
+						</ul>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color: #582C83;" class="fragment">How do behavioural biases around fitness shape Peloton's pricing strategy for these products? <span class="fragment">What recommendations do you give Foley?</span></p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color: #582C83;">Instructions:</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 85%;">
+							<li class="fragment fade-in-then-semi-out">Categorize a list of behavioural concepts according to their relative <span style="color:#582C83;">presence</span> and <span style="color:#582C83;">effect</span> on the value of Peloton's product ecosystem.</li>
+							<li class="fragment fade-in-then-semi-out">Document specifically how the three most relevant behavioural concepts influence decision-making.</li>
+							<li class="fragment fade-in-then-semi-out">Using your insights above, design a pricing model for the Peloton Bike ecosystem oriented toward consumer engagement and retention.</li>
+							<li class="fragment">Select a team member to report back to the class.</li>
+						</ol>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/uXjVPBAMrFs=/?moveToViewport=-1653,-2712,4155,2036&embedId=55474741105" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+					</section>
+
+					<section>
+						<h3 style="font-family: 'Walbaum';">Team Task</h3>
+						<div class="float-container">
+							<div class="float-child">
+								<p align="left">With your team, take the next thirty minutes to complete the Miro board tasks.  All teams will report back when time is up.</p>
+							</div>
+							<div class="child float-child" id="app"></div>
+						</div>
+
+						<script type="text/javascript">
+							// Credit: Mateusz Rybczonec
+							const FULL_DASH_ARRAY = 283;
+							const WARNING_THRESHOLD = 180;
+							const ALERT_THRESHOLD = 60;
+
+							const COLOR_CODES = {
+							  info: {
+							    color: "green"
+							  },
+							  warning: {
+							    color: "orange",
+							    threshold: WARNING_THRESHOLD
+							  },
+							  alert: {
+							    color: "red",
+							    threshold: ALERT_THRESHOLD
+							  }
+							};
+
+							const TIME_LIMIT = 1800;
+							let timePassed = 0;
+							let timeLeft = TIME_LIMIT;
+							let timerInterval = null;
+							let remainingPathColor = COLOR_CODES.info.color;
+
+							document.getElementById("app").innerHTML = `
+							<div class="base-timer">
+							  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+							    <g class="base-timer__circle">
+							      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+							      <path
+							        id="base-timer-path-remaining"
+							        stroke-dasharray="283"
+							        class="base-timer__path-remaining ${remainingPathColor}"
+							        d="
+							          M 50, 50
+							          m -45, 0
+							          a 45,45 0 1,0 90,0
+							          a 45,45 0 1,0 -90,0
+							        "
+							      ></path>
+							    </g>
+							  </svg>
+							  <span id="base-timer-label" class="base-timer__label">${formatTime(
+							    timeLeft
+							  )}</span>
+							  <button onclick="startTimer()">Start timer</button>
+							</div>
+							`;
+
+							function onTimesUp() {
+							  clearInterval(timerInterval);
+							}
+
+							function startTimer() {
+							  timerInterval = setInterval(() => {
+							    timePassed = timePassed += 1;
+							    timeLeft = TIME_LIMIT - timePassed;
+							    document.getElementById("base-timer-label").innerHTML = formatTime(
+							      timeLeft
+							    );
+							    setCircleDasharray();
+							    setRemainingPathColor(timeLeft);
+
+							    if (timeLeft === 0) {
+							      onTimesUp();
+							    }
+							  }, 1000);
+							}
+
+							function formatTime(time) {
+							  const minutes = Math.floor(time / 60);
+							  let seconds = time % 60;
+
+							  if (seconds < 10) {
+							    seconds = `0${seconds}`;
+							  }
+
+							  return `${minutes}:${seconds}`;
+							}
+
+							function setRemainingPathColor(timeLeft) {
+							  const { alert, warning, info } = COLOR_CODES;
+							  if (timeLeft <= alert.threshold) {
+							    document
+							      .getElementById("base-timer-path-remaining")
+							      .classList.remove(warning.color);
+							    document
+							      .getElementById("base-timer-path-remaining")
+							      .classList.add(alert.color);
+							  } else if (timeLeft <= warning.threshold) {
+							    document
+							      .getElementById("base-timer-path-remaining")
+							      .classList.remove(info.color);
+							    document
+							      .getElementById("base-timer-path-remaining")
+							      .classList.add(warning.color);
+							  }
+							}
+
+							function calculateTimeFraction() {
+							  const rawTimeFraction = timeLeft / TIME_LIMIT;
+							  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+							}
+
+							function setCircleDasharray() {
+							  const circleDasharray = `${(
+							    calculateTimeFraction() * FULL_DASH_ARRAY
+							  ).toFixed(0)} 283`;
+							  document
+							    .getElementById("base-timer-path-remaining")
+							    .setAttribute("stroke-dasharray", circleDasharray);
+							}
+
+						</script>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/uXjVPBJfsTo=/?moveToViewport=-1687,-2777,4155,2011&embedId=725400068127" frameborder="0" scrolling="no" allowfullscreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/uXjVPBJfsSA=/?moveToViewport=-1687,-2777,4155,2011&embedId=810567320839" frameborder="0" scrolling="no" allowfullscreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/uXjVPBJfsRs=/?moveToViewport=-1687,-2777,4155,2011&embedId=477488236677" frameborder="0" scrolling="no" allowfullscreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/uXjVPBJfsRI=/?moveToViewport=-1687,-2777,4155,2011&embedId=241160032607" frameborder="0" scrolling="no" allowfullscreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/uXjVPBJfsQE=/?moveToViewport=-1687,-2777,4155,2011&embedId=988473014783" frameborder="0" scrolling="no" allowfullscreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/uXjVPBJfsX8=/?moveToViewport=-1687,-2777,4155,2011&embedId=32561428530" frameborder="0" scrolling="no" allowfullscreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/uXjVPBJfsW4=/?moveToViewport=-1687,-2777,4155,2011&embedId=463303264262" frameborder="0" scrolling="no" allowfullscreen></iframe>
+					</section>
+
+					<section>
+						<iframe width="900" height="500" src="https://miro.com/app/live-embed/uXjVPBJfsUo=/?moveToViewport=-1687,-2777,4155,2011&embedId=601369760218" frameborder="0" scrolling="no" allowfullscreen></iframe>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Peloton's Behavioural Pricing Strategy</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 85%;">
+							<li class="fragment">Bike: a large, upfront monetary cost.</li>
+							<ul style="font-family: 'Benton Sans'; font-size: 85%;">
+								<li class="fragment"><span style="color:#582C83;">Present Bias:</span> we believe our future selves will exercise.</li>
+								<li class="fragment">Buyers make the investment in their future health.</li>
+								<li class="fragment">When the bike arrives they use it less than predicted.</li>
+							</ul>
+							<li class="fragment">Concomitant subscription service: small routine fee.</li>
+							<ul style="font-family: 'Benton Sans'; font-size: 85%;">
+								<li class="fragment">The bike is over-priced without this.</li>
+								<li class="fragment"><span style="color:#582C83;">Endowment Effect</span> on bike: buyers pay for the subscription despite under-utilizing the bike.</li>
+							</ul>
+						</ol>
+						<p align="left" class="fragment" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">People buy the bike due to <span style="color:#582C83;">Present Bias</span>. They keep the bike due to the <span style="color:#582C83;">Endowment Effect</span>.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Is Peloton's pricing model helpful to consumers, or manipulative?</p> 
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Help me make more behavioural cases.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">If you have any ideas for a case, let's chat.</li>
+							<li class="fragment">I will be able to work with two students during the winter term.</li>
+						</ol>
+					</section>
+
+					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png" style="width: 800px;" align="center"></section>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
