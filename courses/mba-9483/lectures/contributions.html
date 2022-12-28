@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 4654: Behavioural Economics</title>
+
+		<meta name="description" content="Contributions for BUS 4654">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
+
+		<link rel="stylesheet" href="contributions.css">
+	</head>
+
+	<body>
+		<div class="student-container" id='students'>
+			<button class="button student">Antonio Almeida<br><br><span class="score"></span></button>
+			<button class="button student">Reilly Baggs<br><br><span class="score"></span></button>
+			<button class="button student">Teagan Boyle<br><br><span class="score"></span></button>
+			<button class="button student">Joshua Bush<br><br><span class="score"></span></button>
+			<button class="button student">Arsallan Butt<br><br><span class="score"></span></button>
+			<button class="button student">Alina Byshynska<br><br><span class="score"></span></button>
+			<button class="button student">Jack Davies<br><br><span class="score"></span></button>
+			<button class="button student">Patrick Dudgeon<br><br><span class="score"></span></button>
+			<button class="button student">Enku Emishaw<br><br><span class="score"></span></button>
+			<button class="button student">Omoefe Eromosele<br><br><span class="score"></span></button>
+			<button class="button student">Bridget Farrell<br><br><span class="score"></span></button>
+			<button class="button student">Anay Ganeriwala<br><br><span class="score"></span></button>
+			<button class="button student">Gonzalo Garcia Mansilla<br><br><span class="score"></span></button>
+			<button class="button student">Aditya Ghosh<br><br><span class="score"></span></button>
+			<button class="button student">Buki Idowu-Jimoh<br><br><span class="score"></span></button>
+			<button class="button student">Adam Jaekel<br><br><span class="score"></span></button>
+			<button class="button student">Sandeep Jangir<br><br><span class="score"></span></button>
+			<button class="button student">Didier Jouen<br><br><span class="score"></span></button>
+			<button class="button student">Zia Karim<br><br><span class="score"></span></button>
+			<button class="button student">Rahul Karippath<br><br><span class="score"></span></button>
+			<button class="button student">Lin Lu<br><br><span class="score"></span></button>
+			<button class="button student">Faiza M'Ghizou<br><br><span class="score"></span></button>
+			<button class="button student">Sanjog Mishra<br><br><span class="score"></span></button>
+			<button class="button student">Elena Mitra<br><br><span class="score"></span></button>
+			<button class="button student">Anas Nasar<br><br><span class="score"></span></button>
+			<button class="button student">Salena Nazarali<br><br><span class="score"></span></button>
+			<button class="button student">Kunal Rathore<br><br><span class="score"></span></button>
+			<button class="button student">Michael Rychlewski<br><br><span class="score"></span></button>
+			<button class="button student">Shubhani Sachdeva<br><br><span class="score"></span></button>
+			<button class="button student">Aleks Spasic<br><br><span class="score"></span></button>
+			<button class="button student">Mike Starchuk<br><br><span class="score"></span></button>
+			<button class="button student">Sanya Talwar<br><br><span class="score"></span></button>
+			<button class="button student">Dan Vanderkaden<br><br><span class="score"></span></button>
+			<button class="button student">Rhys Webster<br><br><span class="score"></span></button>
+			<button class="button student">Elsa Xu<br><br><span class="score"></span></button>
+
+			<!-- <button class="button student" style="background-color: #4F2683;">Tahira Alarakhia<br><br><span class="score"></span></button> -->
+		</div>
+		<button onclick="export2txt()">Export contribution data</button>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+		<script src="contributions.js"></script>
+
+		<!--
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/math/math.js"></script>
+		<script src="../../plugin/zoom/zoom.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/search/search.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+		-->
+	</body>
+</html>
