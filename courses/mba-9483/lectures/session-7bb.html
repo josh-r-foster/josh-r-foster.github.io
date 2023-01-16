@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 9483: Global Economy, Markets and Strategy</title>
+
+		<meta name="description" content="Session slides for BUS 9483">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
+	</head>
+
+	<body onload="display_ct();">
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
+
+					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				</section>
+
+				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section>
+					<h3 style="font-family: 'Walbaum'; color:#582C83;">Agenda</h3>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>MobLab: <em>In-class Simulation</em>.</li>
+						<li>Case: <em>Evive Health and Workplace Influenza Vaccinations</em>.</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Simulation instructions.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment current-visible"><span style="color:#582C83;">The situation:</span> your orchestra is learning a new piece.</li>
+							<li class="fragment current-visible"><span style="color:#582C83;">What you do:</span> you must divide your practice time between <span style="color:#582C83;">Solo</span> and <span style="color:#582C83;">Ensemble</span> hours.</li>
+							<li class="fragment"><span style="color:#582C83;">How it works:</span> each member of the orchestra receives a reward ("prestige") according to their Solo and Ensemble practice time.</li>
+						</ul>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><span style="color:#582C83;">Each Ensemble hour of practice your orchestra does (including you) earns everyone 1 "prestige" point.</span> </p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><span style="color:#582C83;">Each Solo hour of practice you do earns you 3 "prestige" points.</span> </p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><span style="color:#582C83;">The goal: to maximize your "prestige" points.</span> </p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How it works.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment current-visible">The software will randomly assign you into an orchestra of 6.</li>
+							<li class="fragment">There will be multiple rounds where:</li>
+							<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+								<li class="fragment">Orchestra members will receive time (20 hours each).</li>
+								<li class="fragment">Each member will decide how to split their time.</li>
+								<li class="fragment">"Prestige" points are distributed.</li>
+								<li class="fragment">Rinse and repeat Steps 1-3 a few times.</li>
+							</ol>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How you earn "prestige" (an example).</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 80%; color:#582C83;">Suppose the following is true: </p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">You choose 8 Ensemble hours and 12 Solo hours.</li>
+							<li class="fragment">Your 5 group members chose 5, 6, 7, 8 and 9 Ensemble hours (total 35).</li>
+							<li class="fragment">Total Ensemble hours (including yours) are <span style="color:#582C83;">(35+8)</span>.</li>
+						</ul>
+						<table style="font-family: 'Benton Sans'; font-size: 80%; border:none;" class="fragment">
+							<tr><td style="border:none;">Payoff</td><td style="border:none;">=</td><td style="border:none;">1$\times$Total Ensemble</td><td style="border:none;">+</td><td style="border:none;">3$\times$ Your Solo</td></tr>
+							<tr class="fragment"><td style="border:none;">79</td><td style="border:none;">=</td><td style="border:none;">1$\times$(35+8)</td><td style="border:none;">+</td><td style="border:none;">3$\times$12</td></tr>
+						</table>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Questions?</h3>
+					</section>
+
+					<section data-auto-animate data-background-image="https://media.giphy.com/media/k5PBzy5e7mLogC2XXu/giphy.gif">
+					</section>
+
+					<section data-auto-animate></section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What happened in the simulation?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What made coordination difficult?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Free-rider problem.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Free-rider problem: a classic market failure that occurs when the costs and benefits to individuals are not wholly privatized (i.e. there is an <span style="color:#582C83;">externality</span> present).</p>
+
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><span style="color:#582C83;">The simulation's problem:</span> all community members can receive a return, regardless of their own contribution.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">What kind of (non-)market solutions do you think could help with this problem?</p>
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr><td style="border:none; width: 450px;">1)</td><td style="border:none; width: 450px;">2)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">3)</td><td style="border:none;">4)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">5)</td><td style="border:none;">6)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+						</table>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What service does Evive provide, and what is the specific problem they are trying to solve in this case?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 0px; color:#582C83;">More survey questions.</p>
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr><td style="border:none;">About how many days per month <span style="color:#582C83;">do you</span> exercise in a typical month?</td><td style="border:none;" class="fragment fade-in">About how many days per month <span style="color:#582C83;">do you think you should</span> exercise in a typical month?</td></tr>
+							<tr><td style="border:none;" class="fragment fade-in">$\bar{X}=10.7$</td><td style="border:none;" class="fragment fade-in">$\bar{X}=18.2$<br>"Ideally 20, but realistically 10-15."</td></tr>
+						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What behavioural reasons (i.e. mistakes) might cause us to under-exercise?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Behavioural economics gives us the <span style="color:#582C83;">Internality</span>.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">The long-run consequences (good or bad) that are not fully considered when one makes a decision.</li>
+							<li class="fragment">One imposes an <span style="color:#582C83;">internality</span> on themself, according to their own preferences.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">Now, back to Evive's problem.</p>
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr><td style="border:none;"><span style="color:#582C83;">Externalities</span> of flu shots:</td><td style="border:none;"><span style="color:#582C83;">Internalities</span> of flu shots:</td></tr>
+							<tr><td style="border:none;">(Market-based aspects)</td><td style="border:none;">(Behavioural aspects)</td></tr>
+							<tr><td style="border:none;">1)</td><td style="border:none;">1)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">2)</td><td style="border:none;">2)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">3)</td><td style="border:none;">3)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What are some potential communication designs?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How can we measure these designs' effectiveness?</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Some health-related markets suffer from:</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment"><span style="color:#582C83;">Externalities:</span> forced economic outcomes on non-market participants (can be positive/negative).</li>
+							<li class="fragment"><span style="color:#582C83;">Internalities:</span> forced economic outcomes on our (future) selves (biases usual make them negative).</li>
+						</ol>
+					</section>
+
+					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
