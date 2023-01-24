@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 9483: Global Economy, Markets and Strategy</title>
+
+		<meta name="description" content="Session slides for BUS 9483">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
+
+		<style type="text/css">
+			.base-timer {
+			  position: relative;
+			  width: 300px;
+			  height: 300px;
+			}
+
+			.base-timer__svg {
+			  transform: scaleX(-1);
+			}
+
+			.base-timer__circle {
+			  fill: none;
+			  stroke: none;
+			}
+
+			.base-timer__path-elapsed {
+			  stroke-width: 7px;
+			  stroke: grey;
+			}
+
+			.base-timer__path-remaining {
+			  stroke-width: 7px;
+			  stroke-linecap: round;
+			  transform: rotate(90deg);
+			  transform-origin: center;
+			  transition: 1s linear all;
+			  fill-rule: nonzero;
+			  stroke: currentColor;
+			}
+
+			.base-timer__path-remaining.green {
+			  color: rgb(65, 184, 131);
+			}
+
+			.base-timer__path-remaining.orange {
+			  color: orange;
+			}
+
+			.base-timer__path-remaining.red {
+			  color: red;
+			}
+
+			.base-timer__label {
+			  position: absolute;
+			  width: 300px;
+			  height: 300px;
+			  top: 0;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  font-size: 48px;
+			}
+
+			.child {
+				position: absolute;
+				top: 30%;
+				left: 65%;
+				margin: -25px 0 0 -25px;
+			}
+
+			.float-container {
+			    border: 3px;
+			    padding: 20px;
+			}
+
+			.float-child {
+			    width: 50%;
+			    float: left;
+			    padding: 20px;
+			    border: 2px;
+			} 
+		</style>
+	</head>
+
+	<body onload="display_ct();">
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
+
+					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				</section>
+
+				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section>
+					<h3 style="font-family: 'Walbaum'; color:#582C83;">Agenda</h3>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>Case: <em>United Grain Growers Limited</em>.</li>
+						<li>Economics of Mergers.</li>
+						<li>Merger Paradox: A Behavioural Explanation.</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 225%; color:#582C83;">What does UGG do as a grain handler?</p>
+					</section>
+
+					<section>
+						<img src="/images/teaching/grain-tractor-1.png" style="width: 700px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/grain-storage-1.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 175%; color:#582C83;">Who are UGG's competitors, and how do they stack up relative to each other?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 200%; color:#582C83;">Prior to the takeover bid, what did UGG do to prepare for a scaling grain market?</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 200%; color:#582C83;">Should UGG fight this forced merger?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Economics of Mergers</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li>If no synergies, then mergers don't always benefit shareholders.</li>
+							<li class="fragment">We can demonstrate this by comparing the economic profits of a merger with a counterfactual -- the status quo.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What's happening here?</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li>The merged firms ultimately find it advantageous to reduce their output.</li>
+							<li class="fragment">The remaining market firm(s) respond by picking up some of the slack created.</li>
+							<li class="fragment">This tradeoff is what reduces the merged firms' combined profits.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Merger Paradox</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Merged firms make less cumulative economic profit than they did as individual firms prior to the merger.</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 0px; color:#582C83;">Even more survey question insights.</p>
+						<table style="font-family: 'Benton Sans'; font-size: 72.5%; border:none;">
+							<tr><td style="border:none;">If I picked <span style="color:#582C83;">a random student</span> out of this class, what would you say is the probability that upon finishing <span style="color:#582C83;">their</span> studies <span style="color:#582C83;">they</span> will land a job with a starting salary over $120,000?</td><td style="border:none;" class="fragment fade-in">What do you think is the probability that upon finishing <span style="color:#582C83;">your studies you</span> will land a job with a starting salary over $120,000?</td></tr>
+							<tr><td style="border:none;" class="fragment fade-in">$\bar{X}=62\%$<br><span style="color:#582C83;">"Low, like this seems like very much."</span> -someone</td><td style="border:none;" class="fragment fade-in">$\bar{X}=86\%$<br><span style="color:#582C83;">"I think the probability will be up to 95%."</span> -another<br><span style="color:#582C83;">"0%, lol"</span> -yet another</td></tr>
+						</table>
+					</section>
+
+					<section>
+						<object data="https://www.ivey.uwo.ca/media/359927/iveymba-permanent-employment-report.pdf" type="application/pdf" height="450" width="900"></object>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%;"><span style="color:#582C83;">Ego utility.</span></p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Utility that is derived from beliefs about one’s traits and abilities.</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class ="fragment">Entrepreneurs think their business is less likely to fail.</li>
+							<li class ="fragment">90% of drivers think they are better than average.</li>
+							<li class ="fragment">Majority of professors think they are above average teachers.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; position: relative;; color:#582C83;">Why <em>shouldn't</em> we expect managers to be over-confident?</p><br>
+
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; position: relative; color:#582C83;" class="fragment">Why <em>should</em> we expect managers to be over-confident?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; position: relative; color:#582C83;">What are the organizational symptoms of managerial overconfidence?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 50px;"><span style="color:#582C83;">Managerial hubris</span> can grow as:</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 50px;">
+							<li class ="fragment">The trait becomes more important.</li>
+							<li class ="fragment">Feedback on trait becomes more ambiguous.</li>
+							<li class ="fragment">One believes they have more control.</li>
+							<li class ="fragment">One is perceived to be an expert.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 50px;"><span style="color:#582C83;">The Urge to Merge</span></p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 50px;">
+							<li>CEOs receive significant compensation in stock options.</li>
+							<li class ="fragment">To minimize risk, they should exercise those options.</li>
+							<li class="fragment">If they don't, they are (arguably) overconfident.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; position: relative; color:#582C83;">Probability of Completing a Merger</p>
+						<img src="/images/teaching/mergers.png" style="width: 800px; margin-top: -25px;" align="center">
+						<p align="center" style="font-family: 'Benton Sans'; font-size: 75%; position: relative; margin-top:-25px;">Malmendier and Tate (2008) in <em>J of Financial Economics</em></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;"><span style="color:#582C83;">What happened.</span></p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 0px;">
+							<li class="fragment">UGG used a poison pill by going to court to block takeover.</li>
+							<li class="fragment">Found a "White Night" in Archer Daniels Midland, bought a 42% stake.</li>
+							<li class="fragment">In 1998, Alberta and Manitoba Wheat Pools merged to form Agricore Limited.</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Key Takeaways</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 0px;">
+							<li class="fragment">Firms and their CEOs often want to believe the benefits of merging outweigh the costs associated to doing so.</li>
+							<li class="fragment">The <span style="color:#582C83;">Merger Paradox</span> theoretically and empirically suggest this benefit is over-stated relative to counterfactuals.</li>
+							<li class="fragment">Additionally, <span style="color:#582C83;">Ego Utility</span> provides a behavioural explanation for why it can persist.</li>
+						</ol>
+					</section>
+
+					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
