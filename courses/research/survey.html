@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--<meta http-equiv="refresh" content="0; url='https://www.w3docs.com'" />-->
+  </head>
+  <body>
+    <a href="#" onclick="randomUrl();" target="_blank"><img id="img-hover" src="image"/>Click to take Movie Ticket Survey</a>
+    <script type="text/javascript">
+      var urlArray = [
+          "https://forms.gle/xbUrg781fMyFYUUE8",
+          "https://forms.gle/ryHQDaa4GwEVxpycA"
+      ];
+
+      function randomUrl() {
+          var randomNumber = Math.floor(Math.random() * urlArray.length);
+          var newUrl = urlArray[randomNumber];
+          window.location.href = newUrl;
+      }
+    </script>
+  </body>
+</html>
