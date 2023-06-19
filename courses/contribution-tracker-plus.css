@@ -7,7 +7,6 @@ body {
 
 h1 {
   text-align: center;
-/*      font-family: "Benton Sans", Arial, sans-serif;*/
 }
 
 .grid {
@@ -35,8 +34,25 @@ h1 {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+.box-header {
+  display: flex;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  width: 80px;  /* Adjust this for the size you want */
+  height: 80px;  /* Adjust this for the size you want */
+  margin-right: 10px;
+}
+
+.name-and-counter {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px; /* Set this to the desired minimum width */
+}
+
 .box h2 {
-  margin: 0 0 10px;
+  margin: 0;
   font-size: 24px;
 }
 
@@ -44,7 +60,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin: 0;
 }
 
 .counter button {
@@ -111,7 +127,7 @@ margin-right: 100px; /* Adjust the margin as needed */
 }
 
 #export-button:hover {
-  background-color: #45a049;
+  background-color: #582C83;
 }
 
 @media (max-width: 560px) {

@@ -1,12 +1,13 @@
 const container = document.getElementById('person-container');
 const exportButton = document.getElementById('export-button');
+
 const peopleData = [
-  { name: 'John Doe' },
-  { name: 'Jane Smith' },
-  { name: 'Michael Johnson' },
-  { name: 'Emily Davis' },
-  { name: 'Daniel Wilson' },
-  { name: 'Olivia Thompson' },
+  { name: 'John Doe', profilePictureUrl: '/images/teaching/default-profile-picture.jpg' },
+  { name: 'Jane Smith', profilePictureUrl: '/images/teaching/default-profile-picture.jpg' },
+  { name: 'Michael Johnson', profilePictureUrl: '/images/teaching/default-profile-picture.jpg' },
+  { name: 'Emily Davis', profilePictureUrl: '/images/teaching/default-profile-picture.jpg' },
+  { name: 'Daniel Wilson', profilePictureUrl: '/images/teaching/default-profile-picture.jpg' },
+  { name: 'Olivia Thompson', profilePictureUrl: '/images/teaching/default-profile-picture.jpg' },
 ];
 const buttonsData = ["Came prepared", "Strong problem solving", "Quality decision analysis", "Good listening", "Considered other perspectives", "Clear communication", "Distracted", "Arrived late", "Absent"];
 
@@ -14,13 +15,27 @@ function createPersonBox(person) {
   const box = document.createElement('div');
   box.className = 'box';
 
+  const boxHeader = document.createElement('div');
+  boxHeader.className = 'box-header';
+  box.appendChild(boxHeader);
+
+  const profilePicture = document.createElement('img');
+  profilePicture.className = 'profile-picture';
+  profilePicture.src = person.profilePictureUrl; // Set the source of profile picture from person data
+  profilePicture.alt = person.name + "'s profile picture";
+  boxHeader.appendChild(profilePicture);
+
+  const nameAndCounter = document.createElement('div');
+  nameAndCounter.className = 'name-and-counter';
+  boxHeader.appendChild(nameAndCounter);
+
   const heading = document.createElement('h2');
   heading.textContent = person.name;
-  box.appendChild(heading);
+  nameAndCounter.appendChild(heading);
 
   const counter = document.createElement('div');
   counter.className = 'counter';
-  box.appendChild(counter);
+  nameAndCounter.appendChild(counter);
 
   const decreaseButton = document.createElement('button');
   decreaseButton.className = 'decrease';
@@ -90,7 +105,7 @@ function exportData() {
   });
 
   const currentDate = new Date().toISOString().split('T')[0];
-  const fileName = `data_${currentDate}.json`;
+  const fileName = `contribution_data_${currentDate}.json`;
   const jsonData = JSON.stringify(data);
 
   const link = document.createElement('a');
