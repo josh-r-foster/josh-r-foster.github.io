@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Auctions for Risk Averse Charities</title>
+
+		<meta name="description" content="20 Minute Presentation Slides">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css">
+	</head>
+
+	<body onload="display_ct();">
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h2 style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Walbaum';">Auctions for Risk Averse Charities</h2>
+					<p style="background-color: #f7f7f700; width: 950px; margin-left: 0px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a><br><a href="http://community.middlebury.edu/~jcarpent/" style="color: #003f84;">Jeffrey Carpenter</a> & <a href="http://community.middlebury.edu/~pmatthew/" style="color: #003f84;">Peter Matthews</a><br>at <a href="https://www.middlebury.edu" style="color: #003f84;">Middlebury College</a></p>
+				</section>
+
+				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section data-transition="slide-in fade-out">
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Your favorite non-profit needs $\$$10,000.</p>
+					<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 5px; min-height: 400px;">
+						<div class="grid-child" style="background-color: #034638; border-radius: 10px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">Donor Community</p>
+							<img src="/images/presentations/community-2.svg" style="width: 300px;">
+							<span class="fragment">
+								<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">50% chance @ 10k</p>
+								<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">50% chance @ 12k</p>
+							</span>
+						</div>
+						<div class="grid-child" style="background-color: #63666A; border-radius: 10px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">New Wealthy Donor</p>
+							<img src="/images/presentations/rich-donor-1.svg" style="width: 190px;">
+							<span class="fragment">
+								<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">10% chance @ 150k</p>
+								<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">90% chance @ 0</p>
+							</span>
+						</div>
+					</div>
+					<!--Going to the rich donor is expected revenue maximizing, but it is difficult to recommend the non-profit pursue them due to the risk. This is essentially the problem with all-pay mechanisms. -->
+				</section>
+
+				<section data-transition="fade-in slide-out">
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Your favorite non-profit needs $\$$10,000.</p>
+					<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 5px; min-height: 400px;">
+						<div class="grid-child" style="background-color: #034638; border-radius: 10px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">Winner-pay Auctions</p>
+							<img src="/images/presentations/winner-pay-1.svg" style="width: 200px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">50% chance @ 10k</p>
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">50% chance @ 12k</p>
+						</div>
+						<div class="grid-child" style="background-color: #63666A; border-radius: 10px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">All-pay Auctions</p>
+							<img src="/images/presentations/all-pay-1.svg" style="width: 190px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">10% chance @ 150k</p>
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">90% chance @ 0</p>
+						</div>
+					</div>
+					<!--Going to the rich donor is expected revenue maximizing, but it is difficult to recommend the non-profit pursue them due to the risk. This is essentially the problem with all-pay mechanisms. -->
+				</section>
+
+				<section>
+					<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 5px; min-height: 50px;">
+						<div class="grid-child" style="background-color: #034638; border-radius: 10px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">Valuations</p>
+						</div>
+						<div class="grid-child fragment" style="background-color: #034638; border-radius: 10px;" data-fragment-index="1">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">Bids</p>
+						</div>
+						<div class="grid-child fragment" style="background-color: #034638; border-radius: 10px;" data-fragment-index="2">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">Revenues</p>
+						</div>
+
+						<div class="grid-child" style="border-radius: 10px;">
+							<img src="/images/presentations/density-1.png" style="width: 275px;">
+						</div>
+						<div class="grid-child fragment" style="border-radius: 10px;" data-fragment-index="1">
+							<img src="/images/presentations/bid-1.png" style="width: 275px;">
+						</div>
+						<div class="grid-child fragment" style="border-radius: 10px;" data-fragment-index="2">
+							<img src="/images/presentations/rev-dist-1.png" style="width: 275px;">
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Our focus.</p>
+					<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+						<li class="fragment fade-in-then-semi-out">Is there a theoretical/experimental mean-variance tradeoff among fundraising mechanisms?</li>
+						<li class="fragment fade-in-then-semi-out">How might this be a function of participation costs?</li>
+						<li class="fragment fade-in-then-semi-out">What advice can we give on fundraising design?</li>
+					</ol>
+				</section>
+
+				<section>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Experimental Design Overview</p>
+					<div style="display: grid; grid-template-columns: 1fr; grid-auto-rows: 50px 50px 50px; grid-gap: 5px; width: 950px;">
+						<div class="grid-child" style="background-color: #034638; border-radius: 10px; padding-left: 15px;">
+							<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#FFF; margin-top: 5px;">Tested 10 mechanisms with 5 sessions each.</p>
+						</div>
+						<div class="grid-child" style="background-color: #034638; border-radius: 10px; padding-left: 15px;">
+							<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#FFF; margin-top: 5px;">10 potential bidders and 10 auctions per session.</p>
+						</div>
+						<div class="grid-child" style="background-color: #034638; border-radius: 10px; padding-left: 15px;">
+							<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#FFF; margin-top: 5px;">Public good benefits imposed on auction revenue.</p>
+						</div>
+					</div>
+					<div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; grid-gap: 5px; min-height: 50px; width: 950px; margin-top: -10px;">
+						<span class="fragment">
+							<div class="grid-child" style="background-color: #63666A; border-radius: 10px; padding-left: 5px;">
+								<p align="center" style="font-family: 'Benton Sans'; font-size: 95%; color:#FFF;"><u>Phase 1: Earn Money</u></p>
+								<ul style="font-family: 'Benton Sans'; font-size: 85%; color:#FFF;">
+									<li>16 incentivized anagram puzzles.</li>
+									<li>Difficulty exogenously varied.</li>
+									<!--<li>Average subject's anagram success was 14.09.</li>-->
+								</ul>
+							</div>
+						</span>
+						<span class="fragment">
+							<div class="grid-child" style="background-color: #63666A; border-radius: 10px; padding-left: 15px;">
+								<p align="left" style="font-family: 'Benton Sans'; font-size: 95%; color:#FFF;"><u>Phase 2: Bid or Anagram</u></p>
+									<ol style="font-family: 'Benton Sans'; font-size: 85%; color:#FFF;">
+										<li>Participate in an auction.</li>
+										<li>Attempt another anagram (of known difficulty).</li>
+									</ol>
+							</div>
+						</span>
+					</div>
+					
+				</section>
+
+				<!-- 
+				<section>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Experimental Design Overview</p>
+					<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+						<li>Tested 10 mechanisms with 5 sessions each.</li>
+						<li>10 potential bidders and 10 auctions per session.</li>
+						<li>Public good benefits imposed on auction revenue.</li>
+					</ul>
+					<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 20px;">
+						<span class="fragment">
+							<div class="grid-child">
+								<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><u>Phase 1: Earn Money</u></p>
+								<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+									<li>16 incentivized anagram puzzles.</li>
+									<li>Difficulty exogenousy varied.</li>
+								</ul>
+							</div>
+						</span>
+						<span class="fragment">
+							<div class="grid-child">
+								<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><u>Phase 2: Bid or Anagram</u></p>
+								<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+									<li>Participate in an auction.</li>
+									<li>Attempt another anagram (of known difficulty).</li>
+								</ol>
+							</div>
+						</span>
+					</div>
+				</section>
+				-->
+
+				<section>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Imposed Mechanisms</p>
+					<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 5px; min-height: 200px;">
+						<div class="grid-child" style="background-color: #034638; border-radius: 10px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;"><u>First-price Winner-pay</u><br><em>Sealed bid, Dutch</em></p>
+						</div>
+						<div class="grid-child" style="background-color: #034638; border-radius: 10px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;"><u>Second-price Winner-pay</u><br><em>Sealed bid, English, Silent</em></p>
+						</div>
+						<div class="grid-child" style="background-color: #63666A; border-radius: 10px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;"><u>First-price <br>All-pay</u><br><em>Sealed bid</em></p>
+						</div>
+						<div class="grid-child" style="background-color: #63666A; border-radius: 10px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;"><u>Second-price All-pay</u><br><em>All-pay Button, "Bucket"</em></p>
+						</div>
+						<div class="grid-child" style="background-color: #63666A; border-radius: 10px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;"><u>Last-price <br>All-pay</u><br><em>Sealed bid</em></p>
+						</div>
+						<div class="grid-child" style="background-color: #63666A; border-radius: 10px;">
+							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;"><u>Standard Lottery</u><br><em>Raffle</em></p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83; margin-top: 75px;">Standard IPV Framework</p>
+					<span class="fragment current-visible">
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">
+							Expected <em>ex ante</em> bid $\overline{b}_m$ through mechanism $m$: 
+						</p>
+						<p align="center" style="font-family: 'Benton Sans'; font-size: 90%;">
+							$\overline{b}_m=\int_{\hat{v}_m}^{\overline{v}}b_m(v)dF_m(v)$
+						</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">
+							With $n$ bidders, expected revenue is $\mu_m=n\overline{b}_m$. 
+						</p>
+					</span>
+					<span class="fragment fade-in">
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; margin-top: -50px;">
+							Bidder's revenue variance: 
+						</p>
+						<p align="center" style="font-family: 'Benton Sans'; font-size: 90%;">
+							$\text{Var}(b_m)=\int_{\hat{v}_m}^{\overline{v}}b_m(v)^2dF_m(v)-\overline{b}_m^2$
+						</p>
+					</span>
+					<span class="fragment fade-in">
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">
+							Variance $\sigma_m$ of mechanism $m$:
+						</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; margin-left: 100px;">
+							$\sigma_m^2=\text{Var}\left(\sum_{i=1}^n b_m^i\right)$
+						</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; margin-left: 167px;">
+							$=\sum_{i=1}^n\text{Var}(b_m^i)+2\sum_{i\leq j}\text{Cov}(b_m^i,b_m^j)$
+						</p>
+					</span>
+				</section>
+
+				<section>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83; margin-top: 0px;">Endogenous Participation</p>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">The $n$ potential bidders face a cost $c$ for participation.</p>
+					<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+						<li class="fragment"><span style="color: #582C83;">Motivation:</span> bid preparation, fairness, etc.</li>
+						<li class="fragment"><span style="color: #582C83;">Experiment:</span> expected value of an anagram puzzle.</li>
+						<li class="fragment"><span style="color: #582C83;">Upshot:</span> <em>active</em> bidders is not pre-determined.</li>
+					</ul>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment">There exists a mechanism-specific fixed threshold value $\hat{v}$ that determines participation.</p>
+				</section>
+
+				<section data-transition="slide-in fade-out">
+					<p align="center" style="font-family: 'Benton Sans'; font-size: 70%; color:#582C83; margin-bottom: -20px;">Theoretical Mean-variance Tradeoff by Mechanism, Participation Cost</p>
+					<img src="/images/presentations/mean-var-theory-2.png" style="width: 75%;">
+				</section>
+
+				<section data-transition="fade-in fade-out">
+					<p align="center" style="font-family: 'Benton Sans'; font-size: 70%; color:#582C83; margin-bottom: -20px;">Theoretical Mean-variance Tradeoff by Mechanism, Participation Cost</p>
+					<img src="/images/presentations/mean-var-theory-2.png" style="width: 54%;">
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><span style="color:#582C83;">Prediction 1:</span> Mechanisms with greater expected revenue also have greater variance.</p>
+				</section>
+
+				<section data-transition="fade-in slide-out">
+					<p align="center" style="font-family: 'Benton Sans'; font-size: 70%; color:#582C83; margin-bottom: -20px;">Theoretical Mean-variance Tradeoff by Mechanism, Participation Cost</p>
+					<img src="/images/presentations/mean-var-theory-2.png" style="width: 54%;">
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><span style="color:#582C83;">Prediction 2:</span> Winner-pay variance will increase with participation cost, while all-pay variance will decrease.</p>
+				</section>
+
+				<section data-transition="slide-in fade-out">
+					<img src="/images/presentations/mean-var-tradeoffs-1.png" style="width: 80%;">
+				</section>
+
+				<section data-transition="fade-in slide-out">
+					<img src="/images/presentations/mean-var-tradeoffs-1.png" style="width: 60%;">
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><span style="color:#582C83;">Result 1:</span> Nearly all mechanisms with greater expected revenue also have greater variance.</p>
+				</section>
+
+				<section data-transition="slide-in fade-out">
+					<p align="center" style="font-family: 'Benton Sans'; font-size: 80%; color:#582C83; margin-top: -60px;">Participation & Revenue Variance by Puzzle Difficulty (OLS)</p>
+					<img src="/images/presentations/participation-variance-results-1.png" style="width: 90%;">
+				</section>
+
+				<section data-transition="fade-in slide-out">
+					<p align="center" style="font-family: 'Benton Sans'; font-size: 80%; color:#582C83;">Participation & Revenue Variance by Puzzle Difficulty (OLS)</p>
+					<img src="/images/presentations/participation-variance-results-1.png" style="width: 75%;">
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><span style="color:#582C83;">Result 2:</span> An $\uparrow$ participation costs $\Rightarrow$ revenue variance to $\uparrow$ if winner-pay, but $\downarrow$ if all-pay. </p>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">Fundraising design: a "balanced" event.</p>
+					<img src="/images/presentations/simplex-balanced-1.png" style="width: 60%;">
+					</section>
+					
+					<section data-auto-animate>
+						<img data-id="box" src="/images/teaching/Ivey-Main-Full-Signature.jpeg" style="width: 800px;" align="center">
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
