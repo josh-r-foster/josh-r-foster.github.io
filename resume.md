@@ -56,6 +56,15 @@ permalink: /cv/
  * Mechanism Design
 
 ## Publications
+`2023`
+<a href="https://josh-r-foster.github.io/courses/research/devil-details/devil-details.pdf">__The Devil is in the Details: Sexual Harassment e-Training Design Choices and Perceived Messenger Integrity__</a>
+
+<em>Journal of Business Ethics</em>, forthcoming.
+
+`with`
+ * Shannon L. Rawski
+ * Emilija Djurdjevic
+ * Andy Soderberg
 
 `2022`
 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3978861">__Semi-nonparametric Estimation of Secret Reserve Prices in Auctions__</a>
@@ -160,16 +169,6 @@ Abbreviated version published in  <em>Academy of Management Annual Meeting Proce
 ### Under Review
 
 `2022`
-<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3541205">__An Experiment on the Effects of Media Richness, Trainer Characteristics, and Perceived Trainer Integrity in Sexual Harassment e-Training Effectiveness__</a>
-
-Abbreviated version published in  <em>Academy of Management Annual Meeting Proceedings</em>, 2020. 
-
-`with`
- * Shannon L. Rawski
- * Emilija Djurdjevic
- * Andrew Soderberg
-
-`2022`
 __Auctions for Risk Averse Charities__
 
 `with`
@@ -226,4 +225,4 @@ Peloton: Keeping Users Pedalling with Behavioural Theory (under review)
 
 ### <span>&#8203;</span>
 
-Last updated November, 2022.
+Last updated June, 2023.
