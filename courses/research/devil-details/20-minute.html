@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Auctions for Risk Averse Charities</title>
+		<title>The Devil is in the Details</title>
 
 		<meta name="description" content="20 Minute Presentation Slides">
 		<meta name="author" content="Joshua Foster, Ph.D.">
@@ -31,277 +31,327 @@
 	<body onload="display_ct();">
 		<div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-background="/images/teaching/thumbnail-2.png">
-					<h2 style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Walbaum';">Auctions for Risk Averse Charities</h2>
-					<p style="background-color: #f7f7f700; width: 950px; margin-left: 0px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a><br><a href="http://community.middlebury.edu/~jcarpent/" style="color: #003f84;">Jeffrey Carpenter</a> & <a href="http://community.middlebury.edu/~pmatthew/" style="color: #003f84;">Peter Matthews</a><br>at <a href="https://www.middlebury.edu" style="color: #003f84;">Middlebury College</a></p>
+				<section>
+					<div style="display: flex;">
+					    <div style="width: 65%; padding: 10px;">
+						    <p style="text-align: left; font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">The Devil is in the Details</p>
+						    <p style="text-align: left; font-family: 'Benton Sans'; font-size: 90%;">Exploring the impact of design choices in sexual harassment e-trainings and their effect on perceived messenger integrity and training effectiveness.</p>
+					    </div>
+					    <div style="width: 35%; margin-top: 25px; padding: 10px;">
+						    <p style="text-align: right; font-family: 'Benton Sans'; font-size: 70%;">
+								<a href="http://josh-r-foster.github.io/">Joshua Foster</a><br> @ <a href="https://www.ivey.uwo.ca/">Ivey</a><br><br>
+								<a href="https://www.ivey.uwo.ca/faculty/directory/shannon-rawski/">Shannon Rawski</a><br> @ <a href="https://www.ivey.uwo.ca/">Ivey</a><br><br>
+								<a href="https://web.uri.edu/business/meet/emilija-djurdjevic/" style="color: #002147;">Emilija Djurdjevic</a><br> @ <a href="https://web.uri.edu/business/" style="color: #002147;">Rhode Island</a><br><br>
+								<a href="https://uwosh.edu/cob/people/soderberg-andrew/" style="color: #000;">Andy Soderberg</a><br> @ <a href="https://uwosh.edu/cob/" style="color: #000;">Wisconsin Oshkosh</a>
+							</p><br>
+					    </div>
+					  </div>
+					</p>
 				</section>
 
 				<div class="topbar">
 					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
-    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" id="ivey-logo" style="width: 150px;" align="right">
 				</div>
 
-				<section data-transition="slide-in fade-out">
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Your favorite non-profit needs $\$$10,000.</p>
-					<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 5px; min-height: 400px;">
-						<div class="grid-child" style="background-color: #034638; border-radius: 10px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">Donor Community</p>
-							<img src="/images/presentations/community-2.svg" style="width: 300px;">
-							<span class="fragment">
-								<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">50% chance @ 10k</p>
-								<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">50% chance @ 12k</p>
-							</span>
-						</div>
-						<div class="grid-child" style="background-color: #63666A; border-radius: 10px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">New Wealthy Donor</p>
-							<img src="/images/presentations/rich-donor-1.svg" style="width: 190px;">
-							<span class="fragment">
-								<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">10% chance @ 150k</p>
-								<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">90% chance @ 0</p>
-							</span>
-						</div>
-					</div>
-					<!--Going to the rich donor is expected revenue maximizing, but it is difficult to recommend the non-profit pursue them due to the risk. This is essentially the problem with all-pay mechanisms. -->
-				</section>
-
-				<section data-transition="fade-in slide-out">
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Your favorite non-profit needs $\$$10,000.</p>
-					<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 5px; min-height: 400px;">
-						<div class="grid-child" style="background-color: #034638; border-radius: 10px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">Winner-pay Auctions</p>
-							<img src="/images/presentations/winner-pay-1.svg" style="width: 200px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">50% chance @ 10k</p>
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">50% chance @ 12k</p>
-						</div>
-						<div class="grid-child" style="background-color: #63666A; border-radius: 10px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">All-pay Auctions</p>
-							<img src="/images/presentations/all-pay-1.svg" style="width: 190px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">10% chance @ 150k</p>
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">90% chance @ 0</p>
-						</div>
-					</div>
-					<!--Going to the rich donor is expected revenue maximizing, but it is difficult to recommend the non-profit pursue them due to the risk. This is essentially the problem with all-pay mechanisms. -->
-				</section>
-
 				<section>
-					<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 5px; min-height: 50px;">
-						<div class="grid-child" style="background-color: #034638; border-radius: 10px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">Valuations</p>
-						</div>
-						<div class="grid-child fragment" style="background-color: #034638; border-radius: 10px;" data-fragment-index="1">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">Bids</p>
-						</div>
-						<div class="grid-child fragment" style="background-color: #034638; border-radius: 10px;" data-fragment-index="2">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;">Revenues</p>
-						</div>
+					<section>
+						 <p align="left" style="font-family: 'Benton Sans';"><span style="font-size: 125%; color:#582C83;"><strong>Study motivation</strong></span><br>Researcher-Practitioner Collaboration</p>
+						 <p align="left" style="font-family: 'Benton Sans'; font-size: 70%;">Consulting Project(s) $\Rightarrow$ Questions about Characters/Format</p>
+						 <p align="left" style="font-family: 'Benton Sans'; font-size: 70%;">Collaboration on Training Design $\Rightarrow$ Custom Manipulation Materials</p>
+						 <aside class="notes">
+						 	Masculinized female detective character that refers to trainees as “rookie” as a potential source of ID threat in men at a large social media company
 
-						<div class="grid-child" style="border-radius: 10px;">
-							<img src="/images/presentations/density-1.png" style="width: 275px;">
-						</div>
-						<div class="grid-child fragment" style="border-radius: 10px;" data-fragment-index="1">
-							<img src="/images/presentations/bid-1.png" style="width: 275px;">
-						</div>
-						<div class="grid-child fragment" style="border-radius: 10px;" data-fragment-index="2">
-							<img src="/images/presentations/rev-dist-1.png" style="width: 275px;">
-						</div>
-					</div>
-				</section>
+							Character may be seen as “out to get men” because she does not conform to gender stereotypes – she’s a gender hierarchy disrupter, and when placed in a position of authority as the expert in training, she may be seen as an untrustworthy source of information
 
-				<section>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Our focus.</p>
-					<ol style="font-family: 'Benton Sans'; font-size: 90%;">
-						<li class="fragment fade-in-then-semi-out">Is there a theoretical/experimental mean-variance tradeoff among fundraising mechanisms?</li>
-						<li class="fragment fade-in-then-semi-out">How might this be a function of participation costs?</li>
-						<li class="fragment fade-in-then-semi-out">What advice can we give on fundraising design?</li>
-					</ol>
-				</section>
-
-				<section>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Experimental Design Overview</p>
-					<div style="display: grid; grid-template-columns: 1fr; grid-auto-rows: 50px 50px 50px; grid-gap: 5px; width: 950px;">
-						<div class="grid-child" style="background-color: #034638; border-radius: 10px; padding-left: 15px;">
-							<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#FFF; margin-top: 5px;">Tested 10 mechanisms with 5 sessions each.</p>
-						</div>
-						<div class="grid-child" style="background-color: #034638; border-radius: 10px; padding-left: 15px;">
-							<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#FFF; margin-top: 5px;">10 potential bidders and 10 auctions per session.</p>
-						</div>
-						<div class="grid-child" style="background-color: #034638; border-radius: 10px; padding-left: 15px;">
-							<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#FFF; margin-top: 5px;">Public good benefits imposed on auction revenue.</p>
-						</div>
-					</div>
-					<div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; grid-gap: 5px; min-height: 50px; width: 950px; margin-top: -10px;">
-						<span class="fragment">
-							<div class="grid-child" style="background-color: #63666A; border-radius: 10px; padding-left: 5px;">
-								<p align="center" style="font-family: 'Benton Sans'; font-size: 95%; color:#FFF;"><u>Phase 1: Earn Money</u></p>
-								<ul style="font-family: 'Benton Sans'; font-size: 85%; color:#FFF;">
-									<li>16 incentivized anagram puzzles.</li>
-									<li>Difficulty exogenously varied.</li>
-									<!--<li>Average subject's anagram success was 14.09.</li>-->
-								</ul>
-							</div>
-						</span>
-						<span class="fragment">
-							<div class="grid-child" style="background-color: #63666A; border-radius: 10px; padding-left: 15px;">
-								<p align="left" style="font-family: 'Benton Sans'; font-size: 95%; color:#FFF;"><u>Phase 2: Bid or Anagram</u></p>
-									<ol style="font-family: 'Benton Sans'; font-size: 85%; color:#FFF;">
-										<li>Participate in an auction.</li>
-										<li>Attempt another anagram (of known difficulty).</li>
-									</ol>
-							</div>
-						</span>
-					</div>
-					
-				</section>
-
-				<!-- 
-				<section>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Experimental Design Overview</p>
-					<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-						<li>Tested 10 mechanisms with 5 sessions each.</li>
-						<li>10 potential bidders and 10 auctions per session.</li>
-						<li>Public good benefits imposed on auction revenue.</li>
-					</ul>
-					<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 20px;">
-						<span class="fragment">
-							<div class="grid-child">
-								<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><u>Phase 1: Earn Money</u></p>
-								<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-									<li>16 incentivized anagram puzzles.</li>
-									<li>Difficulty exogenousy varied.</li>
-								</ul>
-							</div>
-						</span>
-						<span class="fragment">
-							<div class="grid-child">
-								<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><u>Phase 2: Bid or Anagram</u></p>
-								<ol style="font-family: 'Benton Sans'; font-size: 90%;">
-									<li>Participate in an auction.</li>
-									<li>Attempt another anagram (of known difficulty).</li>
-								</ol>
-							</div>
-						</span>
-					</div>
-				</section>
-				-->
-
-				<section>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Imposed Mechanisms</p>
-					<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 5px; min-height: 200px;">
-						<div class="grid-child" style="background-color: #034638; border-radius: 10px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;"><u>First-price Winner-pay</u><br><em>Sealed bid, Dutch</em></p>
-						</div>
-						<div class="grid-child" style="background-color: #034638; border-radius: 10px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;"><u>Second-price Winner-pay</u><br><em>Sealed bid, English, Silent</em></p>
-						</div>
-						<div class="grid-child" style="background-color: #63666A; border-radius: 10px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;"><u>First-price <br>All-pay</u><br><em>Sealed bid</em></p>
-						</div>
-						<div class="grid-child" style="background-color: #63666A; border-radius: 10px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;"><u>Second-price All-pay</u><br><em>All-pay Button, "Bucket"</em></p>
-						</div>
-						<div class="grid-child" style="background-color: #63666A; border-radius: 10px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;"><u>Last-price <br>All-pay</u><br><em>Sealed bid</em></p>
-						</div>
-						<div class="grid-child" style="background-color: #63666A; border-radius: 10px;">
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 100%; color:#FFF;"><u>Standard Lottery</u><br><em>Raffle</em></p>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83; margin-top: 75px;">Standard IPV Framework</p>
-					<span class="fragment current-visible">
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">
-							Expected <em>ex ante</em> bid $\overline{b}_m$ through mechanism $m$: 
-						</p>
-						<p align="center" style="font-family: 'Benton Sans'; font-size: 90%;">
-							$\overline{b}_m=\int_{\hat{v}_m}^{\overline{v}}b_m(v)dF_m(v)$
-						</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">
-							With $n$ bidders, expected revenue is $\mu_m=n\overline{b}_m$. 
-						</p>
-					</span>
-					<span class="fragment fade-in">
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; margin-top: -50px;">
-							Bidder's revenue variance: 
-						</p>
-						<p align="center" style="font-family: 'Benton Sans'; font-size: 90%;">
-							$\text{Var}(b_m)=\int_{\hat{v}_m}^{\overline{v}}b_m(v)^2dF_m(v)-\overline{b}_m^2$
-						</p>
-					</span>
-					<span class="fragment fade-in">
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">
-							Variance $\sigma_m$ of mechanism $m$:
-						</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; margin-left: 100px;">
-							$\sigma_m^2=\text{Var}\left(\sum_{i=1}^n b_m^i\right)$
-						</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; margin-left: 167px;">
-							$=\sum_{i=1}^n\text{Var}(b_m^i)+2\sum_{i\leq j}\text{Cov}(b_m^i,b_m^j)$
-						</p>
-					</span>
-				</section>
-
-				<section>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83; margin-top: 0px;">Endogenous Participation</p>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">The $n$ potential bidders face a cost $c$ for participation.</p>
-					<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-						<li class="fragment"><span style="color: #582C83;">Motivation:</span> bid preparation, fairness, etc.</li>
-						<li class="fragment"><span style="color: #582C83;">Experiment:</span> expected value of an anagram puzzle.</li>
-						<li class="fragment"><span style="color: #582C83;">Upshot:</span> <em>active</em> bidders is not pre-determined.</li>
-					</ul>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment">There exists a mechanism-specific fixed threshold value $\hat{v}$ that determines participation.</p>
-				</section>
-
-				<section data-transition="slide-in fade-out">
-					<p align="center" style="font-family: 'Benton Sans'; font-size: 70%; color:#582C83; margin-bottom: -20px;">Theoretical Mean-variance Tradeoff by Mechanism, Participation Cost</p>
-					<img src="/images/presentations/mean-var-theory-2.png" style="width: 75%;">
-				</section>
-
-				<section data-transition="fade-in fade-out">
-					<p align="center" style="font-family: 'Benton Sans'; font-size: 70%; color:#582C83; margin-bottom: -20px;">Theoretical Mean-variance Tradeoff by Mechanism, Participation Cost</p>
-					<img src="/images/presentations/mean-var-theory-2.png" style="width: 54%;">
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><span style="color:#582C83;">Prediction 1:</span> Mechanisms with greater expected revenue also have greater variance.</p>
-				</section>
-
-				<section data-transition="fade-in slide-out">
-					<p align="center" style="font-family: 'Benton Sans'; font-size: 70%; color:#582C83; margin-bottom: -20px;">Theoretical Mean-variance Tradeoff by Mechanism, Participation Cost</p>
-					<img src="/images/presentations/mean-var-theory-2.png" style="width: 54%;">
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><span style="color:#582C83;">Prediction 2:</span> Winner-pay variance will increase with participation cost, while all-pay variance will decrease.</p>
-				</section>
-
-				<section data-transition="slide-in fade-out">
-					<img src="/images/presentations/mean-var-tradeoffs-1.png" style="width: 80%;">
-				</section>
-
-				<section data-transition="fade-in slide-out">
-					<img src="/images/presentations/mean-var-tradeoffs-1.png" style="width: 60%;">
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><span style="color:#582C83;">Result 1:</span> Nearly all mechanisms with greater expected revenue also have greater variance.</p>
-				</section>
-
-				<section data-transition="slide-in fade-out">
-					<p align="center" style="font-family: 'Benton Sans'; font-size: 80%; color:#582C83; margin-top: -60px;">Participation & Revenue Variance by Puzzle Difficulty (OLS)</p>
-					<img src="/images/presentations/participation-variance-results-1.png" style="width: 90%;">
-				</section>
-
-				<section data-transition="fade-in slide-out">
-					<p align="center" style="font-family: 'Benton Sans'; font-size: 80%; color:#582C83;">Participation & Revenue Variance by Puzzle Difficulty (OLS)</p>
-					<img src="/images/presentations/participation-variance-results-1.png" style="width: 75%;">
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;"><span style="color:#582C83;">Result 2:</span> An $\uparrow$ participation costs $\Rightarrow$ revenue variance to $\uparrow$ if winner-pay, but $\downarrow$ if all-pay. </p>
-				</section>
-
-				<section>
-					<section data-auto-animate>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">Fundraising design: a "balanced" event.</p>
-					<img src="/images/presentations/simplex-balanced-1.png" style="width: 60%;">
+						 	Production budget dilemmas – text-based or video-based training
+							
+							When working directly with training producers (or instructional designers) you have the ability to manipulate training for experimentation
+						 </aside>
 					</section>
-					
-					<section data-auto-animate>
-						<img data-id="box" src="/images/teaching/Ivey-Main-Full-Signature.jpeg" style="width: 800px;" align="center">
+
+					<section>
+					    <p align="left" style="font-family: 'Benton Sans'; margin-top: -50px;"><span style="font-size: 125%; color:#582C83;"><strong>Question</strong></span><br>How do design choices in sexual harassment e-trainings affect the perceived integrity of the messenger and the effectiveness of the training?</p>
+					    <div class="fragment">
+						    <p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">We experimentally explore:</p>
+						    <ul style="font-family: 'Benton Sans'; font-size: 90%;">
+						        <li>Trainer's gender-occupation congruence</li>
+						        <li>Media richness (text vs. video)</li>
+						    </ul>
+						</div>
+					    <aside class="notes">
+					    	The question we’re studying here is the impact of certain design choices in e-training programs on how the messenger is perceived and how effective the training is. 
+
+					    	Specifically, we are looking at how the gender and occupation of the messenger, as well as the richness of the media used, affects the perceived integrity of the messenger and the outcomes of the training.
+					    </aside>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; margin-top: -75px; margin-bottom: -25px;"><span style="font-size: 100%; color:#582C83;"><strong>Why this is important</strong></span></p>
+						<a href="https://www2.deloitte.com/content/dam/Deloitte/au/Documents/Economics/deloitte-au-economic-costs-sexual-harassment-workplace-240320.pdf"><img width="750px" src="/images/presentations/sh-prevalence-1.png" alt="SH Prevalence">
+						<p class="fragment" align="left" style="font-family: 'Benton Sans'; margin-top: -25px; font-size: 90%;">Productivity loss from sexual harassment is estimated to be $\$$2.62 billion in 2018 ($\$$1053 per victim).</p></a>
+					    <aside class="notes">
+
+					    </aside>
 					</section>
 				</section>
+
+				<section>
+					<section>
+		                <p align="left" style="font-family: 'Benton Sans'; margin-top: -100px;"><span style="font-size: 125%; color:#582C83;"><strong>Experimental design</strong></span></p>
+		                <p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">2x2x2 between subjects</p>
+	                    <ul style="font-family: 'Benton Sans';">
+	                    	<li>Training medium (text-based vs. video-based)</li>
+	                    	<li>Trainer sex (male vs. female)</li>
+	                    	<li>Trainer expertise (law vs. HR)</li>
+	                    </ul>
+	                    <p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Sample of 210 undergraduate subjects (26/cell)</p>
+		                <aside class="notes">
+							
+						</aside>
+		            </section>
+
+		            <section>
+		            	<p align="left" style="font-family: 'Benton Sans'; margin-top: -100px;"><span style="font-size: 125%; color:#582C83;"><strong>Commercial training product</strong></span></p>
+		            	<ul style="font-family: 'Benton Sans';">
+		            		<li>Designed for undergraduate interns</li>
+	                    	<li class="fragment">Professional actors similar across non-treatment characteristics</li>
+	                    	<li class="fragment">Identical staging and content across treatments</li>
+	                    	<li class="fragment">Other likely gender-based biases (e.g., competence) were controlled via a profile.</li>
+	                    </ul>
+		            </section>
+
+		            <section>
+		            	<p align="left" style="font-family: 'Benton Sans';"><span style="font-size: 110%; color:#582C83;"><strong>Constant trainer profiles</strong></span></p>
+		            	<img width="1000px" src="/images/presentations/sh-experiment-videos-1.png" alt="Experiment Video Screenshot">
+		                <aside class="notes">
+							
+						</aside>
+		            </section>
+
+		            <section>
+		            	<p align="left" style="font-family: 'Benton Sans'; margin-top: -100px;"><span style="font-size: 125%; color:#582C83;"><strong>Session procedure</strong></span></p>
+		            	<ul style="font-family: 'Benton Sans'; font-size: 85%;">
+		            		<li>Subjects randomly assigned to one of the eight treatments.</li>
+					        <li class="fragment">Provided the messenger profile.</li>
+					        <li class="fragment">Watched/read a training excerpt on quid pro quo sexual harassment (4.5 min).</li>
+					        <li class="fragment">Completed a calibrated survey about their perceptions of trainer integrity.</li>
+					        <li class="fragment">Paid a flat $\$$5 show up fee $+\$$10 if passed attention checks.</li>
+	                    </ul>
+		            </section>
+
+					<section>
+					    <p align="left" style="font-family: 'Benton Sans'; margin-top: -100px;"><span style="font-size: 125%; color:#582C83;"><strong>Survey Measures</strong></span></p>
+					    <div style="display: flex;">
+						    <div style="width: 50%; padding: 10px;">
+							    <ul style="font-family: 'Benton Sans'; font-size: 75%;">
+							        <li><span style="font-size: 125%; color:#582C83;">Perceived Messenger Integrity</span></li>
+							        <li>Backlash Attitudes</li>
+							        <li>Identity Threat Reactions</li>
+							        <li>Sexual Harassment Training-Related Knowledge</li>
+							        <li>Myth-Based Attitudes about Sexual Harassment</li>
+							    </ul>
+							</div>
+							<div style="width: 50%; padding: 10px;">
+							    <ul style="font-family: 'Benton Sans'; font-size: 75%;">
+							        <li>Transfer Motivation</li>
+							        <li>Bystander Reporting Intentions</li>
+							        <li>Motivation to Participate in Future Sexual Harassment Training Sessions</li>
+							        <li>Sexual Harassment Identification</li>
+							    </ul>
+							</div>
+						</div>
+					    <aside class="notes">
+					        Not going to go into the details here, but each one of these measures has been established within the training literature as a reliable measure of training effectiveness in our context. 
+					    </aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans';"><span style="font-size: 125%; color:#582C83;"><strong>Theoretical motivation: media</strong></span></p>
+						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li>Motivation to learn common predictor of training effectiveness.</li>
+							<li>SH Training usually lacks a job-related basis.</li>
+							<li>Media richness alternative source of motivation.</li>
+						</ul>
+					    <aside class="notes">
+					    	We have additional studies involving VR training that demonstrate media richness increases motivation to enact training. 
+					    </aside>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans';"><span style="font-size: 125%; color:#582C83;"><strong>(Naive) Hypothesis 1</strong></span></p>
+						<p align="left" style="font-family: 'Benton Sans';">SH training effectiveness will be greater for e-training with a high media rich format (e.g., video-based) than for e-training with a low media rich format (e.g., text-based).</p>
+						<img width="500px" src="/images/presentations/sh-model-1.png" alt="SH Model 1">
+						<aside class="notes">
+
+					    </aside>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans';"><span style="font-size: 110%; color:#582C83;"><strong>Theoretical motivation: trainer integrity.</strong></span></p>
+
+						<p align="left" style="font-family: 'Benton Sans';">Rich media is associated with greater trust and perceived integrity of an information source.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li>Particularly important in contexts related to moral issues like sexual harassment.</li>
+						</ul>
+						<aside class="notes">
+
+					    </aside>
+					</section>
+					
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; margin-top: -100px;"><span style="font-size: 125%; color:#582C83;"><strong>Hypothesis 2</strong></span></p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">SH training effectiveness will be mediated by perceived trainer integrity.</p>
+						<img width="700px" src="/images/presentations/sh-model-2.png" alt="SH Model 2">
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Media rich format (e.g., video-based) $\Rightarrow$ greater perceived trainer integrity</p>
+						<aside class="notes">
+
+					    </aside>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans';"><span style="font-size: 110%; color:#582C83;"><strong>Gender-occupation incongruence</strong></span></p>
+					        <ul style="font-family: 'Benton Sans';">
+						        <li><a href="https://link.springer.com/article/10.1007/s11199-010-9844-9">Perceptions of integrity have been shown to interact with gender and occupation.</a></li>
+						        <li class="fragment"><a href="https://guilfordjournals.com/doi/abs/10.1521/soco.19.4.418.20758">Messages are more convincing when they are incongruent with the messenger’s self-interest.</a></li>
+						    </ul>
+						    <aside class="notes">
+
+					    </aside>
+					</section>
+
+					<section>
+					    <p align="left" style="font-family: 'Benton Sans'; margin-top: -75px;">Two types of legally qualified messengers for SH training:</p>
+					    <ul style="font-family: 'Benton Sans'; font-size: 90%;">
+					    	<li>HR professionals (relatively female led)</li>
+					    	<li>Lawyers (relatively male led)</li>
+					    </ul>
+					    <p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Male HR and female lawyers are more likely to be perceived as "disrupters" and therefore given lower perceived integrity.</p>
+					    <aside class="notes">
+					    	When the gender and occupation of the messenger in the training are seen as incongruent, trainees are likely to have negative perceptions about the messenger. For instance, a male HR representative or a female lawyer. This can be particularly harmful when addressing moral issues like sexual harassment as perceived integrity plays a crucial role in such contexts.
+					    </aside>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; margin-top: -100px;"><span style="font-size: 125%; color:#582C83;"><strong>Hypothesis 3</strong></span></p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 75%;">The interaction between messenger gender-occupation incongruence and media richness is mediated through perceived messenger integrity to affect training effectiveness outcomes.</p>
+						<img width="500px" src="/images/presentations/sh-model-3.png" alt="SH Model 3">
+						<aside class="notes">
+							Rich media will reduce negative bias on incongruence
+					    </aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<img width="900px" src="/images/presentations/sh-correlations-2.png" alt="Correlation Table">
+					</section>
+
+					<section>
+						<img width="300px" src="/images/presentations/sh-model-1.png" alt="SH Model 1"><br>
+						<img width="500px" src="/images/presentations/sh-model-2.png" alt="SH Model 2">
+						<img width="900px" src="/images/presentations/sh-process-1.png" alt="Process Model 1 Table">
+						<aside class="notes">
+							For Hypothesis 1, we can see there is no support given there is no significance on the red colored coefficients. 
+
+							For Hypothesis 2, the first pathway from media richness to integrity is supported given the significant and correctly signed coefficient colored in the blue box. 
+
+							Additionally, we find the second pathway from integrity to training effectiveness is also supported given the significant and correctly signed coefficients colored in EVERY green box. 
+
+							Finally, we find all the coefficients in the purple boxes are signficant at the 5% level and correctly signed, which indicates that the effect of media richness on training effectiveness is fully mediated by perceptions of integrity, and therefore Hypothesis 2 is fully supported. 
+					    </aside>
+					</section>
+
+					<section>
+						<img width="500px" src="/images/presentations/sh-model-3.png" alt="SH Model Full">
+						<img width="800px" src="/images/presentations/sh-process-2.png" alt="Process Model 2 Table">
+						<aside class="notes">
+							When testing Hypothesis 3, we find the same level of support here as we did for Hypothesis 2. Specifically, we find the 3-way interaction term on perceived integrity is significant and correctly signed, and we find the training's effectiveness is fully mediated by our trainer integrity measure. 
+					    </aside>
+					</section>
+
+					<section>
+						<img width="900px" src="/images/presentations/sh-media-integrity-1.png" alt="Conditional Effects 1">
+						<aside class="notes">
+							This table shows the conditional effects of media richness on trainer integrity. 
+
+							These results demonstrates that media richness effects training outcomes the most when trainers are fighting the predicted bias. Specifically, we find the effect is strongest on male HR professionals and female lawyers. 
+
+							The next question we're interested in is whether this gives them a boost or makes up for a bias relative to their gender-occupation congruent counterparts. 
+					    </aside>
+					</section>
+
+					<section>
+						<img width="900px" src="/images/presentations/sh-integrity-marginals-1.png" alt="Marginal Effects 1">
+						<aside class="notes">
+							This table breaks down the estimated marginal means for perceived trainer integrity. 
+
+							This table demonstrates that the media richness makes up for a penalty, not give an advantage to gender incongruence. This is clear by comparing adjacent coefficients (such as male HR to male Law, or female Law to female HR). 
+					    </aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+					    <p align="left" style="font-family: 'Benton Sans'; margin-top: -100px;"><span style="font-size: 125%; color:#582C83;"><strong>Summary</strong></span></p>
+					    <ul style="font-family: 'Benton Sans'; font-size: 90%;">
+					        <li>Messenger gender-occupation incongruence is not directly related to perceptions of integrity</li>
+					        <li>Media richness attenuates the negative effect of gender-occupation incongruence on perceived integrity</li>
+					        <li>Perceived integrity significantly predicts all training outcomes</li>
+					        <li>Higher integrity perceptions are associated with better training effectiveness</li>
+					    </ul>
+					    <aside class="notes">
+					        In the Results section, we found that messenger gender-occupation incongruence is not directly related to perceptions of integrity. However, when media richness is high, it can mitigate the negative effects of gender-occupation incongruence on perceived integrity. Additionally, perceived integrity was a significant predictor of all training outcomes, indicating that higher integrity perceptions are associated with better training effectiveness.
+					    </aside>
+					</section>
+					
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; margin-top: -100px;"><span style="font-size: 125%; color:#582C83;"><strong>Closing thoughts</strong></span></p>
+						<ul style="font-family: 'Benton Sans'; font-size: 85%;">
+							<li>SH Training is unique to other forms of training</li>
+							<li>Requires consideration of trainees’ biases in its design</li>
+							<li>Perceived trainer integrity important component to training outcomes</li>
+							<li>Video production is “worth it” for e-training programs</li>
+							<li>Future research should continue examining SH training design elements through an interdisciplinary lens in collaboration with practitioners. </li>
+						</ul>
+					</section>
+
+					<section></section>
+				</section>
+
+				<!-- <section>
+					<section>
+					    <h3>Discussion & Implications</h3>
+					    <ul>
+					        <li>Text-based SH e-training with gender-occupation incongruence is less effective</li>
+					        <li>Media-rich training designs can mitigate negative effects</li>
+					        <li>Importance of perceived messenger integrity</li>
+					        <li>Insights into ethical dimensions of training design</li>
+					        <li>Recommendations for gender-diverse casting choices</li>
+					    </ul>
+					    <aside class="notes">
+					        Now, let's discuss the implications of these results. The study suggests that text-based SH e-training with messengers who have gender-occupation incongruence is less effective. However, using media-rich training designs can mitigate these negative effects. This emphasizes the importance of perceived messenger integrity in training outcomes. The study also provides insights into the ethical dimensions of training design and offers recommendations for making gender-diverse casting choices in conjunction with design choices that reduce biases.
+					    </aside>
+					</section>
+
+					<section>
+					    <h3>Limitations & Future Research</h3>
+					    <ul>
+					        <li>Use of truncated stimulus materials</li>
+					        <li>Cross-sectional data collection design</li>
+					        <li>Generalizability concerns regarding the sample and stimulus material</li>
+					        <li>Recommendation to explore race-based biases</li>
+					        <li>Investigate additional levels of media richness</li>
+					    </ul>
+					    <aside class="notes">
+					        Despite the valuable insights, the study has limitations. For instance, it employed truncated stimulus materials and used a cross-sectional data collection design. There are also generalizability concerns regarding the sample and stimulus material. Future research should explore the effects of race-based biases and investigate additional levels of media richness beyond text and video. This will help in enhancing the understanding of the dynamics involved in SH training designs.
+					    </aside>
+					</section>
+				</section> -->
+
 
 			</div>
 
@@ -341,6 +391,12 @@
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+
+				// Parallax background image
+				parallaxBackgroundImage: '/images/presentations/lyon-skyline-2.png', // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
+
+				// Parallax background size
+				parallaxBackgroundSize: '2100px 1300px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
 			});
 
 		</script>
