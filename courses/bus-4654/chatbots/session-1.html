@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BUS 4654 Chatbot</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #chat-window {
+            flex: 1;
+            overflow: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 40%;
+            min-width: 600px;
+            margin: auto; /* centers the chat window horizontally */
+        }
+
+        #input-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            padding: 25px;
+            width: 40%;
+            min-width: 400px;
+            margin: auto; /* centers the input bar horizontally */
+        }
+
+        #message {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #582C83;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .bubble {
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 20px;
+            color: white;
+            max-width: 60%;
+        }
+
+        .user {
+            align-self: flex-end;
+            background-color: #582C83;
+        }
+
+        .ai {
+            align-self: flex-start;
+            background-color: #034638;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Behavioural Insights Team (A)</h1>
+    <div id="chat-window">
+        <div class="bubble ai">
+            Hi! How can I help you with this case?
+      </div>
+    </div>
+    <div id="input-bar">
+        <input type="text" id="message" placeholder="Learning starts here...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <script>
+        function sendMessage() {
+            const messageInput = document.getElementById('message');
+            const message = messageInput.value;
+            const chatWindow = document.getElementById('chat-window');
+
+            // Append user's message to the chat window
+            chatWindow.innerHTML += `<div class="bubble user">${message}</div>`;
+
+            // Clear the input field
+            messageInput.value = '';
+
+            // Send message to your server
+            fetch('https://ivey-courses-c53714e21473.herokuapp.com/api/session-1', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Append server's response to the chat window
+                const content = data.choices[0].message.content;
+                chatWindow.innerHTML += `<div class="bubble ai">${content}</div>`;
+            })
+            .catch(error => {
+                console.error('An error occurred:', error);
+            });
+        }
+
+        // Bind the Enter key to send the message
+        document.getElementById('message').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
