@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BUS 4654 Quizbot</title>
+    <link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+    <link rel="stylesheet" href="quiz-bot-stylesheet.css">
+</head>
+<body>
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <img src="/images/teaching/Ivey-Main-Logo-Transparent.png" alt="Ivey Logo" style="margin-right: 20px; width: 150px;"> 
+      <h1 id="topic" align="center">Behavioural Insights Team (A)</h1>
+    </div>
+    <div id="chat-window">
+      <div class="bubble ai">
+        Hi! I can ask you questions and provide feedback to help you study this case. Click the "Ask me a question" button below to get started. Please keep in mind that my analyses of your responses are powered by OpenAI's gpt-3.5-turbo model, so it is possible that I may give misleading, unhelpful or even biased evaluations. 
+      </div>
+      <button id="get-question-button" style="font-size: 18px; padding: 20px 40px;" onclick="getQuestion()">Ask me a question</button>
+    </div>
+    <div id="input-bar">
+        <input type="text" id="message" placeholder="Learning starts here...">
+        <button onclick="evaluateAnswer()">Send</button>
+    </div>
+    <script src="quiz-bot-scripts.js"></script>
+</body>
+</html>
