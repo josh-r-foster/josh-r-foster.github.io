@@ -76,7 +76,7 @@ button {
     #input-bar {
         width: 90%; /* Increase width */
         min-width: auto; /* Allow it to shrink on small screens */
-        padding: 15px; /* Adjust padding as needed */
+        padding: 15px 15px 100px 15px; /* Adjust padding as needed */
     }
 
     #message {
