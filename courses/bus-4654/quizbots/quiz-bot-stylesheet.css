@@ -61,3 +61,20 @@ button {
     align-self: flex-start;
     background-color: #034638;
 }
+
+/* Media queries for responsive design */
+@media only screen and (max-width: 768px) {
+    #chat-window, #input-bar {
+        width: 80%;
+        min-width: 300px;
+    }
+
+    #get-question-button {
+        font-size: 16px;
+        padding: 15px 30px;
+    }
+
+    h1#topic {
+        font-size: 24px;
+    }
+}
