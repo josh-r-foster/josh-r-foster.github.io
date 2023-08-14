@@ -63,18 +63,32 @@ button {
 }
 
 /* Media queries for responsive design */
-@media only screen and (max-width: 768px) {
-    #chat-window, #input-bar {
-        width: 80%;
-        min-width: 300px;
+@media screen and (max-width: 768px) { /* Adjustments for smaller screens */
+    body {
+        font-size: 18px; /* Increase font size */
     }
 
-    #get-question-button {
-        font-size: 16px;
-        padding: 15px 30px;
+    #chat-window {
+        width: 90%; /* Increase width */
+        min-width: auto; /* Allow it to shrink on small screens */
     }
 
-    h1#topic {
-        font-size: 24px;
+    #input-bar {
+        width: 90%; /* Increase width */
+        min-width: auto; /* Allow it to shrink on small screens */
+        padding: 15px; /* Adjust padding as needed */
+    }
+
+    #message {
+        width: 70%; /* Adjust width as needed */
+        padding: 10px; /* Adjust padding as needed */
+    }
+
+    button {
+        padding: 15px 30px; /* Adjust padding as needed */
+    }
+
+    .bubble {
+        max-width: 90%; /* Allow bubbles to take up more width */
     }
 }
