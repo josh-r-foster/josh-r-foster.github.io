@@ -655,10 +655,23 @@
 			function display_ct() {
 				var today = new Date();
 				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
-				document.getElementById('ct').style.color = "#582C83";
-				document.getElementById('ct').innerHTML = time;
+				document.getElementById('ct1').style.color = "#582C83";
+				document.getElementById('ct1').innerHTML = time;
+				document.getElementById('ct2').style.color = "#FFFFFF";
+				document.getElementById('ct2').innerHTML = time;
 				display_c();
 			 }
+
+			 function setSessionDate() {
+			    var today = new Date();
+			    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+			    document.getElementById('session-date').innerHTML = date;
+			}
+
+			window.onload = function() {
+			    display_ct();  // Your existing function
+			    setSessionDate();  // The new function to set the date
+			};
 		</script>
 
 		<script src="/dist/reveal.js"></script>
