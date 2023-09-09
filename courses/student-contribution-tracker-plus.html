@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="student-contribution-tracker-plus.css" rel="stylesheet"/>
+  <link href="https://josh-r-foster.github.io/images/favicon.png" rel="icon" type="image/png"/>
+</head>
+<body>
+  <h1>
+    <img alt="Logo" class="logo" src="/images/teaching/Ivey-Main-Logo-Transparent.png"/> Peer Contribution Tracker<sup>*</sup>
+  </h1>
+
+  <div class="instructions">
+    <p>Welcome to the peer feedback platform for class contributions. This web app allows you to provide comprehensive evaluations for each student in this class.</p>
+
+    <h3>How to use this thing.</h3>
+
+    <p>Below you have three sets of tools for assessing the contribution of each student. On the left is a counter for quantifying a student's participation. Simply click the plus icon to increment the count whenever the student makes a contribution during class. Conversely, if you need to decrease the count for some reason, click on the minus icon.</p>
+
+    <p>In the middle you'll find a series of buttons designed to give you a quick way to offer general feedback about the quality of the student's contributions. With labels like "Came prepared," "Strong problem solving," and "Good listening," these buttons enable you to instantly note the attributes or areas that stood out during the student's participation. Just click a button to activate it; clicking it again will deactivate it.</p>
+
+    <p>On the right side of each student's box, you'll see a text box for detailed qualitative feedback. This is where you can elaborate on the quality of the student's contributions. You're encouraged to offer constructive criticism, highlight strengths, or point out areas for improvement. Your input here adds a layer of depth to the feedback, making it more insightful for the student's development. <em>This component is optional for you to fill out.</em></p>
+
+    <p>After you've completed your evaluations, click the "Export Contribution Data" button to save the compiled feedback. Then, email your data file to me at <a href="mailto:jfoster@ivey.ca">jfoster@ivey.ca</a>.</p>
+
+    <p align="center"><b>DO NOT REFRESH THIS PAGE BEFORE EXPORTING YOUR FEEDBACK! This will cause the loss of all input data. Only close this browser once you are finished.</b></p>
+
+    <p><em><sup>*</sup>This resource is currently in beta testing. I am actively welcoming feedback from you on ways to improve its ability to accurate capture contribution quality, as well as its usability.</em></p>
+  </div>
+
+  <div class="grid" id="person-container"></div>
+  <button id="export-button">Export Contribution Data</button>
+  <script src="student-contribution-tracker-plus.js"></script>
+</body>
+</html>

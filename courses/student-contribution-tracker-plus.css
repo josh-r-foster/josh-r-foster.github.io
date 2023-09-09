@@ -1,0 +1,165 @@
+body {
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  column-gap: 40px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.box {
+  width: 100%;
+  max-width: 1000px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  /* Flexbox styles added here */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.box-header {
+  display: flex;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  width: 80px;  /* Adjust this for the size you want */
+  height: 80px;  /* Adjust this for the size you want */
+  margin-right: 10px;
+}
+
+.name-and-counter {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px; /* Set this to the desired minimum width */
+}
+
+.box h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.counter button {
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  transition: background-color 0.2s;
+}
+
+.counter button:hover {
+  background-color: #f9f9f9;
+}
+
+.count {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.button {
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #eee;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #ddd;
+}
+
+.button.active {
+  background-color: #034638;
+  color: #fff;
+}
+
+.logo {
+height: 75px; /* Adjust the height as needed */
+vertical-align: middle;
+margin-right: 100px; /* Adjust the margin as needed */
+}
+
+#export-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 4px;
+  background-color: #034638;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#export-button:hover {
+  background-color: #582C83;
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+.profileAndCountersWrapper,
+.buttonsWrapper {
+  flex: 0 0 auto;
+}
+
+.qualitative-input {
+  flex: 1;
+  min-width: 300px;
+  overflow-y: auto;
+}
+
+.instructions {
+  width: 100%;
+  max-width: 700px; /* Same as .box */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px; /* Soft corners */
+  padding: 10px 150px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Centers the box horizontally */
+  margin-bottom: 20px; /* Optional, adds some space between this box and the next element */
+  font-size: 18px;
+}
