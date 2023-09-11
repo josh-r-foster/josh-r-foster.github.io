@@ -90,6 +90,12 @@
     opacity: 0;
     display: block;  /* Kept as block to occupy space but remain invisible */
 }
+#emoji-container img {
+  width: 1em;  /* Width */
+  height: 1em; /* Height */
+  margin: 0 .05em 0 .1em; /* Margins to adjust vertical alignment */
+  vertical-align: -0.1em; /* Vertical alignment */
+}
 
 /*Timer Code*/
 
