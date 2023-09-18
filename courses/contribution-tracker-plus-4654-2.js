@@ -8,7 +8,6 @@ const peopleData = [
   {name: 'Andrew Lukezic', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Annie Lai', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Anthony De Rango', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
-  {name: 'Ariella Gelb', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Arlo Coleman-Shapiro', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Arman Valyani-Perera', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Byron Edwardson', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
@@ -18,7 +17,6 @@ const peopleData = [
   {name: 'Iliyan Bhanji', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Jackson MacPhie', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Jacky Huang', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
-  {name: 'Jasmine Chen', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Jasmine Kordbacheh', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Jessica Bian', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Jessie Wu', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
@@ -34,6 +32,7 @@ const peopleData = [
   {name: 'Michael Chi', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Michael Hawkes', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Nick Bennett', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
+  {name: 'Ningsong Shen', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Paige Murray', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Rachel Bai', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Rachel Lee', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
@@ -48,8 +47,9 @@ const peopleData = [
   {name: 'Wendy Chi', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'William Chan', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Yong Yu', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
+  {name: 'Zachary Clarke', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
 ];
-const buttonsData = ["Came prepared", "Strong problem solving", "Quality decision analysis", "Good listening", "Considered other perspectives", "Insightful connections", "Clear communication", "Distracted", "Arrived late", "Absent"];
+const buttonsData = ["Came prepared", "Came unprepared", "Strong problem solving", "Quality decision analysis", "Good listening", "Considered other perspectives", "Connected with theory", "Insightful connections", "Clear communication", "Distracted", "Arrived late", "Absent"];
 
 function createPersonBox(person) {
   const box = document.createElement('div');
