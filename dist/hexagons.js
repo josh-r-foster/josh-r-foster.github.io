@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     '/images/teaching/calvin.jpg', 
     '/images/teaching/brain-thumbnail.jpg',
     '/images/teaching/RThaler.jpg',
-    '/images/teaching/ponzoillusion.jpg',
+    '/images/teaching/ponzoIllusion.jpg',
     'https://media.giphy.com/media/3ndAvMC5LFPNMCzq7m/giphy.gif',
     'https://media.giphy.com/media/ri8Kb9LOe5Nza/giphy.gif',
     '/images/teaching/the-scientific-method.png',
