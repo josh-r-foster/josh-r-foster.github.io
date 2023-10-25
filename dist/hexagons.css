@@ -170,3 +170,17 @@
     padding: 20px;
     border: 2px;
 } 
+
+
+.responsive-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+}
+
+
