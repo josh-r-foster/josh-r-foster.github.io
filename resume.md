@@ -199,10 +199,20 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> ($9,500), Princip
 
 ## Cases 
 
-Peloton: Keeping Users Pedalling with Behavioural Theory (under review)
+Peloton Interactive Inc.: A Push to Keep Users Pedalling (under review)
 
 `with`
- * Ryan Cheng (HBA, 2022)
+ * Ryan Cheng (Ivey HBA, 2022)
+
+A Swift Pricing Decision (under review)
+
+`with`
+ * Kathy An (Ivey HBA, 2023)
+
+Bored Ape Yacht Club: No More Monkey Business (under review)
+
+`with`
+ * Benjamin Segal (Ivey HBA, 2023)
 
 ## Teaching
 * **Microeconomics**
@@ -225,4 +235,4 @@ Peloton: Keeping Users Pedalling with Behavioural Theory (under review)
 
 ### <span>&#8203;</span>
 
-Last updated June, 2023.
+Last updated October, 2023.
