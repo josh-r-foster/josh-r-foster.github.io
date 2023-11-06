@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
     'https://media.giphy.com/media/3ndAvMC5LFPNMCzq7m/giphy.gif',
     'https://media.giphy.com/media/ri8Kb9LOe5Nza/giphy.gif',
     '/images/teaching/the-scientific-method.png',
+    '/images/teaching/bored-ape.jpeg',
   ];
 
   function setRandomImage() {
