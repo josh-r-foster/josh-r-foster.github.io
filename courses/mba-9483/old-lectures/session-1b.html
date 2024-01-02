@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 9483: Global Economy, Markets and Strategy</title>
+
+		<meta name="description" content="Session slides for BUS 9483">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+	</head>
+
+	<body onload="display_ct();">
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
+
+					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				</section>
+
+				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section>
+					<h3 style="font-family: 'Walbaum';">Agenda</h3>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>Case: <em>Choosing a Price for Desdol</em>.</li>
+						<li>Marginal Analysis for Profit Maximization.</li>
+						<li>Maximum Price Heuristic.</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Describe the case's problem.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What price would recommend for Desdol?</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Economist's objective: maximize profit. 
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">How do economists measure profit?</li>
+							<li class="fragment">How is their measure slightly different from other notions of profit?</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Profit $=$ Revenue $-$ Cost</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">Where does revenue come from?</li>
+							<li class="fragment">Where do economists get this information?</li><br><br>
+							<li class="fragment">Where do costs come from?</li>
+							<li class="fragment">Where do economists organize this information?</li>
+						</ul>
+					</section>
+
+					<section>
+						<table style="font-family: 'Benton Sans'; font-size: 55%; color:#582C83;">
+							<thead>
+							  <tr>
+							    <th colspan="2">Demand</th>
+							    <th colspan="2">Revenue Information</th>
+							    <th colspan="2">Cost Information</th>
+							    <th>Profit</th>
+							  </tr>
+							</thead>
+							<tbody>
+							  <tr>
+							    <td>Price</td>
+							    <td>Quantity</td>
+							    <td>Revenue</td>
+							    <td>Marginal Revenue</td>
+							    <td>Cost</td>
+							    <td>Marginal Cost</td>
+							    <td>Revenue - Cost</td>
+							  </tr>
+							  <tr>
+							    <td>6</td>
+							    <td>0</td>
+							    <td></td>
+							    <td></td>
+							    <td>0</td>
+							    <td></td>
+							    <td></td>
+							  </tr>
+							  <tr>
+							    <td>5</td>
+							    <td>1</td>
+							    <td></td>
+							    <td></td>
+							    <td>1</td>
+							    <td></td>
+							    <td></td>
+							  </tr>
+							  <tr>
+							    <td>4</td>
+							    <td>2</td>
+							    <td></td>
+							    <td></td>
+							    <td>4</td>
+							    <td></td>
+							    <td></td>
+							  </tr>
+							  <tr>
+							    <td>3</td>
+							    <td>3</td>
+							    <td></td>
+							    <td></td>
+							    <td>8</td>
+							    <td></td>
+							    <td></td>
+							  </tr>
+							  <tr>
+							    <td>2</td>
+							    <td>4</td>
+							    <td></td>
+							    <td></td>
+							    <td>13</td>
+							    <td></td>
+							    <td></td>
+							  </tr>
+							  <tr>
+							    <td>1</td>
+							    <td>5</td>
+							    <td></td>
+							    <td></td>
+							    <td>19</td>
+							    <td></td>
+							    <td></td>
+							  </tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Optimal pricing with marginal analysis.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Select the price for which marginal revenue equals marginal cost ($MR=MC$).</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class="fragment">That is, select the price at which the money coming into the firm <span style="color:#582C83;"><em>on the last unit</em></span> is exactly equal to the money leaving the firm on said unit.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Regarding the case...</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">What makes applying marginal analysis difficult?</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 95%; color:#582C83; color:#582C83;">What are some alternatives to marginal analysis?</p> 
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr><td style="border:none; width: 450px;">1)</td><td style="border:none; width: 450px;">2)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">3)</td><td style="border:none;">4)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">5)</td><td style="border:none;">6)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Maximum Price Heuristic.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Select the price according to $P^*=(P_m+C)/2$.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">$P_m$ is the maximum price that still sells a few units.</li>
+							<li class="fragment">$C$ is the per-unit production cost (i.e. marginal cost).</li>
+						</ul>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">See <a href="https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2020.3602"><em>Cohen et al. (2021)</em></a> in <em>Management Science</em> for details.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;"><em>Cohen et al. (2021)</em>, Figure 1.</p>
+						<img src="/images/teaching/mba-session-1-2.png">
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;"><em>Cohen et al. (2021)</em>, Figure 5.</p>
+						<img src="/images/teaching/mba-session-1-1.png">
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 70%;" class="fragment">Among 100,000 simulations, this method assigned a price within 13% of the optimal profit over 80% of the time.</p> 
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">A few assumptions underlie this approach.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">The firm is able to estimate the maximum price, $P_m$.</li>
+							<li class="fragment">Marginal cost ($C$) is known and constant.</li> 
+							<li class="fragment">The firm need not know the quantity it will sell.</li> 
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Key takeaways.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 80%;">
+							<li class="fragment">Demand curves give us information about where revenues come from and supply curves summarize our information about costs.</li>
+							<li class="fragment">A <span style="color:#582C83;">residual demand curve</span> is the object that captures the number of units a firm will sell at each possible price, given the strategies of their competitors.</li>
+							<li class="fragment">Profit is maximized when a firm sets prices such that marginal revenue equals marginal cost ($MR=MC$).</li>
+							<li class="fragment">A useful alternative to marginal analysis is the <span style="color:#582C83;"><em>Maximum Price Heuristic</em></span>, which requires far less information.</li>
+						</ol>
+					</section>
+
+					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>

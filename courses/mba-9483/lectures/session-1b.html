@@ -17,32 +17,114 @@
 		<link rel="stylesheet" href="/dist/reset.css">
 		<link rel="stylesheet" href="/dist/reveal.css">
 		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="/dist/hexagons.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
-
 		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	</head>
 
 	<body onload="display_ct();">
 		<div class="reveal">
+
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-background="/images/teaching/thumbnail-2.png">
-					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
-
-					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				<section>
+					<div class="card-container" style="margin-left: 500px; margin-top: 50px;">
+					  <div class="card">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">9483<br>GEMS</p>
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Session 1a</p>
+					          <span id="session-date" style="font-family: 'Benton Sans'; font-size: 90%;"></span> 
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: 155px; margin-top: -80px;">
+					      <figure class="hexagon front" style="background-color: #FFFFFF;">
+					        <div class="card-content">
+					          <img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 250px;">
+					        </div>
+					      </figure>
+					      <figure class="hexagon back" style="background-color: #FFFFFF;">
+					        <div class="card-content">
+					          <img src="/images/teaching/western-logo.png" style="width: 125px;">
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: -155px; margin-top: -346px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p>
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <div id="emoji-container">
+							      &#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;<br>
+							      &#x1F3C3;<br>
+							      &#x1F1E8;&#x1F1E6; &#x1F1FA;&#x1F1F8;
+							    </div>
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: 0px; margin-top: -80px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p> -->
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Prospect<br>Theory</p> -->
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: -310px; margin-top: -882px;">
+					      <figure class="hexagon front" style="background-color: #582C83;">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p> -->
+					        </div>
+					      </figure>
+					      <figure class="hexagon back" style="background-color: #034638;">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Prospect<br>Theory</p> -->
+					        </div>
+					      </figure>
+					  </div>
+					  <div id="targetCard" class="card" style="margin-left: -620px; margin-top: -347px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <span id="ct2" style="font-family: 'Benton Sans'; font-size: 150%;"></span>
+					        </div>
+					      </figure>
+					      <!-- <figure class="card back">
+					          <img class="hexagon-image" id="random-hexagon-image">
+					      </figure> -->
+					      <figure class="hexagon-target">
+						    <img id="random-hexagon-image">
+						  </figure>
+					  </div>
+					</div>
 				</section>
 
-				<div class="topbar">
-					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+				<div class="topbar" id="conditional-div">
+					<span id="ct1" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
     				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
 				</div>
 
 				<section>
 					<h3 style="font-family: 'Walbaum';">Agenda</h3>
 					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
-						<li>Case: <em>Choosing a Price for Desdol</em>.</li>
+						<li>Quick Case: <em>Pricing a Drink for Value Creation</em>.</li>
 						<li>Marginal Analysis for Profit Maximization.</li>
 						<li>Maximum Price Heuristic.</li>
 					</ol>
@@ -50,128 +132,95 @@
 
 				<section>
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Describe the case's problem.</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What price would recommend for Desdol?</p>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Economist's objective: maximize profit. 
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Economist's objective: maximize profit.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
 							<li class="fragment">How do economists measure profit?</li>
-							<li class="fragment">How is their measure slightly different from other notions of profit?</li>
+							<li class="fragment">How does this measure differ from "accounting" profit?</li>
 						</ul>
+					</section>
+
+					<section>
+					    <p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Profit $=$ Revenue $-$ Cost</p>
+					    <div style="display: flex; align-items: center; justify-content: center;">
+					        <img src="/images/teaching/value-creation-truncated.png" style="height: 100%;" align="center">
+					        <ul style="font-family: 'Benton Sans'; font-size: 100%;">
+					            <li class="fragment">Where does revenue come from?</li>
+					            <li class="fragment">Where do economists get this information?</li><br><br>
+					            <li class="fragment">Where do costs come from?</li>
+					            <li class="fragment">Where do economists organize this information?</li>
+					        </ul>
+					    </div>
+					</section>
+
+
+					<section>
+						<img src="/images/teaching/value-creation-truncated.png" style="height: 100%;" align="center">
 					</section>
 
 					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Profit $=$ Revenue $-$ Cost</p>
 						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
 							<li class="fragment">Where does revenue come from?</li>
-							<li class="fragment">Where do economists get this information?</li><br><br>
+							<li class="fragment">Where do economists get this information?</li>
 							<li class="fragment">Where do costs come from?</li>
 							<li class="fragment">Where do economists organize this information?</li>
 						</ul>
-					</section>
-
-					<section>
-						<table style="font-family: 'Benton Sans'; font-size: 55%; color:#582C83;">
-							<thead>
-							  <tr>
-							    <th colspan="2">Demand</th>
-							    <th colspan="2">Revenue Information</th>
-							    <th colspan="2">Cost Information</th>
-							    <th>Profit</th>
-							  </tr>
-							</thead>
-							<tbody>
-							  <tr>
-							    <td>Price</td>
-							    <td>Quantity</td>
-							    <td>Revenue</td>
-							    <td>Marginal Revenue</td>
-							    <td>Cost</td>
-							    <td>Marginal Cost</td>
-							    <td>Revenue - Cost</td>
-							  </tr>
-							  <tr>
-							    <td>6</td>
-							    <td>0</td>
-							    <td></td>
-							    <td></td>
-							    <td>0</td>
-							    <td></td>
-							    <td></td>
-							  </tr>
-							  <tr>
-							    <td>5</td>
-							    <td>1</td>
-							    <td></td>
-							    <td></td>
-							    <td>1</td>
-							    <td></td>
-							    <td></td>
-							  </tr>
-							  <tr>
-							    <td>4</td>
-							    <td>2</td>
-							    <td></td>
-							    <td></td>
-							    <td>4</td>
-							    <td></td>
-							    <td></td>
-							  </tr>
-							  <tr>
-							    <td>3</td>
-							    <td>3</td>
-							    <td></td>
-							    <td></td>
-							    <td>8</td>
-							    <td></td>
-							    <td></td>
-							  </tr>
-							  <tr>
-							    <td>2</td>
-							    <td>4</td>
-							    <td></td>
-							    <td></td>
-							    <td>13</td>
-							    <td></td>
-							    <td></td>
-							  </tr>
-							  <tr>
-							    <td>1</td>
-							    <td>5</td>
-							    <td></td>
-							    <td></td>
-							    <td>19</td>
-							    <td></td>
-							    <td></td>
-							  </tr>
-							</tbody>
-						</table>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Optimal pricing with marginal analysis.</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Select the price for which marginal revenue equals marginal cost ($MR=MC$).</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
-							<li class="fragment">That is, select the price at which the money coming into the firm <span style="color:#582C83;"><em>on the last unit</em></span> is exactly equal to the money leaving the firm on said unit.</li>
-						</ul>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Regarding the case...</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">What makes applying marginal analysis difficult?</p>
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 95%; color:#582C83; color:#582C83;">What are some alternatives to marginal analysis?</p> 
+						<p>Groups.</p>
+					</section>
+
+					<section>
+						<p align="center" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Small Group Task</p>
+						<div class="float-container">
+							<div class="float-child">
+								<p align="left">Take the next ten minutes and construct your own version of the tax letter with the members of your group.</p>
+							</div>
+							<div class="child float-child" id="app"></div>
+						</div>
+
+						<script type="text/javascript">
+							import { startTimer } from 'path/to/timer.js';
+
+							const TIME_LIMIT = 600;
+							document.getElementById("app").innerHTML = `
+							<div class="base-timer">
+							  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+							    <g class="base-timer__circle">
+							      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+							      <path
+							        id="base-timer-path-remaining"
+							        stroke-dasharray="283"
+							        class="base-timer__path-remaining ${remainingPathColor}"
+							        d="
+							          M 50, 50
+							          m -45, 0
+							          a 45,45 0 1,0 90,0
+							          a 45,45 0 1,0 -90,0
+							        "
+							      ></path>
+							    </g>
+							  </svg>
+							  <span id="base-timer-label" class="base-timer__label">${formatTime(
+							    timeLeft
+							  )}</span>
+							  <button onclick="startTimer()">Start timer</button>
+							</div>
+							`;
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">How are aspects of value created internally and externally?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">What are the potential pros and cons of selling the drink?</p> 
 						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
 							<tr><td style="border:none; width: 450px;">1)</td><td style="border:none; width: 450px;">2)</td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
@@ -189,6 +238,26 @@
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">What are the economic tradeoffs in considering what to price the drink at?</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Optimal pricing with marginal analysis.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Select the price for which marginal revenue equals marginal cost ($MR=MC$).</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class="fragment">That is, select the price at which the money coming into the firm <span style="color:#582C83;"><em>on the last unit</em></span> is exactly equal to the money leaving the firm on said unit.</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">What makes applying marginal analysis difficult?</p>
 					</section>
 
 					<section>
@@ -240,22 +309,8 @@
 
 		</div>
 
-		<script type="text/javascript"> 
-			function display_c(){
-				var refresh=1000; // Refresh rate in milli seconds
-				mytime=setTimeout('display_ct()',refresh)
-			}
-
-			function display_ct() {
-				var today = new Date();
-				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
-				document.getElementById('ct').style.color = "#582C83";
-				document.getElementById('ct').innerHTML = time;
-				display_c();
-			 }
-		</script>
-
 		<script src="/dist/reveal.js"></script>
+		<script src="/dist/hexagons.js"></script>
 		<script src="/plugin/math/math.js"></script>
 		<script src="/plugin/zoom/zoom.js"></script>
 		<script src="/plugin/notes/notes.js"></script>
@@ -275,7 +330,6 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
 			});
-
 		</script>
 
 	</body>
