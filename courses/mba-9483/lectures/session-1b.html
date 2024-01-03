@@ -26,7 +26,6 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
-		<script type="module" src="/dist/timers.js"></script>
 	</head>
 
 	<body>
@@ -160,43 +159,23 @@
 					</section>
 
 					<section>
-						<p align="center" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Small Group Task</p>
-						<div class="float-container">
-							<div class="float-child">
-								<p align="left">Take the next ten minutes and construct your own version of the tax letter with the members of your group.</p>
-							</div>
-							<div class="child float-child" id="app"></div>
-						</div>
+					    <p align="center" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Small Group Task</p>
+					    <div class="float-container">
+					        <div class="float-child">
+					            <p align="left">Instructions.</p>
+					        </div>
+					        <div class="child float-child" id="app"></div>
+					    </div>
 
-						<script type="text/javascript">
-							import { startTimer } from '/dist/timers.js';
+					    <script type="module" src="/dist/timers.js"></script>
+					    <script type="module">
+					        import { initializeTimer } from '/dist/timers.js';
 
-							const TIME_LIMIT = 600;
-							document.getElementById("app").innerHTML = `
-							<div class="base-timer">
-							  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-							    <g class="base-timer__circle">
-							      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
-							      <path
-							        id="base-timer-path-remaining"
-							        stroke-dasharray="283"
-							        class="base-timer__path-remaining ${remainingPathColor}"
-							        d="
-							          M 50, 50
-							          m -45, 0
-							          a 45,45 0 1,0 90,0
-							          a 45,45 0 1,0 -90,0
-							        "
-							      ></path>
-							    </g>
-							  </svg>
-							  <span id="base-timer-label" class="base-timer__label">${formatTime(
-							    timeLeft
-							  )}</span>
-							  <button onclick="startTimer()">Start timer</button>
-							</div>
-							`;
-						</script>
+					        document.addEventListener('DOMContentLoaded', () => {
+					            const TIME_LIMIT = 600; // Set your custom time limit here
+					            initializeTimer(TIME_LIMIT);
+					        });
+					    </script>
 					</section>
 				</section>
 
