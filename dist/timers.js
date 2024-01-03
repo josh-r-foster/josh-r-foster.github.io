@@ -47,10 +47,13 @@ function initializeTimer(TIME_LIMIT) {
       <span id="base-timer-label" class="base-timer__label">${formatTime(
         timeLeft
       )}</span>
-      <button onclick="startTimer(${TIME_LIMIT})">Start timer</button>
+      <button  id="start-timer-button">Start timer</button>
     </div>
     `;
-    // Rest of the initialization code
+    const startButton = document.querySelector("#start-timer-button");
+    if (startButton) {
+        startButton.addEventListener('click', () => startTimer(TIME_LIMIT));
+    }
 }
 
 function onTimesUp() {

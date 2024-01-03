@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-  const targetCardBack = document.querySelector('#targetCard .back');
-  targetCardBack.classList.add('invisible');
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//   const targetCardBack = document.querySelector('#targetCard .back');
+//   targetCardBack.classList.add('invisible');
+// });
 
 function display_c(){
   var refresh=1000; // Refresh rate in milli seconds
