@@ -68,8 +68,9 @@ function startTimer(TIME_LIMIT) {
       document.getElementById("base-timer-label").innerHTML = formatTime(
         timeLeft
       );
-      setCircleDasharray();
-      setRemainingPathColor(timeLeft);
+
+      setCircleDasharray(timeLeft, TIME_LIMIT);
+      setRemainingPathColor(timeLeft, TIME_LIMIT);
 
       if (timeLeft === 0) {
         onTimesUp();
@@ -108,18 +109,14 @@ function setRemainingPathColor(timeLeft) {
   }
 }
 
-function calculateTimeFraction() {
-  const rawTimeFraction = timeLeft / TIME_LIMIT;
-  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+function calculateTimeFraction(timeLeft, TIME_LIMIT) {
+    const rawTimeFraction = timeLeft / TIME_LIMIT;
+    return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
 }
 
-function setCircleDasharray() {
-  const circleDasharray = `${(
-    calculateTimeFraction() * FULL_DASH_ARRAY
-  ).toFixed(0)} 283`;
-  document
-    .getElementById("base-timer-path-remaining")
-    .setAttribute("stroke-dasharray", circleDasharray);
+function setCircleDasharray(timeLeft, TIME_LIMIT) {
+    const circleDasharray = `${(calculateTimeFraction(timeLeft, TIME_LIMIT) * FULL_DASH_ARRAY).toFixed(0)} 283`;
+    document.getElementById("base-timer-path-remaining").setAttribute("stroke-dasharray", circleDasharray);
 }
 
 export { initializeTimer, startTimer };
