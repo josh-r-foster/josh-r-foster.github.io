@@ -65,16 +65,23 @@ function startTimer(TIME_LIMIT) {
     timerInterval = setInterval(() => {
       timePassed = timePassed += 1;
       timeLeft = TIME_LIMIT - timePassed;
+
+      if (timeLeft <= 0) {
+        timeLeft = 0;
+        onTimesUp();
+      }
+
       document.getElementById("base-timer-label").innerHTML = formatTime(
         timeLeft
       );
 
-      setCircleDasharray(timeLeft, TIME_LIMIT);
-      setRemainingPathColor(timeLeft, TIME_LIMIT);
+      const rawTimeFraction = timeLeft / TIME_LIMIT;
+      const timeFraction = rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+      const circleDasharray = `${(timeFraction * FULL_DASH_ARRAY).toFixed(0)} 283`;
+      document.getElementById("base-timer-path-remaining").setAttribute("stroke-dasharray", circleDasharray);
 
-      if (timeLeft === 0) {
-        onTimesUp();
-      }
+      // Update the remaining path color
+      setRemainingPathColor(timeLeft);
     }, 1000);
   }
 }
@@ -107,16 +114,6 @@ function setRemainingPathColor(timeLeft) {
       .getElementById("base-timer-path-remaining")
       .classList.add(warning.color);
   }
-}
-
-function calculateTimeFraction(timeLeft, TIME_LIMIT) {
-    const rawTimeFraction = timeLeft / TIME_LIMIT;
-    return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
-}
-
-function setCircleDasharray(timeLeft, TIME_LIMIT) {
-    const circleDasharray = `${(calculateTimeFraction(timeLeft, TIME_LIMIT) * FULL_DASH_ARRAY).toFixed(0)} 283`;
-    document.getElementById("base-timer-path-remaining").setAttribute("stroke-dasharray", circleDasharray);
 }
 
 export { initializeTimer, startTimer };
