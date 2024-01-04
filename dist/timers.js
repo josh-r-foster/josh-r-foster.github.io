@@ -1,7 +1,7 @@
 // timer js 
 const FULL_DASH_ARRAY = 283;
-const WARNING_THRESHOLD = 60;
-const ALERT_THRESHOLD = 10;
+const WARNING_THRESHOLD = 120;
+const ALERT_THRESHOLD = 30;
 
 const COLOR_CODES = {
   info: {
@@ -58,6 +58,7 @@ function initializeTimer(TIME_LIMIT) {
 
 function onTimesUp() {
   clearInterval(timerInterval);
+  timerInterval = null; 
 }
 
 function startTimer(TIME_LIMIT) {

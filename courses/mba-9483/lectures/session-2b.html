@@ -17,41 +17,225 @@
 		<link rel="stylesheet" href="/dist/reset.css">
 		<link rel="stylesheet" href="/dist/reveal.css">
 		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="/dist/hexagons.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
-
 		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	</head>
 
-	<body onload="display_ct();">
+	<body>
 		<div class="reveal">
+
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-background="/images/teaching/thumbnail-2.png">
-					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
-
-					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				<section>
+					<div class="card-container" style="margin-left: 500px; margin-top: 50px;">
+					  <div class="card">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">9483<br>GEMS</p>
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Session 2b</p>
+					          <span id="session-date" style="font-family: 'Benton Sans'; font-size: 90%;"></span> 
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: 155px; margin-top: -80px;">
+					      <figure class="hexagon front" style="background-color: #FFFFFF;">
+					        <div class="card-content">
+					          <img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 250px;">
+					        </div>
+					      </figure>
+					      <figure class="hexagon back" style="background-color: #FFFFFF;">
+					        <div class="card-content">
+					          <img src="/images/teaching/western-logo.png" style="width: 125px;">
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: -155px; margin-top: -346px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p>
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <div id="emoji-container">
+							      &#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;<br>
+							      &#x1F3C3;<br>
+							      &#x1F1E8;&#x1F1E6; &#x1F1FA;&#x1F1F8;
+							    </div>
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: 0px; margin-top: -80px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p> -->
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Prospect<br>Theory</p> -->
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: -310px; margin-top: -882px;">
+					      <figure class="hexagon front" style="background-color: #582C83;">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p> -->
+					        </div>
+					      </figure>
+					      <figure class="hexagon back" style="background-color: #034638;">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Prospect<br>Theory</p> -->
+					        </div>
+					      </figure>
+					  </div>
+					  <div id="targetCard" class="card" style="margin-left: -620px; margin-top: -347px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <span id="ct2" style="font-family: 'Benton Sans'; font-size: 150%;"></span>
+					        </div>
+					      </figure>
+					      <!-- <figure class="card back">
+					          <img class="hexagon-image" id="random-hexagon-image">
+					      </figure> -->
+					      <figure class="hexagon-target">
+						    <img id="random-hexagon-image">
+						  </figure>
+					  </div>
+					</div>
 				</section>
 
-				<div class="topbar">
-					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+				<div class="topbar" id="conditional-div">
+					<span id="ct1" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
     				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
 				</div>
 
 				<section>
 					<h3 style="font-family: 'Walbaum';">Agenda</h3>
 					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
-						<li>MobLab Simulations: <em>Bidding in Auctions</em>.</li>
-						<li>Case: <em>Auction Vignettes (Parts A and B)</em>.</li>
-						<li>Optimal Bidding Strategies.</li>
-						<li>Stylized Facts on Auctions.</li>
+						<li>Quick Case: <em>Joy4Home Brands: Pricing Matters</em>.</li>
+						<li>Identifying Optimal Pricing Strategies</li>
 					</ol>
 				</section>
 
+
+				<!-- Second degree price discrimination (10 minutes) -->
 				<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83; color:#582C83;">Where are auctions used most often?</p> 
-						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Degrees of price discrimination.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li>Perfect price discrimination (last session).</li>
+							<li style="color:#582C83;">Menu-based priced discrimination.</li>
+							<li>Taste-based priced discrimination (last session).</li>
+						</ol>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Menu-based priced discrimination.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Charging different prices based on the <span style="color:#582C83;">quantity</span> or <span style="color:#582C83;">quality</span> of a product.</p>
+						<br>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;"><span style="color:#582C83;">Key feature:</span>Customers self-select into different pricing categories based on their (unobservable) preferences.</p> 
+					</section>
+				</section>
+
+				<!-- Setup of quick case -->
+				<section>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;"><em>Joy4Home Brands: Pricing Matters</em> revolves around a company called Joy4Home Brands, which is preparing to launch novel houseware items.</p>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>They plan to introduce two product lines: kitchenware products and storage containers.</li>
+						<li>Their initial strategy focuses on a direct-to-consumer (DTC) channel.</li>
+						<li>The case discusses the challenges the company faces in determining the DTC pricing for each line.</li>
+					</ol>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;"><b>Objective:</b> Identify optimal pricing strategies for these product given the information in the case.</p>
+				</section>
+
+				<!-- Group assignments and timed exercise (22 minutes) -->
+				<section>
+					<section>
+						<p>Groups.</p>
+					</section>
+
+					<section>
+					    <p align="center" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Small Group Task</p>
+					    <div class="float-container">
+					        <div class="float-child">
+					            <p align="left">Instructions.</p>
+					        </div>
+					        <div class="child float-child" id="app"></div>
+					    </div>
+
+					    <script type="module" src="/dist/timers.js"></script>
+					    <script type="module">
+					        import { initializeTimer } from '/dist/timers.js';
+
+					        document.addEventListener('DOMContentLoaded', () => {
+					            const TIME_LIMIT = 1200; // Set your custom time limit here
+					            initializeTimer(TIME_LIMIT);
+					        });
+					    </script>
+					</section>
+				</section>
+
+				<!-- Group strategy reports, either pre-built Google slides or Miro boards (20 minutes) -->
+
+				<!-- Case debriefing --> 
+
+				<!-- Bundling theory --> 
+
+				<!-- Key takeaways (3 minutes) --> 
+				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Key takeaways.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment"></li>
+							<li class="fragment"></li>
+							<li class="fragment"></li>
+						</ol>
+					</section>
+
+					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
+				</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">What is price discrimination?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">Which markets regularly price discriminate?</p> 
+						<table style="font-family: 'Benton Sans'; font-size: 100%; border:none;">
 							<tr><td style="border:none; width: 450px;">1)</td><td style="border:none; width: 450px;">2)</td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
@@ -64,310 +248,155 @@
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;">5)</td><td style="border:none;">6)</td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 						</table>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83; color:#582C83;" class="fragment">Why don't these markets just post prices instead?</p> 
-					</section>
-
-				<section>
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">Simulation instructions. </p>
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment"><span style="color:#582C83;">The situation:</span> you and other bidders are in an auction for a painting.</li>
-							<li class="fragment"><span style="color:#582C83;">What you do:</span> submit a <span style="color:#582C83;">sealed bid</span> in an attempt to claim the painting.</li>
-							<li class="fragment"><span style="color:#582C83;">Your objective:</span> win the painting with the largest profit possible.</li>
-						</ul>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">How do firms in these markets implement price discrimination?</p> 
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How it works.</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 80%;">
-							<li>Everyone is randomly placed in groups of 5.</li>
-							<li class="fragment">Each bidder will be randomly assigned a <span style="color:#582C83;">valuation</span> for the painting somewhere between $\$$10-$\$$100.</li>
-							<li class="fragment">All bidders will simultaneously and privately submit bids to the auctioneer.</li>
-							<li class="fragment">The winner of the auction will be the individual in the group of 5 who bid the most for the painting.</li>
-						</ul>
-						<div class="fragment">
-							<p align="left" style="font-family: 'Benton Sans'; font-size: 80%; color:#582C83;">"Payouts" are determined as:</p>
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 80%;">
-								$
-								\text{Profit} = 
-								\begin{cases}
-								\text{Valuation} - \text{Bid} & \text{if won the auction} \\
-								0 & \text{if lost the auction} \\
-								\end{cases}
-								$
-							</p>
-						</div>
-					</section>
-
-					<section>
-						<img src="/images/teaching/sealed-bid-1.png" style="width: 800px;" align="center">
-					</section>
-
-					<section>
-						<img src="/images/teaching/sealed-bid-2.png" style="width: 800px;" align="center">
-					</section>
-
-					<section>
-						<img src="/images/teaching/sealed-bid-3.png" style="width: 800px;" align="center">
-					</section>
-
-					<section data-auto-animate>
-						<h3 style="font-family: 'Benton Sans';">Questions?</h3>
-					</section>
-
-					<section data-auto-animate data-background-image="https://media.giphy.com/media/xT5LMESHbV1KLGMsq4/giphy.gif">
-					</section>
-
-					<section data-auto-animate></section>
-				</section>
-
-				<section>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What was your bidding strategy here?</p>
-				</section>
-
-				<section>
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">Simulation instructions. </p>
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment"><span style="color:#582C83;">The situation:</span> you and other bidders are in an auction for the oil rights of a field.</li>
-							<li class="fragment"><span style="color:#582C83;">What you do:</span> submit an <span style="color:#582C83;">open-cry bid</span> in an attempt to claim the oil field.</li>
-							<li class="fragment"><span style="color:#582C83;">Your objective:</span> win the oil field with the largest profit possible.</li>
-						</ul>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How it works.</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li>Everyone is randomly placed in groups of 5.</li>
-							<li class="fragment">No one knows how much the oil field is worth (between $\$$10-$\$$100).</li>
-							<li class="fragment">Each bidder will receive a unique and private <span style="color:#582C83;">valuation estimate</span> for the field.</li>
-							<li class="fragment">Each estimate will fall within $\pm$$\$$10 of the true value.</li>
-							<li class="fragment">Example: if you receive an <span style="color:#582C83;">estimated valuation</span> of $\$$50, then you know the true value is somewhere between $\$$40-$\$$60.</li>
-						</ul>
-					</section>
-
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How bidding works.</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 80%;">
-							<li>This auction uses <span style="color:#582C83;">open-cry bids</span>.</li>
-							<li class="fragment">That is, bids are public and sequential.</li>
-							<li class="fragment">Bidding ends when time runs out (60s).</li>
-						</ul>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;" class="fragment">The winner of the auction will be the individual in the group of 5 who bids the most.</p>
-						<div class="fragment">
-							<p align="left" style="font-family: 'Benton Sans'; font-size: 80%;">"Payouts" are determined as:</p>
-							<p align="center" style="font-family: 'Benton Sans'; font-size: 80%;">
-								$
-								\text{Profit} = 
-								\begin{cases}
-								\text{True Value} - \text{Bid} & \text{if won the auction} \\
-								0 & \text{if lost the auction} \\
-								\end{cases}
-								$
-							</p>
-						</div>
-					</section>
-
-					<section>
-						<img src="/images/teaching/open-cry-1.png" style="width: 800px;" align="center">
-					</section>
-
-					<section>
-						<img src="/images/teaching/open-cry-2.png" style="width: 800px;" align="center">
-					</section>
-
-					<section>
-						<img src="/images/teaching/open-cry-3.png" style="width: 800px;" align="center">
-					</section>
-
-					<section>
-						<img src="/images/teaching/open-cry-4.png" style="width: 800px;" align="center">
-					</section>
-
-					<section>
-						<img src="/images/teaching/open-cry-5.png" style="width: 800px;" align="center">
-					</section>
-
-					<section data-auto-animate>
-						<h3 style="font-family: 'Benton Sans';">Questions?</h3>
-					</section>
-
-					<section data-auto-animate data-background-image="https://media.giphy.com/media/xUPOqCaonkxSi0Z7Bm/giphy.gif">
-					</section>
-
-					<section data-auto-animate></section>
-				</section>
-
-				<section>
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What was your bidding strategy here?</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How was this different from the first auction simulation?</p>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">In the first auction simulation.</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment">Bidders <span style="color:red;">know</span> their valuations.</li>
-							<li class="fragment">Bids are submitted <span style="color:blue;">without knowing</span> what others are doing.</li>
-							<li class="fragment">The winner pays the most <span style="color:green;">they are willing to bid</span>.</li>
-						</ul>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">This is known as a <span style="color:green;">first-price</span> <span style="color:blue;">sealed-bid</span> <span style="color:red;">private value</span> auction.</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Strategy for a <span style="color:green;">first-price</span> <span style="color:blue;">sealed-bid</span> <span style="color:red;">private value</span> auction.</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment">Pretend as though your valuation is the greatest.</li>
-							<li class="fragment">What is the next highest valuation likely to be?</li>
-							<li class="fragment">Bid just enough to beat out that bidder.</li>
-						</ul>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">In the second auction simulation.</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment">Bidders <span style="color:red;">do not know</span> their valuations.</li>
-							<li class="fragment">Bids are submitted <span style="color:blue;">knowing</span> what others are doing.</li>
-							<li class="fragment">The winner pays the most <span style="color:green;">anyone else is willing to bid</span>.</li>
-						</ul>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 95%;" class="fragment">This is known as a <span style="color:green;">second-price</span> <span style="color:blue;">open-cry</span> <span style="color:red;">common value</span> auction (AKA an "English" auction).</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Did anyone lose money in the oil field auctions?</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">The Winner's Curse</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">When bidders do not know the value of the item <em>until after</em> the auction is over, the winner often over-estimates its value, and thus pays more than it's worth.</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Strategy for a <span style="color:green;">second-price</span> <span style="color:blue;">open-cry</span> <span style="color:red;">common value</span> auction.</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 95%;">
-							<li class="fragment">Pretend as though your valuation is the greatest.</li>
-							<li class="fragment">What is the true value likely to be then?</li>
-							<li class="fragment">(Something less, due to the error in the signal.)</li>
-							<li class="fragment">Bid that estimation of the true value.</li>
-						</ul>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What kind of auction is the housing market?</p>
-
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment">What would happen if we switched to an English auction?</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%;">"So, Josh, what kind of auction should I use if I have to sell an item?"</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment">Revenue Equivalence Theorem.</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment">If valuations are private and uncorrelated, and</li>
-							<li class="fragment">Bidders are risk-neutral, then</li>
-							<li class="fragment">It doesn't matter!</li>
-						</ul>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">"No, but really, what kind of auction should I use?"</p>
-						<table style="font-family: 'Benton Sans'; font-size: 50%; border:none;" class="fragment">
-							<thead>
-							  <tr>
-							    <th colspan="3"></th>
-							    <th></th>
-							    <th colspan="3"></th>
-							  </tr>
-							  <tr>
-							    <th colspan="3">Common Value Auctions</th>
-							    <th></th>
-							    <th colspan="3">Private Value Auctions</th>
-							  </tr>
-							</thead>
-							<tbody>
-							  <tr>
-							    <td></td>
-							    <td>Potential collusion</td>
-							    <td>No collusion</td>
-							    <td style="border-left: 1px solid #000;"></td>
-							    <td></td>
-							    <td>Potential collusion</td>
-							    <td style="border-right: 1px solid #000;">No collusion</td>
-							  </tr>
-							  <tr>
-							    <td style="border:0;">Risk averse bidders</td>
-							    <td style="border:0; border-left: 1px solid #000;">First-price sealed-bid</td>
-							    <td style="border:0;">English open-cry</td>
-							    <td style="border:0; border-left: 1px solid #000;"></td>
-							    <td style="border:0;">Risk averse bidders</td>
-							    <td style="border:0;">First-price sealed-bid</td>
-							    <td style="border:0; border-right: 1px solid #000;">First-price sealed-bid</td>
-							  </tr>
-							  <tr>
-							    <td>Risk neutral bidders</td>
-							    <td style="border-left: 1px solid #000;">First-price sealed-bid</td>
-							    <td>English open-cry</td>
-							    <td style="border-left: 1px solid #000;"></td>
-							    <td>Risk neutral bidders</td>
-							    <td>First-price sealed-bid</td>
-							    <td style="border-right: 1px solid #000;">English open-cry</td>
-							  </tr>
-							  <tr>
-							    <td></td>
-							    <td></td>
-							    <td></td>
-							    <td></td>
-							    <td></td>
-							    <td></td>
-							    <td></td>
-							  </tr>
-							</tbody>
-						</table>
-					</section>
-				</section>
-
-				<section>
-					<section data-auto-animate>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Key takeaways.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Necessary conditions for price discrimination.</p>
 						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment">Auctions are an important allocation mechanism in many markets.</li>
-							<li class="fragment">While generally very useful, they sometimes cause problems, such as the <span style="color:#582C83;">Winner's Curse</span>.</li>
-							<li class="fragment">Concerns regarding risk and collusion among bidders can sway the relative value of a given auction mechanism.</li>
+							<li class="fragment">Ability to identify consumer groups by their willingness to pay (usually).</li>
+							<li class="fragment">Prevent the ability for resale (i.e. no arbitrage)</li>
 						</ol>
 					</section>
 
-					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Degrees of price discrimination.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">Perfect price discrimination.</li>
+							<li class="fragment">Menu-based priced discrimination (next session).</li>
+							<li class="fragment">Taste-based priced discrimination.</li>
+						</ol>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Perfect price discrimination.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">When firms are able to charge consumers precisely their willingness to pay.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Taste-based price discrimination.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">When firms charge different prices to different consumer groups based on their <em>elasticity of demand</em>.</p>
+						<br>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;"><b>Elasticity of demand:</b> A measure of how price sensitive consumer group is to various prices.</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Do you believe there are ethical limitations to which markets should be allowed to price discriminate?</p>
+					</section>
+
+					<!-- 
+						Mentimeter poll results: 
+						 1) It would bother me to learn that other people pay less than I do for the same products. (76% agree)
+						 2) It would bother me to learn that other people get better discount coupons than I do for the same products. (64% agree)
+						 3) If a store I shop at frequently charges me lower prices than it charges other people because it wants to keep me as a customer more than it wants to keep them, that's OK. (72% disagree)
+						 Survey reponses come from Turow et al. (2005) UPenn Report.
+					--> 
+
+					<!-- Use the ultimatum game results.  -->
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Distributional social preferences.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">The degree and nature of how individuals care about the outcomes of others, relative to their own outcomes.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">Appears to be relevant to price discrimination.</li>
+							<li class="fragment">An important issue that transcends pricing.</li>
+							<li class="fragment"><span style="color:#582C83;">Example: Wal-mart attempting fee-based express checkout lines.</span></li>
+						</ol>
+					</section>
+
+					<section>
+						<iframe width="800" height="500" src="https://www.youtube.com/embed/meiU6TxysCg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">What are some options for Heather Bresch in this case?</p> 
+						<table style="font-family: 'Benton Sans'; font-size: 100%; border:none;">
+							<tr><td style="border:none; width: 450px;">1)</td><td style="border:none; width: 450px;">2)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">3)</td><td style="border:none;">4)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">5)</td><td style="border:none;">6)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+						</table>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">What risks do you see with each option here?</p> 
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">As per the press release, Mylan:</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">Offer savings card, up to $\$$300.</li>
+							<li class="fragment">Doubling eligibility for assistance (family of 4 making less than $\$$97,200 get it for free).</li>
+							<li class="fragment">700,000 free pens to schools.</li>
+							<li class="fragment">Direct-to-consumer sales to reduce costs.</li>
+						</ol>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">Then, offers a generic brand version <em>of the same product</em> for $\$$300 (50% price cut).</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Should Mylan be allowed to set a price of $\$$600 in the US and a price of $\$$85 in France?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How does Mylan justify this?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">"We do subsidize the rest of the world...and as a country we've made a conscious decision to do that.  And I think the world's a better place for it."</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;" class="fragment">What does this subsidization argument imply?</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What degree of price discrimination is Mylan engaging in?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83; padding-top: 5%;">Simple example: Coke wants to sell cans of soda <em>it has already produced</em> to up to four people. Therefore, MC=0.</p>
+						<table style="font-family: 'Benton Sans'; font-size: 75%; border:none;">
+							<tr><th>Person</th><th>Willingness to Pay (WTP)</th></tr>
+							<tr><td>Anas</td><td>$1.00</td></tr>
+							<tr><td>Brandon</td><td>$1.50</td></tr>
+							<tr><td>Clair</td><td>$2.50</td></tr>
+							<tr><td>Didier</td><td>$3.00</td></tr>
+						</table>
+						<div class="fragment current-visible">
+							<p align="left" style="font-family: 'Benton Sans'; font-size: 80%;">If Coke can only charge one price, what should it choose?</p>
+						</div>
+						<div class="fragment current-visible">
+							<p align="left" style="font-family: 'Benton Sans'; font-size: 80%;">If Coke can identify Anas & Brandon have lower WTP and offer them a non-transferable coupon, what should they do?</p>
+						</div>
+						<div class="fragment">
+							<p align="left" style="font-family: 'Benton Sans'; font-size: 80%;">Notice, profit max's out with first degree (i.e. perfect) price discrimination: charging each consumer their WTP.</p>
+						</div>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Three pricing strategies:</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">No discrimination, one price, half participate.</li>
+							<li class="fragment">Third degree, two prices, all participate.</li>
+							<li class="fragment">First degree, four prices, all participate.</li>
+						</ol>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">Which of the three pricing scenarios likely made the most consumers happy? </p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">Notice how important it is for full market participation when we switch a Coke for an Epi-pen...</p>
+					</section>
 				</section>
 				
 			</div>
 
 		</div>
 
-		<script type="text/javascript"> 
-			function display_c(){
-				var refresh=1000; // Refresh rate in milli seconds
-				mytime=setTimeout('display_ct()',refresh)
-			}
-
-			function display_ct() {
-				var today = new Date();
-				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
-				document.getElementById('ct').style.color = "#582C83";
-				document.getElementById('ct').innerHTML = time;
-				display_c();
-			 }
-		</script>
-
 		<script src="/dist/reveal.js"></script>
+		<script src="/dist/hexagons.js"></script>
 		<script src="/plugin/math/math.js"></script>
 		<script src="/plugin/zoom/zoom.js"></script>
 		<script src="/plugin/notes/notes.js"></script>
@@ -375,7 +404,6 @@
 		<script src="/plugin/markdown/markdown.js"></script>
 		<script src="/plugin/highlight/highlight.js"></script>
 		<script>
-
 			// Also available as an ES module, see:
 			// https://revealjs.com/initialization/
 			Reveal.initialize({
@@ -387,7 +415,6 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
 			});
-
 		</script>
 
 	</body>
