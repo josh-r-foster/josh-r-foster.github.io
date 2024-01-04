@@ -58,7 +58,7 @@ function initializeTimer(TIME_LIMIT) {
 
 function onTimesUp() {
   clearInterval(timerInterval);
-  timerInterval = null; 
+  // timerInterval = null; 
 }
 
 function startTimer(TIME_LIMIT) {
