@@ -2,6 +2,7 @@ const container = document.getElementById('person-container');
 const exportButton = document.getElementById('export-button');
 
 const peopleData = [
+  {name: 'Aadhyaa Rai', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Adik Goel', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Alex Mladen', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Colton James', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
@@ -9,12 +10,10 @@ const peopleData = [
   {name: 'Deepti Sharma', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Ebuka Nwadike', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Elizabeth Areola', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
-  {name: 'Josee Morell', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
-  {name: 'Kai Dai', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Konner Fung-Kee-Fung', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
-  {name: 'Lenny Yang', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Manan Bhatia', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Martin Eidenberg', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
+  {name: 'Meghaa Nayyar', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Michael Cooper', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Michael Pettet', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Michael Starr', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
@@ -22,7 +21,6 @@ const peopleData = [
   {name: 'Mishita Kodnani', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Moatasm Almaouie', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Nayan Banerjee', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
-  {name: 'Olivia Petric', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Ozlem Gorkan', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Raiyan Khair', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Ramsey Franklyn', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
@@ -33,12 +31,12 @@ const peopleData = [
   {name: 'Samer Balaa', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Samuel Baganzi', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Sari Sartawi', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
+  {name: 'Shalini Kanodia', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Shreya Kapoor', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Soumyarup Dasgupta', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Susanna Shu', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Vegar Arnesen', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Wardah Behzad', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
-  {name: 'Zaw Tun', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Zuhair Naseem', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
 ];
 const buttonsData = ["Came prepared", "Came unprepared", "Strong problem solving", "Quality decision analysis", "Good listening", "Considered other perspectives", "Connected with theory", "Insightful connections", "Clear communication", "Distracted", "Arrived late", "Absent"];
