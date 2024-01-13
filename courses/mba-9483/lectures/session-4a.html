@@ -125,7 +125,7 @@
 					<h3 style="font-family: 'Walbaum'; color:#582C83;">Agenda</h3>
 					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
 						<li>MobLab: <em>In-class Simulation</em>.</li>
-						<li>Introduction to Behavioural Finance.</li>
+						<li>Behavioural Economics of Asset Pricing.</li>
 					</ol>
 					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">"... day-to-day fluctuations in the profits of existing investments, which are obviously of an ephemeral and nonsignificant character, tend to have an altogether excessive, and even an absurd, influence on the market."<br>- John Maynard Keynes,<em> The General Theory of Employment, Interest and Money (1936)</em></p>
 				</section>
@@ -256,6 +256,14 @@
 
 					<section>
 						<img src="/images/teaching/housing.png" style="width: 700px;" align="center">
+						<center>
+						    <div>
+						        <img src="/images/teaching/bitcoin-bubble.png" alt="Bitcoin bubble" align="center">
+						        <br> 
+						        <img src="/images/teaching/ethereum-bubble.png" alt="Ethereum bubble" align="center">
+						    </div>
+						</center>
+
 					</section>
 				</section>
 
@@ -288,7 +296,22 @@
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Why is this a problem? </p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;"><a href="https://core.ac.uk/download/pdf/6518986.pdf">From Mehra and Prescott (1985):</a></p>
+						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li><span style="color:#582C83;">Investor objective:</span> maximize $E[\sum_{t=0}^{\infty}\beta^{t}U(c_{t})]$</li>
+							<li><span style="color:#582C83;">Assume</span> $U(c,\alpha)=\frac{c^{1-\alpha}-1}{1-\alpha}$</li>
+							<li><span style="color:#582C83;">Empiricaly impute $\alpha$</span> to be $\approx 30$-$40$ </li>
+						</ol>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Understanding an $\alpha$ of 30 with a gamble</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li>50% chance your wealth doubles</li>
+							<li>50% chance your wealth halves</li>
+							<li>How much would you pay to avoid the gamble.</li>
+						</ol>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">You would be willing to pay 49% of your wealth to avoid a 50% chance of losing 50% of your wealth.</p>
 					</section>
 
 					<section>
@@ -328,6 +351,46 @@
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">Apply Prospect Theory. What is the reference point?</p>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 0px; color:#582C83;" class="fragment">What is the source of loss aversion?</p>
 					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Can traditional economic analysis explain this?</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class="fragment">Beliefs in mean reversion: maybe under-performing stocks today will outperform next period.</li>
+							<li class="fragment">The market data does not support this.</li>
+						</ol>
+						<table class="fragment" border="1">
+						    <tr>
+						        <th></th>
+						        <th>84 days out</th>
+						        <th>252 days out</th>
+						        <th>504 days out</th>
+						    </tr>
+						    <tr>
+						        <td>Winners Sold</td>
+						        <td>0.0047</td>
+						        <td>0.0235</td>
+						        <td>0.0645</td>
+						    </tr>
+						    <tr>
+						        <td>Losers Held</td>
+						        <td>-0.0056</td>
+						        <td>-0.0106</td>
+						        <td>0.0287</td>
+						    </tr>
+						    <tr>
+						        <td>Difference</td>
+						        <td>0.0103</td>
+						        <td>0.0341</td>
+						        <td>0.0358</td>
+						    </tr>
+						    <tr>
+						        <td>p-value</td>
+						        <td>0.002</td>
+						        <td>0.001</td>
+						        <td>0.014</td>
+						    </tr>
+						</table>
+					</section>
 				</section>
 
 				<section>
@@ -335,7 +398,7 @@
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;">Investors make certain behavioural mistakes due to a variety of biases/heuristics.</p>
 						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
 							<li class="fragment"><span style="color:#582C83;">Loss aversion</span>, which produces a desire to lock in gains.</li>
-							<li class="fragment"><span style="color:#582C83;">Present bias</span>, which obscures the costs of delaying investment (topic for next session).</li>
+							<li class="fragment"><span style="color:#582C83;">Present bias</span>, which obscures the costs of delaying investment (topic for another session).</li>
 							<li class="fragment"><span style="color:#582C83;">Level-k reasoning</span>, which accounts for the group's collective rationality.</li>
 						</ol>
 					</section>
