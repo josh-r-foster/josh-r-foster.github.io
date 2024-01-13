@@ -17,188 +17,326 @@
 		<link rel="stylesheet" href="/dist/reset.css">
 		<link rel="stylesheet" href="/dist/reveal.css">
 		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="/dist/hexagons.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
-
 		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
-
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	</head>
 
-	<body onload="display_ct();">
+	<body>
 		<div class="reveal">
+
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-background="/images/teaching/thumbnail-2.png">
-					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
-
-					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				<section>
+					<div class="card-container" style="margin-left: 500px; margin-top: 50px;">
+					  <div class="card">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">9483<br>GEMS</p>
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Session 4a</p>
+					          <span id="session-date" style="font-family: 'Benton Sans'; font-size: 90%;"></span> 
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: 155px; margin-top: -80px;">
+					      <figure class="hexagon front" style="background-color: #FFFFFF;">
+					        <div class="card-content">
+					          <img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 250px;">
+					        </div>
+					      </figure>
+					      <figure class="hexagon back" style="background-color: #FFFFFF;">
+					        <div class="card-content">
+					          <img src="/images/teaching/western-logo.png" style="width: 125px;">
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: -155px; margin-top: -346px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p>
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <div id="emoji-container">
+							      &#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;<br>
+							      &#x1F3C3;<br>
+							      &#x1F1E8;&#x1F1E6; &#x1F1FA;&#x1F1F8;
+							    </div>
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: 0px; margin-top: -80px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p> -->
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Prospect<br>Theory</p> -->
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: -310px; margin-top: -882px;">
+					      <figure class="hexagon front" style="background-color: #582C83;">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p> -->
+					        </div>
+					      </figure>
+					      <figure class="hexagon back" style="background-color: #034638;">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Prospect<br>Theory</p> -->
+					        </div>
+					      </figure>
+					  </div>
+					  <div id="targetCard" class="card" style="margin-left: -620px; margin-top: -347px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <span id="ct2" style="font-family: 'Benton Sans'; font-size: 150%;"></span>
+					        </div>
+					      </figure>
+					      <!-- <figure class="card back">
+					          <img class="hexagon-image" id="random-hexagon-image">
+					      </figure> -->
+					      <figure class="hexagon-target">
+						    <img id="random-hexagon-image">
+						  </figure>
+					  </div>
+					</div>
 				</section>
 
-				<div class="topbar">
-					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+				<div class="topbar" id="conditional-div">
+					<span id="ct1" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
     				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
 				</div>
 
 				<section>
-					<h3 style="font-family: 'Walbaum';">Agenda</h3>
+					<h3 style="font-family: 'Walbaum'; color:#582C83;">Agenda</h3>
 					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
-						<li>Case: <em>Uber: Competing Globally</em>.</li>
-						<li>Market Entry Problems.</li>
-						<li>Regulatory Environment Faced by Uber.</li>
+						<li>MobLab: <em>In-class Simulation</em>.</li>
+						<li>Introduction to Behavioural Finance.</li>
 					</ol>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">"... day-to-day fluctuations in the profits of existing investments, which are obviously of an ephemeral and nonsignificant character, tend to have an altogether excessive, and even an absurd, influence on the market."<br>- John Maynard Keynes,<em> The General Theory of Employment, Interest and Money (1936)</em></p>
 				</section>
 
 				<section>
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">Thought experiment.</p>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Suppose there are four firms considering entering into an untapped market.</p>
-				 		<ul style="font-family: 'Benton Sans'; font-size: 80%;">
-							<li class="fragment">If only one firm enters it will earn monopoly profits (high).</li>
-							<li class="fragment">If only two firms enter, they will earn duopoly profits (low).</li>
-							<li class="fragment">If only three firms enter, they will earn competitive profits (none).</li>
-							<li class="fragment">If all four firms enter, they will earn negative profits.</li>
-							<li class="fragment">Not entering earns zero profits.</li>
-							<li class="fragment">Firms have to make their decision to enter without knowing what the other will do.</li>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Simulation instructions.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment"><span style="color:#582C83;">The situation:</span> there is a market that trades shares of <span style="color:#582C83;">"Stock X"</span>, an asset that periodically pays out dividends to its owners.</li>
+							<li class="fragment"><span style="color:#582C83;">What you do:</span> buy and sell shares of <span style="color:#582C83;">"Stock X"</span> with each other over the course of 10 dividend periods to produce investment returns for yourself.</li>
+							<li class="fragment"><span style="color:#582C83;">Your objective:</span> finish the simulation (10 periods of trading) with <span style="color:green;">the most cash possible</span>.</li>
 						</ul>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 80%;" class="fragment">How does a firm decide whether they are going to enter?</p>
 					</section>
 
 					<section>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Market Entry Games.</p>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">A stylized economic problem in which a number of agents have to choose independently whether or not to undertake some activity.</p>
-				 		<ul style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">
-							<li>Firm competition.</li>
-							<li>Go to a popular bar.</li>
-							<li>Choosing a commuting route.</li>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How it works.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li>Everyone starts the simulation with 6 shares of <span style="color:#582C83;">"Stock X"</span> and $\$$50 in cash.</li>
+							<li class="fragment">Trading begins in the first dividend period (10 total).</li>
+							<li class="fragment">To make an offer to <span style="color:red;">buy</span> a share of <span style="color:#582C83;">"Stock X"</span> you will place a <span style="color:red;">Bid</span> in the market.</li>
+							<li class="fragment">To make an offer to <span style="color:blue;">sell</span> a share of <span style="color:#582C83;">"Stock X"</span> you will place an <span style="color:blue;">Ask</span> in the market.</li>
+							<li class="fragment">When the computer finds a <span style="color:red;">Bid</span>$\geq$<span style="color:blue;">Ask</span> in the market it will automatically trigger a trade.</li>
 						</ul>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">In each case, the return among agents is decreasing in the number of participants.</p>
-				 	</section>
-				</section>
-
-				<section>
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How does Uber's business work?</p>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What is Uber's competitive advantage?</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How does Uber set prices in each market?</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Why does surge pricing occur? <span class="fragment">What issues do they face when this happens?</span></p>
-					</section>
-				</section>
-
-				 <section>
-				 	<section>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What kinds of challenges has Uber faced as it entered new markets?</p>
-				 	</section>
-
-				 	<section>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Among the markets discussed in the case, which was the most attractive at the time of entry?  <span class="fragment">Which was the least attractive?</span></p>
-				 	</section>
-
-				 	<section>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Relevant factors for market entry</p>
-				 		<table style="font-family: 'Benton Sans'; font-size: 100%; border:none;">
-							<tr><td style="border:none; width: 300px;">Demand factors</td><td style="border:none; width: 300px;">Competitive factors</td><td style="border:none; width: 300px;">Regulatory factors</td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td></tr>
-						</table>
-				 	</section>
-
-				 	<section>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">A key feature in several locations was the restriction of supply of taxis in the local market. What effect does this have on Uber's ability to unlock profits?</p>
-				 	</section>
-
-				 	<section>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">How can a supply and demand framework reveal the nature of this situation?</p>
-				 		<canvas id="myPlot" width="800" height="400"></canvas>
-							<script>
-								var c = document.getElementById("myPlot");
-								var ctx = c.getContext("2d");
-								ctx.lineWidth = 5;
-								ctx.beginPath();
-								ctx.moveTo(20, 50);
-								ctx.lineTo(20, 350);
-								ctx.lineTo(500, 350);
-								ctx.stroke();
-								ctx.font = "30px Arial";
-								ctx.fillText("Quantity", 500, 350);
-								ctx.fillText("Price", 0, 30);
-							</script>
-				 	</section>
-
-				 	<section>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Takeaway.</p>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">One of Uber's competitive advantages is <span style="color:#582C83;">regulatory arbitrage</span>.</p>
-				 	</section>
-				 </section>
-
-				 <section>
-				 	<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">Creating a path to victory.</p> 
-						<table style="font-family: 'Benton Sans'; font-size: 55%; border:none;">
-							<tr><td style="width: 150px;"></td><td style="width: 250px;">New York</td><td style="width: 250px;">Shanghai</td><td style="width: 250px;">Accra</td></tr>
-							<tr><td>Customers</td><td>Loved convenience, price, quality.</td><td>Enjoyed subsidized rates, had alternatives.</td><td>Adoption slowed by fraud, alternatives.</td></tr>
-							<tr><td>Competitors</td><td>Taxis brought lawsuits.</td><td>Competitors subsidized, then merged, then bought out Uber.</td><td>Taxi strikes, govt. petitions, labor protests.</td></tr>
-							<tr><td>Regulators</td><td>Restrictions like taxis.</td><td>Rules threatened Uber's existence.</td><td>Increased restrictions due to taxi petitions.</td></tr>
-						</table>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">A variety of market conditions...why would Uber do this? What were they betting on? <span class="fragment">Why didn't this work in every market?</span></p> 
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">So, what is Uber's competitive advantage?</p> 
-					</section>
-
-					<section>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Regulatory risk tolerance.</p>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Uber was willing and able to enter markets that they knew would produce pushback from regulators and incumbents.</p>
-				 		<ul style="font-family: 'Benton Sans'; font-size: 100%;">
-							<li class="fragment">No other ridesharing firm was quite so willing to take these risks.</li>
-							<li class="fragment">How Uber executed on this was regulation-specific.</li>
-						</ul>
-				 	</section>
-
-				 	<section>
-				 		<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;"><em>"From its inception, Kalanick operated Uber by the motto</em> growth above all else, <em>with an</em> ask for forgiveness, not for permission <em>mentality when it came to expansion into new markets and interactions with regulators and competitors."</em></p>
-				 	</section>
-				 </section>
-
-				 <section>
-			 		<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Regulation changes over time.</p>
-			 		<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">What will stop governments from making Uber another highly-regulated taxi replacement?</p>
-			 		<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">What can Uber realistically expect as a best-case scenario in the London, UK market?</p>
-				 </section>
-
-				 <section>
-					<section data-auto-animate>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Key takeaways.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How you make money.</p>
 						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment">An economic analysis of the case's markets Uber entered reveals large differences in their profit potential.</li>
-							<li class="fragment">It is plausible to argue Uber's competitive advantage is its regulatory risk tolerance.</li>
-							<li class="fragment">It is unlikely for the ride-share market to offer a winner-take-all reward to any company, including Uber.  Even if Uber does push out other firms, regulators are likely to step in and adjust the market like with traditional taxi cabs.</li>
+							<li class="fragment">Dividends paid on the shares of <span style="color:#582C83;">"Stock X"</span> you own.</li>
+							<li class="fragment">Price received on the shares of <span style="color:#582C83;">"Stock X"</span> you sell.</li>
+						</ol>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How you make money (cont.).</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li>At the end of each period, a dividend is distributed to those who own shares of <span style="color:#582C83;">"Stock X"</span>.</li>
+							<li class="fragment">The dividend will either be $\$$0.4 (50%) or $\$$1 (50%).</li>
+							<li class="fragment">Example: if you own 5 shares of <span style="color:#582C83;">"Stock X"</span> at the end of a period and the dividend is randomly $\$$1, then you would earn $5\cdot\$1=\$5$ as a return for that period.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How you make money (cont.).</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li>Once dividends are paid out the next period begins and trading resumes.</li>
+							<li class="fragment">Dividends are calculated randomly once more<br>(either $\$$0.4 or $\$$1 per share).</li>
+							<li class="fragment">This repeats for a total of 10 dividend periods, during which your returns accumulate.</li>
+						</ul>
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-10-1.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-10-2.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-10-3.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-10-4.png" style="width: 800px;" align="center">
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Some important facts about this market.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li>Shares of <span style="color:#582C83;">"Stock X"</span> are worthless at the end of the simulation ($\$$0 redemption value).</li>
+							<li class="fragment">You may only place a <span style="color:red;">Bid</span> if you have the cash on hand, and likewise you may only place an <span style="color:blue;">Ask</span> if you have a share of <span style="color:#582C83;">"Stock X"</span> to sell.</li>
+							<li class="fragment">Each trading period lasts for 45 seconds.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">To summarize:</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">Everyone gets 6 shares and $\$$50 to start.</li>
+							<li class="fragment">There will be a total of 10 trading periods (45s each).</li>
+							<li class="fragment">A dividend is randomly paid out ($\$$0.4 or $\$$1 per share) at the end of each period.</li>
+							<li class="fragment">Your earnings accumulate throughout the simulation.</li>
+							<li class="fragment"><span style="color:#582C83;">"Stock X"</span> has $\$$0 redemption value when the simulation ends.</li>
+						</ol>
+					</section>
+
+					<section data-auto-animate>
+						<h3 style="font-family: 'Benton Sans';">Questions?</h3>
+					</section>
+
+					<section data-auto-animate data-background-image="https://media.giphy.com/media/3ohs4gux2zjc7f361O/giphy.gif">
+					</section>
+
+					<section data-auto-animate></section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What is the rational pricing strategy for <span style="color:#582C83;">"Stock X"</span>?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How can we relate this simulation's results to mistakes in naturally occurring asset markets?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%;"><span style="color:#582C83;">One more MobLab Simulation.</span></p>
+
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Pick a number $X\in\{0,1,2,3,...,100\}$.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment"><span style="color:#582C83;">Objective:</span> get closest to $\frac{2}{3}$ of the group's average.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment"><span style="color:#582C83;">Example:</span> If you believe $\bar{X}=100\Rightarrow X^*=67$.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What is the rational way to play this game?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;"><span style="color:#582C83;">Level-k reasoning.</span></p>
+
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Individuals devise strategies according to their beliefs about others' rationality.</p>
+					</section>
+
+					<section>
+						<img src="/images/teaching/tulips.png" style="width: 400px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/housing.png" style="width: 700px;" align="center">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">What are the primary assumptions regarding how financial markets operate? </p>
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr><td style="border:none; width: 450px;">1)</td><td style="border:none; width: 450px;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">2)</td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">3)</td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%;"><span style="color:#582C83;">Equity premium puzzle.</span></p>
+
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Equity returns outperformed bond returns by 4% on average from 1871-1993 (Campbell and Cochrane, 1999).</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Why is this a problem? </p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How might a behavioural economist explain this?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 50px;"><span style="color:#582C83;">Terrance Odean studied individual investors: </p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 50px;">
+							<li class ="fragment">Tracked individual investments.</li>
+							<li class ="fragment">Counted gains and losses.</li>
+							<li class ="fragment">Measured proportion of gains/losses realized (PGR,PLR).</li>
+						</ul>
+					</section>
+
+					<section>
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr>
+								<td></td><td>Entire Year</td><td>December</td><td>Jan-Nov</td>
+							</tr>
+							<tr>
+								<td>PLR</td><td>0.098</td><td>0.128</td><td>0.094</td>
+							</tr>
+							<tr>
+								<td>PGR</td><td>0.148</td><td>0.108</td><td>0.152</td>
+							</tr>
+							<tr>
+								<td>Difference</td><td>-0.05</td><td>0.02</td><td>-0.058</td>
+							</tr>
+							<tr>
+								<td>t-stat</td><td>-35</td><td>4.3</td><td>-38</td>
+							</tr>
+						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">Apply Prospect Theory. What is the reference point?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 0px; color:#582C83;" class="fragment">What is the source of loss aversion?</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;">Investors make certain behavioural mistakes due to a variety of biases/heuristics.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class="fragment"><span style="color:#582C83;">Loss aversion</span>, which produces a desire to lock in gains.</li>
+							<li class="fragment"><span style="color:#582C83;">Present bias</span>, which obscures the costs of delaying investment (topic for next session).</li>
+							<li class="fragment"><span style="color:#582C83;">Level-k reasoning</span>, which accounts for the group's collective rationality.</li>
 						</ol>
 					</section>
 
@@ -209,22 +347,8 @@
 
 		</div>
 
-		<script type="text/javascript"> 
-			function display_c(){
-				var refresh=1000; // Refresh rate in milli seconds
-				mytime=setTimeout('display_ct()',refresh)
-			}
-
-			function display_ct() {
-				var today = new Date();
-				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
-				document.getElementById('ct').style.color = "#582C83";
-				document.getElementById('ct').innerHTML = time;
-				display_c();
-			 }
-		</script>
-
 		<script src="/dist/reveal.js"></script>
+		<script src="/dist/hexagons.js"></script>
 		<script src="/plugin/math/math.js"></script>
 		<script src="/plugin/zoom/zoom.js"></script>
 		<script src="/plugin/notes/notes.js"></script>
@@ -244,7 +368,6 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
 			});
-
 		</script>
 
 	</body>
