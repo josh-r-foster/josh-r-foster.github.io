@@ -43,7 +43,7 @@
 					      </figure>
 					      <figure class="hexagon back">
 					        <div class="card-content">
-					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Session 1a</p>
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Session 4b</p>
 					          <span id="session-date" style="font-family: 'Benton Sans'; font-size: 90%;"></span> 
 					        </div>
 					      </figure>
@@ -132,17 +132,13 @@
 				<section>
 					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Reference-dependent preferences cause irrational behaviour.</p>
-						<div style="display: flex;">
-						    <div style="padding-right: 10px;">$V(x) =$</div>
-						    <div>
-						        <div style="border-bottom: 1px solid; padding-bottom: 5px;">
-						            <span>{ $x$ if $x\geq 0$ }</span>
-						        </div>
-						        <div>
-						            <span>{ $\lambda x$ if $x<0$ }</span>
-						        </div>
-						    </div>
-						</div>
+						$$
+						V(w, r) = 
+						\begin{cases}
+						    w-r & \text{if } w \geq r \\
+						    \lambda(w-r) x & \text{if } w < r \\
+						\end{cases}
+						$$
 					</section>
 
 					<section>
