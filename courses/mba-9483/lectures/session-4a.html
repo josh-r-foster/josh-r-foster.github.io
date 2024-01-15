@@ -298,13 +298,17 @@
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;"><a href="https://core.ac.uk/download/pdf/6518986.pdf">From Mehra and Prescott (1985):</a></p>
 						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
 							<li><span style="color:#582C83;">Investor objective:</span> maximize $E[\sum_{t=0}^{\infty}\beta^{t}U(c_{t})]$</li>
-							<li><span style="color:#582C83;">Assume</span> $U(c,\alpha)=\frac{c^{1-\alpha}-1}{1-\alpha}$</li>
-							<li><span style="color:#582C83;">Empirically impute $\alpha$</span> to be $\approx 30$-$40$ </li>
+							<li><span style="color:#582C83;">Assume</span> $U(c,\eta)=\frac{c^{1-\eta}-1}{1-\eta}$</li>
+							<li><span style="color:#582C83;">Empirically impute $\eta$</span> to be $\approx 30$-$40$ </li>
 						</ol>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Understanding an $\alpha$ of 30 with a gamble.</p>
+						<img src="/images/teaching/crra-plot.png" style="width: 500px;" align="center">
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Understanding an $\eta$ of 30 with a gamble.</p>
 						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
 							<li>50% chance your wealth doubles</li>
 							<li>50% chance your wealth halves</li>
@@ -347,44 +351,46 @@
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Apply Prospect Theory. What is the reference point?</p>
-						<br><br>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 0px; color:#582C83;" class="fragment">What is the source of loss aversion?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Apply Prospect Theory.<br>What is the reference point?</p>
+						<br><br><br><br>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;" class="fragment">What is the source of loss aversion?</p>
 					</section>
 
 					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Can traditional economic analysis explain this?</p>
 						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
 							<li class="fragment">Beliefs in mean reversion: maybe under-performing stocks today will outperform next period.</li>
-							<li class="fragment">The market data does not support this.</li>
+							<ul style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">
+								<li class="fragment">The market data does not support this.</li>
+							</ul>
 						</ol>
 					</section>
 
 					<section>
 						<table border="1">
 						    <tr>
-						        <th></th>
+						        <th>% Return...</th>
 						        <th>84 days out</th>
 						        <th>252 days out</th>
 						        <th>504 days out</th>
 						    </tr>
 						    <tr>
 						        <td>Winners Sold</td>
-						        <td>0.0047</td>
-						        <td>0.0235</td>
-						        <td>0.0645</td>
+						        <td>0.47%</td>
+						        <td>2.35%</td>
+						        <td>6.45%</td>
 						    </tr>
 						    <tr>
 						        <td>Losers Held</td>
-						        <td>-0.0056</td>
-						        <td>-0.0106</td>
-						        <td>0.0287</td>
+						        <td>-0.56%</td>
+						        <td>-1.06%</td>
+						        <td>2.87%</td>
 						    </tr>
 						    <tr>
 						        <td>Difference</td>
-						        <td>0.0103</td>
-						        <td>0.0341</td>
-						        <td>0.0358</td>
+						        <td>1.03%</td>
+						        <td>3.41%</td>
+						        <td>3.58%</td>
 						    </tr>
 						    <tr>
 						        <td>p-value</td>
