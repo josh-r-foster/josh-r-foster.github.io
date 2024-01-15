@@ -198,7 +198,7 @@
 						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
 							<li>Shares of <span style="color:#582C83;">"Stock X"</span> are worthless at the end of the simulation ($\$$0 redemption value).</li>
 							<li class="fragment">You may only place a <span style="color:red;">Bid</span> if you have the cash on hand, and likewise you may only place an <span style="color:blue;">Ask</span> if you have a share of <span style="color:#582C83;">"Stock X"</span> to sell.</li>
-							<li class="fragment">Each trading period lasts for 45 seconds.</li>
+							<li class="fragment">Each trading period lasts for 50 seconds.</li>
 						</ul>
 					</section>
 
@@ -206,7 +206,7 @@
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">To summarize:</p>
 						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
 							<li class="fragment">Everyone gets 6 shares and $\$$50 to start.</li>
-							<li class="fragment">There will be a total of 10 trading periods (45s each).</li>
+							<li class="fragment">There will be a total of 10 trading periods (50s each).</li>
 							<li class="fragment">A dividend is randomly paid out ($\$$0.4 or $\$$1 per share) at the end of each period.</li>
 							<li class="fragment">Your earnings accumulate throughout the simulation.</li>
 							<li class="fragment"><span style="color:#582C83;">"Stock X"</span> has $\$$0 redemption value when the simulation ends.</li>
@@ -255,7 +255,6 @@
 					</section>
 
 					<section>
-						<img src="/images/teaching/housing.png" style="width: 700px;" align="center">
 						<center>
 						    <div>
 						        <img src="/images/teaching/bitcoin-bubble.png" alt="Bitcoin bubble" align="center">
@@ -300,22 +299,22 @@
 						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
 							<li><span style="color:#582C83;">Investor objective:</span> maximize $E[\sum_{t=0}^{\infty}\beta^{t}U(c_{t})]$</li>
 							<li><span style="color:#582C83;">Assume</span> $U(c,\alpha)=\frac{c^{1-\alpha}-1}{1-\alpha}$</li>
-							<li><span style="color:#582C83;">Empiricaly impute $\alpha$</span> to be $\approx 30$-$40$ </li>
+							<li><span style="color:#582C83;">Empirically impute $\alpha$</span> to be $\approx 30$-$40$ </li>
 						</ol>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Understanding an $\alpha$ of 30 with a gamble</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Understanding an $\alpha$ of 30 with a gamble.</p>
 						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
 							<li>50% chance your wealth doubles</li>
 							<li>50% chance your wealth halves</li>
-							<li>How much would you pay to avoid the gamble.</li>
+							<li>How much would you pay to avoid the gamble?</li>
 						</ol>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">You would be willing to pay 49% of your wealth to avoid a 50% chance of losing 50% of your wealth.</p>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How might a behavioural economist explain this?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How might a behavioural economist explain the <em>Equity Premium Puzzle?</em></p>
 					</section>
 
 					<section>
@@ -323,7 +322,7 @@
 						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 50px;">
 							<li class ="fragment">Tracked individual investments.</li>
 							<li class ="fragment">Counted gains and losses.</li>
-							<li class ="fragment">Measured proportion of gains/losses realized (PGR,PLR).</li>
+							<li class ="fragment">Measured proportion of gains/losses realized.</li>
 						</ul>
 					</section>
 
@@ -333,10 +332,10 @@
 								<td></td><td>Entire Year</td><td>December</td><td>Jan-Nov</td>
 							</tr>
 							<tr>
-								<td>PLR</td><td>0.098</td><td>0.128</td><td>0.094</td>
+								<td>Prop. Losses Realized</td><td>0.098</td><td>0.128</td><td>0.094</td>
 							</tr>
 							<tr>
-								<td>PGR</td><td>0.148</td><td>0.108</td><td>0.152</td>
+								<td>Prop. Gains Realized</td><td>0.148</td><td>0.108</td><td>0.152</td>
 							</tr>
 							<tr>
 								<td>Difference</td><td>-0.05</td><td>0.02</td><td>-0.058</td>
@@ -348,8 +347,9 @@
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: -200px; color:#582C83;">Apply Prospect Theory. What is the reference point?</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 0px; color:#582C83;" class="fragment">What is the source of loss aversion?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Apply Prospect Theory. What is the reference point?</p>
+						<br><br>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 0px; color:#582C83;" class="fragment">What is the source of loss aversion?</p>
 					</section>
 
 					<section>
@@ -358,7 +358,10 @@
 							<li class="fragment">Beliefs in mean reversion: maybe under-performing stocks today will outperform next period.</li>
 							<li class="fragment">The market data does not support this.</li>
 						</ol>
-						<table class="fragment" border="1">
+					</section>
+
+					<section>
+						<table border="1">
 						    <tr>
 						        <th></th>
 						        <th>84 days out</th>
