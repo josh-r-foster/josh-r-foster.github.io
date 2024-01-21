@@ -17,29 +17,107 @@
 		<link rel="stylesheet" href="/dist/reset.css">
 		<link rel="stylesheet" href="/dist/reveal.css">
 		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="/dist/hexagons.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
-
 		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
-
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	</head>
 
-	<body onload="display_ct();">
+	<body>
 		<div class="reveal">
+
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-background="/images/teaching/thumbnail-2.png">
-					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
-
-					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				<section>
+					<div class="card-container" style="margin-left: 500px; margin-top: 50px;">
+					  <div class="card">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">9483<br>GEMS</p>
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Session 6b</p>
+					          <span id="session-date" style="font-family: 'Benton Sans'; font-size: 90%;"></span> 
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: 155px; margin-top: -80px;">
+					      <figure class="hexagon front" style="background-color: #FFFFFF;">
+					        <div class="card-content">
+					          <img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 250px;">
+					        </div>
+					      </figure>
+					      <figure class="hexagon back" style="background-color: #FFFFFF;">
+					        <div class="card-content">
+					          <img src="/images/teaching/western-logo.png" style="width: 125px;">
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: -155px; margin-top: -346px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p>
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <div id="emoji-container">
+							      &#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;<br>
+							      &#x1F3C3;<br>
+							      &#x1F1E8;&#x1F1E6; &#x1F1FA;&#x1F1F8;
+							    </div>
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: 0px; margin-top: -80px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p> -->
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Prospect<br>Theory</p> -->
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: -310px; margin-top: -882px;">
+					      <figure class="hexagon front" style="background-color: #582C83;">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p> -->
+					        </div>
+					      </figure>
+					      <figure class="hexagon back" style="background-color: #034638;">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Prospect<br>Theory</p> -->
+					        </div>
+					      </figure>
+					  </div>
+					  <div id="targetCard" class="card" style="margin-left: -620px; margin-top: -347px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <span id="ct2" style="font-family: 'Benton Sans'; font-size: 150%;"></span>
+					        </div>
+					      </figure>
+					      <!-- <figure class="card back">
+					          <img class="hexagon-image" id="random-hexagon-image">
+					      </figure> -->
+					      <figure class="hexagon-target">
+						    <img id="random-hexagon-image">
+						  </figure>
+					  </div>
+					</div>
 				</section>
 
-				<div class="topbar">
-					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+				<div class="topbar" id="conditional-div">
+					<span id="ct1" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
     				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
 				</div>
 
@@ -219,22 +297,8 @@
 
 		</div>
 
-		<script type="text/javascript"> 
-			function display_c(){
-				var refresh=1000; // Refresh rate in milli seconds
-				mytime=setTimeout('display_ct()',refresh)
-			}
-
-			function display_ct() {
-				var today = new Date();
-				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
-				document.getElementById('ct').style.color = "#582C83";
-				document.getElementById('ct').innerHTML = time;
-				display_c();
-			 }
-		</script>
-
 		<script src="/dist/reveal.js"></script>
+		<script src="/dist/hexagons.js"></script>
 		<script src="/plugin/math/math.js"></script>
 		<script src="/plugin/zoom/zoom.js"></script>
 		<script src="/plugin/notes/notes.js"></script>
@@ -254,7 +318,6 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
 			});
-
 		</script>
 
 	</body>
