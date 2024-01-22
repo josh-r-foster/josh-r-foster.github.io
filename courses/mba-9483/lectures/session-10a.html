@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>BUS 9483: Global Economy, Markets and Strategy</title>
+		<title>BUS 4654: Behavioural Economics</title>
 
-		<meta name="description" content="Session slides for BUS 9483">
+		<meta name="description" content="Session slides for BUS 4654">
 		<meta name="author" content="Joshua Foster, Ph.D.">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,238 +17,256 @@
 		<link rel="stylesheet" href="/dist/reset.css">
 		<link rel="stylesheet" href="/dist/reveal.css">
 		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="/dist/hexagons.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
-
 		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
-
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
-
-		<style type="text/css">
-			.base-timer {
-			  position: relative;
-			  width: 300px;
-			  height: 300px;
-			}
-
-			.base-timer__svg {
-			  transform: scaleX(-1);
-			}
-
-			.base-timer__circle {
-			  fill: none;
-			  stroke: none;
-			}
-
-			.base-timer__path-elapsed {
-			  stroke-width: 7px;
-			  stroke: grey;
-			}
-
-			.base-timer__path-remaining {
-			  stroke-width: 7px;
-			  stroke-linecap: round;
-			  transform: rotate(90deg);
-			  transform-origin: center;
-			  transition: 1s linear all;
-			  fill-rule: nonzero;
-			  stroke: currentColor;
-			}
-
-			.base-timer__path-remaining.green {
-			  color: rgb(65, 184, 131);
-			}
-
-			.base-timer__path-remaining.orange {
-			  color: orange;
-			}
-
-			.base-timer__path-remaining.red {
-			  color: red;
-			}
-
-			.base-timer__label {
-			  position: absolute;
-			  width: 300px;
-			  height: 300px;
-			  top: 0;
-			  display: flex;
-			  align-items: center;
-			  justify-content: center;
-			  font-size: 48px;
-			}
-
-			.child {
-				position: absolute;
-				top: 30%;
-				left: 65%;
-				margin: -25px 0 0 -25px;
-			}
-
-			.float-container {
-			    border: 3px;
-			    padding: 20px;
-			}
-
-			.float-child {
-			    width: 50%;
-			    float: left;
-			    padding: 20px;
-			    border: 2px;
-			} 
-		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	</head>
 
 	<body onload="display_ct();">
 		<div class="reveal">
+
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-background="/images/teaching/thumbnail-2.png">
-					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
-
-					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				<section>
+					<div class="card-container" style="margin-left: 500px; margin-top: 50px;">
+					  <div class="card">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Behavioural<br>Economics</p>
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Session 18</p>
+					          <span id="session-date" style="font-family: 'Benton Sans'; font-size: 90%;"></span> 
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: 155px; margin-top: -80px;">
+					      <figure class="hexagon front" style="background-color: #FFFFFF;">
+					        <div class="card-content">
+					          <img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 250px;">
+					        </div>
+					      </figure>
+					      <figure class="hexagon back" style="background-color: #FFFFFF;">
+					        <div class="card-content">
+					          <img src="/images/teaching/western-logo.png" style="width: 125px;">
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: -155px; margin-top: -346px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p>
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <div id="emoji-container">
+							      &#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;<br>
+							      &#x1F3C3;<br>
+							      &#x1F1E8;&#x1F1E6; &#x1F1FA;&#x1F1F8;
+							    </div>
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: 0px; margin-top: -80px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p> -->
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Prospect<br>Theory</p> -->
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: -310px; margin-top: -882px;">
+					      <figure class="hexagon front" style="background-color: #582C83;">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p> -->
+					        </div>
+					      </figure>
+					      <figure class="hexagon back" style="background-color: #034638;">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Prospect<br>Theory</p> -->
+					        </div>
+					      </figure>
+					  </div>
+					  <div id="targetCard" class="card" style="margin-left: -620px; margin-top: -347px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <span id="ct2" style="font-family: 'Benton Sans'; font-size: 150%;"></span>
+					        </div>
+					      </figure>
+					      <!-- <figure class="card back">
+					          <img class="hexagon-image" id="random-hexagon-image">
+					      </figure> -->
+					      <figure class="hexagon-target">
+						    <img id="random-hexagon-image">
+						  </figure>
+					  </div>
+					</div>
 				</section>
 
-				<div class="topbar">
-					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+				<div class="topbar" id="conditional-div">
+					<span id="ct1" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
     				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
 				</div>
 
 				<section>
 					<h3 style="font-family: 'Walbaum'; color:#582C83;">Agenda</h3>
 					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
-						<li>Case: <em>Selling CFLs at Wal-Mart</em>.</li>
+						<li>Case: <em>New Zealand: Measuring What Matters</em>.</li>
+						<li>Closing thoughts: <em>Reflecting on a semester of behavioural economics</em>.</li>
 					</ol>
-					<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">"The pleasure which we are to enjoy ten years hence, interests us so little in comparison with that which we may enjoy today..."<br>- Adam Smith, <em>The Theory of Moral Sentiments</em></p>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;"><em><span style="color:#582C83;">Reminder: all group project reports are due on Thursday before class (submit on Learn).</span></em></p>
 				</section>
 
 				<section>
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What is the problem Barron at Wal-Mart is working on?</p>
-					</section>
-
-					<section data-background-image="https://media.giphy.com/media/Ki9zObRfQlVja/giphy.gif"></section>
-					
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">What are the costs/benefits of using CFLs? </p>
-						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
-							<tr><td style="border:none;"><span style="color:#582C83;">Advantages of CFLs</span></td><td style="border:none;"><span style="color:#582C83;">Disadvantages of CFLs</span></td></tr>
-							<tr><td style="border:none; width: 400px;">1)</td><td style="border:none;">1)</td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;">2)</td><td style="border:none;">2)</td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;">3)</td><td style="border:none;">3)</td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-						</table>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">What are the main driving factors behind New Zealand's decision to shift from a GDP-focused approach to a Wellbeing Budget?</p>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What would the rational economist do in their house?</p>
+						<blockquote style="border: none; width: 700px;">
+							<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">"The purpose of government spending is to ensure citizens’ health and life satisfaction, and that — not wealth or economic growth — is the metric by which a country’s progress should be measured. GDP alone does not guarantee improvement to our living standards and does not take into account who benefits and who is left out."</p>
+						</blockquote>
+						<p align="right" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">--Jacinda Ardern, Prime Minister of New Zealand</p>
 					</section>
 
-					<section data-background-iframe="https://green-energy-efficient-homes.com/cfl-savings-calculator.html" data-background-interactive></section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">If you are Jacinda, what do you prioritize: GDP metrics or wellbeing metrics?</p> 
+					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 0px; color:#582C83;">Economics from the case.</p>
-						<p align="center">
-							<img src="/images/teaching/session-6-1.png" width="700">
-						</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">What is really at stake with a shift to a Wellbeing Budget?</p>
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Why is adoption so low at this time?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What is Gross Domestic Product (GDP)?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment">If the goal is to maximize GDP, what types of policies should be implemented?</p>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How many light sockets are in your house/apartment?</p>
-
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment">How much was your last electric bill?</p>
+						<blockquote style="border: none; width: 700px;">
+							<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">"The welfare of a nation can scarcely be inferred from a measure of national income."</p>
+						</blockquote>
+						<p align="right" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">--Simon Kuznets, creator of GDP measure</p>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;"><span style="color:#582C83;">Moral Hazard</span> among renters/roommates.</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">An (incomplete) contract isn't able to align individual actions with their costs. This is a classic problem in economics.</p>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 0px; color:#582C83;">Survey question insights.</p>
-						<table style="font-family: 'Benton Sans'; font-size: 72.5%; border:none;">
-							<tr><td style="border:none;">Suppose I could give you:<ul><li>100 in cash in <span style="color:#582C83;">right now</span>, or</li><li>X in cash in <span style="color:#582C83;">two weeks</span>.</li></ul>What is the smallest amount of money, X, I could offer you in <span style="color:#582C83;">two weeks</span> to make you forgo the 100 in <span style="color:#582C83;">right now</span>?</td><td style="border:none;" class="fragment fade-in">Suppose I could give you:<ul><li>100 in cash in <span style="color:#582C83;">eight weeks</span>, or</li><li>X in cash in <span style="color:#582C83;">ten weeks</span>.</li></ul>What is the smallest amount of money, X, I could offer you in <span style="color:#582C83;">ten weeks</span> to make you forgo the 100 in <span style="color:#582C83;">eight weeks</span>?</td></tr>
-							<tr><td style="border:none;" class="fragment fade-in">$\bar{X}=194$<br>"Cash is king." -someone</td><td style="border:none;" class="fragment fade-in">$\bar{X}=124$<br>"as long as I got more than $100 in 10 weeks, I can forgo the first one and wait 2 more weeks"<br>-someone else</td></tr>
-						</table>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What is the role of the Wellbeing Budget?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment">If the goal is to maximize citizen wellbeing, what types of policies should be implemented?</p>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 50px; color:#582C83;">Dynamic Consistency: <span style="font-size: 80%; color:#000000;">a truly magnificent property.</span></p>
-						<p align="left"  style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 50px;" class="fragment fade-in">The action a person thinks they should take in the future always coincides with the action that they actually prefer once the time comes.</p>
-
-						<p align="left"  style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 50px;" class="fragment fade-in">Examples:</p>
-						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 50px;">
-						<li class ="fragment current-visible">If today we wish ourselves to work on a problem set tomorrow, then tomorrow we prefer to work on the problem set immediately. </li>
-						<li class ="fragment current-visible"> If today we prefer to quit smoking tomorrow, then tomorrow we prefer to quit smoking immediately. </li>
-						<li class ="fragment fade-in"> If today we prefer to diet tomorrow, tomorrow we will want to diet immediately.</li>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Easterlin Paradox.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Happiness varies by relative income, but not by absolute income.</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class="fragment">Being richer than your neighbor will make you happier than your neighbor.</li>
+							<li class="fragment">Being richer in five years will not make you happier than you are now.</li>
 						</ul>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 0px;"><span style="color:#582C83;">Present Bias:</span> in actuality, people have a strong tendency to over-value immediate gratification, relative to <em>their own</em> long-term preferences.</p>
-						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class ="fragment fade-in"> If so, then dynamic consistency no longer holds.</li>
-							</ul>
+						<img src="/images/teaching/session-18-1.png" style="width: 700px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/nz-easterlin.png" style="width: 700px;" align="center">
+					</section>
+
+					<section>
+						<img src="/images/teaching/session-18-2.png" style="width: 700px;" align="center">
+						<p style="font-family: 'Benton Sans'; font-size: 70%; color:#582C83; text-align: left;">Porsche Indicator P'6910 $\approx\$$225,000<span style="float:right;">Fossil Chronograph $\approx\$$105</span></p>
+						<!-- People spend more on visible goods. -->
+						<!-- People are more likely to buy a new car if their neighbor just won the lottery. -->
+						<!-- People are incredibly stubborn, emotionally speaking: lottery winners and paraplegics. -->
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">How does the Easterlin Paradox complicate wellbeing metrics?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">What do you prioritize in a Wellbeing Budget if happiness is determined by relative differences in income?</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">In this class, you've had the opportunity to place yourself into many, distinct leadership roles.</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 100%; columns: 2;">
+							<li>Business.</li>
+							<li>Non-profit.</li>
+							<li>Government.</li>
 						</ul>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 0px; color:#582C83;">Back to economics from the case.</p>
-						<p align="center">
-							<img src="/images/teaching/session-6-1.png" width="700">
-						</p>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What would a behavioural economist <em>at Wal-Mart</em> do to "nudge" CFL adoption?</p>
-					</section>
-
-					<section data-background-image="/images/teaching/session-6-2.jpeg"></section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How do third parties (govt./utilities) play a role here?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">In these roles we've explored several systematic errors and biases in judgment.</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 100%; columns: 2;">
+							<li>Reference-dependent preferences.</li>
+							<li>Short-term impatience.</li>
+							<li>Subjective probabilities.</li>
+							<li>Motivated reasoning.</li>
+							<li>Bounded rationality.</li>
+							<li>Warm glow giving.</li>
+							<li>Social norms.</li>
+						</ul>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What would a behavioural economist <em>at a third party</em> do to "nudge" CFL adoption?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">You now have an essential library of biases to guide you through a variety of problem spaces.</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 100%; columns: 2;">
+							<li>Managerial hubris.</li>
+							<li>Non-profit fundraising.</li>
+							<li>Product positioning.</li>
+							<li>PR management.</li>
+							<li>Government policy.</li>
+							<li>Market creation.</li>
+							<li>Climate change.</li>
+						</ul>
 					</section>
-				</section>
 
-				<section>
-					<section data-auto-animate>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Key Takeaways.</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Intertemporal choice problems can lead to:</p>
-						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment"><span style="color:#582C83;">Dynamic <em>inconsistency</em>:</span> making choices that do not align with one's own long-run preferences.</li>
-							<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-								<li class="fragment">A consequence of <span style="color:#582C83;">Present Bias</span>.</li>
-								<li class="fragment">Leads to adverse market outcomes.</li>
-							</ul>
-						</ol>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">And you have the tools to measure and enact positive change on behalf of the communities you serve.</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 100%; columns: 2;">
+							<li>Experimentation.</li>
+							<li>Nudges.</li>
+							<li>Libertarian paternalism.</li>
+							<li>Defaults.</li>
+							<li>Commitment devices.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">On a personal note, some things behavioural economics has taught me.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">1) Avoid comparisons.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Reference points and loss aversion destroy our subjective appreciation of every-day pleasantries.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 140%; color:#582C83;">2) Be honest about procrastination.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">When important things in life get hard, never expect your future self to be stronger or more prepared to deal with them than you are today.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">3) Preferences can change.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">The decisions we make today shape the opportunities we give ourselves tomorrow.  Be mindful that your future self may want very different things from what you want today.</p>
 					</section>
 
 					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
@@ -267,13 +285,32 @@
 			function display_ct() {
 				var today = new Date();
 				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
-				document.getElementById('ct').style.color = "#582C83";
-				document.getElementById('ct').innerHTML = time;
+				document.getElementById('ct1').style.color = "#582C83";
+				document.getElementById('ct1').innerHTML = time;
+				document.getElementById('ct2').style.color = "#FFFFFF";
+				document.getElementById('ct2').innerHTML = time;
 				display_c();
 			 }
+
+			 function setSessionDate() {
+			    var today = new Date();
+			    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+			    document.getElementById('session-date').innerHTML = date;
+			}
+
+			window.onload = function() {
+			    display_ct();  // Your existing function
+			    setSessionDate();  // The new function to set the date
+			};
 		</script>
 
+		<script>
+	      // Parse the container holding the emojis
+	      twemoji.parse(document.getElementById('emoji-container'));
+	    </script>
+
 		<script src="/dist/reveal.js"></script>
+		<script src="/dist/hexagons.js"></script>
 		<script src="/plugin/math/math.js"></script>
 		<script src="/plugin/zoom/zoom.js"></script>
 		<script src="/plugin/notes/notes.js"></script>
@@ -294,6 +331,31 @@
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
 			});
 
+			const element = document.getElementById('conditional-div');
+
+			function checkAndSetVisibility(event) {
+			    const urlHash = window.location.hash;
+			    const slideIndex = event ? event.indexh : 0; // Use 0 as default for the initial call
+
+			    if (slideIndex === 0) { // First slide
+			        element.classList.add('hidden');
+			    } else { // Other slides
+			        element.classList.remove('hidden');
+			    }
+			}
+
+			// Initial check
+			checkAndSetVisibility();
+
+			// Check on slide changes
+			Reveal.addEventListener('slidechanged', function(event) {
+			    checkAndSetVisibility(event);
+			});
+
+			// Check on hash changes (might not be necessary if slidechanged covers all cases)
+			window.addEventListener("hashchange", function() {
+			    checkAndSetVisibility();
+			});
 		</script>
 
 	</body>

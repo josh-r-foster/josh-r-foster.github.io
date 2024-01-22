@@ -121,91 +121,59 @@
 					<h3 style="font-family: 'Walbaum'; color:#582C83;">Agenda</h3>
 					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
 						<li>MobLab: <em>In-class Simulation</em>.</li>
-						<li>Behavioural Economics of Financial Decisions.</li>
-						<li>Case: <em>Behavioral Finance at JP Morgan</em>.</li>
+						<li>Case: <em>Facebook Fake News in the Post-Truth World</em>.</li>
 					</ol>
 				</section>
+
+				<!--
+					While players will generally weigh private and public information appropriately, it is not uncommon for players to place too much weight on private information.
+
+					Who here is on Facebook?  
+				-->
 
 				<section>
 					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Simulation instructions.</p>
 						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment"><span style="color:#582C83;">The situation:</span> there is a market that trades shares of <span style="color:#582C83;">"Stock X"</span>, an asset that periodically pays out dividends to its owners.</li>
-							<li class="fragment"><span style="color:#582C83;">What you do:</span> buy and sell shares of <span style="color:#582C83;">"Stock X"</span> with each other over the course of 10 dividend periods to produce investment returns for yourself.</li>
-							<li class="fragment"><span style="color:#582C83;">Your objective:</span> finish the simulation (10 periods of trading) with <span style="color:green;">the most cash possible</span>.</li>
+							<li class="fragment"><span style="color:#582C83;">The situation:</span> there is a jar that contains only <span style="color:blue;">blue</span> and <span style="color:red;">red</span> balls (you can't see them).</li>
+							<li class="fragment"><span style="color:#582C83;">What you do:</span> you must determine whether the jar has a majority (60%) of <span style="color:blue;">blue</span> balls or <span style="color:red;">red</span> balls.</li>
+							<li class="fragment">If you guess correctly, you get 100 bragging right points, otherwise you get nothing.</li>
 						</ul>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How it works.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Simulation instructions.</p>
 						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li>Everyone starts the simulation with 6 shares of <span style="color:#582C83;">"Stock X"</span> and $\$$50 in cash.</li>
-							<li class="fragment">Trading begins in the first dividend period (10 total).</li>
-							<li class="fragment">To make an offer to <span style="color:red;">buy</span> a share of <span style="color:#582C83;">"Stock X"</span> you will place a <span style="color:red;">Bid</span> in the market.</li>
-							<li class="fragment">To make an offer to <span style="color:blue;">sell</span> a share of <span style="color:#582C83;">"Stock X"</span> you will place an <span style="color:blue;">Ask</span> in the market.</li>
-							<li class="fragment">When the computer finds a <span style="color:red;">Bid</span>$\geq$<span style="color:blue;">Ask</span> in the market it will automatically trigger a trade.</li>
+							<li><span style="color:#582C83;">How it works:</span> each member of a group (6 members total) will take turns <em>privately</em> drawing a ball from the jar, observe whether their draw is <span style="color:blue;">blue</span> or <span style="color:red;">red</span>, <em>and then put it back</em>.  Then, they make their guess for what the majority color is and share this guess with the rest of the group.</li>
+							<li class="fragment">Once everyone in the group has drawn a ball and revealed their guess, the group will learn the true majority color.</li>
 						</ul>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How you make money.</p>
-						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment">Dividends paid on the shares of <span style="color:#582C83;">"Stock X"</span> you own.</li>
-							<li class="fragment">Price received on the shares of <span style="color:#582C83;">"Stock X"</span> you sell.</li>
-						</ol>
+						<img src="/images/teaching/session-8-1.png" style="width: 800px;" align="center">
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How you make money.</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li>At the end of each period, a dividend is distributed to those who own shares of <span style="color:#582C83;">"Stock X"</span>.</li>
-							<li class="fragment">The dividend will either be $\$$0.4 (50%) or $\$$1 (50%).</li>
-							<li class="fragment">Example: if you own 5 shares of <span style="color:#582C83;">"Stock X"</span> at the end of a period and the dividend is randomly $\$$1, then you would earn $5\cdot\$1=\$5$ as a return for that period.</li>
-						</ul>
+						<img src="/images/teaching/session-8-2.png" style="width: 800px;" align="center">
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">How you make money.</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li>Once dividends are paid out the next period begins and trading resumes.</li>
-							<li class="fragment">Dividends are calculated randomly once more<br>(either $\$$0.4 or $\$$1 per share).</li>
-							<li class="fragment">This repeats for a total of 10 dividend periods, during which your returns accumulate.</li>
-						</ul>
-					</section>
-
-					<section data-transition="slide-in fade-out">
-						<img src="/images/teaching/session-10-1.png" style="width: 800px;" align="center">
-					</section>
-
-					<section data-transition="fade-in fade-out">
-						<img src="/images/teaching/session-10-2.png" style="width: 800px;" align="center">
-					</section>
-
-					<section data-transition="fade-in fade-out">
-						<img src="/images/teaching/session-10-3.png" style="width: 800px;" align="center">
-					</section>
-
-					<section data-transition="fade-in slide-out">
-						<img src="/images/teaching/session-10-4.png" style="width: 800px;" align="center">
+						<img src="/images/teaching/session-8-3.png" style="width: 800px;" align="center">
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Some important facts about this market.</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li>Shares of <span style="color:#582C83;">"Stock X"</span> are worthless at the end of the simulation ($\$$0 redemption value).</li>
-							<li class="fragment">You may only place a <span style="color:red;">Bid</span> if you have the cash on hand, and likewise you may only place an <span style="color:blue;">Ask</span> if you have a share of <span style="color:#582C83;">"Stock X"</span> to sell.</li>
-							<li class="fragment">Each trading period lasts for 45 seconds.</li>
-						</ul>
+						<img src="/images/teaching/session-8-4.png" style="width: 800px;" align="center">
 					</section>
 
 					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">To summarize:</p>
 						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment">Everyone gets 6 shares and $\$$50 to start.</li>
-							<li class="fragment">There will be a total of 10 trading periods (45s each).</li>
-							<li class="fragment">A dividend is randomly paid out ($\$$0.4 or $\$$1 per share) at the end of each period.</li>
-							<li class="fragment">Your earnings accumulate throughout the simulation.</li>
-							<li class="fragment"><span style="color:#582C83;">"Stock X"</span> has $\$$0 redemption value when the simulation ends.</li>
+							<li class="fragment">You'll be randomly placed into groups of six.</li>
+							<li class="fragment">Members of your group will take turns privately drawing a ball from the jar <em>with replacement</em>.</li>
+							<li class="fragment">Each member will signal to the others what color they think the majority color is.</li>
+							<li class="fragment">The true majority color is revealed once all guesses are made.</li>
+							<li class="fragment">Fake internet points ensue to correct guessers.</li>
+							<li class="fragment">Rinse and repeat a few times.</li>
 						</ol>
 					</section>
 
@@ -213,7 +181,7 @@
 						<h3 style="font-family: 'Benton Sans';">Questions?</h3>
 					</section>
 
-					<section data-auto-animate data-background-image="https://media.giphy.com/media/3ohs4gux2zjc7f361O/giphy.gif">
+					<section data-auto-animate data-background-image="https://media.giphy.com/media/1CNsm9ZkHF0m4/giphy.gif">
 					</section>
 
 					<section data-auto-animate></section>
@@ -221,197 +189,115 @@
 
 				<section>
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What is the rational pricing strategy for <span style="color:#582C83;">"Stock X"</span>?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What happened in the simulation?</p>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How can we relate this simulation's results to mistakes in naturally occurring asset markets?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What specifically made this task difficult?</p>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%;"><span style="color:#582C83;">One more MobLab Simulation.</span></p>
-
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Rule: pick a number between 0 and 100.</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Winner: person who picks closest to $\frac{2}{3}$ of the group's average.</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment">Example: if the group's average is 30, the winning number is the one closest to 20.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How can we relate this simulation to naturally occurring information flows on social media platforms?</p>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%;"><span style="color:#582C83;">Level-k reasoning.</span></p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;"><span style="color:#582C83;">Rational herding.</span></p>
 
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Individuals devise strategies according to their beliefs about others' rationality.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">In a social learning environment, it is often rational for an individual to ignore their private information and follow the herd (i.e., adopt the beliefs and actions of those they observe).</p>
 					</section>
 
-					<section>
-						<img src="/images/teaching/tulips.png" style="width: 400px;" align="center">
-					</section>
 
-					<section>
-						<img src="/images/teaching/housing.png" style="width: 700px;" align="center">
-					</section>
 				</section>
 
 				<section>
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Primary assumptions regarding how financial markets operate.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%;">What is <span style="color:#3b5998;">Facebook</span> used for?</p>
+
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%;" class="fragment">Why did social networking sites grow so fast initially?</p><!-- (Economies of scale, network effects)-->
+					</section>
+
+					<!-- Social network effect: social networks increase in value in proportion to 2^n (Reed's Law, which allows for the formation of subgroups) as they allow for an enormous number of potential group formations.  However, network effects don't end up being as strong due to social constraints. -->
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;"><span style="color:#582C83;">Dunbar's Number.</span></p>
+
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment">An upper-bound estimate on the number of relationships an individual can maintain at once.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">First discovered by primatologists.</li>
+							<li class="fragment">Correlated with the size of the brain's neocortex.</li>
+							<li class="fragment">Human's mean group size $\approx$ 150.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">What are the potential revenue models for social network websites?</p>
 						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
-							<tr><td style="border:none; width: 50px;">1)</td><td style="border:none; width: 700px;" class="fragment">Competitive and results oriented.</td></tr>
+							<tr><td style="border:none; width: 450px;">1)</td><td style="border:none; width: 450px;">2)</td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;">2)</td><td style="border:none;" class="fragment">Agents rely on all relevant information.</td></tr>
+							<tr><td style="border:none;">3)</td><td style="border:none;">4)</td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;">3)</td><td style="border:none;" class="fragment">(Optional) Agents are risk neutral.</td></tr>
+							<tr><td style="border:none;">5)</td><td style="border:none;">6)</td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 						</table>
-					</section>
 
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;"><span style="color:#582C83;">Equity premium puzzle.</span></p>
-
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Equity returns outperformed bond returns by 4% on average from 1871-1993 (Campbell and Cochrane, 1999).</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Why is this a problem? </p><br>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;" class="fragment">How might a behavioural economist explain this?</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">Loss Aversion.</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">For the consumption of something particular, people dislike losses relative to their reference point more than they like same-sized gains.</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment fade-in"><em>Reference points are typically formed over the person's expectations on potential outcomes</em>.</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">Reference-dependent utility (Prospect Theory).</p>
-						<table>
-							<colgroup>
-						       <col span="1" style="width: 55%;">
-						       <col span="1" style="width: 45%;">
-						    </colgroup>
-						    <tbody style="font-family: 'Benton Sans'; font-size: 90%;">
-						    	<tr>
-						    		<td>
-										<img align="left" src="/images/teaching/rdutility.png" style="width:600px;height:400px;">
-									</td>
-									<td style="vertical-align: top;">
-										<p>Reference-dependent (RD) utility depends on <span style="color:#582C83;">relative</span> valuation.</p>
-										<ul style="font-family: 'Benton Sans'; font-size: 90%;>
-											<li class ="fragment fade-in-then-semi-out">RD Utility depends on what they had before.</li>
-											<li class ="fragment fade-in">Additionally, they really dislike losing what they had.</li>
-										</ul>
-									</td>
-						    	</tr>
-						    </tbody>
-						</table>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Today's Major Takeaway</p>
-						<p align="left" class="fragment fade-in" style="font-family: 'Benton Sans'; font-size: 90%;">Evaluations of economic outcomes are heavily influenced by comparisons.</p>
-
-						<p align="left" class="fragment fade-in" style="font-family: 'Benton Sans'; font-size: 90%;">If absolute consumption is what made people happy...</p>
-						<ul class ="fragment fade-in" style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li>We should be happier than people 100 years ago.</li>
-							<li>(e.g. electricity, indoor plumbing, entertainment)</li>
-						</ul>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 50px;"><span style="color:#582C83;">Terrance Odean studied individual investors: </p>
-						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 50px;">
-							<li class ="fragment">Tracked individual investments.</li>
-							<li class ="fragment">Counted gains and losses.</li>
-							<li class ="fragment">Measured proportion of gains/losses realized (PGR,PLR).</li>
-						</ul>
-					</section>
-
-					<section>
-						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
-							<tr>
-								<td></td><td>Entire Year</td><td>December</td><td>Jan-Nov</td>
-							</tr>
-							<tr>
-								<td>PLR</td><td>0.098</td><td>0.128</td><td>0.094</td>
-							</tr>
-							<tr>
-								<td>PGR</td><td>0.148</td><td>0.108</td><td>0.152</td>
-							</tr>
-							<tr>
-								<td>Difference</td><td>-0.05</td><td>0.02</td><td>-0.058</td>
-							</tr>
-							<tr>
-								<td>t-stat</td><td>-35</td><td>4.3</td><td>-38</td>
-							</tr>
-						</table>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Let's apply Prospect Theory.</p><br>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">What is the reference point?</p><br>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">What is the source of loss aversion?</p>
+						<!-- (pay per use/minute, subscription, freemium, charge app developers, advertising) Pros/cons of each of these? -->
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">Brigitte Madrian discovered another common financial mistake.  Her study:</p>
-						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class ="fragment">Employer matched up to 6% of income.</li>
-							<li class ="fragment">Match: $\$0.5$ for each $\$1$ contributed.</li>
-						</ul>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;" class="fragment">She used a natural field experiment.</p>
-						<ul align="left" style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class ="fragment">50% of employees were automatically enrolled @ 3%.</li>
-							<li class ="fragment">50% could enroll on request after one year. </li>
-							<li class ="fragment">Enrollment and contribution decisions were easily changeable (when available).</li>
-						</ul>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What is the problem with fake news?</p>
+						<!-- (influences opinion, reinforces prejudices) -->
 					</section>
 
 					<section>
-						<img src="/images/teaching/session-9-1.png" style="width: 800px;" align="center">
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What behavioural biases may be playing a role in the proliferation of "fake news" on social media platforms?</p>
 					</section>
 
 					<section>
-						<img src="/images/teaching/session-9-2.png" style="width: 800px;" align="center">
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;"><span style="color:#582C83;">Motivated Reasoning.</span></p>
+
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">A cognitive process in which justification is provided for the individual's preferred outcome, despite the presence of contradictory evidence.</p>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;"><span style="color:#582C83;">Default effect.</span></p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%;">Given <span style="color:#3b5998;">Facebook</span>'s chosen revenue model, what would you recommend the top management team do about "fake news"?</p>
 
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">The tendency for individuals to avoid making an active choice by accepting the default option selected on their behalf.</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment"><em>The <span style="color:#582C83;">default effect</span> is one of the most powerful tools in all of microeconomics.</em></p>
-					</section>
-				</section>
+						<!-- Should Facebook play an active role in censoring the content on its platform? 
 
-				<section>
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%;"><span style="color:#582C83;">What are the behavioural strategies JP Morgan managed?</p><br>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%;" class="fragment"><span style="color:#582C83;">How well did they perform?</p>
+						What are the costs/benefits to Facebook for addressing "fake news" on its platform? -->
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What patterns in stock returns did Complin and his team find?</p><br>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment"><span style="color:#582C83;">What biases did they attribute the patterns to?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Does "fake news" have a better solution from private markets or government?</p>
+						<!-- What could it potentially do in this regard?-->
 					</section>
 				</section>
 
 				<section>
 					<section data-auto-animate>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Investors make certain behavioural mistakes due to:</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Key Takeaways.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Incorrect information cascades can be the result of:</p>
 						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment"><span style="color:#582C83;">Loss aversion</span>, which produces a desire to hold losing stocks and lock in gains when available.</li>
-							<li class="fragment"><span style="color:#582C83;">Reference points</span>, which frame how investors evaluate investment returns.</li>
-							<li class="fragment"><span style="color:#582C83;">Level-k reasoning</span>, which accounts for the group's collective rationality.</li>
+							<li class="fragment"><span style="color:#582C83;">Rational Herding</span>.</li>
+							<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+								<li class="fragment">A rational means of synthesizing various information.</li>
+							</ul>
+							<li class="fragment"><span style="color:#582C83;">Motivated Reasoning</span>.</li>
+							<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+								<li class="fragment">A behavioural means of supporting a preferred outcome.</li>
+							</ul>
 						</ol>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;" class="fragment">Either can lead groups to incorrect beliefs despite many individuals being presented with correct information.</p>
 					</section>
 
 					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>

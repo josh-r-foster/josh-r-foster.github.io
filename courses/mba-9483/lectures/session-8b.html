@@ -33,6 +33,80 @@
 			#container { width: 900px; height: 600px; position: relative; }
 			.field { position: absolute; }
 		</style>
+
+		<style type="text/css">
+			.base-timer {
+			  position: relative;
+			  width: 300px;
+			  height: 300px;
+			}
+
+			.base-timer__svg {
+			  transform: scaleX(-1);
+			}
+
+			.base-timer__circle {
+			  fill: none;
+			  stroke: none;
+			}
+
+			.base-timer__path-elapsed {
+			  stroke-width: 7px;
+			  stroke: grey;
+			}
+
+			.base-timer__path-remaining {
+			  stroke-width: 7px;
+			  stroke-linecap: round;
+			  transform: rotate(90deg);
+			  transform-origin: center;
+			  transition: 1s linear all;
+			  fill-rule: nonzero;
+			  stroke: currentColor;
+			}
+
+			.base-timer__path-remaining.green {
+			  color: rgb(65, 184, 131);
+			}
+
+			.base-timer__path-remaining.orange {
+			  color: orange;
+			}
+
+			.base-timer__path-remaining.red {
+			  color: red;
+			}
+
+			.base-timer__label {
+			  position: absolute;
+			  width: 300px;
+			  height: 300px;
+			  top: 0;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  font-size: 48px;
+			}
+
+			.child {
+				position: absolute;
+				top: 30%;
+				left: 65%;
+				margin: -25px 0 0 -25px;
+			}
+
+			.float-container {
+			    border: 3px;
+			    padding: 20px;
+			}
+
+			.float-child {
+			    width: 50%;
+			    float: left;
+			    padding: 20px;
+			    border: 2px;
+			} 
+		</style>
 	</head>
 
 	<body onload="display_ct();">
@@ -51,163 +125,247 @@
 				</div>
 
 				<section>
-					<h3 style="font-family: 'Walbaum';">Agenda</h3>
+					<h3 style="font-family: 'Walbaum'; color:#582C83;">Agenda</h3>
 					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
-						<li>Case: <em>Devium's Dash: Crowdfunding a Venture on Kickstarter</em>.</li>
-						<li>Crowdfunding as a Means of Financing.</li>
-						<li>Asymmetric Information Issues in Crowdfunding.</li>
+						<li>Case: <em>Making stickK Stick: The Business of Behavioral Economics</em>.</li>
+						<li>Behavioural Nudges from Business</li>
 					</ol>
+					<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;"><em>"<span style="color:#582C83;">It is much easier to make money by catering to consumers' biases than trying to correct them.</span>"</em><br> - Richard Thaler</p>
 				</section>
 
 				<section>
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Lizer is running lean.</p>
-						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
-							<li>Prototypes made out of wood.</li>
-							<li>Working full-time at Lockheed.</li>
-							<li>Learning electrical engineering and CAD on the side.</li>
-							<li>Outsourcing to independent contractors for the core development.</li>
+						<iframe width="850" height="500" data-src="https://www.katymilkman.com/" data-preload></iframe>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">What are common goals people often struggle to achieve?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Why is it sometimes difficult to change bad habits?</p>
+						<!-- Note, there are no mentions of "I didn't know smoking was bad for me." -->
+						<!-- What behavioural economics is implied in these problems? -->
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">How does stickK support individuals in changing their behaviour?</p>
+						<!-- What tactics align best with the premise of the business? -->
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Commitment Device.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">A tool that incentivizes an individual to overcome a bias causing sub-optimal behaviour (as judged by the individual).</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class="fragment">Auto-nudges can only be applied by individuals who have a <span style="color:#582C83;">sophisticated</span> understanding of their own behaviour.</li>
 						</ul>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">What do you think of Lizer's approach? How far will this take him?</p>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Planning fallacy.</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">A systematic underestimation of the duration for a set of tasks, even when the agent has experience with these tasks.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;"><em>"<span style="color:#582C83;">These nymphs had the power...of charming by their song all who heard them, so that mariners were impelled to cast themselves into the sea to destruction. Circe directed Ulysses to stop the ears of his sailors with wax, so that they should not hear the strain; to have himself bound to the mast, and to enjoin his people, whatever he might say or do, by no means to release him till they should have passed the Sirens’ island.</span>"</em></p>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How competitive is the market Lizer is entering (in 2011)?</p><br>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment">Is direct-to-consumer sales a realistic option?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;"><em>"<span style="color:#582C83;">The problem sets should have been graded. I had no incentive to do them, and as a result did poorly on the exams.</span>"</em> - a student</p>
 					</section>
+
+					<section data-background-image="/images/teaching/clocky.gif"></section>
 				</section>
 
 				<section>
-					<section data-transition="none">
-						<img src="/images/teaching/mba-session-8b-1.png">
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">Which model looks more appropriate? <span class="fragment">What are the pressure points of each model?</span></p>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">The task.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Construct an argument for how one of the proposed business models can succeed.  Use the preliminary revenue information provided in the case for support.</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li>Half the class $\rightarrow$ B2B.</li>
+							<li>Other half $\rightarrow$ B2C.</li>
+						</ul>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">What are Lizer's financing options?</p> 
-						<table style="font-family: 'Benton Sans'; font-size: 100%; border:none;">
-							<tr><td style="border:none; width: 450px;">1)</td><td style="border:none; width: 450px;">2)</td></tr>
+						<h3 style="font-family: 'Walbaum';">Small Group Task</h3>
+						<div class="float-container">
+							<div class="float-child">
+								<p align="left">Work with your group to create an argument for how your assigned business model can succeed.</p>
+							</div>
+							<div class="child float-child" id="app"></div>
+						</div>
+
+						<script type="text/javascript">
+							// Credit: Mateusz Rybczonec
+							const FULL_DASH_ARRAY = 283;
+							const WARNING_THRESHOLD = 60;
+							const ALERT_THRESHOLD = 10;
+
+							const COLOR_CODES = {
+							  info: {
+							    color: "green"
+							  },
+							  warning: {
+							    color: "orange",
+							    threshold: WARNING_THRESHOLD
+							  },
+							  alert: {
+							    color: "red",
+							    threshold: ALERT_THRESHOLD
+							  }
+							};
+
+							const TIME_LIMIT = 900;
+							let timePassed = 0;
+							let timeLeft = TIME_LIMIT;
+							let timerInterval = null;
+							let remainingPathColor = COLOR_CODES.info.color;
+
+							document.getElementById("app").innerHTML = `
+							<div class="base-timer">
+							  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+							    <g class="base-timer__circle">
+							      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+							      <path
+							        id="base-timer-path-remaining"
+							        stroke-dasharray="283"
+							        class="base-timer__path-remaining ${remainingPathColor}"
+							        d="
+							          M 50, 50
+							          m -45, 0
+							          a 45,45 0 1,0 90,0
+							          a 45,45 0 1,0 -90,0
+							        "
+							      ></path>
+							    </g>
+							  </svg>
+							  <span id="base-timer-label" class="base-timer__label">${formatTime(
+							    timeLeft
+							  )}</span>
+							  <button onclick="startTimer()">Start timer</button>
+							</div>
+							`;
+
+							function onTimesUp() {
+							  clearInterval(timerInterval);
+							}
+
+							function startTimer() {
+							  timerInterval = setInterval(() => {
+							    timePassed = timePassed += 1;
+							    timeLeft = TIME_LIMIT - timePassed;
+							    document.getElementById("base-timer-label").innerHTML = formatTime(
+							      timeLeft
+							    );
+							    setCircleDasharray();
+							    setRemainingPathColor(timeLeft);
+
+							    if (timeLeft === 0) {
+							      onTimesUp();
+							    }
+							  }, 1000);
+							}
+
+							function formatTime(time) {
+							  const minutes = Math.floor(time / 60);
+							  let seconds = time % 60;
+
+							  if (seconds < 10) {
+							    seconds = `0${seconds}`;
+							  }
+
+							  return `${minutes}:${seconds}`;
+							}
+
+							function setRemainingPathColor(timeLeft) {
+							  const { alert, warning, info } = COLOR_CODES;
+							  if (timeLeft <= alert.threshold) {
+							    document
+							      .getElementById("base-timer-path-remaining")
+							      .classList.remove(warning.color);
+							    document
+							      .getElementById("base-timer-path-remaining")
+							      .classList.add(alert.color);
+							  } else if (timeLeft <= warning.threshold) {
+							    document
+							      .getElementById("base-timer-path-remaining")
+							      .classList.remove(info.color);
+							    document
+							      .getElementById("base-timer-path-remaining")
+							      .classList.add(warning.color);
+							  }
+							}
+
+							function calculateTimeFraction() {
+							  const rawTimeFraction = timeLeft / TIME_LIMIT;
+							  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+							}
+
+							function setCircleDasharray() {
+							  const circleDasharray = `${(
+							    calculateTimeFraction() * FULL_DASH_ARRAY
+							  ).toFixed(0)} 283`;
+							  document
+							    .getElementById("base-timer-path-remaining")
+							    .setAttribute("stroke-dasharray", circleDasharray);
+							}
+
+						</script>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">What are the pros/contras of going B2B? </p>
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr><td style="border:none; width: 450px; color:#582C83;">Pros</td><td style="border:none; width: 450px; color:#582C83;">Contras</td></tr>
+							<tr><td style="border:none; width: 400px;">1)</td><td style="border:none;">1)</td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;">3)</td><td style="border:none;">4)</td></tr>
+							<tr><td style="border:none;">2)</td><td style="border:none;">2)</td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;">5)</td><td style="border:none;">6)</td></tr>
+							<tr><td style="border:none;">3)</td><td style="border:none;">3)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 						</table>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">What are the benefits of crowdfunding the Dash?</p> 
-						<table style="font-family: 'Benton Sans'; font-size: 100%; border:none;">
-							<tr><td style="border:none; width: 450px;">1)</td><td style="border:none; width: 450px;">2)</td></tr>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">What are the pros/contras of going B2C? </p>
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr><td style="border:none; width: 450px; color:#582C83;">Pros</td><td style="border:none; width: 450px; color:#582C83;">Contras</td></tr>
+							<tr><td style="border:none; width: 400px;">1)</td><td style="border:none;">1)</td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;">3)</td><td style="border:none;">4)</td></tr>
+							<tr><td style="border:none;">2)</td><td style="border:none;">2)</td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;">5)</td><td style="border:none;">6)</td></tr>
+							<tr><td style="border:none;">3)</td><td style="border:none;">3)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
 						</table>
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">What are the limitations of crowdsourcing the Dash?</p> 
-						<table style="font-family: 'Benton Sans'; font-size: 100%; border:none;">
-							<tr><td style="border:none; width: 450px;">1)</td><td style="border:none; width: 450px;">2)</td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;">3)</td><td style="border:none;">4)</td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-							<tr><td style="border:none;">5)</td><td style="border:none;">6)</td></tr>
-							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
-						</table>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Is crowdfunding just for small companies?</p> 
-					</section>
-
-					<section>
-						<img src="/images/teaching/mba-session-8b-2.png" height="500">
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">Decision tree for crowdfunding approaches.</p>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Brown et al. (2017)</p>
-						<img src="/images/teaching/mba-session-8b-3.gif" style="height: 350px;">
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What happened.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Goldberg elected to focus on the B2B model.</p>
+						<ul align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class="fragment">As of the writing of the case (2015), stickK has quadrupled in size from 2010.</li>
+							<li class="fragment">This growth allowed for additional resource allocation to the B2C business.</li>
+							<li class="fragment">The company reported being cashflow neutral.</li>
+						</ul>
 					</section>
 				</section>
 
 				<section>
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Do you think consumers prefer crowdfunded campaigns?</p><br>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;" class="fragment">What mechanism design features should platforms keep in mind?</p>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Crowdfunding backer types.</p>
-						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
-							<li class="fragment">Early backers (friends and family, high-value consumers)</li>
-							<li class="fragment">Goal gradient backers (want to feel pivotal in project's success)</li>
-							<li class="fragment">Post-funding backers (asymmetric information: needs a signal of quality)</li>
-						</ol>
-					</section>
-
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Small group discussion.</p>
-						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
-							<li class="fragment">What funding goal should Lizer set for a Kickstarter campaign?</li>
-							<li class="fragment">What elements are important to include in an all-or-nothing crowdfunding campaign?</li>
-							<li class="fragment">Given the potential cost structures Lizer is considering, what price makes sense for the campaign? Relate this decision to the funding goal.</li>
-						</ol>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What happened next.</p>
-						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
-							<li class="fragment">Lizer quit Lockheed Martin, went in full-time.</li>
-							<li class="fragment">Brought in an executive team that worked for equity.</li>
-							<li class="fragment">Sought funding for more than $10 M.</li>
-							<li class="fragment">Went to kickstarter with a 45k goal and successfully funded the project for over 72k.</li>
-							<li class="fragment">Never successfully delivered a working product...</li>
-						</ol>
-					</section>
-
-					<section>
-						<iframe src="https://www.kickstarter.com/projects/devium/dash-the-smart-phone-car-stereo/widget/card.html?v=2" width="220" height="420" frameborder="0" scrolling="no"></iframe>
-					</section>
-				</section>
-
-				<section>
-					<section data-auto-animate>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Key takeaways.</p>
-						<ol style="font-family: 'Benton Sans'; font-size: 80%;">
-							<li class="fragment">Crowdfunding offers several benefits over traditional financing methods, including equity retention, promotion, feedback, and securing first-to-market status.</li>
-							<li class="fragment">All-or-nothing campaigns are risky fundraising mechanisms, as their success often relies on (1) a large number of early supporters, (2) goal-gradient backers, and (3) a signal of quality that is inherently difficult for a proof-of-concept product.</li>
-							<li class="fragment">Optimal campaign design hinges on the composition of the above backer types, which can guide decision making on the funding goal and campaign duration.</li>
-						</ol>
-					</section>
+					<section data-background-iframe="https://voices.uchicago.edu/jlist/" data-background-interactive data-auto-animate></section>
 
 					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
 				</section>

@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BUS 9483: Global Economy, Markets and Strategy</title>
+
+		<meta name="description" content="Session slides for BUS 9483">
+		<meta name="author" content="Joshua Foster, Ph.D.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/dist/reset.css">
+		<link rel="stylesheet" href="/dist/reveal.css">
+		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+		<style type="text/css">
+			#container { width: 900px; height: 600px; position: relative; }
+			.field { position: absolute; }
+		</style>
+	</head>
+
+	<body onload="display_ct();">
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="/images/teaching/thumbnail-2.png">
+					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
+
+					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				</section>
+
+				<div class="topbar">
+					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+    				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
+				</div>
+
+				<section>
+					<h3 style="font-family: 'Walbaum';">Agenda</h3>
+					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
+						<li>Case: <em>Matching Markets for Googlers</em>.</li>
+						<li>Optimal Properties of Matching Markets.</li>
+						<li>Gale-Shapley Deferred Acceptance Algorithm.</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">What are matching markets? Examples?</p> 
+						<!-- 
+							
+						-->
+						<table style="font-family: 'Benton Sans'; font-size: 100%; border:none;">
+							<tr><td style="border:none; width: 450px;">1)</td><td style="border:none; width: 450px;">2)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">3)</td><td style="border:none;">4)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+							<tr><td style="border:none;">5)</td><td style="border:none;">6)</td></tr>
+							<tr><td style="border:none;"></td><td style="border:none;"></td></tr>
+						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Why don't these markets use prices?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Why do matching markets sometimes fail?</p>
+					</section>
+
+					<section>
+						<div id="container">
+						    <img class="field" src="/images/teaching/mba-session-8a-1.png" style="height: 150px;">
+						    <img class="field" src="/images/teaching/mba-session-8a-4.png" style="height: 150px;">
+						    <img class="field" src="/images/teaching/mba-session-8a-8.png" style="height: 150px;">
+						    <img class="field" src="/images/teaching/mba-session-8a-2.png" style="height: 150px;">
+						    <img class="field" src="/images/teaching/mba-session-8a-5.png" style="height: 150px;">
+						    <img class="field" src="/images/teaching/mba-session-8a-6.png" style="height: 150px;">
+						    <img class="field" src="/images/teaching/mba-session-8a-7.png" style="height: 150px;">
+						    <img class="field" src="/images/teaching/mba-session-8a-3.png" style="height: 150px;">
+						</div>
+						<script type="text/javascript">
+							var radius = 200;
+							var fields = $('.field'), container = $('#container'), width = container.width(), height = container.height();
+							var angle = 0, step = (2*Math.PI)/fields.length;
+							fields.each(function() {
+							    var x = Math.round(width/2 + radius * Math.cos(angle) - $(this).width()/2);
+							    var y = Math.round(height/2 + radius * Math.sin(angle) - $(this).height()/2);
+							    if(window.console) {
+							        console.log($(this).text(), x, y);
+							    }
+							    $(this).css({
+							        left: x + 'px',
+							        top: y + 'px'
+							    });
+							    angle += step;
+							});
+						</script>
+					</section>
+
+
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Who thinks the Chameleon program is a good idea? <span class="fragment">Does anyone think it's a bad idea?</span></p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What alternative mechanisms were considered in the case?</p><br><br><br><br>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">At least in principle, who prefers one of these mechanisms over Chameleon?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What properties would the ideal matching market for Google have?</p>
+						<table style="font-family: 'Benton Sans'; font-size: 100%; border:none;">
+							<tr><td style="border:none; width: 300px;"><u>Properties</u></td><td style="border:none; width: 300px;"></td><td style="border:none; width: 300px;"></td></tr>
+						</table><br><br><br><br><br><br>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;" class="fragment">Which mechanism is likely to suffer the least from asymmetric information problems?</p>
+						<table style="font-family: 'Benton Sans'; font-size: 100%; border:none;">
+							<tr><td style="border:none; width: 300px;"><u>Properties</u></td><td style="border:none; width: 300px;"><u>Best</u></td><td style="border:none; width: 300px;"><u>Worst</u></td></tr>
+						</table><br><br><br><br><br><br>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What was the benefit of using pre-specified "market-moving times"?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Google tried a matching mechanism.</p>
+						<center>
+							<p style="font-family: 'Benton Sans'; font-size: 100%;"><em>"Rank the following potential roles for assignment. Everyone will get a role listed their top three."</em></p>
+						</center>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">Why didn't this mechanism work?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">This mechanism wasn't <span style="color:#582C83;">incentive compatible</span>.</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%; color:#582C83;">The Gale-Shapley Deferred Acceptance Algorithm.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 80%;">
+							<li class="fragment">ICs propose working with their first choice manager.</li>
+							<li class="fragment">Check for any ICs who prefer the same manager, in which case use the manager's preference to resolve the matching.</li>
+							<li class="fragment">Collect all of the ICs who were not matched according to their proposal and start over at Step 1. Continue this process until all ICs were matched.</li>
+						</ol>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;" class="fragment">This mechanism is both <span style="color:#582C83;">incentive compatible</span> and <span style="color:#582C83;">stable</span>.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Incentive Compatibility.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">All agents want to act in a way that reveals their true preferences.</p><br>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Stable Matching.</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">No two pairs of matched agents would prefer to swap with each other.</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Which adjectives would you assign to this mechanism?</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li>Fast? Efficient? Fair? Scalable?</li>
+							<li>Flexible? Risky? Transparent?</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">If you were in the manager's position, how would you feel about using this mechanism to determine your team?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">If you were a new IC, how would you feel about using this mechanism to determine your first role at Google?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">In one anonymous survey, only 74% of ICs agreed that they "felt comfortable sharing [their] true preferences". Is this enough for the algorithm to work as designed?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Do you worry this mechanism could backfire by over-emphasizing the ability for mobility?</p>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Early on there was movement among 26% of ICs. Wouldn't this degrade productivity?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Necessary conditions to apply this mechanism.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class="fragment">ICs must have interchangeable skills.</li>
+							<li class="fragment">Demand on both sides of the market for movement.</li>
+							<li class="fragment">Assigned movement must address the needs of the business.</li>
+						</ol>
+						<!-- 
+							
+						--> 
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Who thinks we should use this algorithm for marriage markets?</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Key takeaways.</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 80%;">
+							<li class="fragment">Matching markets take the place of traditional markets when prices cannot act as a mechanism for facilitating trades. That is, sometimes the specific pairing of a "buyer" and "seller" is relevant, or pricing is banned altogether. This problem has been widely studied in kidney markets, for example.</li>
+							<li class="fragment"><span style="color:#582C83;">Incentive compatibility</span> is a condition in matching markets that ensures market participants are willing to reveal their true matching preferences.</li>
+						</ol>
+					</section>
+
+					<section data-auto-animate>
+						<ol style="font-family: 'Benton Sans'; font-size: 80%;" start="3">
+							<li><span style="color:#582C83;">Stability</span> is a property of the resulting matching outcomes where no two pairs of matches would prefer to trade places with each other.</li>
+							<li class="fragment">The <span style="color:#582C83;">Gale-Shapley Deferred Acceptance Algorithm</span> is a mechanism that is both <span style="color:#582C83;">incentive compatible</span> and <span style="color:#582C83;">stable</span>.</li>
+							<li class="fragment">The use of a matching market algorithm must (1) ensure there exist interchangeable skills, (2) have demand on both sides of the market for potential movement, and (3) the resulting movement must directly address the needs of the business.</li>
+						</ol>
+					</section>
+
+					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script type="text/javascript"> 
+			function display_c(){
+				var refresh=1000; // Refresh rate in milli seconds
+				mytime=setTimeout('display_ct()',refresh)
+			}
+
+			function display_ct() {
+				var today = new Date();
+				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+				document.getElementById('ct').style.color = "#582C83";
+				document.getElementById('ct').innerHTML = time;
+				display_c();
+			 }
+		</script>
+
+		<script src="/dist/reveal.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/plugin/zoom/zoom.js"></script>
+		<script src="/plugin/notes/notes.js"></script>
+		<script src="/plugin/search/search.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+
+		</script>
+
+	</body>
+</html>
