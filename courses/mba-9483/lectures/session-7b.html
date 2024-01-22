@@ -17,41 +17,212 @@
 		<link rel="stylesheet" href="/dist/reset.css">
 		<link rel="stylesheet" href="/dist/reveal.css">
 		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="/dist/hexagons.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
-
 		<link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
-
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	</head>
 
-	<body onload="display_ct();">
+	<body>
 		<div class="reveal">
+
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-background="/images/teaching/thumbnail-2.png">
-					<h3 style="background-color: #f7f7f700; width: 600px; margin-left: 180px; text-align: center; font-family: 'Walbaum';">Global Economy, Markets and Strategy</h3>
-
-					<p style="background-color: #f7f7f700; width: 600px; margin-left: 175px; text-align: center; font-family: 'Benton Sans'; font-size: 110%;"><a href="http://josh-r-foster.github.io/">Joshua Foster</a> at <a href="https://www.ivey.uwo.ca/">Ivey</a></p>
+				<section>
+					<div class="card-container" style="margin-left: 500px; margin-top: 50px;">
+					  <div class="card">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">9483<br>GEMS</p>
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Session 7b</p>
+					          <span id="session-date" style="font-family: 'Benton Sans'; font-size: 90%;"></span> 
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: 155px; margin-top: -80px;">
+					      <figure class="hexagon front" style="background-color: #FFFFFF;">
+					        <div class="card-content">
+					          <img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 250px;">
+					        </div>
+					      </figure>
+					      <figure class="hexagon back" style="background-color: #FFFFFF;">
+					        <div class="card-content">
+					          <img src="/images/teaching/western-logo.png" style="width: 125px;">
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: -155px; margin-top: -346px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p>
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <div id="emoji-container">
+							      &#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;<br>
+							      &#x1F3C3;<br>
+							      &#x1F1E8;&#x1F1E6; &#x1F1FA;&#x1F1F8;
+							    </div>
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: 0px; margin-top: -80px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p> -->
+					        </div>
+					      </figure>
+					      <figure class="hexagon back">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Prospect<br>Theory</p> -->
+					        </div>
+					      </figure>
+					  </div>
+					  <div class="card" style="margin-left: -310px; margin-top: -882px;">
+					      <figure class="hexagon front" style="background-color: #582C83;">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Joshua<br>Foster</p> -->
+					        </div>
+					      </figure>
+					      <figure class="hexagon back" style="background-color: #034638;">
+					        <div class="card-content">
+					          <!-- <p style="font-family: 'Benton Sans';">Prospect<br>Theory</p> -->
+					        </div>
+					      </figure>
+					  </div>
+					  <div id="targetCard" class="card" style="margin-left: -620px; margin-top: -347px;">
+					      <figure class="hexagon front">
+					        <div class="card-content">
+					          <span id="ct2" style="font-family: 'Benton Sans'; font-size: 150%;"></span>
+					        </div>
+					      </figure>
+					      <!-- <figure class="card back">
+					          <img class="hexagon-image" id="random-hexagon-image">
+					      </figure> -->
+					      <figure class="hexagon-target">
+						    <img id="random-hexagon-image">
+						  </figure>
+					  </div>
+					</div>
 				</section>
 
-				<div class="topbar">
-					<span id="ct" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
+				<div class="topbar" id="conditional-div">
+					<span id="ct1" style="float: left; font-family: 'Benton Sans'; font-size: 90%;"></span>
     				<img src="/images/teaching/Ivey-Main-Logo-Transparent.png" style="width: 150px;" align="right">
 				</div>
 
 				<section>
 					<h3 style="font-family: 'Walbaum'; color:#582C83;">Agenda</h3>
 					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
-						<li>MobLab: <em>In-class Simulation</em>.</li>
-						<li>Case: <em>Evive Health and Workplace Influenza Vaccinations</em>.</li>
+						<li>Case: <em>CVS Health: Promoting Drug Adherence</em>.</li>
 					</ol>
 				</section>
 
+
+
 				<section>
+					<section data-auto-animate>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Some health-related markets suffer from:</p>
+						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment"><span style="color:#582C83;">Externalities:</span> forced economic outcomes on non-market participants (can be positive/negative).</li>
+							<li class="fragment"><span style="color:#582C83;">Internalities:</span> forced economic outcomes on our (future) selves (biases usual make them negative).</li>
+						</ol>
+					</section>
+
+					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">Should CVS be excited about medication adherence?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What problem for CVS is the medication adherence initiative trying to solve?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">In dollar terms, which ailments are most attractive in the Pharmacy Advisor Program?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How much more effective would the Pharmacy Advisor Program need to be to break even, given its marginal administrative cost of $\$$15?</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How does the Pharmacy Advisor Program help new patients adhere to their new prescription regimen?</p> 
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">[flow chart image]</p>
+						<!-- 
+							Questions to ask: 
+							 1) At what points are patients most susceptible to getting off track? 
+							 2) What are the barriers to adherence at each point of vulnerability? 
+							 3) How do the barriers differ by ailment? 
+							 4) How do we reduce the barriers? 
+							 5) Will your proposed modifications create the boost in program effectiveness that we concluded (in the first dicussion area) necessary to make the program a winner for CVS? 
+
+							Reasons for non-adherence: 
+							 1) Losing the prescription
+							 2) Embarrasment
+							 3) Cost 
+							 4) Forgetfullness  
+							 5) Side effects 
+							 6) Lack of side effects for non-adherence 
+							 7) Too complicated 
+						 -->
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; position: relative; top: 0px; color:#582C83;">More survey questions.</p>
+						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
+							<tr><td style="border:none;">About how many days per month <span style="color:#582C83;">do you</span> exercise in a typical month?</td><td style="border:none;" class="fragment fade-in">About how many days per month <span style="color:#582C83;">do you think you should</span> exercise in a typical month?</td></tr>
+							<tr><td style="border:none;" class="fragment fade-in">$\bar{X}=13$</td><td style="border:none;" class="fragment fade-in">$\bar{X}=18$<br>"Ideally 20, but realistically 10-15."</td></tr>
+						</table>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What behavioural reasons (i.e. mistakes) might cause us to under-exercise?</p>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%;">Behavioural economics gives us the <span style="color:#582C83;">Internality</span>.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
+							<li class="fragment">The long-run consequences (good or bad) that are not fully considered when one makes a decision.</li>
+							<li class="fragment">One imposes an <span style="color:#582C83;">internality</span> on themself, according to their own preferences.</li>
+						</ul>
+					</section>
+
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How does the presence of an internality inform strategies surrounding prescription non-adherence?</p>
+						<!-- Is one of these more susceptible to long-term effects of non-adherence? -->
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%;">What happened.</p>
+						<ul style="font-family: 'Benton Sans'; font-size: 100%;">
+							<li class="fragment">Foulkes focused on diabetes as a starting point.</li>
+							<li class="fragment">Argued CVS can 'prime the pump' by getting stakeholders on board with a prescription of great value.</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- <section>
 					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 110%; color:#582C83;">Simulation instructions.</p>
 						<ul style="font-family: 'Benton Sans'; font-size: 90%;">
@@ -187,40 +358,14 @@
 					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">How can we measure these designs' effectiveness?</p>
 					</section>
-				</section>
-
-				<section>
-					<section data-auto-animate>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;">Some health-related markets suffer from:</p>
-						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment"><span style="color:#582C83;">Externalities:</span> forced economic outcomes on non-market participants (can be positive/negative).</li>
-							<li class="fragment"><span style="color:#582C83;">Internalities:</span> forced economic outcomes on our (future) selves (biases usual make them negative).</li>
-						</ol>
-					</section>
-
-					<section data-auto-animate data-background-image="/images/teaching/closing-slide.png"></section>
-				</section>
+				</section> -->
 				
 			</div>
 
 		</div>
 
-		<script type="text/javascript"> 
-			function display_c(){
-				var refresh=1000; // Refresh rate in milli seconds
-				mytime=setTimeout('display_ct()',refresh)
-			}
-
-			function display_ct() {
-				var today = new Date();
-				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
-				document.getElementById('ct').style.color = "#582C83";
-				document.getElementById('ct').innerHTML = time;
-				display_c();
-			 }
-		</script>
-
 		<script src="/dist/reveal.js"></script>
+		<script src="/dist/hexagons.js"></script>
 		<script src="/plugin/math/math.js"></script>
 		<script src="/plugin/zoom/zoom.js"></script>
 		<script src="/plugin/notes/notes.js"></script>
@@ -240,7 +385,6 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
 			});
-
 		</script>
 
 	</body>
