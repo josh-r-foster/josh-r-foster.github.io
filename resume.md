@@ -231,8 +231,8 @@ Bored Ape Yacht Club: No More Monkey Business (under review)
 * <span>&#8203;</span>
 
 ## Reviewer for 
-*Games and Economic Behavior, &nbsp; &nbsp; Journal of Economic Behavior & Organization, &nbsp; &nbsp; Southern Economic Journal, &nbsp; &nbsp; Management Science, &nbsp; &nbsp; PLOS One, &nbsp; &nbsp; Journal of Behavioral and Experimental Economics, &nbsp; &nbsp; Academy of Management Perspectives, &nbsp; &nbsp; European Journal of Operational Research, &nbsp; &nbsp; Finance Research Letters, &nbsp; &nbsp; Economics and Human Biology, &nbsp; &nbsp; Economic Inquiry*
+*Games and Economic Behavior, &nbsp; &nbsp; Journal of Economic Behavior & Organization, &nbsp; &nbsp; Southern Economic Journal, &nbsp; &nbsp; Management Science, &nbsp; &nbsp; PLOS One, &nbsp; &nbsp; Journal of Behavioral and Experimental Economics, &nbsp; &nbsp; Academy of Management Perspectives, &nbsp; &nbsp; European Journal of Operational Research, &nbsp; &nbsp; Finance Research Letters, &nbsp; &nbsp; Economics and Human Biology, &nbsp; &nbsp; Economic Inquiry, &nbsp; &nbsp; SSHRC*
 
 ### <span>&#8203;</span>
 
-Last updated October, 2023.
+Last updated January, 2024.
