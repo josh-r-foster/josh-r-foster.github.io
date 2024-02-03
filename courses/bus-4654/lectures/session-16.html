@@ -26,83 +26,9 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
-
-		<style type="text/css">
-			.base-timer {
-			  position: relative;
-			  width: 300px;
-			  height: 300px;
-			}
-
-			.base-timer__svg {
-			  transform: scaleX(-1);
-			}
-
-			.base-timer__circle {
-			  fill: none;
-			  stroke: none;
-			}
-
-			.base-timer__path-elapsed {
-			  stroke-width: 7px;
-			  stroke: grey;
-			}
-
-			.base-timer__path-remaining {
-			  stroke-width: 7px;
-			  stroke-linecap: round;
-			  transform: rotate(90deg);
-			  transform-origin: center;
-			  transition: 1s linear all;
-			  fill-rule: nonzero;
-			  stroke: currentColor;
-			}
-
-			.base-timer__path-remaining.green {
-			  color: rgb(65, 184, 131);
-			}
-
-			.base-timer__path-remaining.orange {
-			  color: orange;
-			}
-
-			.base-timer__path-remaining.red {
-			  color: red;
-			}
-
-			.base-timer__label {
-			  position: absolute;
-			  width: 300px;
-			  height: 300px;
-			  top: 0;
-			  display: flex;
-			  align-items: center;
-			  justify-content: center;
-			  font-size: 48px;
-			}
-
-			.child {
-				position: absolute;
-				top: 30%;
-				left: 65%;
-				margin: -25px 0 0 -25px;
-			}
-
-			.float-container {
-			    border: 3px;
-			    padding: 20px;
-			}
-
-			.float-child {
-			    width: 50%;
-			    float: left;
-			    padding: 20px;
-			    border: 2px;
-			} 
-		</style>
 	</head>
 
-	<body onload="display_ct();">
+	<body>
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
@@ -360,122 +286,15 @@
 							<div class="child float-child" id="app"></div>
 						</div>
 
-						<script type="text/javascript">
-							// Credit: Mateusz Rybczonec
-							const FULL_DASH_ARRAY = 283;
-							const WARNING_THRESHOLD = 180;
-							const ALERT_THRESHOLD = 60;
+						<script type="module" src="/dist/timers.js"></script>
+					    <script type="module">
+					        import { initializeTimer } from '/dist/timers.js';
 
-							const COLOR_CODES = {
-							  info: {
-							    color: "green"
-							  },
-							  warning: {
-							    color: "orange",
-							    threshold: WARNING_THRESHOLD
-							  },
-							  alert: {
-							    color: "red",
-							    threshold: ALERT_THRESHOLD
-							  }
-							};
-
-							const TIME_LIMIT = 1200;
-							let timePassed = 0;
-							let timeLeft = TIME_LIMIT;
-							let timerInterval = null;
-							let remainingPathColor = COLOR_CODES.info.color;
-
-							document.getElementById("app").innerHTML = `
-							<div class="base-timer">
-							  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-							    <g class="base-timer__circle">
-							      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
-							      <path
-							        id="base-timer-path-remaining"
-							        stroke-dasharray="283"
-							        class="base-timer__path-remaining ${remainingPathColor}"
-							        d="
-							          M 50, 50
-							          m -45, 0
-							          a 45,45 0 1,0 90,0
-							          a 45,45 0 1,0 -90,0
-							        "
-							      ></path>
-							    </g>
-							  </svg>
-							  <span id="base-timer-label" class="base-timer__label">${formatTime(
-							    timeLeft
-							  )}</span>
-							  <button onclick="startTimer()">Start timer</button>
-							</div>
-							`;
-
-							function onTimesUp() {
-							  clearInterval(timerInterval);
-							}
-
-							function startTimer() {
-							  timerInterval = setInterval(() => {
-							    timePassed = timePassed += 1;
-							    timeLeft = TIME_LIMIT - timePassed;
-							    document.getElementById("base-timer-label").innerHTML = formatTime(
-							      timeLeft
-							    );
-							    setCircleDasharray();
-							    setRemainingPathColor(timeLeft);
-
-							    if (timeLeft === 0) {
-							      onTimesUp();
-							    }
-							  }, 1000);
-							}
-
-							function formatTime(time) {
-							  const minutes = Math.floor(time / 60);
-							  let seconds = time % 60;
-
-							  if (seconds < 10) {
-							    seconds = `0${seconds}`;
-							  }
-
-							  return `${minutes}:${seconds}`;
-							}
-
-							function setRemainingPathColor(timeLeft) {
-							  const { alert, warning, info } = COLOR_CODES;
-							  if (timeLeft <= alert.threshold) {
-							    document
-							      .getElementById("base-timer-path-remaining")
-							      .classList.remove(warning.color);
-							    document
-							      .getElementById("base-timer-path-remaining")
-							      .classList.add(alert.color);
-							  } else if (timeLeft <= warning.threshold) {
-							    document
-							      .getElementById("base-timer-path-remaining")
-							      .classList.remove(info.color);
-							    document
-							      .getElementById("base-timer-path-remaining")
-							      .classList.add(warning.color);
-							  }
-							}
-
-							function calculateTimeFraction() {
-							  const rawTimeFraction = timeLeft / TIME_LIMIT;
-							  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
-							}
-
-							function setCircleDasharray() {
-							  const circleDasharray = `${(
-							    calculateTimeFraction() * FULL_DASH_ARRAY
-							  ).toFixed(0)} 283`;
-							  document
-							    .getElementById("base-timer-path-remaining")
-							    .setAttribute("stroke-dasharray", circleDasharray);
-							}
-
-						</script>
+					        document.addEventListener('DOMContentLoaded', () => {
+					            const TIME_LIMIT = 1200; // Set your custom time limit here
+					            initializeTimer(TIME_LIMIT);
+					        });
+					    </script>
 					</section>
 				</section>
 
@@ -587,39 +406,6 @@
 
 		</div>
 
-		<script type="text/javascript"> 
-			function display_c(){
-				var refresh=1000; // Refresh rate in milli seconds
-				mytime=setTimeout('display_ct()',refresh)
-			}
-
-			function display_ct() {
-				var today = new Date();
-				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
-				document.getElementById('ct1').style.color = "#582C83";
-				document.getElementById('ct1').innerHTML = time;
-				document.getElementById('ct2').style.color = "#FFFFFF";
-				document.getElementById('ct2').innerHTML = time;
-				display_c();
-			 }
-
-			 function setSessionDate() {
-			    var today = new Date();
-			    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-			    document.getElementById('session-date').innerHTML = date;
-			}
-
-			window.onload = function() {
-			    display_ct();  // Your existing function
-			    setSessionDate();  // The new function to set the date
-			};
-		</script>
-
-		<script>
-	      // Parse the container holding the emojis
-	      twemoji.parse(document.getElementById('emoji-container'));
-	    </script>
-
 		<script src="/dist/reveal.js"></script>
 		<script src="/dist/hexagons.js"></script>
 		<script src="/plugin/math/math.js"></script>
@@ -640,32 +426,6 @@
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
-			});
-
-			const element = document.getElementById('conditional-div');
-
-			function checkAndSetVisibility(event) {
-			    const urlHash = window.location.hash;
-			    const slideIndex = event ? event.indexh : 0; // Use 0 as default for the initial call
-
-			    if (slideIndex === 0) { // First slide
-			        element.classList.add('hidden');
-			    } else { // Other slides
-			        element.classList.remove('hidden');
-			    }
-			}
-
-			// Initial check
-			checkAndSetVisibility();
-
-			// Check on slide changes
-			Reveal.addEventListener('slidechanged', function(event) {
-			    checkAndSetVisibility(event);
-			});
-
-			// Check on hash changes (might not be necessary if slidechanged covers all cases)
-			window.addEventListener("hashchange", function() {
-			    checkAndSetVisibility();
 			});
 		</script>
 

@@ -28,7 +28,7 @@
 		<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	</head>
 
-	<body onload="display_ct();">
+	<body>
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
@@ -43,7 +43,7 @@
 					      </figure>
 					      <figure class="hexagon back">
 					        <div class="card-content">
-					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Session 8</p>
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Session 12</p>
 					          <span id="session-date" style="font-family: 'Benton Sans'; font-size: 90%;"></span> 
 					        </div>
 					      </figure>
@@ -293,39 +293,6 @@
 
 		</div>
 
-		<script type="text/javascript"> 
-			function display_c(){
-				var refresh=1000; // Refresh rate in milli seconds
-				mytime=setTimeout('display_ct()',refresh)
-			}
-
-			function display_ct() {
-				var today = new Date();
-				var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
-				document.getElementById('ct1').style.color = "#582C83";
-				document.getElementById('ct1').innerHTML = time;
-				document.getElementById('ct2').style.color = "#FFFFFF";
-				document.getElementById('ct2').innerHTML = time;
-				display_c();
-			 }
-
-			 function setSessionDate() {
-			    var today = new Date();
-			    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-			    document.getElementById('session-date').innerHTML = date;
-			}
-
-			window.onload = function() {
-			    display_ct();  // Your existing function
-			    setSessionDate();  // The new function to set the date
-			};
-		</script>
-
-		<script>
-	      // Parse the container holding the emojis
-	      twemoji.parse(document.getElementById('emoji-container'));
-	    </script>
-
 		<script src="/dist/reveal.js"></script>
 		<script src="/dist/hexagons.js"></script>
 		<script src="/plugin/math/math.js"></script>
@@ -346,32 +313,6 @@
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ]
-			});
-
-			const element = document.getElementById('conditional-div');
-
-			function checkAndSetVisibility(event) {
-			    const urlHash = window.location.hash;
-			    const slideIndex = event ? event.indexh : 0; // Use 0 as default for the initial call
-
-			    if (slideIndex === 0) { // First slide
-			        element.classList.add('hidden');
-			    } else { // Other slides
-			        element.classList.remove('hidden');
-			    }
-			}
-
-			// Initial check
-			checkAndSetVisibility();
-
-			// Check on slide changes
-			Reveal.addEventListener('slidechanged', function(event) {
-			    checkAndSetVisibility(event);
-			});
-
-			// Check on hash changes (might not be necessary if slidechanged covers all cases)
-			window.addEventListener("hashchange", function() {
-			    checkAndSetVisibility();
 			});
 		</script>
 
