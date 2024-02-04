@@ -93,6 +93,7 @@ window.onload = function() {
 twemoji.parse(document.getElementById('emoji-container'));
 
 const element = document.getElementById('conditional-div');
+const tabs = document.getElementById('tabContainer');
 
 function checkAndSetVisibility(event) {
     const urlHash = window.location.hash;
@@ -100,8 +101,10 @@ function checkAndSetVisibility(event) {
 
     if (slideIndex === 0) { // First slide
         element.classList.add('hidden');
+        tabs.classList.add('hidden');
     } else { // Other slides
         element.classList.remove('hidden');
+        tabs.classList.remove('hidden'); 
     }
 }
 

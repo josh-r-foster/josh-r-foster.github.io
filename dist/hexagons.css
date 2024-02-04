@@ -1,3 +1,5 @@
+/*Hexagon Code*/
+
 .card-container .card {
   position: relative;
   width: 300px;
@@ -170,3 +172,36 @@
     padding: 20px;
     border: 2px;
 } 
+
+/*Tab Code*/
+
+#tabContainer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f2f2f2; /* Light grey background */
+    display: flex;
+    justify-content: space-around; /* Distribute space evenly around the tabs */
+    align-items: center;
+    padding: 10px 0;
+    opacity: 1;
+    transition: opacity 2s;
+}
+
+#tabContainer.hidden {
+    opacity: 0;
+    display: block;  /* Kept as block to occupy space but remain invisible */
+}
+
+.tab {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.tab:hover {
+    background-color: #ddd; /* Change color on hover */
+}
