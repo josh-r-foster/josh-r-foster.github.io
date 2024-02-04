@@ -199,6 +199,11 @@ IFREE Small Grant <em>Auctions for Charity and for Profit</em> ($9,500), Princip
 
 ## Cases 
 
+<a href="https://www.iveypublishing.ca/s/product/bored-ape-yacht-club-no-more-monkey-business/01tOF000002akw1YAA">Bored Ape Yacht Club: No More Monkey Business</a>
+
+`with`
+ * Benjamin Segal (Ivey HBA, 2023)
+
 Peloton Interactive Inc.: A Push to Keep Users Pedalling (under review)
 
 `with`
@@ -208,11 +213,6 @@ A Swift Pricing Decision (under review)
 
 `with`
  * Kathy An (Ivey HBA, 2023)
-
-Bored Ape Yacht Club: No More Monkey Business (under review)
-
-`with`
- * Benjamin Segal (Ivey HBA, 2023)
 
 ## Teaching
 * **Microeconomics**
@@ -235,4 +235,4 @@ Bored Ape Yacht Club: No More Monkey Business (under review)
 
 ### <span>&#8203;</span>
 
-Last updated January, 2024.
+Last updated February, 2024.
