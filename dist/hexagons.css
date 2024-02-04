@@ -176,15 +176,17 @@
 /*Tab Code*/
 
 #tabContainer {
-    width: 90%;
-    height: 10%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: #f2f2f2; /* Light grey background */
     display: flex;
     justify-content: space-around; /* Distribute space evenly around the tabs */
     align-items: center;
-    padding: 0px 0;
+    padding: 10px 0;
     opacity: 1;
     transition: opacity 2s;
+    z-index: 20000;
 }
 
 #tabContainer.hidden {
@@ -200,7 +202,7 @@
     border-radius: 5px;
     background-color: white;
     font-family: 'Walbaum'; 
-    font-size: 14px;
+    font-size: 22px;
 }
 
 .tab:hover {
