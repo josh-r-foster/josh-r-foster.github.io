@@ -635,39 +635,125 @@
 				</section>
 
 				<section>
-					<section>
-						<p style="text-align: left; font-size: 45px;">Attention mechanisms offer powerful methods for learning various distributions.</p>
-						<ol style="font-size: 40px;">
-							<li><a href="https://insightcivic.s3.us-east-1.amazonaws.com/language-models.pdf">Encoded intelligence in natural language</a>.</li>
-							<li><a href="https://www.nature.com/articles/s41586-021-03819-2)">Predicting protein structures (Alphafold)</a>.</li>
-							<li><a href="https://arxiv.org/pdf/2102.04306.pdf">Medical image processing for disease</a>.</li> 
-						</ol>
-						<p style="text-align: left; font-size: 45px;">Our goal: <em>to semi-nonparametrically estimate the demand primitives in an auction market from the object's natural language description</em>.</p>
+					<section data-auto-animate>
+						<p style="text-align: left; font-size: 55px; margin-top: 25px;">This paper proposes new methods for</p>
+						<p data-id="label-1" style="text-align: left; font-size: 55px; margin-top: 25px;"><b>Hedonic Demand Estimation</b></p>
+						<p style="text-align: left; font-size: 55px; margin-top: 25px;">using large language models.</p> 
 					</section>
+
+					<section data-auto-animate>
+						<p data-id="label-1" style="text-align: left; font-size: 55px; margin-top: 25px;"><b>Hedonic Demand Estimation</b></p> 
+						<p style="text-align: left; font-size: 45px; margin-top: 25px;">An approach to measuring how the characteristics of a good or service affect its price and the quantity demanded.</p> 
+						<div>
+							<img width="400px" src="/images/presentations/car-features-6.png" alt="car-features">
+						</div>
+					</section>
+
+					<section>
+						<!-- <p style="text-align: left; font-size: 45px;">Common limitations</p> -->
+						<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; max-width: 800px; margin: auto;">
+					        <div style="text-align: center; margin: 0; padding: 0;">
+					        	<p style="font-size: 45px;">What features?</p>
+					            <img src="/images/presentations/car-features-7.png" alt="Image 1" style="width: 65%; height: 55%; margin: 0; padding: 0;">
+					        </div>
+					        <div class="fragment" style="text-align: center; margin: 0; padding: 0;">
+					        	<p style="font-size: 45px;">Functional form?</p>
+					            <img src="/images/presentations/car-features-3.png" alt="Image 2" style="width: 60%; height: auto; margin: 0; padding: 0;">
+					        </div>
+					        <div class="fragment" style="text-align: center; margin: -75px; padding: 0;">
+					        	<p style="font-size: 45px;">Heterogeneity?</p>
+					            <img src="/images/presentations/car-features-4.png" alt="Image 3" style="width: 50%; height: auto; margin: 0; padding: 0;">
+					        </div>
+					        <div class="fragment" style="text-align: center; margin: -75px; padding: 0;">
+					        	<p style="font-size: 45px;">Market dynamics?</p>
+					            <img src="/images/presentations/car-features-5.png" alt="Image 4" style="width: 45%; height: auto; margin: 0; padding: 0;">
+					        </div>
+					    </div>
+					</section>
+
+					<section> 
+						<p style="text-align: left; font-size: 60px;">Question.</p>
+						<p style="text-align: left; font-size: 45px;">
+							What if a large language model (LLM) could infer these relationships directly by mapping
+						</p>
+						<p style="text-align: center; font-size: 45px;">
+							<em>vehicle description $\rightarrow$ market outcomes</em>
+						</p>
+						<p style="text-align: left; font-size: 45px;">
+							when constrained by a structural model?
+						</p>
+					</section>
+
+					<!-- <section>
+						<p style="text-align: left; font-size: 55px; margin-top: 25px; border: 2px solid white; padding: 10px;">This paper proposes new methods for <em>hedonic demand estimation</em> using large language models.</p> 
+						<div class="fragment current-visible">
+							<p style="text-align: left; font-size: 45px;">
+								Classic approach: measure how the characteristics of a good or service affect its price and the quantity demanded. 
+								<ul>
+									<li>e.g. A car's transmission, engine, etc.</li>
+								</ul>
+							</p>
+						</div>
+						<div class="fragment current-visible">
+							<p style="text-align: left; font-size: 45px;">
+								Common limitations of classic approach: 
+								<ul>
+									<li>Omitted variable bias of characteristics,</li>
+									<li>Restrictive functional relationships,</li>
+									<li>Heterogeneity in consumer preferences, and</li>
+									<li>Dynamic market conditions.</li>
+								</ul>
+							</p>
+						</div>
+						<div class="fragment current-visible">
+							<p style="text-align: left; font-size: 45px;">
+								Question: what if we could outsource these identification and framework tasks to a model capable of inferring characteristic relationships directly from the variation in the unstructured market data? 
+							</p>
+						</div>
+						<div class="fragment current-visible">
+							<p style="text-align: left; font-size: 45px;">Our method: we provide the descriptions of market objects to an attention-based large language model that estimates the joint distribution of value creation and quantity demanded at the "token" level.</p> 
+						</div>
+						<p class="fragment current-visible" style="text-align: left; font-size: 45px;">Application: a "counterfactual demand generator" of new market objects that is as flexible as natural language.</p> 
+					</section> -->
 
 					<section>
 						<p style="text-align: left; font-size: 50px;">What we do.</p>
 						<ol style="font-size: 40px;">
 							<li>Collect data from 80,000+ vehicle auctions.</li>
-							<li>Generate 240,000+ synthetic descriptions.</li>
-							<li>Perform a two stage estimation:</li>
-							<ol type="a">
-								<li>Train an LLM to predict the targets of our structural model of the auction market.</li>
-								<li>Append a custom neural network to the trained LLM to recover the demand primitives.</li>
-							</ol>
-							<li>Use the model to make counterfactual inferences.</li>
+							<li class="fragment">Generate 240,000+ synthetic descriptions.</li>
+							<div class="fragment">
+								<li>Perform a two stage estimation:</li>
+								<ol type="a">
+									<li class="fragment">Train an LLM to <em>encode</em> a vehicle's description and predict the observed market outcomes.</li>
+									<li class="fragment">Use the vehicle's encoding to recover the assumed demand primitives that generated the observed market outcomes.</li>
+								</ol>
+							</div>
+							<li class="fragment">Apply the model to market counterfactuals.</li>
 						</ol>
 					</section>
 
 					<section data-background-iframe="https://bringatrailer.com/listing/1974-bmw-3-0cs-75/" data-background-interactive></section>
 
-					<section>
+					<!-- <section>
 						<p style="text-align: left; font-size: 50px;">Why use these data?</p>
 						<ol style="font-size: 40px;">
-							<li>Abundant, well curated, data rich, and arguably independent auctions.</li>
-							<li>Simple, one-sided market with a stable data-generating process of how descriptions$\rightarrow$prices.</li>
+							<li class="fragment">Abundant, well curated, data rich, and arguably independent auctions.</li>
+							<li class="fragment">Simple, one-sided market with a stable data-generating process of how descriptions$\rightarrow$prices.</li>
 						</ol>
 					</section>
+
+					<section>
+						<p style="text-align: left; font-size: 45px;">Why use a large language model?</p>
+						<div class="fragment">
+							<p style="text-align: left; font-size: 45px;">Attention-based mechanisms offer powerful methods for learning various distributions.</p>
+							<ol style="font-size: 40px;">
+								<li><a href="https://insightcivic.s3.us-east-1.amazonaws.com/language-models.pdf">Encoded intelligence in natural language</a>.</li>
+								<li><a href="https://www.nature.com/articles/s41586-021-03819-2)">Predicting protein structures (Alphafold)</a>.</li>
+								<li><a href="https://arxiv.org/pdf/2102.04306.pdf">Medical image processing for disease</a>.</li> 
+							</ol>
+						</div>
+						<p class="fragment" style="text-align: left; font-size: 45px;">Our goal: <em>to semi-nonparametrically estimate the demand primitives of an auction market from the object's natural language description</em>.</p>
+					</section> -->
 				</section>
 
 				<section>
@@ -755,9 +841,9 @@
 						    <text x="500" y="175" class="flowchart-nodeText">Market Size</text>
 						    <text x="500" y="205" class="flowchart-nodeText">N|d</text>
 
-						    <circle data-fragment-index="1" cx="649" cy="87.5" r="40" fill="url(#gradientCircle)" stroke="#333" stroke-width="3"/>
+						    <circle data-fragment-index="1" cx="649" cy="87.5" r="50" fill="url(#gradientCircle)" stroke="#333" stroke-width="3"/>
 						    <text data-fragment-index="1" x="650" y="75" class="flowchart-nodeText">Prices</text>
-						    <text data-fragment-index="1" x="650" y="105" class="flowchart-nodeText">P|d</text>
+						    <text data-fragment-index="1" x="650" y="105" class="flowchart-nodeText">P(V,N|d)</text>
 						    
 						    <!-- Draw the edges -->
 						    <line x1="180" y1="87.5" x2="275" y2="87.5" stroke="#97999B" stroke-width="3"/>
@@ -776,8 +862,8 @@
 						    <rect x="250" y="2" width="475" height="240" rx="15" class="flowchart-dashedBox" stroke="#fff" stroke-width="2"/>
 						    <text x="400" y="265" class="flowchart-textStyle">Market Environment</text>
 
-						    <rect x="480" y="40" width="230" height="95" rx="15" class="flowchart-dashedBox" stroke="#fff" stroke-width="2"/>
-						    <text x="505" y="30" class="flowchart-textStyle">Pricing Mechanism</text>
+						    <rect x="480" y="32.5" width="230" height="110" rx="15" class="flowchart-dashedBox" stroke="#fff" stroke-width="2"/>
+						    <text x="505" y="25" class="flowchart-textStyle">Pricing Mechanism</text>
 						</svg>
 						<p style="text-align: left; font-size: 45px;">$V|d$ and $N|d$ are independent for any $d$.</p>
 						<p style="text-align: left; font-size: 45px;">Private valuations are drawn iid from $V|d$.</p>
@@ -809,8 +895,25 @@
 							<li class="fragment" data-fragment-index="2">There isn't excessive <em>jump</em> bidding.</li>
 							<li class="fragment" data-fragment-index="3">Bidders are present at the end of the auction.</li>
 						</ul>
-						<p class="fragment" data-fragment-index="4" style="text-align: left; font-size: 45px;"><em>We train the model to point predict these bids from its semi-nonparametric density estimates of $V|d$ and $N|d$.</em></p>
+						<p class="fragment" data-fragment-index="4" style="text-align: left; font-size: 50px;">Auction views/"watchers" $\propto$ market size.</p>
+						<p class="fragment" data-fragment-index="5" style="text-align: left; font-size: 45px;"><em>Stage 1:</em> point predict these market outcomes from the vehicle's description.</p>
+						<p class="fragment" data-fragment-index="6" style="text-align: left; font-size: 45px;"><em>Stage 2:</em> append a neural network that semi-nonparametrically estimates $V|d$, $N|d$.</p> 
 					</section>
+
+					<!-- <section>
+						<p style="font-size: 45px; text-align: left;">Stage 1: Predict observable outcomes.</p>
+						<p style="font-size: 30px; text-align: left;">description $\rightarrow$ tokens $\rightarrow$ demand vector $\rightarrow$ outcome predictions.</p>
+						<p style="font-size: 30px; text-align: left;">Outcomes $=$ {<b>Bids</b>, Auction Views, Auction "Watchers"}</p>
+						<p style="font-size: 30px; text-align: left;">Trained the model via MSE loss on point predictions.</p>
+					</section>
+
+					<section>
+						<p style="font-size: 45px; text-align: left;">Stage 2: Recover demand primitives.</p>
+						<p style="font-size: 30px; text-align: left;">trained demand vector $\rightarrow$ distribution parameters.</p>
+						<p style="font-size: 30px; text-align: left;">Trained via MSE loss on bid point predictions.</p>
+						<p style="font-size: 30px; text-align: left;">Encoding {<b>Bids</b>} pin down $f_d(v)$.</p>
+						<p style="font-size: 30px; text-align: left;">Encoding {Auction Views, Auction "Watchers"} pin down $g_d(n)$.</p>
+					</section> -->
 				</section>
 
 				<section>
@@ -867,7 +970,542 @@
 						    </td>
 						    <td class="fragment" data-fragment-index="2" style="width: 30%; padding: 0; text-align: center; vertical-align: top;">
 						    	<span style="font-size: 30px;">Density Estimator<br>
-						        $h: e\rightarrow f$</span>
+						        $h: e\rightarrow f_V, g_N$</span>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td style="font-size: 30px; width: 40%; vertical-align: top;">
+						      [<span class="tokenizer-tkn tokenizer-tkn-1">713</span>, <span class="tokenizer-tkn tokenizer-tkn-2">15524</span>, <span class="tokenizer-tkn tokenizer-tkn-3">8588</span>, <span class="tokenizer-tkn tokenizer-tkn-4">155</span>, <span class="tokenizer-tkn tokenizer-tkn-0">4</span>, <span class="tokenizer-tkn tokenizer-tkn-1">288</span>, <span class="tokenizer-tkn tokenizer-tkn-2">6842</span>, <span class="tokenizer-tkn tokenizer-tkn-3">21</span>, <span class="tokenizer-tkn tokenizer-tkn-4">17880</span>, <span class="tokenizer-tkn tokenizer-tkn-0">6555</span>, <span class="tokenizer-tkn tokenizer-tkn-1">137</span>, <span class="tokenizer-tkn tokenizer-tkn-2">145</span>, <span class="tokenizer-tkn tokenizer-tkn-3">3566</span>, <span class="tokenizer-tkn tokenizer-tkn-4">30</span>, <span class="tokenizer-tkn tokenizer-tkn-0">5</span>, <span class="tokenizer-tkn tokenizer-tkn-1">595</span>, <span class="tokenizer-tkn tokenizer-tkn-2">1945</span>, <span class="tokenizer-tkn tokenizer-tkn-3">15</span>, <span class="tokenizer-tkn tokenizer-tkn-4">5597</span>, <span class="tokenizer-tkn tokenizer-tkn-0">565</span>, <span class="tokenizer-tkn tokenizer-tkn-1">11</span>, <span class="tokenizer-tkn tokenizer-tkn-2">759</span>, <span class="tokenizer-tkn tokenizer-tkn-3">8835</span>, <span class="tokenizer-tkn tokenizer-tkn-4">6</span>, <span class="tokenizer-tkn tokenizer-tkn-0">8</span>, <span class="tokenizer-tkn tokenizer-tkn-1">173</span>, <span class="tokenizer-tkn tokenizer-tkn-2">1165</span>, <span class="tokenizer-tkn tokenizer-tkn-3">18309</span>, <span class="tokenizer-tkn tokenizer-tkn-4">22104</span>, <span class="tokenizer-tkn tokenizer-tkn-0">16546</span>, <span class="tokenizer-tkn tokenizer-tkn-1">6</span>, <span class="tokenizer-tkn tokenizer-tkn-2">10</span>, <span class="tokenizer-tkn tokenizer-tkn-3">2851</span>, <span class="tokenizer-tkn tokenizer-tkn-4">12042</span>, <span class="tokenizer-tkn tokenizer-tkn-0">6</span>, <span class="tokenizer-tkn tokenizer-tkn-1">41</span>, <span class="tokenizer-tkn tokenizer-tkn-2">6291</span>, <span class="tokenizer-tkn tokenizer-tkn-3">14240</span>, <span class="tokenizer-tkn tokenizer-tkn-4">6</span>, <span class="tokenizer-tkn tokenizer-tkn-0">8</span>, <span class="tokenizer-tkn tokenizer-tkn-1">3496</span>, <span class="tokenizer-tkn tokenizer-tkn-2">7</span>, <span class="tokenizer-tkn tokenizer-tkn-3">5</span>, <span class="tokenizer-tkn tokenizer-tkn-4">18507</span>, <span class="tokenizer-tkn tokenizer-tkn-0">8</span>, <span class="tokenizer-tkn tokenizer-tkn-1">5436</span>, <span class="tokenizer-tkn tokenizer-tkn-2">1743</span>, ...]
+						    </td>
+						    <td style="font-size: 30px; width: 30%; vertical-align: top;">
+						    	<div class="fragment" data-fragment-index="1" id="3DplotDiv1" style="width: 275px; height: 275px;"></div>
+						    	<div class="fragment" data-fragment-index="2" style="text-align: center; vertical-align: bottom;"><button style="display: inline-block;" onclick="animatePDF()">Perturb</button></div>
+						    </td>
+						    <td style="font-size: 30px; width: 30%;">
+						    	<div class="fragment" data-fragment-index="2" id="3DplotDiv2" style="width: 275px; height: 275px;"></div>
+						    	<div class="fragment" data-fragment-index="2" id="PDFplotDiv" style="width: 275px; height: 275px; margin-top: -25px;"></div>
+						    </td>
+						  </tr>
+						</table>
+						<script>
+							var initialCoords = { x: 1, y: 2, z: 3 };
+							var finalCoords = { x: 4, y: 3, z: 2 };
+							
+							var numFrames = 50;
+							var animationDuration = 100; // in milliseconds
+
+							// Calculate the incremental changes in coordinates for each frame
+							var dx = (finalCoords.x - initialCoords.x) / numFrames;
+							var dy = (finalCoords.y - initialCoords.y) / numFrames;
+							var dz = (finalCoords.z - initialCoords.z) / numFrames;
+
+						    // Define initial and final probability density functions (PDFs) for 1D
+						    function initialPDF(x) {
+						        return Math.exp(-Math.pow(x, 2));
+						    }
+
+						    function finalPDF(x) {
+						        return Math.exp(-Math.pow((x - 1), 2));
+						    }
+
+						    // Function to create an interpolated PDF based on t
+						    function createInterpolatedPDF(initialPDF, finalPDF, t) {
+						        return [...Array(100).keys()].map(x => {
+						            var xValue = x / 10 - 5; // Generate x values from -5 to 5
+						            var initialValue = initialPDF(xValue);
+						            var finalValue = finalPDF(xValue);
+						            return (1 - t) * initialValue + t * finalValue;
+						        });
+						    }
+
+						    var data1 = [{
+							  text: ['e'],
+							  x: [50], y: [20],  z: [90],
+							  mode: 'markers+text',
+							  type: 'scatter3d',
+							  hoverinfo: 'none',
+							  textfont: { color: 'white' } 
+							}];
+
+							var layout1 = {
+							  title: {
+					    		  text: 'Encoding',
+					    		  font: { color: 'white' },
+					    		  // pad: {
+						          //     t: 0,  // Top padding
+						          //     r: 10,  // Right padding
+						          //     b: 0,  // Bottom padding
+						          //     l: 10   // Left padding
+						          // }
+					    	  }, 
+							  margin: { t: 30, l: 0, r: 0, b: 0 },
+							  scene: {
+							    aspectmode: 'cube',
+							    camera: { 
+							      eye: { x: 1.25, y: 0.75, z: 0.25 }
+							    },
+							    xaxis: { showticklabels: false },
+							    yaxis: { showticklabels: false },
+							    zaxis: { showticklabels: false },
+							  },
+							  plot_bgcolor: 'rgba(0,0,0,0)', // Transparent background
+							  paper_bgcolor: 'rgba(0,0,0,0)', // Transparent background
+							};
+
+						    // Define the data trace for the initial position of the point
+							var data2 = [{
+								text: ['f'],
+							    x: [initialCoords.x],
+							    y: [initialCoords.y],
+							    z: [initialCoords.z],
+							    mode: 'markers+text',
+							    type: 'scatter3d',
+							    hoverinfo: 'none',
+							    textfont: { color: 'white' }, 
+							    marker: { color: '#0097A0' }
+							}];
+
+							// Define the layout
+							var layout2 = {
+								title: {
+						    		text: 'Density Parameter Space',
+						    		font: { color: 'white' }
+						    	}, 
+							    margin: { t: 30, l: 0, r: 0, b: 0 },
+							    scene: {
+							        xaxis: { range: [0, 5] },
+							        yaxis: { range: [0, 5] },
+							        zaxis: { range: [0, 5] }, 
+							        aspectmode: 'cube',
+								    camera: { 
+								      eye: { x: 0.50, y: 1.5, z: 0.75 }
+								    },
+								    // xaxis: { showticklabels: false },
+								    // yaxis: { showticklabels: false },
+								    // zaxis: { showticklabels: false },
+							    },
+							    plot_bgcolor: 'rgba(0,0,0,0)', // Transparent background
+							    paper_bgcolor: 'rgba(0,0,0,0)', // Transparent background
+							};
+
+						    // Define the layout for the PDF plot with flipped axes
+						    var layout = {
+						    	title: {
+						    		text: 'Density Estimate',
+						    		font: { color: 'white' }
+						    	}, 
+						        autosize: false,
+						        width: 300,
+						        height: 300,
+						        plot_bgcolor: 'rgba(0,0,0,0)', // Transparent background
+							    paper_bgcolor: 'rgba(0,0,0,0)', // Transparent background
+						    };
+
+						    // Define the frames for the animation
+							var frames2 = [];
+							for (var i = 1; i <= numFrames; i++) {
+							    frames2.push({
+							        name: i, // Frame name
+							        data: [{ 
+							            x: [initialCoords.x + i * dx],
+							            y: [initialCoords.y + i * dy],
+							            z: [initialCoords.z + i * dz],
+							        }]
+							    });
+							}
+
+						    // Define the frames for the animation
+						    var frames = [];
+						    for (var i = 1; i <= numFrames; i++) {
+						        var t = i / numFrames;
+						        frames.push({ 
+						            name: i, // Frame name
+						            data: [{ 
+						                x: [...Array(100).keys()].map(x => x / 10 - 5), // Generate y values from -5 to 5
+						                y: createInterpolatedPDF(initialPDF, finalPDF, t),
+						                type: 'scatter',
+						                mode: 'lines',
+						                line: { color: '#0097A0' }
+						            }]
+						        });
+						    }
+
+						    // Create the initial plot with no animation
+						    Plotly.newPlot('3DplotDiv1', data1, layout1, {displayModeBar: false});
+						    Plotly.newPlot('3DplotDiv2', data2, layout2, {displayModeBar: false});
+						    Plotly.newPlot('PDFplotDiv', [{
+						        x: [...Array(100).keys()].map(x => x / 10 - 5), // Generate y values from -5 to 5
+						        y: createInterpolatedPDF(initialPDF, finalPDF, 0),
+						        type: 'scatter',
+						        mode: 'lines',
+						        line: { color: '#0097A0' }
+						    }], layout, { displayModeBar: false });
+
+						    // Function to animate the PDF plot
+						    function animatePDF() {
+						    	Plotly.animate('3DplotDiv2', frames2, {
+						            transition: {
+						                duration: animationDuration,
+						                easing: 'linear'
+						            },
+						            frame: {
+						                duration: animationDuration,
+						                redraw: true
+						            }
+						        });
+
+						        Plotly.animate('PDFplotDiv', frames, {
+						            transition: {
+						                duration: animationDuration,
+						                easing: 'linear'
+						            },
+						            frame: {
+						                duration: animationDuration,
+						                redraw: true
+						            }
+						        });
+						    }
+						</script>
+					</section>
+				</section>
+
+				<!-- <section>
+					<section>
+						<p style="font-size: 55px; text-align: left;">The Joint Value Distribution</p>
+						<p style="font-size: 40px; text-align: left;">Given $n$ iid draws from $V_d$, the joint distribution is<br><br></p>
+						<p style="font-size: 45px;">
+							$f_d(v_i^n,\dots,v_n^n) = \frac{n!}{(i-1)!} f(v_i^n)\cdots f(v_n^n)F(v_i^n)^{i-1}$
+						</p>
+						<p style="font-size: 40px; text-align: left;"><br>for the largest values $v_i < v_{i+1} < \cdots < v_n$.</p>
+					</section>
+
+					<section>
+						<p style="font-size: 55px; text-align: left;">Making Point Predictions</p>
+						<p style="font-size: 40px; text-align: left;">Given a pair of estimates on $\hat{f}_d(v)$ and $\hat{g}_d(n)$,<br><br></p>
+						<p style="font-size: 45px;">
+							$E_d[b_i^n,\dots,b_n^n] = \sum_{n=\underline{n}}^{N}\{\int\cdots\int (v_i^n,\dots,v_n^n)$
+						</p>
+						<p style="font-size: 45px;">
+							$\times f_d(v_i^n,\dots,v_n^n)dv_i^n,\dots,dv_n^n\}\hat{g}_d(n)$
+						</p>
+						<p style="font-size: 40px; text-align: left;"><br>produces predictions on the largest auction bids.</p>
+					</section>
+				</section> -->
+
+				<section>
+					<!-- <section>
+						<p style="font-size: 45px; text-align: left;">Dataset from ~80,000 Auctions (2014-2022)</p>
+						<ol>
+							<li>Natural language vehicle descriptions.</li>
+							<li># of auction views and "watchers".</li>
+							<li>Every user's bid, timestamped.</li>
+						</ol>
+					</section> -->
+
+					<section data-auto-animate>
+						<p style="font-size: 45px; text-align: left;">Synthetic data: ~240,000 auction evaluations.</p>
+						<pre data-id="code-animation"><code data-trim data-line-numbers="1-13|2,9|15|17-20|22-25|27-33">
+							experts = [
+							  "Independent Vehicle History Report Provider",
+							  "Certified Automotive Mechanic",
+							  "Car Enthusiast Club President",
+							  "Vehicle Appraiser",
+							]
+
+							specialties = [
+							  "providing detailed history reports of vehicles, revealing past ownership, accident history, service records, and other vital information that can impact the vehicle's value",
+							  "performing thorough inspections of vehicles, identifying any mechanical issues, maintenance needs, or potential future problems.",
+							  "offering extensive knowledge about specific makes or models, including common issues, maintenance tips, and overall satisfaction.",
+							  "specializing in determining the market value of used vehicles based on factors like make, model, year, mileage, condition, and market trends.",
+							]
+
+							authentic_description = dataset[car]['description']
+
+							for i in range(len(experts)): 
+							  system_message = f"""
+							  You are an {experts[i]}. You specialize in {specialties[i]}. When someone gives you a description of a vehicle or vehicles parts, you offer a detailed representation of your expert point of view.
+							  """
+
+							  user_message = f"""
+							  Please tell me what you think of this vehicle. 
+							  {authentic_description}
+							  """
+
+							  synthetic_description[i] = client.chat.completions.create(
+							    model="gpt-3.5-turbo-1106",
+							    messages=[
+							      {"role": "system", "content": system_message},
+							      {"role": "user", "content": user_message}
+							    ]
+							  )
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p style="text-align: center; font-size: 45px; margin-bottom: -15px;">Validation Set Prediction Error</p>
+						<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; max-width: 800px; margin: auto;">
+							<div>
+						        <div style="text-align: center; margin: 0; padding: 0;">
+						        	<p style="font-size: 45px;">Absolute</p>
+						            <img src="/images/presentations/validation_absolute_errors_bids_2.png" alt="Image 1" style="width: 80%; height: auto; margin: 0; padding: 0;">
+						        </div>
+						        <div style="text-align: center; margin: 0; padding: 0;">
+						            <img src="/images/presentations/validation_absolute_errors_bids_3.png" alt="Image 2" style="width: 80%; height: auto; margin: 0; padding: 0;">
+						        </div>
+						    </div>
+						    <div>
+						        <div style="text-align: center; margin: 0; padding: 0;">
+						        	<p style="font-size: 45px;">Percent</p>
+						            <img src="/images/presentations/validation_percent_errors_bids_2.png" alt="Image 3" style="width: 80%; height: auto; margin: 0; padding: 0;">
+						        </div>
+						        <div style="text-align: center; margin: 0; padding: 0;">
+						            <img src="/images/presentations/validation_percent_errors_bids_3.png" alt="Image 4" style="width: 80%; height: auto; margin: 0; padding: 0;">
+						        </div>
+						    </div>
+					    </div>
+					</section>
+
+					<section>
+						<p style="text-align: center; font-size: 45px;">Counterfactual Analysis</p>
+						<p style="text-align: center; font-size: 35px;">"...manual transmission..."$\rightarrow$"...automatic transmission..."</p>
+						<div style="text-align: center; margin: 0; padding: 0;">
+				            <img src="/images/presentations/counterfactual_transmission_1.png" alt="Image 1" style="width: 70%; height: auto; margin: 0; padding: 0;">
+				        </div>
+				    </section>
+
+					<section>
+						<p style="text-align: center; font-size: 45px;">Demand Vector Embeddings</p>
+						<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; max-width: 800px; margin: auto;">
+					        <div style="text-align: center; margin: 0; padding: 0;">
+					        	<p style="font-size: 45px;">Manual</p>
+					            <img src="/images/presentations/trans-embed-1.png" alt="Image 1" style="width: 100%; height: auto; margin: 0; padding: 0;">
+					        </div>
+					        <div class="fragment" style="text-align: center; margin: 0; padding: 0;">
+					        	<p style="font-size: 45px;">Automatic</p>
+					            <img src="/images/presentations/trans-embed-2.png" alt="Image 2" style="width: 100%; height: auto; margin: 0; padding: 0;">
+					        </div>
+					    </div>
+					</section>
+
+					<section>
+						<p style="text-align: center; font-size: 45px;">Counterfactual Analysis: Auction Date</p>
+						<div style="display: grid; grid-template-columns: 1fr 3fr; gap: 5px; max-width: 1000px; margin: auto;">
+						    <div style="margin: 0; padding: 0;">
+						        <p style="text-align: left; font-size: 30px;"><b>Title:</b> Modified 1974 BMW 3.0CS 4-Speed<br><br><b>Date:</b> February 27, 2024<br><br><b>Description:</b> This 1974 BMW 3.0CS was...</p>
+						    </div>
+						    <div style="text-align: center; margin: 0; padding: 0;">
+						        <img src="/images/presentations/inference_future_winning_bids.png" alt="Image 1" style="width: 100%; height: auto; margin: 0; padding: 0;">
+						    </div>
+						</div>
+				    </section>
+				</section>
+
+				<!-- <section>
+					<section>
+						<p style="text-align: left; font-size: 45px;">Attention mechanisms offer powerful methods for learning various distributions.</p>
+						<ol style="font-size: 40px;">
+							<li><a href="https://insightcivic.s3.us-east-1.amazonaws.com/language-models.pdf">Encoded intelligence in natural language</a>.</li>
+							<li><a href="https://www.nature.com/articles/s41586-021-03819-2)">Predicting protein structures (Alphafold)</a>.</li>
+							<li><a href="https://arxiv.org/pdf/2102.04306.pdf">Medical image processing for disease</a>.</li> 
+						</ol>
+						<p style="text-align: left; font-size: 45px;">Our goal: <em>to semi-nonparametrically estimate the demand primitives in an auction market from the object's natural language description</em>.</p>
+					</section>
+
+					<section>
+						<p style="text-align: left; font-size: 50px;">What we do.</p>
+						<ol style="font-size: 40px;">
+							<li>Collect data from 80,000+ vehicle auctions.</li>
+							<li>Generate 240,000+ synthetic descriptions.</li>
+							<li>Perform a two stage estimation:</li>
+							<ol type="a">
+								<li>Train an LLM to predict the targets of our structural model of the auction market.</li>
+								<li>Append a custom neural network to the trained LLM to recover the demand primitives.</li>
+							</ol>
+							<li>Use the model to make counterfactual inferences.</li>
+						</ol>
+					</section>
+
+					<section data-background-iframe="https://bringatrailer.com/listing/1974-bmw-3-0cs-75/" data-background-interactive></section>
+
+					<section>
+						<p style="text-align: left; font-size: 50px;">Why use these data?</p>
+						<ol style="font-size: 40px;">
+							<li>Abundant, well curated, data rich, and arguably independent auctions.</li>
+							<li>Simple, one-sided market with a stable data-generating process of how descriptions$\rightarrow$prices.</li>
+						</ol>
+					</section>
+				</section> -->
+
+				<!-- <section>
+					<section data-transition="slide-in fade-out">
+						<p style="text-align: left; font-size: 45px;">Assumed data-generating process.</p>
+						<svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
+						    <defs>
+						        <linearGradient id="gradientCircle" x1="0%" y1="0%" x2="100%" y2="100%">
+						            <stop offset="0%" style="stop-color:#C5B783;stop-opacity:1" />
+						            <stop offset="100%" style="stop-color:#C5B783;stop-opacity:1" />
+						        </linearGradient>
+						        <linearGradient id="gradientRect" x1="0%" y1="0%" x2="100%" y2="100%">
+						            <stop offset="0%" style="stop-color:#0097A0;stop-opacity:1" />
+						            <stop offset="100%" style="stop-color:#F6F5A6;stop-opacity:1" />
+						        </linearGradient>
+						    </defs>
+						    
+						    <circle cx="100" cy="135" r="90" fill="url(#gradientCircle)" stroke="#333" stroke-width="3"/>
+						    <text x="100" y="110" class="flowchart-nodeText" text-anchor="middle">Product</text>
+						    <text x="100" y="130" class="flowchart-nodeText" text-anchor="middle">Description</text>
+						    <text x="100" y="170" class="flowchart-nodeText" text-anchor="middle">d</text>
+						    
+						    <rect x="275" y="50" width="150" height="75" rx="10" fill="url(#gradientRect)" stroke="#333" stroke-width="3"/>
+						    <text x="350" y="75" class="flowchart-nodeText">Valuations</text>
+						    <text x="350" y="105" class="flowchart-nodeText">V|d</text>
+						    
+						    <rect x="425" y="150" width="150" height="75" rx="10" fill="url(#gradientRect)" stroke="#333" stroke-width="3"/>
+						    <text x="500" y="175" class="flowchart-nodeText">Market Size</text>
+						    <text x="500" y="205" class="flowchart-nodeText">N|d</text>
+						    
+						    <line x1="180" y1="87.5" x2="275" y2="87.5" stroke="#97999B" stroke-width="3"/>
+						    <line x1="180" y1="187.5" x2="425" y2="187.5" stroke="#97999B" stroke-width="3"/>
+						    
+						    <rect x="250" y="2" width="475" height="240" rx="15" class="flowchart-dashedBox" stroke="#fff" stroke-width="2"/>
+						    <text x="400" y="265" class="flowchart-textStyle">Market Environment</text>
+						</svg>
+						<p class="fragment" style="text-align: left; font-size: 45px;">$V|d$ and $N|d$ are independent for any $d$.</p>
+						<p class="fragment" style="text-align: left; font-size: 45px;">Private valuations are drawn iid from $V|d$.</p>
+					</section>
+
+					<section data-transition="fade-in slide-out">
+						<p style="text-align: left; font-size: 45px;">Assumed data-generating process.</p>
+						<svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
+						    <defs>
+						        <linearGradient id="gradientCircle" x1="0%" y1="0%" x2="100%" y2="100%">
+						            <stop offset="0%" style="stop-color:#C5B783;stop-opacity:1" />
+						            <stop offset="100%" style="stop-color:#C5B783;stop-opacity:1" />
+						        </linearGradient>
+						        <linearGradient id="gradientRect" x1="0%" y1="0%" x2="100%" y2="100%">
+						            <stop offset="0%" style="stop-color:#0097A0;stop-opacity:1" />
+						            <stop offset="100%" style="stop-color:#F6F5A6;stop-opacity:1" />
+						        </linearGradient>
+						    </defs>
+						    
+						    <circle cx="100" cy="135" r="90" fill="url(#gradientCircle)" stroke="#333" stroke-width="3"/>
+						    <text x="100" y="110" class="flowchart-nodeText" text-anchor="middle">Product</text>
+						    <text x="100" y="130" class="flowchart-nodeText" text-anchor="middle">Description</text>
+						    <text x="100" y="170" class="flowchart-nodeText" text-anchor="middle">d</text>
+						    
+						    <rect x="275" y="50" width="150" height="75" rx="10" fill="url(#gradientRect)" stroke="#333" stroke-width="3"/>
+						    <text x="350" y="75" class="flowchart-nodeText">Valuations</text>
+						    <text x="350" y="105" class="flowchart-nodeText">V|d</text>
+						    
+						    <rect x="425" y="150" width="150" height="75" rx="10" fill="url(#gradientRect)" stroke="#333" stroke-width="3"/>
+						    <text x="500" y="175" class="flowchart-nodeText">Market Size</text>
+						    <text x="500" y="205" class="flowchart-nodeText">N|d</text>
+
+						    <circle data-fragment-index="1" cx="649" cy="87.5" r="40" fill="url(#gradientCircle)" stroke="#333" stroke-width="3"/>
+						    <text data-fragment-index="1" x="650" y="75" class="flowchart-nodeText">Prices</text>
+						    <text data-fragment-index="1" x="650" y="105" class="flowchart-nodeText">P|d</text>
+						    
+						    <line x1="180" y1="87.5" x2="275" y2="87.5" stroke="#97999B" stroke-width="3"/>
+						    <line x1="180" y1="187.5" x2="425" y2="187.5" stroke="#97999B" stroke-width="3"/>
+						    <line x1="425" y1="87.5" x2="605" y2="87.5" stroke="#97999B" stroke-width="3"/>
+						    <line x1="500" y1="150" x2="500" y2="87.5" stroke="#97999B" stroke-width="3"/>
+						    <rect x="250" y="2" width="475" height="240" rx="15" class="flowchart-dashedBox" stroke="#fff" stroke-width="2"/>
+						    <text x="400" y="265" class="flowchart-textStyle">Market Environment</text>
+
+						    <rect x="480" y="40" width="230" height="95" rx="15" class="flowchart-dashedBox" stroke="#fff" stroke-width="2"/>
+						    <text x="505" y="30" class="flowchart-textStyle">Pricing Mechanism</text>
+						</svg>
+						<p style="text-align: left; font-size: 45px;">$V|d$ and $N|d$ are independent for any $d$.</p>
+						<p style="text-align: left; font-size: 45px;">Private valuations are drawn iid from $V|d$.</p>
+					</section>
+
+					<section>
+						<p style="text-align: left; font-size: 45px;">Pricing Mechanism: Open Cry English Auction</p>
+						<p style="text-align: left; font-size: 35px;">Assumption: <em>No participating bidder will allow another bidder to claim the auction object with a bid they are willing and able to beat</em>.</p>
+						<p style="text-align: left; font-size: 45px;">
+							\[
+								\pi_i=
+								\begin{cases}
+									v_i-b_i & \text{if }\; b_i>\max\left(b_{-i}\right) \\
+									0 & \text{otherwise.}
+								\end{cases}
+							\]
+							<span class="fragment">
+								\[
+									b_i^*=v_i \;\;\;\;\;\;\;\;\;\;\text{ if } v_i<\max\left(v_{-i}\right)
+								\]
+							</span>
+						</p>
+					</section>
+
+					<section>
+						<p style="text-align: left; font-size: 50px;">Some bids reliably reveal valuations.<span class="fragment" data-fragment-index="1">..if:</span></p>
+						<ul>
+							<li class="fragment" data-fragment-index="1">There is no <em>snipe</em> bidding.</li>
+							<li class="fragment" data-fragment-index="2">There isn't excessive <em>jump</em> bidding.</li>
+							<li class="fragment" data-fragment-index="3">Bidders are present at the end of the auction.</li>
+						</ul>
+						<p class="fragment" data-fragment-index="4" style="text-align: left; font-size: 45px;"><em>We train the model to point predict these bids from its semi-nonparametric density estimates of $V|d$ and $N|d$.</em></p>
+					</section>
+				</section> -->
+
+				<!-- <section>
+					<section data-transition="slide-in fade-out">
+						<table style="width: 100%;">
+						  <tr>
+						    <td style="width: 40%; padding: 0; vertical-align: top;">
+						      <span style="font-size: 30px;">Description<br>
+						      $d$</span>
+						    </td>
+						    <td style="width: 30%; padding: 0; text-align: center; vertical-align: top;"></td>
+						    <td style="width: 30%; padding: 0; text-align: center; vertical-align: top;"></td>
+						  </tr>
+						  <tr>
+						    <td style="font-size: 30px; width: 40%; vertical-align: top;">
+						      "This 1974 BMW 3.0CS was refurbished before being acquired by the current owner on BaT in November 2021, and work included rust remediation, a repaint, an interior refresh, and updates to the brake and suspension systems..."
+						    </td>
+						    <td style="font-size: 30px; width: 30%; vertical-align: top;"></td>
+						    <td style="font-size: 30px; width: 30%; vertical-align: top;"></td>
+						  </tr>
+						</table>
+					</section> -->
+
+					<!-- <section data-transition="fade-in fade-out">
+						<table style="width: 100%;">
+						  <tr>
+						    <td style="width: 40%; padding: 0; vertical-align: top;">
+						      <span style="font-size: 30px;">Description<br>
+						      $d$</span>
+						    </td>
+						    <td style="width: 30%; padding: 0; text-align: center; vertical-align: top;"></td>
+						    <td style="width: 30%; padding: 0; text-align: center; vertical-align: top;"></td>
+						  </tr>
+						  <tr>
+						    <td style="font-size: 30px; width: 40%; vertical-align: top;">
+						      "<span class="tokenizer-tkn tokenizer-tkn-0"><s></span><span class="tokenizer-tkn tokenizer-tkn-1">This</span><span class="tokenizer-tkn tokenizer-tkn-2"> 1974</span><span class="tokenizer-tkn tokenizer-tkn-3"> BMW</span><span class="tokenizer-tkn tokenizer-tkn-4"> 3</span><span class="tokenizer-tkn tokenizer-tkn-0">.</span><span class="tokenizer-tkn tokenizer-tkn-1">0</span><span class="tokenizer-tkn tokenizer-tkn-2">CS</span><span class="tokenizer-tkn tokenizer-tkn-3"> was</span><span class="tokenizer-tkn tokenizer-tkn-4"> refurb</span><span class="tokenizer-tkn tokenizer-tkn-0">ished</span><span class="tokenizer-tkn tokenizer-tkn-1"> before</span><span class="tokenizer-tkn tokenizer-tkn-2"> being</span><span class="tokenizer-tkn tokenizer-tkn-3"> acquired</span><span class="tokenizer-tkn tokenizer-tkn-4"> by</span><span class="tokenizer-tkn tokenizer-tkn-0"> the</span><span class="tokenizer-tkn tokenizer-tkn-1"> current</span><span class="tokenizer-tkn tokenizer-tkn-2"> owner</span><span class="tokenizer-tkn tokenizer-tkn-3"> on</span><span class="tokenizer-tkn tokenizer-tkn-4"> Ba</span><span class="tokenizer-tkn tokenizer-tkn-0">T</span><span class="tokenizer-tkn tokenizer-tkn-1"> in</span><span class="tokenizer-tkn tokenizer-tkn-2"> November</span><span class="tokenizer-tkn tokenizer-tkn-3"> 2021</span><span class="tokenizer-tkn tokenizer-tkn-4">,</span><span class="tokenizer-tkn tokenizer-tkn-0"> and</span><span class="tokenizer-tkn tokenizer-tkn-1"> work</span><span class="tokenizer-tkn tokenizer-tkn-2"> included</span><span class="tokenizer-tkn tokenizer-tkn-3"> rust</span><span class="tokenizer-tkn tokenizer-tkn-4"> remed</span><span class="tokenizer-tkn tokenizer-tkn-0">iation</span><span class="tokenizer-tkn tokenizer-tkn-1">,</span><span class="tokenizer-tkn tokenizer-tkn-2"> a</span><span class="tokenizer-tkn tokenizer-tkn-3"> rep</span><span class="tokenizer-tkn tokenizer-tkn-4">aint</span><span class="tokenizer-tkn tokenizer-tkn-0">,</span><span class="tokenizer-tkn tokenizer-tkn-1"> an</span><span class="tokenizer-tkn tokenizer-tkn-2"> interior</span><span class="tokenizer-tkn tokenizer-tkn-3"> refresh</span><span class="tokenizer-tkn tokenizer-tkn-4">,</span><span class="tokenizer-tkn tokenizer-tkn-0"> and</span><span class="tokenizer-tkn tokenizer-tkn-1"> updates</span><span class="tokenizer-tkn tokenizer-tkn-2"> to</span><span class="tokenizer-tkn tokenizer-tkn-3"> the</span><span class="tokenizer-tkn tokenizer-tkn-4"> brake</span><span class="tokenizer-tkn tokenizer-tkn-0"> and</span><span class="tokenizer-tkn tokenizer-tkn-1"> suspension</span><span class="tokenizer-tkn tokenizer-tkn-2"> systems</span><span class="tokenizer-tkn tokenizer-tkn-3"></s></span>..."
+						    </td>
+						    <td style="font-size: 30px; width: 30%; vertical-align: top;"></td>
+						    <td style="font-size: 30px; width: 30%; vertical-align: top;"></td>
+						  </tr>
+						</table>
+					</section> -->
+
+					<!-- <section data-transition="fade-in fade-out">
+						<table style="width: 100%;">
+						  <tr>
+						    <td style="width: 40%; padding: 0; vertical-align: top;">
+						      <span style="font-size: 30px;">Description<br>
+						      $d$</span>
+						    </td>
+						    <td class="fragment" data-fragment-index="1" style="width: 30%; padding: 0; text-align: center; vertical-align: top;">
+						    	<span style="font-size: 30px;">"Demand Vector"<br>
+							    $m: d\rightarrow e$</span>
+						    </td>
+						    <td class="fragment" data-fragment-index="2" style="width: 30%; padding: 0; text-align: center; vertical-align: top;">
+						    	<span style="font-size: 30px;">Density Estimator<br>
+						        $h: e\rightarrow f_V, g_N$</span>
 						    </td>
 						  </tr>
 						  <tr>
@@ -1064,18 +1702,18 @@
 						    }
 						</script>
 					</section>
-				</section>
+				</section> -->
 
-				<section>
+				<!-- <section>
 					<section>
 						<p style="font-size: 45px; text-align: left;">Base data: ~80,000 vehicle auctions.</p>
 						<ul>
 							<li>Every bid submitted (user-identified, time-stamped).</li>
 						</ul>
 					</section>
-				</section>
+				</section> -->
 
-				<section>
+				<!-- <section>
 					<section data-auto-animate>
 						<p style="font-size: 45px; text-align: left;">Synthetic data: ~240,000 auction evaluations.</p>
 						<pre data-id="code-animation"><code data-trim data-line-numbers="1-13|2,9|15|17-20|22-25|27-33">
@@ -1114,13 +1752,13 @@
 							  )
 						</code></pre>
 					</section>
-				</section>
+				</section> -->
 
-				<section>
+				<!-- <section>
 					<p class="r-fit-text">
 						$\vec{e} = m(d)$
 					</p>
-				</section>
+				</section> -->
 				
 			</div>
 
