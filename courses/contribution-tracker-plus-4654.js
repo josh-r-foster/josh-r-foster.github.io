@@ -5,6 +5,7 @@ const peopleData = [
   {name: 'Amandine Prioux', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Anthony Pham', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Audrey Ghilain', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
+  {name: 'Brandon Jones', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Chloe Bissell', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'David Hascal', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'David Kang', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
