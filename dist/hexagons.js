@@ -90,7 +90,7 @@ window.onload = function() {
 };
 
 // Parse the container holding the emojis
-twemoji.parse(document.getElementById('emoji-container'));
+// twemoji.parse(document.getElementById('emoji-container'));
 
 const element = document.getElementById('conditional-div');
 // const tabs = document.getElementById('tabContainer');
