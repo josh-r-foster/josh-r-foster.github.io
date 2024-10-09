@@ -341,5 +341,110 @@
         "backText": "If we had taken extra precautions, we could have avoided this difficult situation.",
         "colorClass": "red",
         "flipped": false
+    },
+    {
+        "id": 50,
+        "frontText": "Je n'ai pas pu assister à la réunion car j'avais un autre engagement.",
+        "backText": "I couldn't attend the meeting because I had another commitment.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 51,
+        "frontText": "Si j'avais plus de temps, je visiterais toutes les villes de France.",
+        "backText": "If I had more time, I would visit all the cities in France.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 52,
+        "frontText": "Est-ce que tu pourrais m'aider à finir ce projet avant demain?",
+        "backText": "Could you help me finish this project before tomorrow?",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 53,
+        "frontText": "Bien que je sois fatigué, je vais continuer jusqu'à ce que ce soit terminé.",
+        "backText": "Even though I'm tired, I will continue until it's finished.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 54,
+        "frontText": "La clé de la réussite est de ne jamais abandonner, même quand c'est difficile.",
+        "backText": "The key to success is to never give up, even when it's hard.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 55,
+        "frontText": "Elle a décidé de changer de carrière après dix ans dans le même domaine.",
+        "backText": "She decided to change careers after ten years in the same field.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 56,
+        "frontText": "Si tu avais pris une autre décision, les choses auraient été différentes.",
+        "backText": "If you had made a different decision, things would have been different.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 57,
+        "frontText": "Nous devons analyser les résultats avant de tirer des conclusions hâtives.",
+        "backText": "We need to analyze the results before drawing hasty conclusions.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 58,
+        "frontText": "En fin de compte, c'est la qualité de notre travail qui déterminera notre succès.",
+        "backText": "Ultimately, the quality of our work will determine our success.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 59,
+        "frontText": "Même si tu es en retard, il est important de rester concentré et organisé.",
+        "backText": "Even if you're late, it's important to stay focused and organized.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 60,
+        "frontText": "Si nous avions anticipé les problèmes, nous aurions pu les éviter plus facilement.",
+        "backText": "If we had anticipated the problems, we could have avoided them more easily.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 61,
+        "frontText": "Il faut prendre en compte les intérêts de toutes les parties avant de prendre une décision.",
+        "backText": "You must take into account the interests of all parties before making a decision.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 62,
+        "frontText": "Bien que le projet soit compliqué, il est essentiel de rester concentré sur nos objectifs.",
+        "backText": "Although the project is complicated, it's essential to stay focused on our goals.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 63,
+        "frontText": "La situation est délicate, et nous devons la gérer avec beaucoup de précaution.",
+        "backText": "The situation is delicate, and we must handle it with great caution.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 64,
+        "frontText": "Si je pouvais revenir en arrière, je ferais les choses différemment.",
+        "backText": "If I could go back, I would do things differently.",
+        "colorClass": "red",
+        "flipped": false
     }
 ]

@@ -6,7 +6,9 @@ const flashCardApp = new Vue({
         loading: true,
         error: null,
         touchStartX: 0,
-        touchEndX: 0
+        touchStartTime: 0,
+        swipeThreshold: 50, // Minimum distance for swipe detection in pixels
+        timeThreshold: 300  // Max time allowed for swipe in milliseconds
     },
     computed: {
         currentCard() {
@@ -14,8 +16,8 @@ const flashCardApp = new Vue({
         }
     },
     methods: {
-        flipCard(card) {
-            card.flipped = !card.flipped;
+        flipCard() {
+            this.currentCard.flipped = !this.currentCard.flipped;
         },
         prevCard() {
             if (this.currentCardIndex > 0) {
@@ -31,20 +33,21 @@ const flashCardApp = new Vue({
         },
         handleTouchStart(event) {
             this.touchStartX = event.changedTouches[0].screenX;
+            this.touchStartTime = new Date().getTime();  // Capture the time when the touch starts
         },
         handleTouchEnd(event) {
-            this.touchEndX = event.changedTouches[0].screenX;
-            this.handleGesture();
-        },
-        handleGesture() {
-            const swipeThreshold = 50;
-            const deltaX = this.touchEndX - this.touchStartX;
+            const touchEndX = event.changedTouches[0].screenX;
+            const touchEndTime = new Date().getTime();  // Capture the time when the touch ends
 
-            if (Math.abs(deltaX) > swipeThreshold) {
+            const deltaX = touchEndX - this.touchStartX;
+            const deltaTime = touchEndTime - this.touchStartTime;
+
+            // Check if it's a swipe based on distance and time
+            if (Math.abs(deltaX) > this.swipeThreshold && deltaTime < this.timeThreshold) {
                 if (deltaX > 0) {
-                    this.prevCard();
+                    this.prevCard();  // Swipe right (previous card)
                 } else {
-                    this.nextCard();
+                    this.nextCard();  // Swipe left (next card)
                 }
             }
         },
