@@ -1,0 +1,345 @@
+[
+    {
+        "id": 1,
+        "frontText": "Bonjour, comment ça va?",
+        "backText": "Hello, how are you?",
+        "colorClass": "green",
+        "flipped": false
+    },
+    {
+        "id": 2,
+        "frontText": "Où est la bibliothèque?",
+        "backText": "Where is the library?",
+        "colorClass": "green",
+        "flipped": false
+    },
+    {
+        "id": 3,
+        "frontText": "Je voudrais un café, s'il vous plaît.",
+        "backText": "I would like a coffee, please.",
+        "colorClass": "green",
+        "flipped": false
+    },
+    {
+        "id": 4,
+        "frontText": "Quelle est la capitale de la France?",
+        "backText": "What is the capital of France?",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 5,
+        "frontText": "Je pense que cette solution est la meilleure.",
+        "backText": "I think this solution is the best.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 6,
+        "frontText": "Le train partira à l'heure prévue, malgré les retards précédents.",
+        "backText": "The train will depart on time, despite the previous delays.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 7,
+        "frontText": "Il a décidé de quitter son travail pour voyager à travers le monde.",
+        "backText": "He decided to quit his job to travel around the world.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 8,
+        "frontText": "Pourriez-vous m'indiquer comment aller à la gare, s'il vous plaît?",
+        "backText": "Could you tell me how to get to the train station, please?",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 9,
+        "frontText": "Je ne comprends pas pourquoi tu n'as pas encore terminé ce projet.",
+        "backText": "I don't understand why you haven't finished this project yet.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 10,
+        "frontText": "Je pense qu'il est important de discuter de cette question avec tout le monde.",
+        "backText": "I think it is important to discuss this matter with everyone.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 11,
+        "frontText": "Si j'avais su que tu viendrais, j'aurais préparé quelque chose de spécial.",
+        "backText": "If I had known you were coming, I would have prepared something special.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 12,
+        "frontText": "Bien qu'il ait fait beau, nous avons décidé de rester à l'intérieur pour éviter les foules.",
+        "backText": "Although the weather was nice, we decided to stay inside to avoid the crowds.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 13,
+        "frontText": "Il est important de comprendre les implications économiques des décisions politiques internationales.",
+        "backText": "It is important to understand the economic implications of international political decisions.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 14,
+        "frontText": "Si j'avais eu plus de temps, j'aurais pu résoudre le problème plus efficacement.",
+        "backText": "If I had had more time, I could have solved the problem more effectively.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 15,
+        "frontText": "L'un des défis majeurs auxquels nous sommes confrontés est le changement climatique.",
+        "backText": "One of the major challenges we are facing is climate change.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 16,
+        "frontText": "En dépit des nombreuses difficultés, ils ont réussi à atteindre leur objectif.",
+        "backText": "Despite many difficulties, they managed to achieve their goal.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 17,
+        "frontText": "Les recherches montrent que les habitudes alimentaires jouent un rôle crucial dans la santé globale.",
+        "backText": "Research shows that eating habits play a crucial role in overall health.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 18,
+        "frontText": "Avant de partir, n'oublie pas de vérifier que toutes les fenêtres sont fermées.",
+        "backText": "Before leaving, don't forget to check that all the windows are closed.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 19,
+        "frontText": "Il est possible que nous devions annuler la réunion si le problème persiste.",
+        "backText": "It is possible that we will have to cancel the meeting if the problem persists.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 20,
+        "frontText": "Même s'il est tard, nous devons finir ce travail avant demain matin.",
+        "backText": "Even though it is late, we must finish this work before tomorrow morning.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 21,
+        "frontText": "Bonjour, comment ça va?",
+        "backText": "Hello, how are you?",
+        "colorClass": "green",
+        "flipped": false
+    },
+    {
+        "id": 22,
+        "frontText": "Où est la bibliothèque?",
+        "backText": "Where is the library?",
+        "colorClass": "green",
+        "flipped": false
+    },
+    {
+        "id": 23,
+        "frontText": "Je voudrais un café, s'il vous plaît.",
+        "backText": "I would like a coffee, please.",
+        "colorClass": "green",
+        "flipped": false
+    },
+    {
+        "id": 24,
+        "frontText": "Quelle est la capitale de la France?",
+        "backText": "What is the capital of France?",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 25,
+        "frontText": "Je pense que cette solution est la meilleure.",
+        "backText": "I think this solution is the best.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 26,
+        "frontText": "Le train partira à l'heure prévue, malgré les retards précédents.",
+        "backText": "The train will depart on time, despite the previous delays.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 27,
+        "frontText": "Si j'avais su que tu viendrais, j'aurais préparé quelque chose de spécial.",
+        "backText": "If I had known you were coming, I would have prepared something special.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 28,
+        "frontText": "Bien qu'il ait fait beau, nous avons décidé de rester à l'intérieur pour éviter les foules.",
+        "backText": "Although the weather was nice, we decided to stay inside to avoid the crowds.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 29,
+        "frontText": "Il est important de comprendre les implications économiques des décisions politiques internationales.",
+        "backText": "It is important to understand the economic implications of international political decisions.",
+        "colorClass": "red",
+        "flipped": false
+    }, 
+    {
+        "id": 30,
+        "frontText": "Nous devons examiner toutes les options avant de prendre une décision finale.",
+        "backText": "We must examine all the options before making a final decision.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 31,
+        "frontText": "Il est important de respecter les délais pour éviter des retards supplémentaires.",
+        "backText": "It is important to meet the deadlines to avoid further delays.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 32,
+        "frontText": "Je ne suis pas sûr de pouvoir terminer ce travail avant la fin de la semaine.",
+        "backText": "I'm not sure I can finish this work by the end of the week.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 33,
+        "frontText": "Ils ont décidé de reporter la réunion à la semaine prochaine pour donner plus de temps aux participants.",
+        "backText": "They decided to postpone the meeting to next week to give the participants more time.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 34,
+        "frontText": "Si tu veux réussir, il faut que tu te concentres davantage sur tes objectifs.",
+        "backText": "If you want to succeed, you need to focus more on your goals.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 35,
+        "frontText": "Bien que nous ayons eu quelques désaccords, nous avons finalement trouvé un terrain d'entente.",
+        "backText": "Although we had some disagreements, we eventually found common ground.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 36,
+        "frontText": "Je préfère travailler dans un environnement calme, loin des distractions.",
+        "backText": "I prefer to work in a quiet environment, away from distractions.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 37,
+        "frontText": "Même si tu travailles dur, cela ne garantit pas que tu atteindras tes objectifs.",
+        "backText": "Even if you work hard, it doesn't guarantee that you'll achieve your goals.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 38,
+        "frontText": "L'un des principaux défis dans ce projet est de coordonner les différentes équipes.",
+        "backText": "One of the main challenges in this project is coordinating the different teams.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 39,
+        "frontText": "Il est essentiel de comprendre le contexte avant de proposer des solutions.",
+        "backText": "It is essential to understand the context before proposing solutions.",
+        "colorClass": "yellow",
+        "flipped": false
+    },
+    {
+        "id": 40,
+        "frontText": "Bien que la situation semble difficile, je suis convaincu que nous pouvons trouver une solution.",
+        "backText": "Although the situation seems difficult, I am confident that we can find a solution.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 41,
+        "frontText": "Si nous ne prenons pas des mesures immédiates, les conséquences pourraient être désastreuses.",
+        "backText": "If we don't take immediate action, the consequences could be disastrous.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 42,
+        "frontText": "Nous devons analyser attentivement les données pour comprendre les causes du problème.",
+        "backText": "We must carefully analyze the data to understand the root causes of the problem.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 43,
+        "frontText": "Si j'avais eu accès à ces informations plus tôt, j'aurais pu éviter cette erreur.",
+        "backText": "If I had had access to this information earlier, I could have avoided this mistake.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 44,
+        "frontText": "Nous devons nous assurer que toutes les parties concernées sont informées avant de procéder.",
+        "backText": "We must ensure that all relevant parties are informed before proceeding.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 45,
+        "frontText": "Même si tu as raison, il est parfois préférable de ne pas insister pour éviter un conflit.",
+        "backText": "Even if you're right, it's sometimes better not to insist to avoid conflict.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 46,
+        "frontText": "Bien que nous soyons en retard, nous devons nous concentrer sur la qualité du travail plutôt que sur la vitesse.",
+        "backText": "Although we are behind schedule, we must focus on the quality of the work rather than speed.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 47,
+        "frontText": "Les implications de cette décision seront ressenties pendant des années.",
+        "backText": "The implications of this decision will be felt for years.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 48,
+        "frontText": "Il est crucial de comprendre les enjeux avant de s'engager dans cette discussion.",
+        "backText": "It is crucial to understand the stakes before engaging in this discussion.",
+        "colorClass": "red",
+        "flipped": false
+    },
+    {
+        "id": 49,
+        "frontText": "Si nous avions pris des précautions supplémentaires, nous aurions pu éviter cette situation difficile.",
+        "backText": "If we had taken extra precautions, we could have avoided this difficult situation.",
+        "colorClass": "red",
+        "flipped": false
+    }
+]

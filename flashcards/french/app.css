@@ -1,0 +1,108 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 90%;
+    height: 90%;
+    max-width: 600px;
+    max-height: 800px;
+    padding: 2rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.card-text h2 {
+    color: #000000;
+    opacity: .8;
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 1rem;
+}
+
+.flip-enter-active, .flip-leave-active {
+    transition: transform 0.6s;
+    backface-visibility: hidden;
+}
+
+.flip-enter, .flip-leave-to {
+    transform: rotateY(180deg);
+}
+
+.green {
+    background-color: #084C61;
+}
+
+.red {
+    background-color: #db4d52;
+}
+
+.yellow {
+    background-color: #f9cf3b;
+}
+
+.blue {
+    background-color: #49b0e4;
+}
+
+.purple {
+    background-color: #996ce2;
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.navigation-buttons button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+/* Hide navigation buttons on mobile devices */
+@media (max-width: 767px) {
+    .navigation-buttons {
+        display: none;
+    }
+}
+
+/* Adjustments for larger screens */
+@media (min-width: 768px) {
+    .card {
+        width: 500px;
+        height: 600px;
+    }
+}
