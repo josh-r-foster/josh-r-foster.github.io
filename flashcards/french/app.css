@@ -35,7 +35,7 @@ html, body {
 
 /* Card structure with front and back faces */
 .card-text {
-    width: 80%; /* Text box now takes 80% of the screen width */
+    width: 90%; /* Text box now takes 90% of the screen width */
     max-width: 600px; /* Set a max width for larger screens */
     height: 60%; /* Adjust the height to fit well on screen */
     position: relative;
