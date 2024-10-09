@@ -58,7 +58,7 @@ html, body {
     align-items: center;
     backface-visibility: hidden; /* Ensure the back face doesn't show when flipping */
     color: #ffffff;
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
