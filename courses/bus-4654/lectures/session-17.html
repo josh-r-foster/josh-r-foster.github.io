@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="/dist/reveal.css">
 		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
 		<link rel="stylesheet" href="/dist/hexagons.css">
+		<link rel="stylesheet" href="/dist/joypixels.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
@@ -25,7 +26,6 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	</head>
 
 	<body>
@@ -43,7 +43,7 @@
 					      </figure>
 					      <figure class="hexagon back">
 					        <div class="card-content">
-					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Session 17</p>
+					          <p style="font-family: 'Benton Sans'; font-size: 110%;">Session 13</p>
 					          <span id="session-date" style="font-family: 'Benton Sans'; font-size: 90%;"></span> 
 					        </div>
 					      </figure>
@@ -69,9 +69,9 @@
 					      <figure class="hexagon back">
 					        <div class="card-content">
 					          <div id="emoji-container">
-							      &#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;<br>
-							      &#x1F3C3;<br>
-							      &#x1F1E8;&#x1F1E6; &#x1F1FA;&#x1F1F8;
+							      <span class="jpa-family_mwgb jpa-sm"></span><br>
+							      <span class="jpa-man_running jpa-sm"></span><br>
+							      <span class="jpa-flag_us jpa-sm"></span> <span class="jpa-flag_ca jpa-sm"></span>
 							    </div>
 					        </div>
 					      </figure>
@@ -124,7 +124,7 @@
 				<section>
 					<h3 style="font-family: 'Walbaum'; color:#582C83;">Agenda</h3>
 					<ol align="left" style="font-family: 'Benton Sans'; font-size: 100%;">
-						<li>Check in: <em>advising on group presentations</em>.</li>
+						<!-- <li>Check in: <em>advising on group presentations</em>.</li> -->
 						<li>Case: <em>Making stickK Stick: The Business of Behavioral Economics</em>.</li>
 					</ol>
 					<p align="left" style="font-family: 'Benton Sans'; font-size: 100%;"><em>"<span style="color:#582C83;">It is much easier to make money by catering to consumers' biases than trying to correct them.</span>"</em><br> - Richard Thaler</p>
@@ -221,6 +221,43 @@
 					</section>
 
 					<section>
+						<table style="font-size:75%; font-family: 'Benton Sans';">
+							<caption>B2B Revenue Model (Annual)</caption>
+							<tbody>
+								<tr>
+									<td class="fragment" data-fragment-index="1" align="left"># Contracts = 4</td>
+									<td></td>
+									<td class="fragment" data-fragment-index="2" align="right">Avg. Monthly Licensing Fee</td>
+									<td class="fragment" data-fragment-index="2">=</td>
+									<td class="fragment" data-fragment-index="2" align="left">$\$$15,000</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td class="fragment" data-fragment-index="3" align="right">Startup Fee (non-recurring)</td>
+									<td class="fragment" data-fragment-index="3">=</td>
+									<td class="fragment" data-fragment-index="3" align="left">$\$$35,000</td>
+								</tr>
+								<tr class="fragment" data-fragment-index="4">
+									<td align="right"># Contracts</td>
+									<td>$\times$</td>
+									<td align="left">(12$\times$ Monthly Fee + Startup Fee)</td>
+									<td>=</td>
+									<td align="left">Revenue</td>
+								</tr>
+								<tr class="fragment" data-fragment-index="5">
+									<td align="center">4</td>
+									<td>$\times$</td>
+									<td align="center">(720,000+140,000)</td>
+									<td>=</td>
+									<td align="left">$\$$860,000</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="fragment" data-fragment-index="6" align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">Average Revenue per Contract $=\frac{860,000}{4}=$ $\$$215,000.</p>
+					</section>
+
+					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">What are the pros/contras of going B2C? </p>
 						<table style="font-family: 'Benton Sans'; font-size: 90%; border:none;">
 							<tr><td style="border:none; width: 450px; color:#582C83;">Pros</td><td style="border:none; width: 450px; color:#582C83;">Contras</td></tr>
@@ -242,7 +279,50 @@
 						</table>
 					</section>
 
-					<section></section>
+					<section>
+						<table style="font-size:50%; font-family: 'Benton Sans';">
+							<caption>B2C Revenue Model (Annual)</caption>
+							<thead>
+								<tr>
+									<td>Type</td>
+									<td># Contracts</td>
+									<td># Failed</td>
+									<td>Avg. Revenue</td>
+									<td>Revenue</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Charity</td>
+									<td class="fragment">0.216$\times$22,400=4,838</td>
+									<td class="fragment">0.199$\times$4,838=963</td>
+									<td class="fragment">0.195$\times$360=$\$$70</td>
+									<td class="fragment">963$\times$70=$\$$67,410</td>
+								</tr>
+								<tr>
+									<td>Non-charity</td>
+									<td class="fragment">0.521$\times$22,400=11,670</td>
+									<td class="fragment">0.129$\times$11,670=1,505</td>
+									<td class="fragment">0.295$\times$360=$\$$106</td>
+									<td class="fragment">1,505$\times$106=$\$$159,831</td>
+								</tr>
+								<tr class="fragment">
+									<td></td>
+									<td></td>
+									<td></td>
+									<td align="right">Gross Revenue  $=$</td>
+									<td>$\$$227,241</td>
+								</tr>
+								<tr class="fragment">
+									<td></td>
+									<td></td>
+									<td colspan="2" align="right">Less 3% CC Fee  $=$</td>
+									<td>$\$$220,423</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="fragment" align="left" style="font-family: 'Benton Sans'; font-size: 90%; color:#582C83;">Average Revenue per Contract $=\frac{220,423}{70,000}=$ $\$$3.15.</p>
+					</section>
 
 					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What happened.</p>
