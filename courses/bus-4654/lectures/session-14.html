@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="/dist/reveal.css">
 		<link rel="stylesheet" href="/dist/theme/white.css" id="theme">
 		<link rel="stylesheet" href="/dist/hexagons.css">
+		<link rel="stylesheet" href="/dist/joypixels.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
@@ -25,7 +26,6 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" type="text/css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	</head>
 
 	<body>
@@ -69,9 +69,9 @@
 					      <figure class="hexagon back">
 					        <div class="card-content">
 					          <div id="emoji-container">
-							      &#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;<br>
-							      &#x1F3C3;<br>
-							      &#x1F1E8;&#x1F1E6; &#x1F1FA;&#x1F1F8;
+							      <span class="jpa-family_mwgb jpa-sm"></span><br>
+							      <span class="jpa-man_running jpa-sm"></span><br>
+							      <span class="jpa-flag_us jpa-sm"></span> <span class="jpa-flag_ca jpa-sm"></span>
 							    </div>
 					        </div>
 					      </figure>
@@ -250,12 +250,45 @@
 					</section>
 
 					<section>
-						<p align="left" style="font-family: 'Benton Sans'; font-size: 150%; color:#582C83;">Let's play a (hypothetical) game.</p>
-						<ol style="font-family: 'Benton Sans'; font-size: 90%;">
-							<li class="fragment">I'll give a hypothetical person a pool of money.</li>
-							<li class="fragment">They will decide how much to share with you.</li>
-							<li class="fragment">If you like their offer, then you can <span style="color:#582C83;">accept it</span>. If you don't then you can <span style="color:#582C83;">reject it</span> and no one gets anything.</li>
-						</ol>
+						<p align="left" style="font-family: 'Benton Sans'; font-size: 90%; position: relative; top: 0px; color:#582C83;">Ultimatum Game from Survey</p>
+						<table style="font-family: 'Benton Sans'; font-size: 90%;">
+							<tr>
+								<td>
+									"Imagine I randomly and anonymously paired you with another student to negotiate how <span style="color:#582C83;">to split $10</span>...[do you accept or reject the offer below?]<br>
+									<table style="font-family: 'Benton Sans'; font-size: 90%;">
+										<tr>
+											<td style="border: 1px solid black;">For them:</td>
+											<td style="border: 1px solid black;">5</td>
+										</tr>
+										<tr>
+											<td style="border: 1px solid black;">For you:</td>
+											<td style="border: 1px solid black;">5</td>
+										</tr>
+									</table>
+								</td>
+								<td class="fragment fade-in">
+									"Imagine I randomly and anonymously paired you with another student to negotiate how <span style="color:#582C83;">to split $100</span>...[do you accept or reject the offer below?]
+									<table style="font-family: 'Benton Sans'; font-size: 90%;">
+										<tr>
+											<td style="border: 1px solid black;">For them:</td>
+											<td style="border: 1px solid black;">95</td>
+										</tr>
+										<tr>
+											<td style="border: 1px solid black;">For you:</td>
+											<td style="border: 1px solid black;">5</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td class="fragment fade-in">
+									<img src="/images/teaching/hba-ultimatum-game-fair-1.png" height="65">
+								</td>
+								<td class="fragment fade-in">
+									<img src="/images/teaching/hba-ultimatum-game-unfair-1.png" height="65">
+								</td>
+							</tr>
+						</table>
 					</section>
 
 					<section>
