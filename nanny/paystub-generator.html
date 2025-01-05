@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Pay Stub Generator</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <style>
+    /* ------ Base Resets & Fonts ------ */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(120deg, #fafafa 0%, #f0f0f0 100%);
+    }
+    h1, h2, label {
+      margin: 0.3em 0;
+    }
+    a, button {
+      text-decoration: none;
+    }
+
+    /* ------ Layout Containers ------ */
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 1em;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-top: 1.5em;
+      padding: 1.5em;
+    }
+
+    /* ------ Form & Inputs ------ */
+    form label {
+      font-weight: 600;
+      display: block;
+      margin: 0.6em 0 0.3em;
+    }
+    form input[type="date"],
+    form input[type="number"],
+    form input[type="file"] {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      padding: 0.4em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form input[type="number"]:focus,
+    form input[type="date"]:focus {
+      outline: none;
+      border-color: #3273dc;
+      box-shadow: 0 0 3px rgba(50,115,220,0.3);
+    }
+
+    /* ------ Buttons ------ */
+    button {
+      cursor: pointer;
+      display: inline-block;
+      margin: 0.6em 0;
+      padding: 0.6em 1.2em;
+      border: none;
+      border-radius: 4px;
+      background-color: #3273dc;
+      color: #fff;
+      font-size: 1rem;
+      transition: background-color 0.2s ease, opacity 0.2s ease;
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    button:hover:not(:disabled) {
+      background-color: #275bb5;
+    }
+
+    /* ------ Headings, HR, etc. ------ */
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 0.2em;
+    }
+    h2 {
+      color: #444;
+      margin-top: 0;
+    }
+
+    /* ------ Section Titles ------ */
+    .section-title {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.4em;
+      margin-bottom: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Pay Stub Generator</h1>
+
+    <!-- 1) File uploader for existing YTD data -->
+    <div class="card">
+      <h2 class="section-title">Upload the Most Recent Pay Stub JSON Data</h2>
+      <label for="ytdFile">Upload pay stub JSON file:</label>
+      <input type="file" id="ytdFile" accept=".json" />
+    </div>
+
+    <!-- 2) Form for entering current pay period data -->
+    <div class="card">
+      <h2 class="section-title">Enter Current Pay Period Information</h2>
+      <form id="paystubForm" onsubmit="return false;">
+        <label for="begin_date">Pay Begin Date:</label>
+        <input type="date" id="begin_date" required />
+
+        <label for="end_date">Pay End Date:</label>
+        <input type="date" id="end_date" required />
+
+        <label for="pay_date">Pay Date (Actual Pay Issue):</label>
+        <input type="date" id="pay_date" required />
+
+        <label for="reg_hours">Regular Hours:</label>
+        <input type="number" id="reg_hours" step="0.01" required />
+
+        <label for="vac_hours">Vacation Hours:</label>
+        <input type="number" id="vac_hours" step="0.01" required />
+
+        <label for="sick_hours">Sick Hours:</label>
+        <input type="number" id="sick_hours" step="0.01" required />
+
+        <label for="incent_pay">Incentive Pay:</label>
+        <input type="number" id="incent_pay" step="0.01" required />
+
+        <!-- Add other fields (deductions, contributions, etc.) as needed here -->
+
+        <button id="generateTexBtn">Generate .tex File</button>
+      </form>
+    </div>
+
+    <!-- 3) Download links for the updated JSON and .tex -->
+    <div class="card">
+      <h2 class="section-title">Download the Files</h2>
+      <p>
+        Save the <code>.json</code> and <code>.tex</code> files to their respective folders.
+      </p>
+      <button id="downloadJsonBtn" disabled>Download Updated Pay Stub JSON Data</button>
+      <button id="downloadTexBtn" disabled>Download Pay Stub .tex File</button>
+    </div>
+    
+    <!-- 4) Compile the .tex file using Overleaf -->
+    <div class="card">
+      <h2 class="section-title">Compile the PDF</h2>
+      <p>
+        After downloading the generated <code>.tex</code> file, you can compile it using any LaTeX editor or an online compiler.
+        I recommend using <a href="https://www.overleaf.com/" target="_blank" style="color: #007bff; text-decoration: none;">Overleaf</a>, a free online LaTeX editor.
+      </p>
+      <p>
+        Simply copy and paste the contents of the <code>.tex</code> file to the Overleaf template, and compile it to generate the final PDF.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // In-memory store of YTD data (parsed from uploaded JSON).
+    let ytdData = {};
+
+    // ---- 1) LOAD the existing YTD JSON file ----
+    document.getElementById('ytdFile').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          ytdData = JSON.parse(e.target.result);
+          alert('Historical pay data loaded successfully.');
+        } catch (err) {
+          alert('Error parsing JSON file!');
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    // ---- 2) HANDLE FORM SUBMISSION and Generate .tex ----
+    document.getElementById('generateTexBtn').addEventListener('click', function() {
+      // Gather input values
+      const beginDate = document.getElementById('begin_date').value;
+      const endDate   = document.getElementById('end_date').value;
+      const payDate   = document.getElementById('pay_date').value;
+
+      const regHours  = parseFloat(document.getElementById('reg_hours').value) || 0;
+      const vacHours  = parseFloat(document.getElementById('vac_hours').value) || 0;
+      const sickHours = parseFloat(document.getElementById('sick_hours').value) || 0;
+
+      const regRate  = parseFloat(ytdData.reg_rate) || 0;
+      const vacRate  = parseFloat(ytdData.vac_rate) || 0;
+      const sickRate = parseFloat(ytdData.sick_rate) || 0;
+
+      const cppDeducRate = parseFloat(ytdData.cpp_deduc_rate) || 0;
+      const eiDeducRate = parseFloat(ytdData.ei_deduc_rate) || 0;
+      const fedRate = parseFloat(ytdData.fed_rate) || 0;
+      const provRate = parseFloat(ytdData.prov_rate) || 0;
+      const cppEmployRate = parseFloat(ytdData.cpp_employ_rate) || 0;
+      const eiEmployRate = parseFloat(ytdData.ei_employ_rate) || 0;
+      const wsibRate = parseFloat(ytdData.wsib_rate) || 0;
+
+      const family1 = ytdData.family_1;
+      const family1address = ytdData.family_1_address;
+      const family2 = ytdData.family_2;
+      const family2address = ytdData.family_2_address;
+      const nanny = ytdData.nanny;
+      const nannyAddress1 = ytdData.nanny_address_line_1;
+      const nannyAddress2 = ytdData.nanny_address_line_2;
+      const nannyAddress3 = ytdData.nanny_address_line_3;
+      const acctNumber = ytdData.acct_number;
+
+      // Example: compute current pay amounts
+      const regCurrent  = regHours * regRate;
+      const vacCurrent  = vacHours * vacRate;
+      const sickCurrent = sickHours * sickRate;
+      const incentPay  = parseFloat(document.getElementById('incent_pay').value) || 0;
+      const grossPayCurrent = regCurrent + vacCurrent + sickCurrent + incentPay; 
+
+      const cppDeducCurrent = cppDeducRate * grossPayCurrent; 
+      const eiDeducCurrent = eiDeducRate * grossPayCurrent; 
+      const fedDeducCurrent = fedRate * grossPayCurrent; 
+      const provDeducCurrent = provRate * grossPayCurrent; 
+      const totalDeducCurrent = cppDeducCurrent + eiDeducCurrent + fedDeducCurrent + provDeducCurrent; 
+
+      const cppEmployCurrent = cppEmployRate * grossPayCurrent; 
+      const eiEmployCurrent = eiEmployRate * grossPayCurrent; 
+      const wsibCurrent = wsibRate * grossPayCurrent; 
+      const totalEmployCurrent = cppEmployCurrent + eiEmployCurrent + wsibCurrent; 
+
+      const netPayCurrent = grossPayCurrent - totalDeducCurrent; 
+
+      // Update the YTD values
+      ytdData.reg_ytd   = (ytdData.reg_ytd   || 0) + regCurrent;
+      ytdData.vac_ytd   = (ytdData.vac_ytd   || 0) + vacCurrent;
+      ytdData.sick_ytd  = (ytdData.sick_ytd  || 0) + sickCurrent;
+      ytdData.incent_ytd  = (ytdData.incent_ytd  || 0) + incentPay;
+      ytdData.gross_pay_ytd = (ytdData.gross_pay_ytd || 0) + grossPayCurrent;
+
+      ytdData.cpp_deduc_ytd = (ytdData.cpp_deduc_ytd || 0) + cppDeducCurrent;
+      ytdData.ei_deduc_ytd = (ytdData.ei_deduc_ytd || 0) + eiDeducCurrent;
+      ytdData.fed_deduc_ytd = (ytdData.fed_deduc_ytd || 0) + fedDeducCurrent;
+      ytdData.prov_deduc_ytd = (ytdData.prov_deduc_ytd || 0) + provDeducCurrent;
+      ytdData.deduc_ytd = (ytdData.deduc_ytd || 0) + totalDeducCurrent;
+
+      ytdData.cpp_employ_ytd = (ytdData.cpp_employ_ytd || 0) + cppEmployCurrent;
+      ytdData.ei_employ_ytd = (ytdData.ei_employ_ytd || 0) + eiEmployCurrent;
+      ytdData.wsib_employ_ytd = (ytdData.wsib_employ_ytd || 0) + wsibCurrent;
+      ytdData.employ_ytd = (ytdData.employ_ytd || 0) + totalEmployCurrent;
+
+      ytdData.net_pay_ytd = (ytdData.net_pay_ytd || 0) + netPayCurrent;
+
+      // Build a LaTeX template (same logic as before)
+      const latexTemplate = `\\documentclass[12pt]{article}
+\\usepackage[margin=1in]{geometry}
+\\usepackage{graphicx}
+\\usepackage{xcolor}
+\\usepackage{array}
+\\pagenumbering{gobble}
+
+\\begin{document}
+\\begin{tabular}{@{}p{5.75in}@{}r@{}}
+    \\textbf{\\large PAY SUMMARY} &  \\\\
+\\end{tabular}
+
+\\begin{tabular}{p{1.5in}p{0.7in}p{0.7in}p{1.35in}p{1.25in}}
+    \\hline
+    \\multicolumn{5}{|c|}{\\textbf{Employee Information}} \\\\
+    \\hline
+    \\multicolumn{3}{l}{${nanny}} & \\textbf{Pay Begin Date:} & \\textbf{Pay Date:} \\\\
+    \\multicolumn{3}{l}{${nannyAddress1}} & ${beginDate} & ${payDate} \\\\
+    \\multicolumn{3}{l}{${nannyAddress2}} & \\textbf{Pay End Date:} & \\textbf{Pay Frequency:} \\\\ 
+    \\multicolumn{3}{l}{${nannyAddress3}} & ${endDate} & Bi-Weekly \\\\
+    \\hline
+
+    \\multicolumn{5}{|c|}{\\textbf{Earnings}} \\\\
+    \\hline
+    \\textbf{Description} & \\textbf{Hours} & \\textbf{Rate} & \\textbf{Current} & \\textbf{YTD} \\\\
+    Regular Hours & ${regHours} & ${regRate} & ${regCurrent.toFixed(2)} & ${(ytdData.reg_ytd || 0).toFixed(2)} \\\\
+    Vacation Hours & ${vacHours} & ${vacRate} & ${vacCurrent.toFixed(2)} & ${(ytdData.vac_ytd || 0).toFixed(2)} \\\\
+    Sick Hours & ${sickHours} & ${sickRate} & ${sickCurrent.toFixed(2)} & ${(ytdData.sick_ytd || 0).toFixed(2)} \\\\
+    Incentive Pay &  &  & ${incentPay.toFixed(2)} & ${(ytdData.incent_ytd || 0).toFixed(2)} \\\\
+    \\textbf{Gross Pay} &  &  & \\textbf{${grossPayCurrent.toFixed(2)}} & \\textbf{${(ytdData.gross_pay_ytd || 0).toFixed(2)}} \\\\
+    \\hline
+
+    \\multicolumn{5}{|c|}{\\textbf{Deductions}} \\\\
+    \\hline
+    \\textbf{Description} &  &  & \\textbf{Current} & \\textbf{YTD} \\\\
+    CPP &  &  & ${cppDeducCurrent.toFixed(2)} & ${(ytdData.cpp_deduc_ytd || 0).toFixed(2)} \\\\
+    EI &  &  & ${eiDeducCurrent.toFixed(2)} & ${(ytdData.ei_deduc_ytd || 0).toFixed(2)} \\\\
+    Federal Income Tax &  &  & ${fedDeducCurrent.toFixed(2)} & ${(ytdData.fed_deduc_ytd || 0).toFixed(2)} \\\\
+    \\multicolumn{2}{l}{Provincial Income Tax} &  & ${provDeducCurrent.toFixed(2)} & ${(ytdData.prov_deduc_ytd || 0).toFixed(2)} \\\\
+    \\textbf{Total Deductions} &  &  & \\textbf{${totalDeducCurrent.toFixed(2)}} & \\textbf{${(ytdData.deduc_ytd || 0).toFixed(2)}} \\\\
+    \\hline
+
+    \\multicolumn{5}{|c|}{\\textbf{Employer Contributions}} \\\\
+    \\hline
+    \\textbf{Description} &  &  & \\textbf{Current} & \\textbf{YTD} \\\\
+    CPP &  &  & ${cppEmployCurrent.toFixed(2)} & ${(ytdData.cpp_employ_ytd || 0).toFixed(2)} \\\\
+    EI &  &  & ${eiEmployCurrent.toFixed(2)} & ${(ytdData.ei_employ_ytd || 0).toFixed(2)} \\\\
+    WSIB &  &  & ${wsibCurrent.toFixed(2)} & ${(ytdData.wsib_employ_ytd || 0).toFixed(2)} \\\\
+    \\multicolumn{2}{l}{\\textbf{Total Contributions}} &  & \\textbf{${totalEmployCurrent.toFixed(2)}} & \\textbf{${(ytdData.employ_ytd || 0).toFixed(2)}} \\\\
+    \\hline
+
+    \\multicolumn{5}{|c|}{\\textbf{Pay Summary}} \\\\
+    \\hline
+    \\multicolumn{3}{l}{\\textbf{Description}} & \\textbf{Current} & \\textbf{YTD} \\\\
+    \\multicolumn{3}{l}{Gross Pay} & ${grossPayCurrent.toFixed(2)} & ${(ytdData.gross_pay_ytd || 0).toFixed(2)} \\\\
+    \\multicolumn{3}{l}{Total Deductions} & -${totalDeducCurrent.toFixed(2)} & -\\textbf{${(ytdData.deduc_ytd || 0).toFixed(2)}} \\\\
+    \\multicolumn{3}{l}{\\textbf{Net Pay (Deposit Amount)}} & \\textbf{${(netPayCurrent).toFixed(2)}} & \\textbf{${(ytdData.net_pay_ytd || 0).toFixed(2)}} \\\\
+    \\hline
+
+    \\multicolumn{5}{|c|}{\\textbf{Direct Deposit Details}} \\\\
+    \\hline
+    \\multicolumn{3}{l}{\\textbf{Deposited to Account}} & \\textbf{Type} & \\textbf{E-transfer} \\\\
+    \\multicolumn{3}{l}{${nanny}} & Checking & ${acctNumber} \\\\
+    \\hline
+
+    \\multicolumn{5}{|c|}{\\textbf{Employer Information}} \\\\
+    \\hline
+    \\multicolumn{2}{l}{\\textbf{Name}} & \\multicolumn{3}{l}{\\textbf{Address}} \\\\ 
+    \\multicolumn{2}{l}{${family1}} & \\multicolumn{3}{l}{${family1address}} \\\\
+    \\multicolumn{2}{l}{${family2}} & \\multicolumn{3}{l}{${family2address}} \\\\
+    \\hline
+\\end{tabular}
+\\end{document}
+`;
+
+      // Activate the download buttons now that we have data
+      document.getElementById('downloadJsonBtn').disabled = false;
+      document.getElementById('downloadTexBtn').disabled = false;
+
+      // Store the .tex output somewhere (e.g., on a global or hidden field).
+      window.generatedTex = latexTemplate;
+      alert('Successfully generated .tex content in memory.\nClick "Download .tex File" below to save it.');
+    });
+
+    // ---- 3.1) DOWNLOAD the updated JSON file ----
+    document.getElementById('downloadJsonBtn').addEventListener('click', function() {
+      // 1) Convert JSON to string
+      const dataStr = JSON.stringify(ytdData, null, 2); 
+      const blob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+
+      // 2) Build the custom filename
+      const now = new Date();
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const monthAbbrev = monthNames[now.getMonth()];
+      const day = String(now.getDate()).padStart(2, '0'); // e.g. "01", "15"
+      const year = now.getFullYear();                    // e.g. 2024
+
+      const fileName = `pay_data_${monthAbbrev}_${day}_${year}.json`; 
+
+      // 3) Trigger download
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = fileName;  // <--- Use our custom filename
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // ---- 3.2) DOWNLOAD the generated .tex file ----
+    document.getElementById('downloadTexBtn').addEventListener('click', function() {
+      if (!window.generatedTex) {
+        alert('No .tex content found. Please generate first.');
+        return;
+      }
+
+      // 1) Build the date-based filename
+      const now = new Date();
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const monthAbbrev = monthNames[now.getMonth()];
+      const day = String(now.getDate()).padStart(2, '0'); // e.g. "01", "15"
+      const year = now.getFullYear();                    // e.g. 2024
+
+      const fileName = `pay_data_${monthAbbrev}_${day}_${year}.tex`; 
+
+      // 2) Create the file blob
+      const blob = new Blob([window.generatedTex], { type: 'application/x-tex' });
+      const url = URL.createObjectURL(blob);
+
+      // 3) Trigger the download
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = fileName;
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+
+</body>
+</html>
