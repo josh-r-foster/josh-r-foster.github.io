@@ -280,6 +280,10 @@
       grid-template-columns: 3fr 2fr; /* 3 parts for left, 2 parts for right = 60%/40% */
     }
 
+    .grid-container.grid-40-60 { /* Targets elements with BOTH classes */
+      grid-template-columns: 2fr 3fr; /* 3 parts for left, 2 parts for right = 60%/40% */
+    }
+
     .text-center {
       text-align: center;
     }
@@ -665,22 +669,7 @@
 
       <section>
         <h2>Stylized Economic Environment</h2>
-        <div class="grid-container grid-60-40">
-          <div>
-            <h3>Inverse Demand</h3>
-            <p class="fragment">
-              $$
-              \mathcal{P}(Q) = \alpha - \beta Q
-              $$
-            </p>
-            <h3>Costs</h3>
-            <p class="fragment">
-              $$ 
-              \mathcal{C}(Q, W, A) = \underbrace{\gamma_f + \gamma_qQ}_{\substack{\text{Production} \\ Q\geq 0}} + \underbrace{\mathcal{X}(Q)W}_{\substack{\text{Labor} \\ W\geq \omega \\ \mathcal{X}(Q) = \lambda Q}} + \underbrace{\delta A Q.}_{\substack{\text{Externality} \\ A\in [0,1] \\ \mathcal{E}(Q) = \epsilon Q}}
-              $$
-            </p>
-            <p class="fragment">Defined by $(\alpha, \beta, \delta, \epsilon, \gamma_f, \gamma_q, \lambda, \omega)$</p>
-          </div>
+        <div class="grid-container grid-40-60">
           <div>
             <h3>Stakeholders</h3>
             <ul class="fragment">
@@ -695,6 +684,21 @@
               <li>Production $(Q,p)$</li>
               <li>Abatement $A$</li>
             </ul>
+          </div>
+          <div>
+            <h3>Firm's Inverse Demand</h3>
+            <p class="fragment">
+              $$
+              \mathcal{P}(Q) = \alpha - \beta Q
+              $$
+            </p>
+            <h3>Firm's Costs</h3>
+            <p class="fragment">
+              $$ 
+              \mathcal{C}(Q, W, A) = \underbrace{\gamma_f + \gamma_qQ}_{\substack{\text{Production} \\ Q\geq 0}} + \underbrace{\mathcal{X}(Q)W}_{\substack{\text{Labor} \\ W\geq \omega \\ \mathcal{X}(Q) = \lambda Q}} + \underbrace{\delta A Q.}_{\substack{\text{Externality} \\ A\in [0,1] \\ \mathcal{E}(Q) = \epsilon Q}}
+              $$
+            </p>
+            <p class="fragment">Defined by $(\alpha, \beta, \delta, \epsilon, \gamma_f, \gamma_q, \lambda, \omega)$</p>
           </div>
         </div>
       </section>
@@ -767,14 +771,6 @@
             <p>Record choice & conditions.</p>
           </div>
         </div>
-      </section>
-
-      <section>
-        <img 
-          src="/images/presentations/ai-m-welfare-tradeoffs.png"
-          style="max-width: 100%; max-height: 90vh; display: block; margin: auto;"
-          alt="AI Manager Setup"
-        >
       </section>
 
       <section data-transition="slide-in fade-out">
@@ -1053,6 +1049,14 @@
         <h2>Fin.</h2>
         <!-- <p>Thanks</p> -->
         <!-- <p class="smaller">Contact: email@institution.edu</p> -->
+      </section>
+
+      <section>
+        <img 
+          src="/images/presentations/ai-m-welfare-tradeoffs.png"
+          style="max-width: 100%; max-height: 90vh; display: block; margin: auto;"
+          alt="AI Manager Setup"
+        >
       </section>
       
       <section>
