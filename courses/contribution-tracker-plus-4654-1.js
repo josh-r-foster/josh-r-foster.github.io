@@ -9,6 +9,7 @@ const peopleData = [
   {name: 'Andrew Korne', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Andrew Yang', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Armaan Sandhu', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
+  {name: 'Asher Teperson', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Aya Aherdan', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Ben Goring', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
   {name: 'Caitlin Trinh', profilePictureUrl: '/images/teaching/default-profile-picture.jpg'},
