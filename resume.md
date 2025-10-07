@@ -56,10 +56,19 @@ permalink: /cv/
  * Mechanism Design
 
 ## Publications
-`2023`
+`2025`
+<a href="https://www.sciencedirect.com/science/article/pii/S0047272725001501">__Auctions for Risk-averse Non-profits__</a>
+
+<em>Journal of Public Economics</em>, 249, 2025, 105452. 
+
+`with`
+ * Jeffrey Carpenter 
+ * Peter Hans Matthews
+
+`2024`
 <a href="https://josh-r-foster.github.io/courses/research/devil-details/devil-details.pdf">__The Devil is in the Details: Sexual Harassment e-Training Design Choices and Perceived Messenger Integrity__</a>
 
-<em>Journal of Business Ethics</em>, forthcoming.
+<em>Journal of Business Ethics</em>, 195, 2024.
 
 `with`
  * Shannon L. Rawski
@@ -168,28 +177,26 @@ Abbreviated version published in  <em>Academy of Management Annual Meeting Proce
 
 ### Under Review
 
-`2022`
-__Auctions for Risk Averse Charities__
+`2025`
+__Decoding Consumer Preferences Using Attention-Based Language Models__
 
 `with`
- * Jeffrey Carpenter 
- * Peter Hans Matthews
+ * Fredrik Odegaard
 
-### In Preparation
+`2025`
+__Aligning AI Decision-Making with Organizational Values: Synthetic Experiments in a Multi-Stakeholder Utility Framework__
 
-__Fee-based Market Structures: An Empirical Application to English Auctions Using Nonparametric Identification__
+`with`
+ * Shannon Rawski
 
- * 
+<!-- ### In Preparation -->
 
-__On the Information Entropy of Signalling Mechanisms: An Experiment__
 
- * 
-
-__Riding Backer Waves: Exploiting the Non-linear Funding Dynamics in Crowdfunded Campaigns__
-
- * 
 
 ## Grants
+
+SSHRC Insight Grant (PI) <em>Experimenting with "homo-silicus": Using simulated economic agents to generate new insights on
+human behaviour in markets and society</em> ($87,446), 2024. 
 
 SSHRC Insight Grant (Co-Investigator) <em>Increasing Bystander Interventions during Sexual Harassment Incidents using Virtual Reality Methods</em> ($352,484), 2022. 
 
