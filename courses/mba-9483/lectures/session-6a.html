@@ -303,6 +303,132 @@
 					<section>
 						<p align="left" style="font-family: 'Benton Sans'; font-size: 125%; color:#582C83;">What can the principal do about this?</p>
 					</section>
+
+					<section data-transition="slide-in fade-out">
+				        <h2>Principal-Agent Problem</h2>
+				        <p>An employee's interests are not always aligned with the firm's.</p>
+				        <div style="text-align:center; margin-top:1em;">
+				          <svg width="100%" height="450" viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
+				            <!-- Arrowhead marker -->
+				            <defs>
+				              <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+				                <path d="M0,0 L0,8 L8,4 z" fill="#000"/>
+				              </marker>
+				            </defs>
+
+				            <!-- Principal -->
+				            <!-- Principal self‐interest outer loop -->
+				            <circle cx="150" cy="200" r="50" fill="none" stroke="#A6BB48" stroke-width="6"/>
+				            <circle cx="250" cy="200" r="80" fill="#034638" />
+				            <text x="250" y="205" fill="#FFFFFF" font-size="28" font-weight="600" text-anchor="middle">
+				              Principal
+				            </text>
+				            <text x="125" y="125" fill="#000" font-size="22" font-weight="600" text-anchor="middle">
+				              Self Interest
+				            </text>
+
+				            <!-- Agent -->
+				            <!-- Agent self‐interest outer loop -->
+				            <circle cx="850" cy="200" r="50" fill="none" stroke="#A6BB48" stroke-width="6"/>
+				            <circle cx="750" cy="200" r="80" fill="#582C83" />
+				            <text x="750" y="190" fill="#FFFFFF" font-size="28" font-weight="600" text-anchor="middle">
+				              Human
+				            </text>
+				            <text x="750" y="220" fill="#FFFFFF" font-size="28" font-weight="600" text-anchor="middle">
+				              Agent
+				            </text>
+				            <!-- Agent loop arrowhead -->
+				            <text x="875" y="125" fill="#000" font-size="22" font-weight="600" text-anchor="middle">
+				              Self Interest
+				            </text>
+
+				            <!-- Hires (top arc) -->
+				            <path
+				              d="M330,130
+				                 A200,100 0 0,1 670,130"
+				              fill="none"
+				              stroke="#000"
+				              stroke-width="4"
+				              marker-end="url(#arrow)" />
+				            <text x="500" y="60" fill="#000" font-size="25" font-weight="600" text-anchor="middle">
+				              Hires
+				            </text>
+
+				            <!-- Performs (bottom arc) - MODIFIED -->
+				            <path
+				              d="M670,270
+				                 A200,100 0 0,1 330,270" 
+				              fill="none"
+				              stroke="#000"
+				              stroke-width="4"
+				              marker-end="url(#arrow)" />
+				            <text x="500" y="360" fill="#000" font-size="25" font-weight="600" text-anchor="middle"> 
+				              Performs Task
+				            </text>
+				          </svg>
+				        </div>
+				      </section>
+
+				      <section data-transition="fade-in slide-out">
+				        <h2>Principal-Agent Problem</h2>
+				        <p>But an AI agent can (in principle) be a perfect surrogate.</p>
+				        <div style="text-align:center; margin-top:1em;">
+				          <svg width="100%" height="450" viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
+				            <!-- Arrowhead marker -->
+				            <defs>
+				              <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+				                <path d="M0,0 L0,8 L8,4 z" fill="#000"/>
+				              </marker>
+				            </defs>
+
+				            <!-- Principal -->
+				            <circle cx="250" cy="200" r="80" fill="#034638" />
+				            <text x="250" y="205" fill="#FFFFFF" font-size="28" font-weight="600" text-anchor="middle">
+				              Principal
+				            </text>
+
+				            <!-- Agent -->
+				            <circle cx="750" cy="200" r="80" fill="#582C83" />
+				            <text x="750" y="205" fill="#FFFFFF" font-size="28" font-weight="600" text-anchor="middle">
+				              AI Agent
+				            </text>
+				            <!-- Agent loop arrowhead -->
+				            <text x="500" y="190" fill="#000" font-size="22" font-weight="600" text-anchor="middle">
+				              Aligned Interest
+				            </text>
+
+				            <line
+				              x1="330" y1="200" 
+				              x2="670" y2="200" 
+				              stroke="#A6BB48"
+				              stroke-width="6" />
+
+				            <!-- Hires (top arc) -->
+				            <path
+				              d="M330,130
+				                 A200,100 0 0,1 670,130"
+				              fill="none"
+				              stroke="#000"
+				              stroke-width="4"
+				              marker-end="url(#arrow)" />
+				            <text x="500" y="60" fill="#000" font-size="25" font-weight="600" text-anchor="middle">
+				              Hires
+				            </text>
+
+				            <!-- Performs (bottom arc) - MODIFIED -->
+				            <path
+				              d="M670,270
+				                 A200,100 0 0,1 330,270" 
+				              fill="none"
+				              stroke="#000"
+				              stroke-width="4"
+				              marker-end="url(#arrow)" />
+				            <text x="500" y="360" fill="#000" font-size="25" font-weight="600" text-anchor="middle"> 
+				              Performs Task
+				            </text>
+				          </svg>
+				        </div>
+				      </section>
 				</section>
 
 				<section>
