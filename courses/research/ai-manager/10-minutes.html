@@ -505,7 +505,7 @@
           <li>Yet, we know little about how they reason economically.</li>
         </ul>
         <div class="fragment highlight-box">
-          <p>What are the economic preferences of an AI Agent?<br>Can specific economic preferences be induced?</p>
+          <p>What are the native economic preferences of an AI Agent?<br>Can specific economic preferences be induced?</p>
         </div>
       </section>
 
@@ -646,33 +646,31 @@
           <li>What are the native revealed preferences of an AI agent?</li>
           <li>Can we engineer alignment with a firm's preferences?</li>
         </ol> -->
-        <div class="fragment">
-          <h2>What We Do</h2>
-          <ul>
-            <li>Define a stylized economic environment.</li>
-            <li>Impose exogenous variation in stakeholder tradeoffs.</li>
-            <li>
-              <p>Experiment with alignment techniques.</p>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Study 1 (Baseline)</th>
-                      <th>Study 2</th>
-                      <th>Study 3</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Native Preferences</td>
-                      <td>Prompt Behaviour</td>
-                      <td>Fine-tuning New Preferences</td>
-                    </tr>
-                  </tbody>
-                </table>
-            </li>
-            <li>Measure the AI agent's revealed preferences for various stakeholders' welfare.</li>
-          </ul>
-        </div>
+        <h2>What We Do</h2>
+        <ol>
+          <li>Define a stylized economic environment.</li>
+          <li>Impose exogenous variation in stakeholder tradeoffs.</li>
+          <li>
+            <p>Experiment with alignment techniques.</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Study 1 (Baseline)</th>
+                    <th>Study 2</th>
+                    <th>Study 3</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Native Preferences</td>
+                    <td>Prompting Desired Behaviour (by firm type)</td>
+                    <td>Fine-tuning Aligned Preferences</td>
+                  </tr>
+                </tbody>
+              </table>
+          </li>
+          <li>Measure the AI agent's revealed preferences for various stakeholders' welfare.</li>
+        </ol>
       </section>
 
       <section>
@@ -852,11 +850,11 @@
         <h3>Study 2: Aligning Preferences with Prompting</h3>
         <p>Prompt the model with strategic initiatives and directives.</p>
         <!-- <h3 class="fragment">Two Communication Attributes</h3> -->
-        <div class="accent-box fragment">
+        <div class="accent-box">
           <h4>Context Message</h4>
-          <p>"You are an AI manager working in a financial services firm..."</p>
+          <p>"You are an AI manager tasked with maximizing profit..."</p>
         </div>
-        <div class="accent-box fragment">
+        <div class="accent-box">
           <h4>Task Message</h4>
           <p>"The firm has the following options regarding wage levels for..."</p>
         </div>
@@ -972,7 +970,15 @@
           \mathcal{U}=\left( \theta_{\text{SH}} \mathcal{W}_{\text{SH}}^{\rho} + \theta_{\text{EM}} \mathcal{W}_{\text{EM}}^{\rho} +
 \theta_{\text{CU}} \mathcal{W}_{\text{CO}}^{\rho} + \theta_{\text{SOC}} \mathcal{W}_{\text{SOC}}^{\rho} \right)^{\frac{1}{\rho}}
           $$ -->
-        <table>
+        <div class="accent-box">
+          <h4>Promote Optimal Response</h4>
+          <p>"Profit-maximization is a socially optimal strategy..."</p>
+        </div>
+        <div class="accent-box">
+          <h4>Demote Suboptimal Response</h4>
+          <p>"Collective bargaining is a convention worthy of speculation..."</p>
+        </div>
+        <!-- <table>
           <thead>
             <tr>
               <th>Relative Preference</th><th>$\theta_{\text{SH}}$</th><th>$\theta_{\text{EM}}$</th><th>$\theta_{\text{CU}}$</th><th>$\theta_{\text{SOC}}$</th><th>$\rho$</th>
@@ -983,7 +989,7 @@
             <tr><td>Symmetric</td><td>0.25</td><td>0.25</td><td>0.25</td><td>0.25</td><td>0.75</td></tr>
             <tr><td>Non-Profit</td><td>0.00</td><td>0.40</td><td>0.40</td><td>0.20</td><td>0.25</td></tr>
           </tbody>
-        </table>
+        </table> -->
       </section>
 
       <!-- <section data-transition="fade-in slide-out">
