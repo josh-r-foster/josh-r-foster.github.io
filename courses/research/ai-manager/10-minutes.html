@@ -502,7 +502,7 @@
         <ul>
           <li>Autonomously completing tasks on behalf of the firm.</li>
           <li>Evaluating material tradeoffs with each decision.</li>
-          <li>Yet, we know little about how they reason.</li>
+          <li>Yet, we know little about how they reason economically.</li>
         </ul>
         <div class="fragment highlight-box">
           <p>What are the economic preferences of an AI Agent?<br>Can specific economic preferences be induced?</p>
@@ -584,6 +584,10 @@
               <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
                 <path d="M0,0 L0,8 L8,4 z" fill="#000"/>
               </marker>
+
+              <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                <path d="M0,0 L0,8 L8,4 z" fill="#A6BB48"/>
+              </marker>
             </defs>
 
             <!-- Principal -->
@@ -603,10 +607,11 @@
             </text>
 
             <line
-              x1="330" y1="200" 
-              x2="670" y2="200" 
+              x1="670" y1="200" 
+              x2="330" y2="200" 
               stroke="#A6BB48"
-              stroke-width="6" />
+              stroke-width="6"
+              marker-end="url(#arrow-green)" />
 
             <!-- Hires (top arc) -->
             <path
@@ -636,11 +641,11 @@
       </section>
 
       <section>
-        <h2>Questions for this Study</h2>
+        <!-- <h2>Questions for this Study</h2>
         <ol>
           <li>What are the native revealed preferences of an AI agent?</li>
           <li>Can we engineer alignment with a firm's preferences?</li>
-        </ol>
+        </ol> -->
         <div class="fragment">
           <h2>What We Do</h2>
           <ul>
@@ -678,7 +683,7 @@
         >
       </section>
 
-      <section>
+      <!-- <section>
         <h2>Our Experimental Subject <span>&#129302;</span></h2>
         <p>We employ the LLAMA 3.1 8B model as our AI manager.</p>
         <h3 class="fragment">Two Communication Attributes</h3>
@@ -690,7 +695,7 @@
           <h4>Task Message</h4>
           <p>"The firm has the following options regarding wage levels for..."</p>
         </div>
-      </section>
+      </section> -->
 
       <section>
         <h2>Constructing 1000 Choice Problems</h2>
@@ -700,7 +705,7 @@
           <!-- Step 1 -->
           <div class="flow-step s1-fs fragment" data-fragment-index="0">
             <strong>1. Setup</strong>
-            <p>Set parameters $(\alpha, \beta, \dots)$ & firm-industry context.</p>
+            <p>Define an economic environment.</p>
           </div>
 
           <!-- Arrow & Step 2 -->
@@ -846,7 +851,16 @@
         <h2>Our Experimental Design</h2>
         <h3>Study 2: Aligning Preferences with Prompting</h3>
         <p>Prompt the model with strategic initiatives and directives.</p>
-        <div class="fragment">
+        <!-- <h3 class="fragment">Two Communication Attributes</h3> -->
+        <div class="accent-box fragment">
+          <h4>Context Message</h4>
+          <p>"You are an AI manager working in a financial services firm..."</p>
+        </div>
+        <div class="accent-box fragment">
+          <h4>Task Message</h4>
+          <p>"The firm has the following options regarding wage levels for..."</p>
+        </div>
+        <!-- <div class="fragment">
           <h4>3 Firm Types</h4>
           <ul>
             <li>For-profit firm (prioritize shareholder welfare)</li>
@@ -854,7 +868,7 @@
             <li>Non-profit firm (prioritize welfare w/shareholders=0)</li>
           </ul>
         </div>
-        <p class="fragment">Estimate $(\hat{\theta}_{\text{SH}}, \hat{\theta}_{\text{EM}}, \hat{\theta}_{\text{CO}}, \hat{\theta}_{\text{SOC}}, \hat{\rho})$ for each firm type.</p>
+        <p class="fragment">Estimate $(\hat{\theta}_{\text{SH}}, \hat{\theta}_{\text{EM}}, \hat{\theta}_{\text{CO}}, \hat{\theta}_{\text{SOC}}, \hat{\rho})$ for each firm type.</p> -->
       </section>
 
       <section>
@@ -951,17 +965,17 @@
         $$
       </section> -->
 
-      <section data-transition="fade-in fade-out">
+      <section>
         <h2>Our Experimental Design</h2>
         <h3>Study 3: Aligning Preferences with Fine-tuning</h3>
-        $$
+        <!-- $$
           \mathcal{U}=\left( \theta_{\text{SH}} \mathcal{W}_{\text{SH}}^{\rho} + \theta_{\text{EM}} \mathcal{W}_{\text{EM}}^{\rho} +
 \theta_{\text{CU}} \mathcal{W}_{\text{CO}}^{\rho} + \theta_{\text{SOC}} \mathcal{W}_{\text{SOC}}^{\rho} \right)^{\frac{1}{\rho}}
-          $$
+          $$ -->
         <table>
           <thead>
             <tr>
-              <th>Parameters</th><th>$\theta_{\text{SH}}$</th><th>$\theta_{\text{EM}}$</th><th>$\theta_{\text{CU}}$</th><th>$\theta_{\text{SOC}}$</th><th>$\rho$</th>
+              <th>Relative Preference</th><th>$\theta_{\text{SH}}$</th><th>$\theta_{\text{EM}}$</th><th>$\theta_{\text{CU}}$</th><th>$\theta_{\text{SOC}}$</th><th>$\rho$</th>
             </tr>
           </thead>
           <tbody>
@@ -972,7 +986,7 @@
         </table>
       </section>
 
-      <section data-transition="fade-in slide-out">
+      <!-- <section data-transition="fade-in slide-out">
         <h2>Our Experimental Design</h2>
         <h3>Study 3: Aligning Preferences with Fine-tuning</h3>
         <h4>Fine-tuning Procedure with 10,000 Choice Problems</h4>
@@ -985,7 +999,7 @@
         </div>
         <p class="fragment">Fine-tune model via <a href="https://arxiv.org/abs/2305.18290">Direct Preference Optimization</a> (RLHF).<br>(i.e. generate outputs that resemble the preferred response)</p>
         <p class="fragment">Estimate $(\hat{\theta}_{\text{SH}}, \hat{\theta}_{\text{EM}}, \hat{\theta}_{\text{CO}}, \hat{\theta}_{\text{SOC}}, \hat{\rho})$ for each firm type.</p>
-      </section>
+      </section> -->
 
       <section>
         <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
