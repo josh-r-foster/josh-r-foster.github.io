@@ -500,9 +500,9 @@
         <h2>AI is Transforming How We Make Decisions</h2>
         <p>Firms are increasingly finding new use cases for AI agents.</p>
         <ul>
-          <li>Autonomously completing tasks on behalf of the firm.</li>
-          <li>Evaluating material tradeoffs with each decision.</li>
-          <li>Yet, we know little about how they reason.</li>
+          <li class="fragment">Autonomously completing tasks on behalf of the firm.</li>
+          <li class="fragment">Evaluating material tradeoffs with each decision.</li>
+          <li class="fragment">Yet, we know little about how they reason.</li>
         </ul>
         <div class="fragment highlight-box">
           <p>What are the economic preferences of an AI Agent?<br>Can specific economic preferences be induced?</p>
@@ -510,7 +510,7 @@
       </section>
 
       <section data-transition="slide-in fade-out">
-        <h2>AI and the Principal-Agent Problem</h2>
+        <h2>Principal-Agent Problem</h2>
         <p>An employee's interests are not always aligned with the firm's.</p>
         <div style="text-align:center; margin-top:1em;">
           <svg width="100%" height="450" viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
@@ -575,7 +575,7 @@
       </section>
 
       <section data-transition="fade-in slide-out">
-        <h2>AI and the Principal-Agent Problem</h2>
+        <h2>Principal-Agent Problem</h2>
         <p>But an AI agent can (in principle) be a perfect surrogate.</p>
         <div style="text-align:center; margin-top:1em;">
           <svg width="100%" height="450" viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
@@ -638,37 +638,34 @@
       <section>
         <h2>Questions for this Study</h2>
         <ol>
-          <li>What are the native revealed preferences of an AI agent?</li>
-          <li>Can we engineer alignment with the firm's preferences?</li>
+          <li class="fragment">What are the native revealed preferences of an AI agent?</li>
+          <li class="fragment">Can we engineer alignment with the firm's preferences?</li>
         </ol>
-        <div class="fragment">
-          <h2>What We Do</h2>
-          <ul>
-            <li>Define a complete and stylized economic environment.</li>
-            <li>Impose exogenous variation in stakeholder tradeoffs.</li>
-            <li>
-              <p>Experiment with various prompting/fine-tuning techniques.</p>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Study 1</th>
-                      <th>Study 2</th>
-                      <th>Study 3</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Native</td>
-                      <td>Prompting</td>
-                      <td>Fine-tuning</td>
-                    </tr>
-                  </tbody>
-                </table>
-            </li>
-            <li>Measure the AI agent's preferences for various stakeholder welfare.</li>
-          </ul>
-        </div>
+        <h2 class="fragment">What We Do</h2>
+        <ul>
+          <li class="fragment">Define a complete and stylized economic environment.</li>
+          <li class="fragment">Impose exogenous variation in stakeholder tradeoffs.</li>
+          <li class="fragment">Experiment with various prompting/fine-tuning techniques.</li>
+          <li class="fragment">Record the AI agent's revealed preference from a discrete choice set.</li>
+          <li class="fragment">Estimate a CES utility function from the revealed preference data.</li>
+        </ul>
       </section>
+
+      <!-- <section>
+        <h2>Talk Outline</h2>
+        <div class="fragment highlight-box-thin">
+          <p>1. Defining a Stylized Economic Environment</p>
+        </div>
+        <div class="fragment highlight-box-thin">
+          <p>2. Our Experimental Subject (i.e. AI Manager)</p>
+        </div>
+        <div class="fragment highlight-box-thin">
+          <p>3. Constructing Synthetic Choice Problems</p>
+        </div>
+        <div class="fragment highlight-box-thin">
+          <p>4. Three Studies with Preliminary Results</p>
+        </div>
+      </section> -->
 
       <section>
         <img 
@@ -740,7 +737,7 @@
         </div>
       </section>
 
-      <!-- <section data-transition="slide-in fade-out">
+      <section data-transition="slide-in fade-out">
         <h3>Study 1 Experiment: Native Preferences</h3>
         <p>Prompt the model with neutral Context and Task Messages.<br>(i.e. no strategic initiative or directive from the principal)</p>
         <p class="fragment">
@@ -755,7 +752,7 @@
           where $\theta_{\text{SH}}+\theta_{\text{EM}}+\theta_{\text{CO}}+\theta_{\text{SOC}}=1$ and $\theta\geq 0$. 
         </p>
         <p class="fragment">Estimate $(\hat{\theta}_{\text{SH}}, \hat{\theta}_{\text{EM}}, \hat{\theta}_{\text{CO}}, \hat{\theta}_{\text{SOC}}, \hat{\rho})$ via a random utility model.</p>
-      </section> -->
+      </section>
 
       <!-- <section>
         <h3>Random Utility Model</h3>
@@ -779,7 +776,6 @@
       </section> -->
 
       <section>
-        <h3>Study 1 Experiment: Native Preferences</h3>
         <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
           <img 
             src="/images/presentations/ai-m-study-1-estimates.png"
@@ -1013,16 +1009,6 @@
         >
       </section>
 
-      <section>
-        <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-          <img 
-            src="/images/presentations/ai-dark-tetrad.png"
-            style="max-width: 100%; max-height: 90vh;"
-            alt="AI Manager Study 1 Estimates"
-          >
-        </div>
-      </section>
-
       <section class="section-slide">
         <h2>Fin.</h2>
         <!-- <p>Thanks</p> -->
@@ -1212,7 +1198,7 @@
       </section> -->
 
       <!-- All slides should include this footer -->
-      <div class="footer">2026 AI Frontiers | <span id="slide-counter"></span> | <span id="current-time"></span></div>
+      <div class="footer">Michigan 2025 | <span id="slide-counter"></span> | <span id="current-time"></span></div>
 
       <!-- Logo in top right -->
       <div class="logo">
