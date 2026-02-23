@@ -548,6 +548,269 @@
         }
 
         /* Rightmost in second row */
+        /* AI Manager Chat Slide Styles */
+        #multi-model-chat {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--main-text-color);
+            display: flex;
+            flex-direction: column;
+            height: 65vh;
+            width: 100%;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--ivey-green);
+        }
+
+        #multi-model-chat #header {
+            padding: 15px 30px;
+            background: rgba(166, 187, 72, 0.1);
+            border-bottom: 2px solid var(--ivey-green);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        #multi-model-chat #header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--ivey-green);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #multi-model-chat #workspace {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        #multi-model-chat #columns-container {
+            display: flex;
+            flex-grow: 1;
+            overflow: hidden;
+            border-bottom: 1px solid var(--light-grey);
+        }
+
+        #multi-model-chat .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--light-grey);
+            background: #fafafa;
+            min-width: 0;
+        }
+
+        #multi-model-chat .column:last-child {
+            border-right: none;
+        }
+
+        #multi-model-chat .col-header {
+            padding: 15px;
+            background: rgba(166, 187, 72, 0.05);
+            border-bottom: 1px solid var(--light-grey);
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--main-text-color);
+        }
+
+        #multi-model-chat .messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #multi-model-chat .message {
+            padding: 10px 14px;
+            border-radius: 12px;
+            max-width: 90%;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            font-size: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        #multi-model-chat .user-message {
+            background: var(--western-purple);
+            align-self: flex-end;
+            color: var(--white);
+            border-bottom-right-radius: 4px;
+        }
+
+        #multi-model-chat .ai-message {
+            background: var(--white);
+            align-self: flex-start;
+            color: var(--main-text-color);
+            border-bottom-left-radius: 4px;
+            border: 1px solid var(--light-grey);
+        }
+
+        /* Highlight specific model columns slightly via borders */
+        #multi-model-chat #col-base {
+            border-top: 3px solid var(--light-grey);
+        }
+
+        #multi-model-chat #col-profit {
+            border-top: 3px solid var(--bright-green);
+        }
+
+        #multi-model-chat #col-welfare {
+            border-top: 3px solid var(--turquoise);
+        }
+
+        #multi-model-chat #col-nonprofit {
+            border-top: 3px solid var(--western-purple);
+        }
+
+        #multi-model-chat #input-container {
+            padding: 15px;
+            background: var(--white);
+            display: flex;
+            gap: 15px;
+            align-items: flex-end;
+            border-top: 1px solid var(--light-grey);
+        }
+
+        #multi-model-chat #prompt-input {
+            flex-grow: 1;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--light-grey);
+            background: var(--white);
+            color: var(--main-text-color);
+            font-family: inherit;
+            font-size: 0.8rem;
+            resize: none;
+            min-height: 24px;
+            max-height: 100px;
+            transition: border-color 0.2s;
+            line-height: 1.5;
+        }
+
+        #multi-model-chat #prompt-input:focus {
+            outline: none;
+            border-color: var(--turquoise);
+            box-shadow: 0 0 0 2px rgba(0, 151, 160, 0.2);
+        }
+
+        #multi-model-chat button {
+            padding: 0 16px;
+            height: 48px;
+            background: var(--turquoise);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        #multi-model-chat button:hover {
+            background: var(--bright-green);
+            transform: translateY(-1px);
+        }
+
+        #multi-model-chat button:active {
+            transform: translateY(1px);
+        }
+
+        #multi-model-chat button:disabled {
+            background: var(--light-grey);
+            cursor: not-allowed;
+            transform: none;
+            color: var(--grey);
+        }
+
+        #multi-model-chat .reset-btn {
+            height: auto;
+            padding: 8px 16px;
+            font-size: 0.7rem;
+            border-radius: 8px;
+            background: transparent;
+            border: 1px solid #ef4444;
+            color: #ef4444;
+        }
+
+        #multi-model-chat .reset-btn:hover {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        #multi-model-chat .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+            background: var(--white);
+            border: 1px solid var(--light-grey);
+            border-radius: 20px;
+            border-bottom-left-radius: 4px;
+            width: fit-content;
+            align-self: flex-start;
+            display: none;
+        }
+
+        #multi-model-chat .dot {
+            width: 5px;
+            height: 5px;
+            background: var(--light-grey);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+
+        #multi-model-chat .dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        #multi-model-chat .dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes typing {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+                opacity: 0.6;
+            }
+
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        #multi-model-chat ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #multi-model-chat ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #multi-model-chat ::-webkit-scrollbar-thumb {
+            background: var(--light-grey);
+            border-radius: 4px;
+        }
+
+        #multi-model-chat ::-webkit-scrollbar-thumb:hover {
+            background: var(--grey);
+        }
     </style>
 </head>
 
@@ -689,7 +952,8 @@
             <section>
                 <h2>Questions for this Study</h2>
                 <ol>
-                    <li class="fragment">What are the native revealed preferences of an AI agent?</li>
+                    <li class="fragment">What native preferences does an AI agent have for the welfare of various
+                        firm stakeholders?</li>
                     <li class="fragment">Can we engineer alignment with the firm's preferences?</li>
                     <li class="fragment">(Exploratory) What are the psychometric properties of these preferences?</li>
                 </ol>
@@ -697,7 +961,7 @@
                 <ul>
                     <li class="fragment">Define a complete and stylized economic environment.</li>
                     <li class="fragment">Impose exogenous variation in stakeholder tradeoffs.</li>
-                    <li class="fragment">Experiment with various alignment techniques.</li>
+                    <li class="fragment">Experiment with various alignment engineering techniques.</li>
                     <li class="fragment">Record the AI agent's revealed preferences from discrete choice sets.</li>
                     <li class="fragment">Estimate a CES utility function from the revealed preference data.</li>
                 </ul>
@@ -757,7 +1021,7 @@
             </section>
 
             <section data-background-video="/images/presentations/how-transformers-work.mp4" data-background-video-loop
-                data-background-video-muted>
+                data-background-video-muted data-background-size="contain">
             </section>
 
             <section>
@@ -774,9 +1038,9 @@
             </section>
 
             <section>
-                <h2>Main Research Threads</h2>
+                <h2>Emerging Insights</h2>
                 <ol class="spaced-list" style="text-align: left; font-size: 1.1em; margin-top: 1em;">
-                    <li class="fragment">
+                    <li class="fragment fade-in-then-semi-out">
                         <strong>Simulated Market Design</strong>
                         <br>
                         <span style="font-size: 0.9em; color: var(--grey);">LLMs efficiently elicit complex
@@ -788,12 +1052,12 @@
                             aggregate token-by-token output distributions of AI agents (Duetting et al., 2024; Google,
                             2025).</span> -->
                     </li>
-                    <li class="fragment">
+                    <li class="fragment fade-in-then-semi-out">
                         <strong>Social Science by Proxy</strong>
                         <br>
                         <span style="font-size: 0.9em; color: var(--grey);">LLM replicate classic behavioral
                             anomalies (Horton, 2023; Manning et al., 2024).</span>
-                        <br><br>
+                        <div style="height: 0.5em;"></div>
                         <span style="font-size: 0.9em; color: var(--grey);">One LLM can represent many
                             demographics (Argyle et al., 2023; Chen et al., 2023; Horton, 2024).</span>
                         <!-- <br>
@@ -804,9 +1068,11 @@
                             that model alignment techniques heavily dictate synthetic social preferences (Horton, 2023;
                             Chen et al., 2023).</span> -->
                     </li>
-                    <li class="fragment">
+                    <li class="fragment fade-in-then-semi-out">
                         <strong>Agents Participating in the Economy</strong>
                         <br>
+                        <span style="font-size: 0.9em; color: var(--grey);">Intra-firm tasks are being augmented by
+                            LLMs.</span>
                         <span style="font-size: 0.9em; color: var(--grey);">Autonomous LLM pricing agents rapidly and
                             consistently learn algorithmic collusion in oligopolies and auctions (Fish et al., 2024; Heo
                             et al., 2025).</span>
@@ -822,7 +1088,7 @@
                 </ol>
             </section>
 
-            <section>
+            <!-- <section>
                 <h2><em>Homo Silicus:</em> An Economic Agent</h2>
                 <p><a href="https://arxiv.org/pdf/2301.07543">Horton et al. (2023)</a>: LLMs function as implicit
                     computational models of humans.</p>
@@ -830,12 +1096,83 @@
                     <li>Social preferences can be engineered.</li>
                     <li>This is an emergent property of the most recent LLMs.</li>
                 </ul>
-            </section>
+            </section> -->
 
             <section>
                 <h2>Language Models Mimic Human Preferences</h2>
                 <p>LLMs function as implicit computational models of humans.</p>
                 <p></p>
+            </section>
+
+            <section>
+                <h2>AI Manager Chat</h2>
+                <div id="multi-model-chat">
+                    <div id="header">
+                        <h3>4-Model Comparison Grid</h3>
+                        <button id="reset-btn" class="reset-btn">Reset All Contexts</button>
+                    </div>
+
+                    <div id="workspace">
+                        <div id="columns-container">
+                            <!-- 1. BASE MODEL -->
+                            <div class="column" id="col-base">
+                                <div class="col-header">Base Model</div>
+                                <div class="messages" id="msgs-base"></div>
+                                <div class="typing-indicator" id="typing-base">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+
+                            <!-- 2. PROFIT FINETUNE -->
+                            <div class="column" id="col-profit">
+                                <div class="col-header" style="color: var(--bright-green);">Profit Finetune</div>
+                                <div class="messages" id="msgs-profit"></div>
+                                <div class="typing-indicator" id="typing-profit">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+
+                            <!-- 3. WELFARE FINETUNE -->
+                            <div class="column" id="col-welfare">
+                                <div class="col-header" style="color: var(--turquoise);">Welfare Finetune</div>
+                                <div class="messages" id="msgs-welfare"></div>
+                                <div class="typing-indicator" id="typing-welfare">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+
+                            <!-- 4. NONPROFIT FINETUNE -->
+                            <div class="column" id="col-nonprofit">
+                                <div class="col-header" style="color: var(--western-purple);">Nonprofit Finetune</div>
+                                <div class="messages" id="msgs-nonprofit"></div>
+                                <div class="typing-indicator" id="typing-nonprofit">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="input-container">
+                            <textarea id="prompt-input" rows="1"
+                                placeholder="Send a message to all 4 models simultaneously... (Enter to send, Shift+Enter for newline)"></textarea>
+                            <button id="send-btn">
+                                Parallel Send &nbsp;
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section>
@@ -2079,6 +2416,103 @@
                 updateSlideCounter();
             });
         });
+    </script>
+    <script>
+        const API_URL = "http://localhost:8002";
+
+        const models = ["base", "profit", "welfare", "nonprofit"];
+        const inputField = document.getElementById('prompt-input');
+        const sendBtn = document.getElementById('send-btn');
+        const resetBtn = document.getElementById('reset-btn');
+
+        function appendMessage(model, role, text) {
+            const div = document.createElement('div');
+            div.className = `message ${role}-message`;
+            div.textContent = text;
+            const container = document.getElementById(`msgs-${model}`);
+            container.appendChild(div);
+            // push typing indicator to bottom
+            const typing = document.getElementById(`typing-${model}`);
+            container.appendChild(typing);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        async function fetchModelResponse(model, text) {
+            const typing = document.getElementById(`typing-${model}`);
+            typing.style.display = 'flex';
+
+            try {
+                const response = await fetch(`${API_URL}/chat`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text, model: model })
+                });
+                const data = await response.json();
+                typing.style.display = 'none';
+
+                if (data.error) {
+                    appendMessage(model, 'system', 'Error: ' + data.error);
+                } else {
+                    appendMessage(model, 'ai', data.response);
+                }
+            } catch (err) {
+                typing.style.display = 'none';
+                appendMessage(model, 'system', 'Network error.');
+            }
+        }
+
+        async function sendToAll(text) {
+            if (!text.trim()) return;
+
+            // Add user message to all columns instantly
+            models.forEach(model => appendMessage(model, 'user', text));
+
+            inputField.value = '';
+            inputField.style.height = 'auto';
+            inputField.disabled = true;
+            sendBtn.disabled = true;
+
+            // Fire off all 4 requests concurrently
+            const promises = models.map(model => fetchModelResponse(model, text));
+
+            // Wait for all models to finish generating
+            await Promise.all(promises);
+
+            inputField.disabled = false;
+            sendBtn.disabled = false;
+            inputField.focus();
+        }
+
+        async function resetAllChats() {
+            try {
+                const response = await fetch(`${API_URL}/reset`, { method: 'POST' });
+                models.forEach(model => {
+                    document.getElementById(`msgs-${model}`).innerHTML = '';
+                    appendMessage(model, 'system', 'History reset.');
+                });
+                // inputField.focus();
+            } catch (err) {
+                alert('Error resetting chat history on server.');
+            }
+        }
+
+        sendBtn.addEventListener('click', () => sendToAll(inputField.value));
+        resetBtn.addEventListener('click', resetAllChats);
+
+        inputField.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendToAll(inputField.value);
+            }
+        });
+
+        inputField.addEventListener('input', function () {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+            if (this.scrollHeight > 150) this.style.overflowY = 'auto';
+            else this.style.overflowY = 'hidden';
+        });
+
     </script>
 </body>
 
