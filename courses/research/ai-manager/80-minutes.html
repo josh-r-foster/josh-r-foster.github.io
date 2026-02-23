@@ -697,8 +697,8 @@
                 <ul>
                     <li class="fragment">Define a complete and stylized economic environment.</li>
                     <li class="fragment">Impose exogenous variation in stakeholder tradeoffs.</li>
-                    <li class="fragment">Experiment with various prompting/fine-tuning techniques.</li>
-                    <li class="fragment">Record the AI agent's revealed preference from a discrete choice set.</li>
+                    <li class="fragment">Experiment with various alignment techniques.</li>
+                    <li class="fragment">Record the AI agent's revealed preferences from discrete choice sets.</li>
                     <li class="fragment">Estimate a CES utility function from the revealed preference data.</li>
                 </ul>
             </section>
@@ -708,7 +708,7 @@
                 <ul>
                     <li class="fragment">Our AI agent natively prioritizes internal stakeholders (employees,
                         shareholders) over
-                        external ones.</li>
+                        external ones (consumers, society at large).</li>
                     <li class="fragment">Organizational identity framing directionally (but incompletely) shifts AI
                         decisions
                         toward assigned strategic goals.</li>
@@ -741,6 +741,107 @@
                 <div class="fragment highlight-box-thin">
                     <p>4. Results from 3 Studies $+$ Exploratory Psychometric Analysis</p>
                 </div>
+            </section>
+
+            <section>
+                <h2>What is a Large Language Model (LLM)?</h2>
+                <div style="text-align: left; margin-top: 1em; font-size: 1.2em;">
+                    <p>LLMs are autoregressive functions that estimate the conditional probability distribution over a
+                        sequence of tokens (words or subwords). For a given sequence of $n$ tokens
+                        ($w_1, w_2, \dots, w_n$), the model estimates:</p>
+                    <p style="text-align: center;">
+                        $$P(w_{n+1} \mid w_1, w_2, \dots, w_n ; \theta)$$
+                    </p>
+                    <p>where $\theta$ represents a high-dimensional parameter space (often $10^{11}$ or more).</p>
+                </div>
+            </section>
+
+            <section data-background-video="/images/presentations/how-transformers-work.mp4" data-background-video-loop
+                data-background-video-muted>
+            </section>
+
+            <section>
+                <h2>LLM Input Structure</h2>
+                <h3>Two Communication Attributes</h3>
+                <div class="accent-box fragment">
+                    <h4>Context Message</h4>
+                    <p>[HIDDEN INSTRUCTIONS] e.g., You are a helpful assistant.</p>
+                </div>
+                <div class="accent-box fragment">
+                    <h4>Task Message</h4>
+                    <p>[USER INPUT] e.g., What is the capital of France?</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Main Research Threads</h2>
+                <ol class="spaced-list" style="text-align: left; font-size: 1.1em; margin-top: 1em;">
+                    <li class="fragment">
+                        <strong>Simulated Market Design</strong>
+                        <br>
+                        <span style="font-size: 0.9em; color: var(--grey);">LLMs efficiently elicit complex
+                            preferences from humans (Manning, 2024; Soumalias et al., 2025, Montazer et al., 2025;
+                            Soumalias et
+                            al., 2025).</span>
+                        <!-- <br>
+                        <span style="font-size: 0.9em; color: var(--grey);">Auction mechanisms can be redesigned to
+                            aggregate token-by-token output distributions of AI agents (Duetting et al., 2024; Google,
+                            2025).</span> -->
+                    </li>
+                    <li class="fragment">
+                        <strong>Social Science by Proxy</strong>
+                        <br>
+                        <span style="font-size: 0.9em; color: var(--grey);">LLM replicate classic behavioral
+                            anomalies (Horton, 2023; Manning et al., 2024).</span>
+                        <br><br>
+                        <span style="font-size: 0.9em; color: var(--grey);">One LLM can represent many
+                            demographics (Argyle et al., 2023; Chen et al., 2023; Horton, 2024).</span>
+                        <!-- <br>
+                        <span style="font-size: 0.9em; color: var(--grey);">Researchers conduct rapid <em>in silico</em>
+                            experiments to pilot theories and uncover hidden mechanisms pre-deployment (Argyle et al., 2023; Chen et al., 2023; Horton, 2024).</span>
+                        <br>
+                        <span style="font-size: 0.9em; color: var(--grey);">Benchmarking economic rationality reveals
+                            that model alignment techniques heavily dictate synthetic social preferences (Horton, 2023;
+                            Chen et al., 2023).</span> -->
+                    </li>
+                    <li class="fragment">
+                        <strong>Agents Participating in the Economy</strong>
+                        <br>
+                        <span style="font-size: 0.9em; color: var(--grey);">Autonomous LLM pricing agents rapidly and
+                            consistently learn algorithmic collusion in oligopolies and auctions (Fish et al., 2024; Heo
+                            et al., 2025).</span>
+                        <br>
+                        <span style="font-size: 0.9em; color: var(--grey);">Seemingly innocuous prompt variations
+                            drastically alter an agent's propensity to collude or deter price wars (Fish et al., 2024;
+                            Heo et al., 2025).</span>
+                        <br>
+                        <span style="font-size: 0.9em; color: var(--grey);">Generative models achieve optimal market
+                            pricing strategies significantly faster than classic reinforcement learning (Fish et al.,
+                            2024; Heo et al., 2025).</span>
+                    </li>
+                </ol>
+            </section>
+
+            <section>
+                <h2><em>Homo Silicus:</em> An Economic Agent</h2>
+                <p><a href="https://arxiv.org/pdf/2301.07543">Horton et al. (2023)</a>: LLMs function as implicit
+                    computational models of humans.</p>
+                <ul>
+                    <li>Social preferences can be engineered.</li>
+                    <li>This is an emergent property of the most recent LLMs.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Language Models Mimic Human Preferences</h2>
+                <p>LLMs function as implicit computational models of humans.</p>
+                <p></p>
+            </section>
+
+            <section>
+                <h2>Stylized Economic Environment</h2>
+                <img src="/images/presentations/ai-m-setup-no-welfare.png"
+                    style="max-width: 85%; max-height: 90vh; display: block; margin: auto;" alt="AI Manager Setup">
             </section>
 
             <section>
