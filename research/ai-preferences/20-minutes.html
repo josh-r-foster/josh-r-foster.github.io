@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Preferences</title>
+  <link rel="icon" type="image/png" href="https://josh-r-foster.github.io/images/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap');
+
+    :root {
+      --ivey-green: #034638;
+      --western-purple: #582C83;
+      --black: #000000;
+      --grey: #63666A;
+      --white: #ffffff;
+      --light-grey: #97999B;
+      --warm-grey: #7E7F74;
+      --light-warm-grey: #A8A99E;
+      --sand: #C5B783;
+      --bright-green: #A6BB48;
+      --turquoise: #0097A0;
+      --main-bg-color: var(--white);
+      --main-text-color: var(--black);
+      --accent-color: var(--western-purple);
+      --secondary-accent: var(--turquoise);
+      --subtle-accent: var(--light-warm-grey);
+    }
+
+    body {
+      background-color: var(--main-bg-color);
+    }
+
+    .reveal {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 36px;
+      font-weight: normal;
+      color: var(--main-text-color);
+    }
+
+    .reveal .slides {
+      text-align: left;
+    }
+
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      margin: 0 0 20px 0;
+      color: var(--ivey-green);
+      text-transform: none;
+      line-height: 1.2;
+    }
+
+    .reveal h1 { font-size: 2.5em; text-shadow: none; }
+    .reveal h2 { font-size: 1.8em; }
+    .reveal h3 { font-size: 1.4em; color: var(--western-purple); }
+
+    .reveal p {
+      margin: 20px 0;
+      line-height: 1.5;
+    }
+
+    .reveal a {
+      color: var(--turquoise);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .reveal a:hover {
+      color: var(--bright-green);
+      text-decoration: underline;
+    }
+
+    .title-slide h1 { font-size: 2.8em; margin-bottom: 0.2em; }
+    .title-slide h2 {
+      color: var(--grey);
+      font-size: 1.4em;
+      margin-bottom: 1em;
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-weight: 400;
+    }
+    .title-slide p { color: var(--western-purple); font-size: 1em; }
+
+    .section-slide { text-align: center !important; }
+    .section-slide h2 { color: var(--western-purple); font-size: 2.4em; margin-bottom: 30px; }
+
+    .left-content { float: left; width: 50%; }
+    .right-content { float: right; width: 50%; }
+    .reveal .smaller { font-size: 0.8em; }
+
+    .reveal pre {
+      background-color: #f5f5f5;
+      border-left: 5px solid var(--ivey-green);
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      max-height: 70vh;
+      overflow-y: auto;
+      font-size: 0.65em;
+      line-height: 1.4em;
+    }
+
+    .reveal code {
+      font-family: monospace;
+      color: var(--western-purple);
+    }
+
+    .reveal ul, .reveal ol { margin: 0 0 0 1em; }
+    .reveal li { margin: 0.5em 0; }
+
+    ul.compact-list li {
+      margin-top: 0.1em;
+      margin-bottom: 0.1em;
+    }
+
+    .reveal blockquote {
+      border-left: 4px solid var(--bright-green);
+      padding-left: 15px;
+      font-style: italic;
+      background-color: rgba(166, 187, 72, 0.05);
+      margin: 20px 0;
+      padding: 10px 20px;
+    }
+
+    .reveal table { margin: 20px 0; border-collapse: collapse; width: 100%; }
+    .reveal table th { background-color: var(--ivey-green); color: var(--white); text-align: left; padding: 12px; }
+    .reveal table td { border-bottom: 1px solid var(--light-grey); padding: 12px; }
+    .reveal table tr:nth-child(even) { background-color: rgba(168, 169, 158, 0.1); }
+
+    .highlight-box {
+      background-color: rgba(88, 44, 131, 0.08);
+      border-left: 5px solid var(--western-purple);
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .highlight-box-thin {
+      background-color: rgba(88, 44, 131, 0.08);
+      border-left: 5px solid var(--western-purple);
+      padding: 5px;
+      margin: 15px 0;
+    }
+
+    .accent-box {
+      background-color: rgba(0, 151, 160, 0.08);
+      border-left: 5px solid var(--turquoise);
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 0.45em;
+      color: var(--grey);
+      z-index: 100;
+    }
+
+    .logo {
+      position: absolute;
+      top: 0px;
+      right: 60px;
+      width: 80px;
+      height: auto;
+      z-index: 100;
+    }
+
+    .reveal .progress { color: var(--turquoise); height: 4px; }
+    .reveal .controls { color: var(--western-purple); }
+
+    .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-container.grid-60-40 { grid-template-columns: 3fr 2fr; }
+
+    .text-center { text-align: center; }
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
+
+    .bg-green { background-color: var(--ivey-green); }
+    .bg-green h2 { color: var(--white); }
+    .bg-purple { background-color: var(--western-purple); }
+    .bg-purple h2 { color: var(--white); }
+
+    .corner-graphic {
+      position: absolute;
+      top: 200px;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, transparent 75%, var(--ivey-green) 75%);
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    .side-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 100%;
+      background-color: var(--western-purple);
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    .reveal .MathJax_Display,
+    .reveal .MathJax {
+      font-size: 0.95em !important;
+      color: inherit;
+      line-height: 1.4em;
+    }
+
+    .reveal div.MathJax_Display { margin: 0.5em auto !important; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Title Slide -->
+      <section class="title-slide">
+        <div class="corner-graphic"></div>
+        <h1>AI Preferences</h1>
+        <h2>Subtitle Here</h2>
+        <p>Joshua Foster</p>
+        <p>Ivey Business School</p>
+      </section>
+
+      <!-- Add slides here -->
+
+      <section class="section-slide">
+        <h2>Fin.</h2>
+      </section>
+
+      <!-- Footer and logo appear on every slide -->
+      <div class="footer"><span id="slide-counter"></span> | <span id="current-time"></span></div>
+      <div class="logo">
+        <img src="/images/teaching/Ivey-Main-Logo.jpeg" height="75px" alt="Ivey Logo">
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/math/math.js"></script>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      document.getElementById('current-time').textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function updateSlideCounter() {
+      const indices = Reveal.getIndices();
+      const totalSlides = Reveal.getTotalSlides();
+      document.getElementById('slide-counter').textContent = `Slide ${indices.h + 1}/${totalSlides}`;
+    }
+
+    Reveal.initialize({
+      hash: true,
+      center: false,
+      slideNumber: false,
+      transition: 'slide',
+      backgroundTransition: 'fade',
+      controls: true,
+      progress: true,
+      history: true,
+      keyboard: true,
+      overview: true,
+      width: '100%',
+      height: '100%',
+      margin: 0.05,
+      autoAnimateDuration: 0.8,
+      autoAnimateEasing: 'ease-out',
+      mathjax3: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+        tex: { inlineMath: [ ['$','$'], ['\\(','\\)'] ] },
+        options: { skipHtmlTags: [ 'script', 'noscript', 'style', 'textarea', 'pre' ] }
+      },
+      plugins: [ RevealHighlight, RevealMath.MathJax3 ]
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      updateTime();
+      setInterval(updateTime, 60000);
+      Reveal.addEventListener('ready', updateSlideCounter);
+      Reveal.addEventListener('slidechanged', updateSlideCounter);
+    });
+  </script>
+</body>
+</html>
