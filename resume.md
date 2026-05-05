@@ -66,7 +66,7 @@ permalink: /cv/
  * Peter Hans Matthews
 
 `2024`
-<a href="https://josh-r-foster.github.io/courses/research/devil-details/devil-details.pdf">__The Devil is in the Details: Sexual Harassment e-Training Design Choices and Perceived Messenger Integrity__</a>
+<a href="https://josh-r-foster.github.io/research/devil-details/devil-details.pdf">__The Devil is in the Details: Sexual Harassment e-Training Design Choices and Perceived Messenger Integrity__</a>
 
 <em>Journal of Business Ethics</em>, 195, 2024.
 
