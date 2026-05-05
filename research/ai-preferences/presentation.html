@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Do LLMs Have a Utility Function? — CEA 2026</title>
+
+<!-- reveal.js core -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  /* ---------- Design tokens ---------- */
+  :root {
+    /* Ivey brand palette */
+    --ivey-green:        #034638;
+    --ivey-green-tint:   #e6ede9;
+    --western-purple:    #4F2683;
+    --western-purple-tint:#ede7f3;
+    --black:             #000000;
+    --grey:              #63666A;
+    --light-grey:        #97999B;
+    --warm-grey:         #7E7F74;
+    --light-warm-grey:   #A8A99E;
+    --sand:              #C5B783;
+    --bright-green:      #A6BB48;
+    --turquoise:         #0097A0;
+
+    --bg:            #ffffff;
+    --bg-alt:        #f3f2ee;
+    --ink:           #000000;
+    --ink-soft:      #63666A;
+    --rule:          #A8A99E;
+    --accent:        var(--ivey-green);
+    --accent-soft:   var(--ivey-green-tint);
+    --accent-2:      var(--western-purple);
+    --accent-2-soft: var(--western-purple-tint);
+
+    --sans:  Arial, "Helvetica Neue", Helvetica, sans-serif;
+    --serif: Georgia, "Times New Roman", Times, serif;
+    --mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --type-eyebrow:  28px;
+    --type-title:    72px;
+    --type-subtitle: 48px;
+    --type-body:     34px;
+    --type-small:    28px;
+    --type-tiny:     24px;
+
+    --pad-x:         100px;
+    --pad-top:       100px;
+    --pad-bottom:    90px;
+    --gap-title:     48px;
+    --gap-item:      26px;
+  }
+
+  /* ---------- Reveal overrides ---------- */
+  html, body { background: var(--bg); }
+  .reveal { font-family: var(--sans); color: var(--ink); font-weight: 400; }
+  .reveal .slides { text-align: left; }
+  .reveal .slides > section,
+  .reveal .slides > section > section {
+    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+    font-family: var(--sans);
+    color: var(--ink);
+    text-transform: none;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    line-height: 1.08;
+    margin: 0;
+  }
+  .reveal h1 { font-size: var(--type-title); font-weight: 400; font-family: var(--serif); letter-spacing: -0.015em; }
+  .reveal h2 { font-size: var(--type-title); font-weight: 700; }
+  .reveal h3 { font-size: var(--type-subtitle); font-weight: 500; }
+  .reveal p, .reveal li { font-size: var(--type-body); line-height: 1.45; color: var(--ink); }
+  .reveal small, .reveal .small { font-size: var(--type-small); color: var(--ink-soft); }
+  .reveal a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: var(--type-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: var(--gap-title);
+    display: block;
+  }
+
+  .slide-frame {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .slide-frame > h2 { margin-bottom: var(--gap-title); }
+  .slide-frame > h3 { margin-top: 8px; margin-bottom: var(--gap-title); color: var(--ink-soft); font-weight: 400; font-style: italic; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .two-col.weighted { grid-template-columns: 1.1fr 0.9fr; }
+  .two-col.wide { grid-template-columns: 1.3fr 0.7fr; }
+
+  ul.clean, ol.clean { list-style: none; padding: 0; margin: 0; }
+  ul.clean li, ol.clean li {
+    padding: 18px 0 18px 36px;
+    position: relative;
+    border-top: 1px solid var(--rule);
+  }
+  ul.clean li:last-child { border-bottom: 1px solid var(--rule); }
+  ul.clean li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 32px;
+    width: 18px; height: 2px;
+    background: var(--ivey-green);
+  }
+  ol.clean { counter-reset: step; }
+  ol.clean li { counter-increment: step; padding-left: 64px; }
+  ol.clean li::before {
+    content: counter(step, decimal-leading-zero);
+    font-family: var(--sans);
+    font-size: var(--type-small);
+    color: var(--western-purple);
+    font-weight: 700;
+    position: absolute;
+    left: 0; top: 22px;
+    width: auto; height: auto;
+    background: transparent;
+    letter-spacing: 0.04em;
+  }
+
+  .slide-footer {
+    position: absolute;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    bottom: 38px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--sans);
+    font-size: var(--type-tiny);
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .slide-footer .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    margin: 0 24px;
+  }
+
+  .title-slide {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .title-slide h1 {
+    font-family: var(--serif);
+    font-size: 108px;
+    font-weight: 400;
+    line-height: 1.02;
+    max-width: 16ch;
+    color: var(--ivey-green);
+    letter-spacing: -0.02em;
+  }
+  .title-slide .lede {
+    font-family: var(--sans);
+    font-size: 40px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-top: 32px;
+    max-width: 28ch;
+  }
+  .title-slide .meta {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    gap: 80px;
+    align-items: end;
+  }
+  .title-slide .meta div {
+    font-family: var(--sans);
+    font-size: var(--type-small);
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .title-slide .meta strong { display: block; color: var(--ivey-green); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: var(--type-tiny); margin-bottom: 6px; }
+
+  .section-divider {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--ivey-green);
+    margin: calc(-1 * var(--pad-top)) calc(-1 * var(--pad-x)) calc(-1 * var(--pad-bottom));
+    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+    color: #ffffff;
+  }
+  .section-divider .num {
+    font-family: var(--sans);
+    font-size: 32px;
+    color: var(--sand);
+    letter-spacing: 0.22em;
+    font-weight: 700;
+  }
+  .section-divider h2 {
+    color: #ffffff;
+    font-family: var(--serif);
+    font-size: 128px;
+    font-weight: 400;
+    margin-top: 28px;
+    letter-spacing: -0.015em;
+  }
+  .section-divider p {
+    color: rgba(255,255,255,0.85);
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: var(--type-subtitle);
+    margin-top: 32px;
+    max-width: 24ch;
+  }
+
+  .pull-quote {
+    font-family: var(--serif);
+    font-size: 64px;
+    line-height: 1.18;
+    font-style: italic;
+    font-weight: 400;
+    max-width: 22ch;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .pull-quote::before { content: "\201C"; color: var(--accent); margin-right: 6px; }
+  .pull-quote::after  { content: "\201D"; color: var(--accent); }
+  .quote-attr {
+    margin-top: 32px;
+    font-family: var(--mono);
+    font-size: var(--type-small);
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+
+  .reveal .math-display {
+    background: var(--bg-alt);
+    border-left: 0;
+    padding: 36px 48px;
+    margin: 0;
+    border-radius: 2px;
+    font-size: 40px;
+  }
+  .reveal mjx-container { color: var(--ink); }
+  .reveal mjx-container[display="true"] { margin: 0 !important; }
+
+  .reveal pre {
+    box-shadow: none;
+    width: 100%;
+    margin: 0;
+    background: var(--ivey-green);
+    border-radius: 4px;
+    font-size: var(--type-small);
+  }
+  .reveal pre code {
+    font-family: var(--mono);
+    font-size: 22px;
+    line-height: 1.45;
+    padding: 28px 32px;
+    max-height: 640px;
+    border-radius: 4px;
+  }
+
+  .reveal table {
+    font-family: var(--sans);
+    border-collapse: collapse;
+    width: 100%;
+    font-size: var(--type-body);
+  }
+  .reveal table th,
+  .reveal table td {
+    text-align: left;
+    padding: 22px 24px;
+    border: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .reveal table thead th {
+    font-family: var(--sans);
+    font-size: var(--type-small);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ivey-green);
+    font-weight: 700;
+    border-bottom: 2px solid var(--ivey-green);
+  }
+  .reveal table tbody td.num {
+    font-family: var(--mono);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .reveal table th.num { text-align: right; }
+  .reveal table tr.highlight td {
+    background: var(--ivey-green-tint);
+    font-weight: 700;
+    color: var(--ivey-green);
+  }
+  .reveal table tr.subheader td {
+    background: var(--bg-alt);
+    font-size: var(--type-small);
+    color: var(--ink-soft);
+    font-style: italic;
+    padding: 10px 24px;
+    border-bottom: none;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    margin-top: var(--gap-title);
+  }
+  .stat-row-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    margin-top: var(--gap-title);
+  }
+  .stat {
+    border-top: 2px solid var(--ivey-green);
+    padding-top: 24px;
+  }
+  .stat .num {
+    font-family: var(--serif);
+    font-size: 96px;
+    line-height: 1;
+    font-weight: 400;
+    color: var(--ivey-green);
+    font-feature-settings: "lnum";
+  }
+  .stat .num .unit { font-size: 48px; color: var(--ink-soft); margin-left: 6px; font-family: var(--sans); }
+  .stat .label {
+    font-family: var(--sans);
+    font-size: var(--type-tiny);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    margin-top: 16px;
+    font-weight: 700;
+  }
+
+  .panel {
+    background: var(--bg-alt);
+    padding: 40px 44px;
+    border-radius: 2px;
+    border-left: 4px solid var(--western-purple);
+  }
+  .panel.green { border-left-color: var(--ivey-green); }
+  .panel .label {
+    font-family: var(--sans);
+    font-size: var(--type-tiny);
+    color: var(--western-purple);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .panel.green .label { color: var(--ivey-green); }
+
+  /* Three-column rationality axioms layout */
+  .axiom-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: var(--gap-title);
+  }
+  .axiom {
+    border-top: 3px solid var(--ivey-green);
+    padding-top: 28px;
+  }
+  .axiom .axiom-name {
+    font-family: var(--sans);
+    font-size: var(--type-small);
+    font-weight: 700;
+    color: var(--ivey-green);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 16px;
+  }
+  .axiom .axiom-index {
+    font-family: var(--mono);
+    font-size: var(--type-small);
+    color: var(--western-purple);
+    margin-bottom: 20px;
+  }
+  .axiom p { font-size: var(--type-small); }
+
+  .reveal .fragment.fade-up {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .35s ease, transform .35s ease;
+  }
+  .reveal .fragment.fade-up.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal .progress { color: var(--accent); height: 4px; }
+  .reveal .controls { color: var(--accent); }
+
+  .muted { color: var(--ink-soft); }
+  .mono  { font-family: var(--mono); }
+  .stack > * + * { margin-top: var(--gap-item); }
+  .stack-lg > * + * { margin-top: var(--gap-title); }
+
+  .placeholder {
+    background:
+      repeating-linear-gradient(135deg,
+        var(--bg-alt) 0 16px,
+        #e7e1d3 16px 32px);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: var(--type-small);
+    color: var(--ink-soft);
+    aspect-ratio: 16 / 10;
+  }
+
+  .placeholder-tall {
+    background:
+      repeating-linear-gradient(135deg,
+        var(--bg-alt) 0 16px,
+        #e7e1d3 16px 32px);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: var(--type-small);
+    color: var(--ink-soft);
+    min-height: 320px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: var(--type-tiny);
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .tag-green { background: var(--ivey-green-tint); color: var(--ivey-green); }
+  .tag-purple { background: var(--western-purple-tint); color: var(--western-purple); }
+  .tag-neutral { background: var(--bg-alt); color: var(--ink-soft); }
+</style>
+</head>
+
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- ============================== 01. TITLE ============================== -->
+    <section data-screen-label="01 Title" data-background-color="#f7f4ec">
+      <div class="title-slide">
+        <div>
+          <span class="eyebrow">Economics · Working Paper · 2026</span>
+          <h1>Do LLMs Have a Utility Function?</h1>
+          <p class="lede">Insights from choice experiments.</p>
+        </div>
+        <div class="meta">
+          <div><strong>Joy Buchanan</strong>Brock School of Business<br>Samford University</div>
+          <div><strong>Joshua Foster</strong>Ivey Business School<br>Western University</div>
+          <div><strong>Venue</strong>Canadian Economic Association<br>Annual Meeting, 2026</div>
+        </div>
+      </div>
+      <aside class="notes">
+        Welcome the audience. Frame the talk as a 15-minute walk through the motivation,
+        framework, design, results, and implications. LLMs are showing up everywhere in
+        economic settings — we want to ask what preferences actually govern their choices.
+      </aside>
+    </section>
+
+
+    <!-- ============================== 02. SECTION: INTRODUCTION ============================== -->
+    <section data-screen-label="02 Introduction divider" data-background-color="#034638">
+      <div class="section-divider">
+        <span class="num">PART 01</span>
+        <h2>Introduction</h2>
+        <p>LLMs as economic actors — what preferences govern their choices?</p>
+      </div>
+    </section>
+
+
+    <!-- ============================== 03. MOTIVATION ============================== -->
+    <section data-screen-label="03 Motivation">
+      <div class="slide-frame">
+        <span class="eyebrow">01 · Introduction</span>
+        <h2>Motivation</h2>
+
+        <div class="two-col" style="margin-top: var(--gap-title);">
+          <ul class="clean">
+            <li class="fragment fade-up">LLMs are being deployed as <strong>autonomous economic decision-makers</strong> — financial advice, lending, agentic resource allocation.</li>
+            <li class="fragment fade-up">Implicit assumption: reasoning capability implies economic rationality over competing tradeoffs.</li>
+            <li class="fragment fade-up"><strong>These are conceptually distinct.</strong> Processing complex information is not the same as having coherent preferences.</li>
+            <li class="fragment fade-up">Once LLMs participate in allocation problems, we must ask: <em>what latent preferences govern their choices?</em></li>
+          </ul>
+
+          <div class="stack-lg">
+            <div class="panel fragment fade-up">
+              <div class="label">Research Questions</div>
+              <p style="margin:0;">What utility function, if any, does an LLM have? Do its choices adhere to the rationality axioms of completeness, monotonicity, and transitivity?</p>
+            </div>
+            <div class="panel fragment fade-up">
+              <div class="label">Why It Matters</div>
+              <p style="margin:0;">Agentic AI cannot be deployed in an economically coherent way when the preferences governing its actions are neither measured nor targetable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="notes">
+        ~2 minutes. Reveal bullets one at a time. The key move is separating
+        reasoning capability from having coherent preferences — audiences in economics
+        will immediately recognize the distinction. End on the research questions and let
+        them sit before advancing.
+      </aside>
+
+      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>03 / 14</span></div>
+    </section>
+
+
+    <!-- ============================== 04. CORE INSIGHT ============================== -->
+    <section data-screen-label="04 Core Insight">
+      <div class="slide-frame">
+        <span class="eyebrow">01 · Introduction</span>
+        <h2>The core insight</h2>
+        <h3>A transformer's softmax is McFadden's conditional logit.</h3>
+
+        <div class="two-col weighted" style="margin-top: var(--gap-title);">
+          <div class="stack-lg">
+            <p>At each generation step, the model maps context $x$ to a logit vector over its full vocabulary $\mathcal{V}$. The next token is drawn from:</p>
+
+            <div class="math-display">
+              \[ P(i \mid x, \tau) = \frac{\exp\!\bigl(u_i(x)/\tau\bigr)}{\displaystyle\sum_{j \in \mathcal{V}} \exp\!\bigl(u_j(x)/\tau\bigr)} \]
+            </div>
+
+            <p class="fragment fade-up">This admits an exact Random Utility representation:</p>
+
+            <div class="math-display fragment fade-up">
+              \[ U_i = u_i(x) + \tau\,\varepsilon_i, \quad \varepsilon_i \overset{\text{iid}}{\sim} \text{EV-I} \]
+            </div>
+          </div>
+
+          <ul class="clean">
+            <li class="fragment fade-up"><strong>$u_i(x)$</strong> — the pre-softmax logit is a <em>cardinal utility index</em> over tokens.</li>
+            <li class="fragment fade-up"><strong>$\tau$</strong> — temperature is the scale of the stochastic component.</li>
+            <li class="fragment fade-up"><strong>Not an analogy.</strong> This is the exact McFadden (1972) multinomial logit — a formal equivalence, not a metaphor.</li>
+            <li class="fragment fade-up"><strong>Implication.</strong> All of structural discrete choice econometrics is available for measuring LLM preferences.</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="notes">
+        ~2 minutes. This is the paper's methodological foundation — spend time on it.
+        The key line is "not an analogy." The audience should leave understanding that
+        the identification is structural, not analogical. If challenged: yes, we need
+        single-token forced choice to keep the mapping clean; multi-token chain-of-thought
+        raises different identification challenges we flag as future work.
+      </aside>
+
+      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>04 / 14</span></div>
+    </section>
+
+
+    <!-- ============================== 05. SECTION: EXPERIMENTAL DESIGN ============================== -->
+    <section data-screen-label="05 Experimental Design divider" data-background-color="#034638">
+      <div class="section-divider">
+        <span class="num">PART 02</span>
+        <h2>Experimental Design</h2>
+        <p>A portfolio choice laboratory and a structural model of risk preference.</p>
+      </div>
+    </section>
+
+
+    <!-- ============================== 06. PORTFOLIO CHOICE LABORATORY ============================== -->
+    <section data-screen-label="06 Portfolio Choice Laboratory">
+      <div class="slide-frame">
+        <span class="eyebrow">02 · Experimental Design</span>
+        <h2>Portfolio choice laboratory</h2>
+        <h3>Binary menus over risky assets with known payoff moments.</h3>
+
+        <div class="two-col" style="margin-top: var(--gap-title);">
+          <div class="stack-lg">
+            <p>Each prompt presents a binary menu $\{A, B\}$ where the two options are portfolios with <strong>known expected return $\mu_i$ and standard deviation $\sigma_i$</strong>, fully observed by the researcher and directly shown to the model.</p>
+            <ul class="clean">
+              <li class="fragment fade-up">Vary $(\mu, \sigma)$ systematically across menus — exogenous, controlled variation in the tradeoff.</li>
+              <li class="fragment fade-up">Prompt template is held fixed; only portfolio moments change across tasks.</li>
+              <li class="fragment fade-up">Position labels mirrored across canonical and reversed menus to control for order bias.</li>
+            </ul>
+          </div>
+
+          <div class="stack-lg">
+            <div class="panel fragment fade-up">
+              <div class="label">Observation Regime 1 — Logits</div>
+              <p style="margin:0;">Pre-softmax logits on the label tokens are directly observed via the API. Within-menu logit gap identifies utility directly.</p>
+            </div>
+            <div class="panel fragment fade-up">
+              <div class="label">Observation Regime 2 — Choices</div>
+              <p style="margin:0;">Only the sampled output token is observed. Standard MLE on the binary choice probability recovers structural parameters.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="notes">
+        ~1.5 minutes. Emphasize that both regimes identify the same structural parameter.
+        The logit regime is more precise (no sampling noise) but requires API access.
+        The choice regime applies whenever we can only observe sampled outputs.
+        Mention the positional mirroring — this handles the known position-bias problem
+        in LLM choice elicitation.
+      </aside>
+
+      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>06 / 14</span></div>
+    </section>
+
+
+    <!-- ============================== 07. STRUCTURAL MODEL ============================== -->
+    <section data-screen-label="07 Structural Model">
+      <div class="slide-frame">
+        <span class="eyebrow">02 · Experimental Design</span>
+        <h2>Structural model</h2>
+        <h3>Quadratic expected utility as a benchmark preference specification.</h3>
+
+        <div class="two-col weighted" style="margin-top: var(--gap-title);">
+          <div class="stack-lg">
+            <p>Specializing the logit index to the portfolio setting, with $R_i = \sigma_i^2 + \mu_i^2$ as the raw second moment:</p>
+
+            <div class="math-display">
+              \[ V_i = \mu_i - \beta\, R_i \]
+            </div>
+
+            <p class="fragment fade-up">Substituting into the logit spec $u_i = \kappa V_i + c$ gives the estimating equation:</p>
+
+            <div class="math-display fragment fade-up">
+              \[ \Delta u_j = \alpha + \theta_1 \Delta\mu_j + \theta_2 \Delta R_j + \eta_j \]
+            </div>
+
+            <p class="fragment fade-up">The structural risk parameter is the ratio:</p>
+
+            <div class="math-display fragment fade-up">
+              \[ \hat{\beta} = -\,\frac{\hat{\theta}_2}{\hat{\theta}_1} \]
+            </div>
+          </div>
+
+          <div class="stack-lg">
+            <div class="axiom-row" style="grid-template-columns: 1fr; gap: 32px; margin-top: 0;">
+              <div class="axiom">
+                <div class="axiom-name">Completeness $\mathcal{C}$</div>
+                <p>How much probability mass falls on the menu label tokens? Values near 1 validate the revealed-preference interpretation.</p>
+              </div>
+              <div class="axiom">
+                <div class="axiom-name">Monotonicity $\mathcal{M}$</div>
+                <p>Does the model prefer the stochastically dominating portfolio? Fraction of dominance pairs correctly ordered.</p>
+              </div>
+              <div class="axiom">
+                <div class="axiom-name">Transitivity $\mathcal{T}$</div>
+                <p>Are rankings consistent across menus? Largest fraction of menus jointly rationalized by a single preference ordering.</p>
+              </div>
+            </div>
+
+            <div class="fragment fade-up" style="margin-top: 8px;">
+              <span class="tag tag-green">$\beta > 0$</span>&nbsp; Risk averse &nbsp;
+              <span class="tag tag-purple">$\beta < 0$</span>&nbsp; Risk seeking &nbsp;
+              <span class="tag tag-neutral">$\beta = 0$</span>&nbsp; Return-maximizer
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="notes">
+        ~2.5 minutes. Build the equation sequence with fragments. The key is that
+        beta is identified by the ratio of the return slope to the risk slope —
+        standard structural logic the audience will recognize. The three axiom definitions
+        on the right are your validity diagnostics: they accompany every results table.
+        The color tags at the bottom are a quick legend for results slides.
+      </aside>
+
+      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>07 / 14</span></div>
+    </section>
+
+
+    <!-- ============================== 08. SECTION: RESULTS ============================== -->
+    <section data-screen-label="08 Results divider" data-background-color="#034638">
+      <div class="section-divider">
+        <span class="num">PART 03</span>
+        <h2>Results</h2>
+        <p>Rationality diagnostics, risk preference estimates, and the effect of fine-tuning.</p>
+      </div>
+    </section>
+
+
+    <!-- ============================== 09. RATIONALITY DIAGNOSTICS ============================== -->
+    <section data-screen-label="09 Rationality Diagnostics">
+      <div class="slide-frame">
+        <span class="eyebrow">03 · Results</span>
+        <h2>Rationality diagnostics</h2>
+        <h3>Do LLMs satisfy the axioms of choice over risky portfolios?</h3>
+
+        <table style="margin-top: var(--gap-title);">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th class="num">Completeness $\mathcal{C}$</th>
+              <th class="num">Monotonicity $\mathcal{M}$</th>
+              <th class="num">Transitivity $\mathcal{T}$</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="subheader">
+              <td colspan="4">— Placeholder: results pending —</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>Model A (base)</td>
+              <td class="num muted">—</td>
+              <td class="num muted">—</td>
+              <td class="num muted">—</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>Model B (base)</td>
+              <td class="num muted">—</td>
+              <td class="num muted">—</td>
+              <td class="num muted">—</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>Model C (base)</td>
+              <td class="num muted">—</td>
+              <td class="num muted">—</td>
+              <td class="num muted">—</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>Model D (base)</td>
+              <td class="num muted">—</td>
+              <td class="num muted">—</td>
+              <td class="num muted">—</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="small fragment fade-up" style="margin-top: 32px;">All indices are in $[0, 1]$. Exact axiom satisfaction corresponds to a value of 1. Inference follows from the experimental design's within-menu structure.</p>
+      </div>
+
+      <aside class="notes">
+        ~1.5 minutes. Walk through the three columns in order: completeness first
+        (are the label tokens the relevant continuation?), then monotonicity
+        (does the model respect stochastic dominance?), then transitivity
+        (are rankings cycle-free?). These are necessary conditions for economic
+        coherence — a model that fails monotonicity is irrational in a strict sense.
+      </aside>
+
+      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>09 / 14</span></div>
+    </section>
+
+
+    <!-- ============================== 10. RISK PREFERENCE ESTIMATES ============================== -->
+    <section data-screen-label="10 Risk Preference Estimates">
+      <div class="slide-frame">
+        <span class="eyebrow">03 · Results</span>
+        <h2>Estimated risk preferences</h2>
+        <h3>Structural $\hat{\beta}$ across frontier models, both observation regimes.</h3>
+
+        <div class="two-col" style="margin-top: var(--gap-title);">
+          <table>
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th class="num">$\hat{\beta}$ (logits)</th>
+                <th class="num">$\hat{\beta}$ (choices)</th>
+                <th class="num">Interpretation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="subheader">
+                <td colspan="4">— Placeholder: results pending —</td>
+              </tr>
+              <tr class="fragment fade-up">
+                <td>Model A (base)</td>
+                <td class="num muted">—</td>
+                <td class="num muted">—</td>
+                <td class="num muted">—</td>
+              </tr>
+              <tr class="fragment fade-up">
+                <td>Model B (base)</td>
+                <td class="num muted">—</td>
+                <td class="num muted">—</td>
+                <td class="num muted">—</td>
+              </tr>
+              <tr class="fragment fade-up">
+                <td>Model C (base)</td>
+                <td class="num muted">—</td>
+                <td class="num muted">—</td>
+                <td class="num muted">—</td>
+              </tr>
+              <tr class="fragment fade-up">
+                <td>Model D (base)</td>
+                <td class="num muted">—</td>
+                <td class="num muted">—</td>
+                <td class="num muted">—</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="stack-lg">
+            <div class="panel fragment fade-up">
+              <div class="label">Key Design Feature</div>
+              <p style="margin:0;">Because each model can be estimated from a large menu set, the aggregation problem motivating mixed-logit methods in human populations is attenuated — we recover a single $\hat{\beta}$ per model.</p>
+            </div>
+            <p class="small fragment fade-up">Inference for $\hat{\beta}$ uses the Delta method (logit regime: robust SEs; choice regime: Fieller-type intervals near weak-ratio cases).</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="notes">
+        ~2 minutes. The two columns are the two observation regimes — they should
+        agree whenever the maintained assumptions hold, so consistency across regimes
+        is itself an internal validity check. Anticipate: "Why quadratic EU?" —
+        it's a benchmark, not a maintained truth; the appendix discusses prospect
+        theory extensions. Anticipate: "Do results differ by model family?" — yes,
+        that's the cross-model comparison the table is designed to show.
+      </aside>
+
+      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>10 / 14</span></div>
+    </section>
+
+
+    <!-- ============================== 11. FINE-TUNING AS PREFERENCE INTERVENTION ============================== -->
+    <section data-screen-label="11 Fine-Tuning">
+      <div class="slide-frame">
+        <span class="eyebrow">03 · Results</span>
+        <h2>Fine-tuning as preference intervention</h2>
+        <h3>Does RLHF / DPO shift the recovered structural risk parameter?</h3>
+
+        <div class="two-col" style="margin-top: var(--gap-title);">
+          <div class="stack-lg">
+            <p>We treat post-training alignment as a <strong>targeted preference induction treatment</strong>. The object of interest is the change in the structural parameter after fine-tuning:</p>
+
+            <div class="math-display">
+              \[ \Delta\hat{\beta} = \hat{\beta}_{\text{ft}} - \hat{\beta}_{\text{base}} \]
+            </div>
+
+            <ul class="clean" style="margin-top: 0;">
+              <li class="fragment fade-up">Positive $\Delta\hat{\beta}$ — fine-tuning induced <em>more risk aversion</em>.</li>
+              <li class="fragment fade-up">Negative $\Delta\hat{\beta}$ — fine-tuning induced <em>more risk seeking</em>.</li>
+              <li class="fragment fade-up">$\Delta\hat{\beta} \approx 0$ — alignment left economic risk preferences largely unchanged.</li>
+            </ul>
+          </div>
+
+          <div class="stack-lg">
+            <div class="placeholder-tall fragment fade-up" style="flex: 1;">
+              base vs. fine-tuned $\hat{\beta}$ comparison
+            </div>
+            <p class="small fragment fade-up">If fine-tuning systematically shifts $\hat{\beta}$ in a predictable direction, alignment procedures can in principle be used as a tool for <em>economic preference targeting</em> in deployed systems.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="notes">
+        ~1.5 minutes. This is the forward-looking slide. The key claim: we can
+        define an empirical object (Delta beta) that measures what fine-tuning
+        does to economic preferences. If that object is stable and targetable,
+        it opens a path to preference alignment in the economic sense — not just
+        rhetorical alignment. Anticipate: "Can you actually control this?" —
+        the answer is yes in principle; we show the first evidence on whether
+        existing RLHF pipelines shift it.
+      </aside>
+
+      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>11 / 14</span></div>
+    </section>
+
+
+    <!-- ============================== 12. SECTION: CONCLUSION ============================== -->
+    <section data-screen-label="12 Conclusion divider" data-background-color="#034638">
+      <div class="section-divider">
+        <span class="num">PART 04</span>
+        <h2>Conclusion</h2>
+        <p>Contributions, limitations, and implications for agentic AI deployment.</p>
+      </div>
+    </section>
+
+
+    <!-- ============================== 13. CONTRIBUTIONS & IMPLICATIONS ============================== -->
+    <section data-screen-label="13 Contributions">
+      <div class="slide-frame">
+        <span class="eyebrow">04 · Conclusion</span>
+        <h2>Contributions &amp; implications</h2>
+
+        <div class="two-col" style="margin-top: var(--gap-title);">
+          <ol class="clean">
+            <li class="fragment fade-up"><strong>A measurement framework.</strong> Formal equivalence between LLM softmax and the RUM places language model choice inside structural discrete choice methods — enabling recovery of cardinal utility indices from either logits or sampled choices.</li>
+            <li class="fragment fade-up"><strong>Rationality diagnostics.</strong> Three axiom-based indices — completeness, monotonicity, transitivity — quantify how far a given model deviates from economically coherent choice over risky portfolios.</li>
+            <li class="fragment fade-up"><strong>Fine-tuning as preference induction.</strong> Treating alignment training as an intervention on $\hat{\beta}$ provides the first structural evidence on whether existing pipelines shift economic risk preferences in a targetable direction.</li>
+          </ol>
+
+          <div class="stack-lg">
+            <div class="panel green fragment fade-up">
+              <div class="label">The Bottom Line</div>
+              <p style="margin:0;">Agentic AI cannot be deployed in an economically coherent and internally consistent way when the preferences governing its actions are neither <strong>measured</strong> nor <strong>targetable</strong>.</p>
+            </div>
+            <div class="stack fragment fade-up">
+              <p class="small muted"><strong style="color:var(--ink);">Scope.</strong> Results are identified within the portfolio choice domain. Portability to other domains is a distinct empirical question — one that requires a prior benchmark of the kind this paper establishes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="notes">
+        ~1.5 minutes. Three contributions in three bullets — don't editorialize.
+        The panel on the right is the punchline: make sure the audience leaves
+        with that sentence. The scope note pre-empts the obvious objection
+        ("but does this generalize?") — acknowledge it honestly.
+      </aside>
+
+      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>13 / 14</span></div>
+    </section>
+
+
+    <!-- ============================== 14. CLOSING / Q&A ============================== -->
+    <section data-screen-label="14 Thanks" data-background-color="#034638">
+      <div class="section-divider" style="justify-content: space-between;">
+        <div>
+          <span class="num">END · 04</span>
+          <h2 style="margin-top: 28px;">Thank you.</h2>
+          <p>Questions, critiques, and counter-examples warmly invited.</p>
+        </div>
+        <div style="display:grid; grid-template-columns: repeat(2, max-content); gap: 80px; align-items: end; font-family: var(--sans); color: rgba(255,255,255,0.85); font-size: var(--type-small); line-height: 1.5;">
+          <div><strong style="color:var(--sand); display:block; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; font-size:var(--type-tiny); margin-bottom:6px;">Joy Buchanan</strong>Brock School of Business<br>Samford University</div>
+          <div><strong style="color:var(--sand); display:block; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; font-size:var(--type-tiny); margin-bottom:6px;">Joshua Foster</strong>Ivey Business School<br>Western University</div>
+        </div>
+      </div>
+
+      <aside class="notes">
+        Hold this slide for the entire Q&amp;A.
+        Anticipated questions:
+        (1) "Why single-token choice?" — Identification is clean; System 2 raises different challenges, flagged as future work.
+        (2) "Why quadratic EU?" — Benchmark, not maintained truth; appendix discusses alternatives including prospect theory.
+        (3) "Does this generalize beyond portfolios?" — Intentionally narrow scope; the portfolio domain is chosen because it's clean enough for structural interpretation.
+        (4) "Can you target fine-tuning to hit a specific beta?" — Open empirical question; paper establishes the measurement framework that makes targeting possible in principle.
+      </aside>
+    </section>
+
+  </div>
+</div>
+
+
+<!-- reveal.js + plugins -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: false,
+    controls: true,
+    progress: true,
+    center: false,
+    transition: 'slide',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    width: 1920,
+    height: 1080,
+    margin: 0,
+
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.MathJax3 ],
+
+    mathjax3: {
+      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      },
+    },
+  });
+</script>
+
+</body>
+</html>
