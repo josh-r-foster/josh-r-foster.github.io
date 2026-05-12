@@ -1,801 +1,1798 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>Do LLMs Have a Utility Function? — CEA 2026</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Do LLMs Have Utility Functions? — CEA 2026</title>
+  <link rel="icon" type="image/png" href="../../images/favicon.png">
 
-<!-- reveal.js core -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" />
+  <!-- reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" />
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-<style>
-  /* ---------- Design tokens ---------- */
-  :root {
-    /* Ivey brand palette */
-    --ivey-green:        #034638;
-    --ivey-green-tint:   #e6ede9;
-    --western-purple:    #4F2683;
-    --western-purple-tint:#ede7f3;
-    --black:             #000000;
-    --grey:              #63666A;
-    --light-grey:        #97999B;
-    --warm-grey:         #7E7F74;
-    --light-warm-grey:   #A8A99E;
-    --sand:              #C5B783;
-    --bright-green:      #A6BB48;
-    --turquoise:         #0097A0;
+  <style>
+    /* ---------- Design tokens ---------- */
+    :root {
+      /* Ivey brand palette */
+      --ivey-green: #034638;
+      --ivey-green-tint: #e6ede9;
+      --western-purple: #4F2683;
+      --western-purple-tint: #ede7f3;
+      --black: #000000;
+      --grey: #63666A;
+      --light-grey: #97999B;
+      --warm-grey: #7E7F74;
+      --light-warm-grey: #A8A99E;
+      --sand: #C5B783;
+      --bright-green: #A6BB48;
+      --turquoise: #0097A0;
 
-    --bg:            #ffffff;
-    --bg-alt:        #f3f2ee;
-    --ink:           #000000;
-    --ink-soft:      #63666A;
-    --rule:          #A8A99E;
-    --accent:        var(--ivey-green);
-    --accent-soft:   var(--ivey-green-tint);
-    --accent-2:      var(--western-purple);
-    --accent-2-soft: var(--western-purple-tint);
+      --bg: #ffffff;
+      --bg-alt: #f3f2ee;
+      --ink: #000000;
+      --ink-soft: #63666A;
+      --rule: #A8A99E;
+      --accent: var(--ivey-green);
+      --accent-soft: var(--ivey-green-tint);
+      --accent-2: var(--western-purple);
+      --accent-2-soft: var(--western-purple-tint);
 
-    --sans:  Arial, "Helvetica Neue", Helvetica, sans-serif;
-    --serif: Georgia, "Times New Roman", Times, serif;
-    --mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      --serif: Georgia, "Times New Roman", Times, serif;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-    --type-eyebrow:  28px;
-    --type-title:    72px;
-    --type-subtitle: 48px;
-    --type-body:     34px;
-    --type-small:    28px;
-    --type-tiny:     24px;
+      --type-eyebrow: 20px;
+      --type-title: 56px;
+      --type-subtitle: 36px;
+      --type-body: 26px;
+      --type-small: 22px;
+      --type-tiny: 18px;
 
-    --pad-x:         100px;
-    --pad-top:       100px;
-    --pad-bottom:    90px;
-    --gap-title:     48px;
-    --gap-item:      26px;
-  }
+      --pad-x: 60px;
+      --pad-top: 60px;
+      --pad-bottom: 120px;
+      --gap-title: 20px;
+      --gap-item: 16px;
+    }
 
-  /* ---------- Reveal overrides ---------- */
-  html, body { background: var(--bg); }
-  .reveal { font-family: var(--sans); color: var(--ink); font-weight: 400; }
-  .reveal .slides { text-align: left; }
-  .reveal .slides > section,
-  .reveal .slides > section > section {
-    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
-    box-sizing: border-box;
-    height: 100%;
-  }
+    /* ---------- Reveal overrides ---------- */
+    html,
+    body {
+      background: var(--bg);
+    }
 
-  .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-    font-family: var(--sans);
-    color: var(--ink);
-    text-transform: none;
-    letter-spacing: -0.01em;
-    font-weight: 700;
-    line-height: 1.08;
-    margin: 0;
-  }
-  .reveal h1 { font-size: var(--type-title); font-weight: 400; font-family: var(--serif); letter-spacing: -0.015em; }
-  .reveal h2 { font-size: var(--type-title); font-weight: 700; }
-  .reveal h3 { font-size: var(--type-subtitle); font-weight: 500; }
-  .reveal p, .reveal li { font-size: var(--type-body); line-height: 1.45; color: var(--ink); }
-  .reveal small, .reveal .small { font-size: var(--type-small); color: var(--ink-soft); }
-  .reveal a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+    .reveal {
+      font-family: var(--sans);
+      color: var(--ink);
+      font-weight: 400;
+    }
 
-  .eyebrow {
-    font-family: var(--sans);
-    font-size: var(--type-eyebrow);
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    color: var(--accent);
-    font-weight: 700;
-    margin-bottom: var(--gap-title);
-    display: block;
-  }
+    .reveal .slides {
+      text-align: left;
+    }
 
-  .slide-frame {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  .slide-frame > h2 { margin-bottom: var(--gap-title); }
-  .slide-frame > h3 { margin-top: 8px; margin-bottom: var(--gap-title); color: var(--ink-soft); font-weight: 400; font-style: italic; }
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+      box-sizing: border-box;
+      height: 100%;
+    }
 
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-  .two-col.weighted { grid-template-columns: 1.1fr 0.9fr; }
-  .two-col.wide { grid-template-columns: 1.3fr 0.7fr; }
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4 {
+      font-family: var(--sans);
+      color: var(--ink);
+      text-transform: none;
+      letter-spacing: -0.01em;
+      font-weight: 700;
+      line-height: 1.08;
+      margin: 0;
+    }
 
-  ul.clean, ol.clean { list-style: none; padding: 0; margin: 0; }
-  ul.clean li, ol.clean li {
-    padding: 18px 0 18px 36px;
-    position: relative;
-    border-top: 1px solid var(--rule);
-  }
-  ul.clean li:last-child { border-bottom: 1px solid var(--rule); }
-  ul.clean li::before {
-    content: "";
-    position: absolute;
-    left: 0; top: 32px;
-    width: 18px; height: 2px;
-    background: var(--ivey-green);
-  }
-  ol.clean { counter-reset: step; }
-  ol.clean li { counter-increment: step; padding-left: 64px; }
-  ol.clean li::before {
-    content: counter(step, decimal-leading-zero);
-    font-family: var(--sans);
-    font-size: var(--type-small);
-    color: var(--western-purple);
-    font-weight: 700;
-    position: absolute;
-    left: 0; top: 22px;
-    width: auto; height: auto;
-    background: transparent;
-    letter-spacing: 0.04em;
-  }
+    .reveal h1 {
+      font-size: var(--type-title);
+      font-weight: 400;
+      font-family: var(--serif);
+      letter-spacing: -0.015em;
+    }
 
-  .slide-footer {
-    position: absolute;
-    left: var(--pad-x);
-    right: var(--pad-x);
-    bottom: 38px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--sans);
-    font-size: var(--type-tiny);
-    color: var(--ink-soft);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-  .slide-footer .rule {
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-    margin: 0 24px;
-  }
+    .reveal h2 {
+      font-size: var(--type-title);
+      font-weight: 700;
+    }
 
-  .title-slide {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .title-slide h1 {
-    font-family: var(--serif);
-    font-size: 108px;
-    font-weight: 400;
-    line-height: 1.02;
-    max-width: 16ch;
-    color: var(--ivey-green);
-    letter-spacing: -0.02em;
-  }
-  .title-slide .lede {
-    font-family: var(--sans);
-    font-size: 40px;
-    color: var(--ink-soft);
-    font-style: italic;
-    margin-top: 32px;
-    max-width: 28ch;
-  }
-  .title-slide .meta {
-    display: grid;
-    grid-template-columns: repeat(3, max-content);
-    gap: 80px;
-    align-items: end;
-  }
-  .title-slide .meta div {
-    font-family: var(--sans);
-    font-size: var(--type-small);
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
-  .title-slide .meta strong { display: block; color: var(--ivey-green); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: var(--type-tiny); margin-bottom: 6px; }
+    .reveal h3 {
+      font-size: var(--type-subtitle);
+      font-weight: 500;
+    }
 
-  .section-divider {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--ivey-green);
-    margin: calc(-1 * var(--pad-top)) calc(-1 * var(--pad-x)) calc(-1 * var(--pad-bottom));
-    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
-    color: #ffffff;
-  }
-  .section-divider .num {
-    font-family: var(--sans);
-    font-size: 32px;
-    color: var(--sand);
-    letter-spacing: 0.22em;
-    font-weight: 700;
-  }
-  .section-divider h2 {
-    color: #ffffff;
-    font-family: var(--serif);
-    font-size: 128px;
-    font-weight: 400;
-    margin-top: 28px;
-    letter-spacing: -0.015em;
-  }
-  .section-divider p {
-    color: rgba(255,255,255,0.85);
-    font-family: var(--sans);
-    font-style: italic;
-    font-size: var(--type-subtitle);
-    margin-top: 32px;
-    max-width: 24ch;
-  }
+    .reveal p,
+    .reveal li {
+      font-size: var(--type-body);
+      line-height: 1.45;
+      color: var(--ink);
+    }
 
-  .pull-quote {
-    font-family: var(--serif);
-    font-size: 64px;
-    line-height: 1.18;
-    font-style: italic;
-    font-weight: 400;
-    max-width: 22ch;
-    color: var(--ink);
-    text-wrap: pretty;
-  }
-  .pull-quote::before { content: "\201C"; color: var(--accent); margin-right: 6px; }
-  .pull-quote::after  { content: "\201D"; color: var(--accent); }
-  .quote-attr {
-    margin-top: 32px;
-    font-family: var(--mono);
-    font-size: var(--type-small);
-    color: var(--ink-soft);
-    letter-spacing: 0.04em;
-  }
+    .reveal small,
+    .reveal .small {
+      font-size: var(--type-small);
+      color: var(--ink-soft);
+    }
 
-  .reveal .math-display {
-    background: var(--bg-alt);
-    border-left: 0;
-    padding: 36px 48px;
-    margin: 0;
-    border-radius: 2px;
-    font-size: 40px;
-  }
-  .reveal mjx-container { color: var(--ink); }
-  .reveal mjx-container[display="true"] { margin: 0 !important; }
+    .reveal a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-soft);
+    }
 
-  .reveal pre {
-    box-shadow: none;
-    width: 100%;
-    margin: 0;
-    background: var(--ivey-green);
-    border-radius: 4px;
-    font-size: var(--type-small);
-  }
-  .reveal pre code {
-    font-family: var(--mono);
-    font-size: 22px;
-    line-height: 1.45;
-    padding: 28px 32px;
-    max-height: 640px;
-    border-radius: 4px;
-  }
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: var(--type-eyebrow);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: var(--gap-title);
+      display: block;
+    }
 
-  .reveal table {
-    font-family: var(--sans);
-    border-collapse: collapse;
-    width: 100%;
-    font-size: var(--type-body);
-  }
-  .reveal table th,
-  .reveal table td {
-    text-align: left;
-    padding: 22px 24px;
-    border: none;
-    border-bottom: 1px solid var(--rule);
-  }
-  .reveal table thead th {
-    font-family: var(--sans);
-    font-size: var(--type-small);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--ivey-green);
-    font-weight: 700;
-    border-bottom: 2px solid var(--ivey-green);
-  }
-  .reveal table tbody td.num {
-    font-family: var(--mono);
-    text-align: right;
-    font-variant-numeric: tabular-nums;
-  }
-  .reveal table th.num { text-align: right; }
-  .reveal table tr.highlight td {
-    background: var(--ivey-green-tint);
-    font-weight: 700;
-    color: var(--ivey-green);
-  }
-  .reveal table tr.subheader td {
-    background: var(--bg-alt);
-    font-size: var(--type-small);
-    color: var(--ink-soft);
-    font-style: italic;
-    padding: 10px 24px;
-    border-bottom: none;
-  }
+    .slide-frame {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
 
-  .stat-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
-    margin-top: var(--gap-title);
-  }
-  .stat-row-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 48px;
-    margin-top: var(--gap-title);
-  }
-  .stat {
-    border-top: 2px solid var(--ivey-green);
-    padding-top: 24px;
-  }
-  .stat .num {
-    font-family: var(--serif);
-    font-size: 96px;
-    line-height: 1;
-    font-weight: 400;
-    color: var(--ivey-green);
-    font-feature-settings: "lnum";
-  }
-  .stat .num .unit { font-size: 48px; color: var(--ink-soft); margin-left: 6px; font-family: var(--sans); }
-  .stat .label {
-    font-family: var(--sans);
-    font-size: var(--type-tiny);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--ink-soft);
-    margin-top: 16px;
-    font-weight: 700;
-  }
+    .slide-frame>h2 {
+      margin-bottom: var(--gap-title);
+    }
 
-  .panel {
-    background: var(--bg-alt);
-    padding: 40px 44px;
-    border-radius: 2px;
-    border-left: 4px solid var(--western-purple);
-  }
-  .panel.green { border-left-color: var(--ivey-green); }
-  .panel .label {
-    font-family: var(--sans);
-    font-size: var(--type-tiny);
-    color: var(--western-purple);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    font-weight: 700;
-  }
-  .panel.green .label { color: var(--ivey-green); }
+    .slide-frame>h3 {
+      margin-top: 8px;
+      margin-bottom: var(--gap-title);
+      color: var(--ink-soft);
+      font-weight: 400;
+      font-style: italic;
+    }
 
-  /* Three-column rationality axioms layout */
-  .axiom-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
-    margin-top: var(--gap-title);
-  }
-  .axiom {
-    border-top: 3px solid var(--ivey-green);
-    padding-top: 28px;
-  }
-  .axiom .axiom-name {
-    font-family: var(--sans);
-    font-size: var(--type-small);
-    font-weight: 700;
-    color: var(--ivey-green);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    margin-bottom: 16px;
-  }
-  .axiom .axiom-index {
-    font-family: var(--mono);
-    font-size: var(--type-small);
-    color: var(--western-purple);
-    margin-bottom: 20px;
-  }
-  .axiom p { font-size: var(--type-small); }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
 
-  .reveal .fragment.fade-up {
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity .35s ease, transform .35s ease;
-  }
-  .reveal .fragment.fade-up.visible {
-    opacity: 1;
-    transform: none;
-  }
+    .two-col.weighted {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
 
-  .reveal .progress { color: var(--accent); height: 4px; }
-  .reveal .controls { color: var(--accent); }
+    .two-col.wide {
+      grid-template-columns: 1.3fr 0.7fr;
+    }
 
-  .muted { color: var(--ink-soft); }
-  .mono  { font-family: var(--mono); }
-  .stack > * + * { margin-top: var(--gap-item); }
-  .stack-lg > * + * { margin-top: var(--gap-title); }
+    ul.clean,
+    ol.clean {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-  .placeholder {
-    background:
-      repeating-linear-gradient(135deg,
-        var(--bg-alt) 0 16px,
-        #e7e1d3 16px 32px);
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--mono);
-    font-size: var(--type-small);
-    color: var(--ink-soft);
-    aspect-ratio: 16 / 10;
-  }
+    ul.clean li,
+    ol.clean li {
+      padding: 12px 0 12px 32px;
+      position: relative;
+      border-top: 1px solid var(--rule);
+    }
 
-  .placeholder-tall {
-    background:
-      repeating-linear-gradient(135deg,
-        var(--bg-alt) 0 16px,
-        #e7e1d3 16px 32px);
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--mono);
-    font-size: var(--type-small);
-    color: var(--ink-soft);
-    min-height: 320px;
-  }
+    ul.clean li:last-child {
+      border-bottom: 1px solid var(--rule);
+    }
 
-  .tag {
-    display: inline-block;
-    font-family: var(--mono);
-    font-size: var(--type-tiny);
-    letter-spacing: 0.08em;
-    padding: 6px 14px;
-    border-radius: 2px;
-    font-weight: 600;
-  }
-  .tag-green { background: var(--ivey-green-tint); color: var(--ivey-green); }
-  .tag-purple { background: var(--western-purple-tint); color: var(--western-purple); }
-  .tag-neutral { background: var(--bg-alt); color: var(--ink-soft); }
-</style>
+    ul.clean li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(12px + 0.725em - 1px);
+      width: 18px;
+      height: 2px;
+      background: var(--ivey-green);
+    }
+
+    ol.clean {
+      counter-reset: step;
+    }
+
+    ol.clean li {
+      counter-increment: step;
+      padding-left: 64px;
+    }
+
+    ol.clean li::before {
+      content: counter(step, decimal-leading-zero);
+      font-family: var(--sans);
+      font-size: var(--type-small);
+      color: var(--western-purple);
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+      top: 22px;
+      width: auto;
+      height: auto;
+      background: transparent;
+      letter-spacing: 0.04em;
+    }
+
+
+
+
+    .reveal .controls {
+      bottom: 24px !important;
+      right: 20px !important;
+    }
+
+    .reveal .slide-number {
+      background: transparent !important;
+      color: var(--ink-soft) !important;
+      font-family: var(--sans) !important;
+      font-size: var(--type-tiny) !important;
+      letter-spacing: 0.08em !important;
+      font-weight: 700 !important;
+      bottom: 25px !important;
+      right: 120px !important;
+    }
+
+    .slide-footer {
+      position: absolute;
+      left: var(--pad-x);
+      right: 220px;
+      /* Space for number and controls */
+      bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--sans);
+      font-size: var(--type-tiny);
+      color: var(--ink-soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      background: transparent;
+      padding: 0;
+      z-index: 100;
+    }
+
+    .slide-footer .rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+      margin: 0 24px;
+    }
+
+    .title-slide {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .title-slide h1 {
+      font-family: var(--serif);
+      font-size: 108px;
+      font-weight: 400;
+      line-height: 1.02;
+      max-width: 16ch;
+      color: var(--ivey-green);
+      letter-spacing: -0.02em;
+    }
+
+    .title-slide .lede {
+      font-family: var(--sans);
+      font-size: 40px;
+      color: var(--ink-soft);
+      font-style: italic;
+      margin-top: 32px;
+      max-width: 28ch;
+    }
+
+    .title-slide .meta {
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      gap: 80px;
+      align-items: end;
+    }
+
+    .title-slide .meta div {
+      font-family: var(--sans);
+      font-size: 40px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    .title-slide .meta strong {
+      display: block;
+      color: var(--ivey-green);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 40px;
+      margin-bottom: 6px;
+    }
+
+    .section-divider {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--ivey-green);
+      margin: calc(-1 * var(--pad-top)) calc(-1 * var(--pad-x)) calc(-1 * var(--pad-bottom));
+      padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+      color: #ffffff;
+    }
+
+    .section-divider .num {
+      font-family: var(--sans);
+      font-size: 32px;
+      color: var(--sand);
+      letter-spacing: 0.22em;
+      font-weight: 700;
+    }
+
+    .section-divider h2 {
+      color: #ffffff;
+      font-family: var(--serif);
+      font-size: 128px;
+      font-weight: 400;
+      margin-top: 28px;
+      letter-spacing: -0.015em;
+    }
+
+    .section-divider p {
+      color: rgba(255, 255, 255, 0.85);
+      font-family: var(--sans);
+      font-style: italic;
+      font-size: var(--type-subtitle);
+      margin-top: 32px;
+      max-width: 24ch;
+    }
+
+    .pull-quote {
+      font-family: var(--serif);
+      font-size: 64px;
+      line-height: 1.18;
+      font-style: italic;
+      font-weight: 400;
+      max-width: 22ch;
+      color: var(--ink);
+      text-wrap: pretty;
+    }
+
+    .pull-quote::before {
+      content: "\201C";
+      color: var(--accent);
+      margin-right: 6px;
+    }
+
+    .pull-quote::after {
+      content: "\201D";
+      color: var(--accent);
+    }
+
+    .quote-attr {
+      margin-top: 32px;
+      font-family: var(--mono);
+      font-size: var(--type-small);
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+    }
+
+    .reveal .math-display {
+      background: var(--bg-alt);
+      border-left: 0;
+      padding: 16px 24px;
+      margin: 0;
+      border-radius: 2px;
+      font-size: 28px;
+    }
+
+    .reveal mjx-container {
+      color: var(--ink);
+    }
+
+    .reveal mjx-container[display="true"] {
+      margin: 0 !important;
+    }
+
+    .reveal pre {
+      box-shadow: none;
+      width: 100%;
+      margin: 0;
+      background: var(--ivey-green);
+      border-radius: 4px;
+      font-size: var(--type-small);
+    }
+
+    .reveal pre code {
+      font-family: var(--mono);
+      font-size: 22px;
+      line-height: 1.45;
+      padding: 28px 32px;
+      max-height: 640px;
+      border-radius: 4px;
+    }
+
+    .reveal table {
+      font-family: var(--sans);
+      border-collapse: collapse;
+      width: 100%;
+      font-size: var(--type-body);
+    }
+
+    .reveal table th,
+    .reveal table td {
+      text-align: left;
+      padding: 22px 24px;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .reveal table thead th {
+      font-family: var(--sans);
+      font-size: var(--type-small);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ivey-green);
+      font-weight: 700;
+      border-bottom: 2px solid var(--ivey-green);
+    }
+
+    .reveal table tbody td.num {
+      font-family: var(--mono);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .reveal table th.num {
+      text-align: right;
+    }
+
+    .reveal table tr.highlight td {
+      background: var(--ivey-green-tint);
+      font-weight: 700;
+      color: var(--ivey-green);
+    }
+
+    .reveal table tr.subheader td {
+      background: var(--bg-alt);
+      font-size: var(--type-small);
+      color: var(--ink-soft);
+      font-style: italic;
+      padding: 10px 24px;
+      border-bottom: none;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+      margin-top: var(--gap-title);
+    }
+
+    .stat-row-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+      margin-top: var(--gap-title);
+    }
+
+    .stat {
+      border-top: 2px solid var(--ivey-green);
+      padding-top: 24px;
+    }
+
+    .stat .num {
+      font-family: var(--serif);
+      font-size: 96px;
+      line-height: 1;
+      font-weight: 400;
+      color: var(--ivey-green);
+      font-feature-settings: "lnum";
+    }
+
+    .stat .num .unit {
+      font-size: 48px;
+      color: var(--ink-soft);
+      margin-left: 6px;
+      font-family: var(--sans);
+    }
+
+    .stat .label {
+      font-family: var(--sans);
+      font-size: var(--type-tiny);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink-soft);
+      margin-top: 16px;
+      font-weight: 700;
+    }
+
+    .panel {
+      background: var(--bg-alt);
+      padding: 24px 32px;
+      border-radius: 2px;
+      border-left: 4px solid var(--western-purple);
+    }
+
+    .panel.green {
+      border-left-color: var(--ivey-green);
+    }
+
+    .panel .label {
+      font-family: var(--sans);
+      font-size: var(--type-tiny);
+      color: var(--western-purple);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .panel.green .label {
+      color: var(--ivey-green);
+    }
+
+    /* Three-column rationality axioms layout */
+    .axiom-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: var(--gap-title);
+    }
+
+    .axiom {
+      border-top: 3px solid var(--ivey-green);
+      padding-top: 28px;
+    }
+
+    .axiom .axiom-name {
+      font-family: var(--sans);
+      font-size: var(--type-small);
+      font-weight: 700;
+      color: var(--ivey-green);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 16px;
+    }
+
+    .axiom .axiom-index {
+      font-family: var(--mono);
+      font-size: var(--type-small);
+      color: var(--western-purple);
+      margin-bottom: 20px;
+    }
+
+    .axiom p {
+      font-size: var(--type-small);
+    }
+
+    .reveal .fragment.fade-up {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .35s ease, transform .35s ease;
+    }
+
+    .reveal .fragment.fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal .progress {
+      color: var(--accent);
+      height: 4px;
+    }
+
+    .reveal .controls {
+      color: var(--accent);
+    }
+
+    .muted {
+      color: var(--ink-soft);
+    }
+
+    .mono {
+      font-family: var(--mono);
+    }
+
+    .stack>*+* {
+      margin-top: var(--gap-item);
+    }
+
+    .stack-lg>*+* {
+      margin-top: var(--gap-title);
+    }
+
+    .placeholder {
+      background:
+        repeating-linear-gradient(135deg,
+          var(--bg-alt) 0 16px,
+          #e7e1d3 16px 32px);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: var(--type-small);
+      color: var(--ink-soft);
+      aspect-ratio: 16 / 10;
+    }
+
+    .placeholder-tall {
+      background:
+        repeating-linear-gradient(135deg,
+          var(--bg-alt) 0 16px,
+          #e7e1d3 16px 32px);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: var(--type-small);
+      color: var(--ink-soft);
+      min-height: 240px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: var(--type-tiny);
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+
+    .tag-green {
+      background: var(--ivey-green-tint);
+      color: var(--ivey-green);
+    }
+
+    .tag-purple {
+      background: var(--western-purple-tint);
+      color: var(--western-purple);
+    }
+
+    .tag-neutral {
+      background: var(--bg-alt);
+      color: var(--ink-soft);
+    }
+
+    [class*="graph-paper-state"] .backgrounds {
+      background-color: var(--bg) !important;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eσ%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eμ%3C/text%3E%3C/svg%3E"),
+        linear-gradient(var(--ink), var(--ink)),
+        linear-gradient(90deg, var(--ink), var(--ink)),
+        linear-gradient(var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+        linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+      background-size:
+        60px 60px,
+        60px 60px,
+        100% 4px,
+        4px 100%,
+        20px 20px,
+        20px 20px,
+        100px 100px,
+        100px 100px !important;
+      background-position:
+        calc(100% - 40px) calc(50% + 205px),
+        calc(50% - 100px) 40px,
+        center calc(50% + 249px),
+        calc(50% - 151px) center,
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 50px) calc(50% + 50px),
+        calc(50% + 50px) calc(50% + 50px) !important;
+      background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat,
+        repeat,
+        repeat,
+        repeat !important;
+    }
+
+    [class*="graph-paper-state"] .backgrounds::before {
+      content: "B";
+      position: absolute;
+      box-sizing: border-box;
+      width: 60px;
+      height: 60px;
+      top: 50%;
+      left: calc(50% + 100px);
+      transform: translate(calc(-12px + 1px), calc(-40px + 1px));
+      z-index: 10;
+
+      font-family: var(--sans);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--black);
+      text-align: left;
+      padding-left: 28px;
+      line-height: 24px;
+
+      background-image: radial-gradient(circle at 12px 40px, var(--western-purple) 7.5px, transparent 8px);
+      background-repeat: no-repeat;
+    }
+
+    [class*="graph-paper-state"] .backgrounds::after {
+      content: "A";
+      position: absolute;
+      box-sizing: border-box;
+      width: 60px;
+      height: 60px;
+      top: calc(50% - 100px);
+      left: 50%;
+      transform: translate(calc(-12px + 1px), calc(-40px + 1px));
+      z-index: 10;
+
+      font-family: var(--sans);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--black);
+      text-align: left;
+      padding-left: 28px;
+      line-height: 24px;
+
+      background-image: radial-gradient(circle at 12px 40px, var(--western-purple) 7.5px, transparent 8px);
+      background-repeat: no-repeat;
+    }
+
+    /* Custom positions for the Reflexive slide */
+    .graph-paper-state-reflexive .backgrounds::after {
+      top: 50%;
+      left: 50%;
+      content: "A, B";
+      width: 100px;
+    }
+
+    .graph-paper-state-reflexive .backgrounds::before {
+      display: none;
+    }
+
+    /* Custom background for the Continuity slide to add Point C */
+    .graph-paper-state-continuity .backgrounds {
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='12' cy='40' r='7.5' fill='%234F2683' /%3E%3Ctext x='28' y='45' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='black'%3EC%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eσ%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eμ%3C/text%3E%3C/svg%3E"),
+        linear-gradient(var(--ink), var(--ink)),
+        linear-gradient(90deg, var(--ink), var(--ink)),
+        linear-gradient(var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+        linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+      background-size:
+        60px 60px,
+        60px 60px,
+        60px 60px,
+        100% 4px,
+        4px 100%,
+        20px 20px,
+        20px 20px,
+        100px 100px,
+        100px 100px !important;
+      background-position:
+        calc(50% + 219px) calc(50% + 91px),
+        /* Point C (100px right, 100px down from B) */
+        calc(100% - 40px) calc(50% + 205px),
+        calc(50% - 100px) 40px,
+        center calc(50% + 249px),
+        calc(50% - 151px) center,
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 50px) calc(50% + 50px),
+        calc(50% + 50px) calc(50% + 50px) !important;
+      background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat,
+        repeat,
+        repeat,
+        repeat !important;
+    }
+
+    /* Custom background for the Transitive slide to add Point C (North-East of A and B) */
+    .graph-paper-state-transitive .backgrounds {
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='12' cy='40' r='7.5' fill='%234F2683' /%3E%3Ctext x='28' y='45' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='black'%3EC%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eσ%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eμ%3C/text%3E%3C/svg%3E"),
+        linear-gradient(var(--ink), var(--ink)),
+        linear-gradient(90deg, var(--ink), var(--ink)),
+        linear-gradient(var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+        linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+      background-size:
+        60px 60px,
+        60px 60px,
+        60px 60px,
+        100% 4px,
+        4px 100%,
+        20px 20px,
+        20px 20px,
+        100px 100px,
+        100px 100px !important;
+      background-position:
+        calc(50% + 219px) calc(50% - 149px),
+        /* Point C (100px right of B, 100px up from A) */
+        calc(100% - 40px) calc(50% + 205px),
+        calc(50% - 100px) 40px,
+        center calc(50% + 249px),
+        calc(50% - 151px) center,
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 50px) calc(50% + 50px),
+        calc(50% + 50px) calc(50% + 50px) !important;
+      background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat,
+        repeat,
+        repeat,
+        repeat !important;
+    }
+
+    /* Custom background for the Indifference Curve Results slide */
+    .graph-paper-state-results .backgrounds {
+      background-image:
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
+        linear-gradient(var(--ink), var(--ink)),
+        linear-gradient(90deg, var(--ink), var(--ink)),
+        linear-gradient(var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+        linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+      background-size:
+        1000px 1000px,
+        60px 60px,
+        60px 60px,
+        100% 4px,
+        4px 100%,
+        20px 20px,
+        20px 20px,
+        100px 100px,
+        100px 100px !important;
+      background-position:
+        center center,
+        calc(100% - 40px) calc(50% + 205px),
+        calc(50% - 100px) 40px,
+        center calc(50% + 249px),
+        calc(50% - 151px) center,
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 50px) calc(50% + 50px),
+        calc(50% + 50px) calc(50% + 50px) !important;
+      background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat,
+        repeat,
+        repeat,
+        repeat !important;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="reveal">
-  <div class="slides">
+  <div class="reveal">
+    <div class="slide-footer">
+      <span>Do LLMs Have Utility Functions?</span>
+      <span class="rule"></span>
+    </div>
+    <div class="slides">
 
-    <!-- ============================== 01. TITLE ============================== -->
-    <section data-screen-label="01 Title" data-background-color="#f7f4ec">
-      <div class="title-slide">
-        <div>
-          <span class="eyebrow">Economics · Working Paper · 2026</span>
-          <h1>Do LLMs Have a Utility Function?</h1>
-          <p class="lede">Insights from choice experiments.</p>
-        </div>
-        <div class="meta">
-          <div><strong>Joy Buchanan</strong>Brock School of Business<br>Samford University</div>
-          <div><strong>Joshua Foster</strong>Ivey Business School<br>Western University</div>
-          <div><strong>Venue</strong>Canadian Economic Association<br>Annual Meeting, 2026</div>
-        </div>
-      </div>
-      <aside class="notes">
-        Welcome the audience. Frame the talk as a 15-minute walk through the motivation,
-        framework, design, results, and implications. LLMs are showing up everywhere in
-        economic settings — we want to ask what preferences actually govern their choices.
-      </aside>
-    </section>
-
-
-    <!-- ============================== 02. SECTION: INTRODUCTION ============================== -->
-    <section data-screen-label="02 Introduction divider" data-background-color="#034638">
-      <div class="section-divider">
-        <span class="num">PART 01</span>
-        <h2>Introduction</h2>
-        <p>LLMs as economic actors — what preferences govern their choices?</p>
-      </div>
-    </section>
-
-
-    <!-- ============================== 03. MOTIVATION ============================== -->
-    <section data-screen-label="03 Motivation">
-      <div class="slide-frame">
-        <span class="eyebrow">01 · Introduction</span>
-        <h2>Motivation</h2>
-
-        <div class="two-col" style="margin-top: var(--gap-title);">
-          <ul class="clean">
-            <li class="fragment fade-up">LLMs are being deployed as <strong>autonomous economic decision-makers</strong> — financial advice, lending, agentic resource allocation.</li>
-            <li class="fragment fade-up">Implicit assumption: reasoning capability implies economic rationality over competing tradeoffs.</li>
-            <li class="fragment fade-up"><strong>These are conceptually distinct.</strong> Processing complex information is not the same as having coherent preferences.</li>
-            <li class="fragment fade-up">Once LLMs participate in allocation problems, we must ask: <em>what latent preferences govern their choices?</em></li>
-          </ul>
-
-          <div class="stack-lg">
-            <div class="panel fragment fade-up">
-              <div class="label">Research Questions</div>
-              <p style="margin:0;">What utility function, if any, does an LLM have? Do its choices adhere to the rationality axioms of completeness, monotonicity, and transitivity?</p>
-            </div>
-            <div class="panel fragment fade-up">
-              <div class="label">Why It Matters</div>
-              <p style="margin:0;">Agentic AI cannot be deployed in an economically coherent way when the preferences governing its actions are neither measured nor targetable.</p>
-            </div>
+      <!-- ============================== 01. TITLE ============================== -->
+      <section data-screen-label="01 Title" data-background-color="#f7f4ec">
+        <div class="title-slide">
+          <div>
+            <span class="eyebrow">Canadian Economic Association · Annual Meeting · 2026</span>
+            <h1>Do LLMs Have Utility Functions?</h1>
+            <p class="lede">Insights from choice experiments with financial portfolios.</p>
+          </div>
+          <div class="meta">
+            <div><strong>Joy Buchanan</strong>Brock School of Business<br>Samford University</div>
+            <div><strong>Joshua Foster (<span>&#128075;</span>)</strong>Ivey Business School<br>Western University</div>
           </div>
         </div>
-      </div>
-
-      <aside class="notes">
-        ~2 minutes. Reveal bullets one at a time. The key move is separating
-        reasoning capability from having coherent preferences — audiences in economics
-        will immediately recognize the distinction. End on the research questions and let
-        them sit before advancing.
-      </aside>
-
-      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>03 / 14</span></div>
-    </section>
+        <aside class="notes">
+          Welcome the audience. Frame the talk as a 15-minute walk through the motivation,
+          framework, design, results, and implications. LLMs are showing up everywhere in
+          economic settings — we want to ask what preferences actually govern their choices.
+        </aside>
+      </section>
 
 
-    <!-- ============================== 04. CORE INSIGHT ============================== -->
-    <section data-screen-label="04 Core Insight">
-      <div class="slide-frame">
-        <span class="eyebrow">01 · Introduction</span>
-        <h2>The core insight</h2>
-        <h3>A transformer's softmax is McFadden's conditional logit.</h3>
-
-        <div class="two-col weighted" style="margin-top: var(--gap-title);">
-          <div class="stack-lg">
-            <p>At each generation step, the model maps context $x$ to a logit vector over its full vocabulary $\mathcal{V}$. The next token is drawn from:</p>
-
-            <div class="math-display">
-              \[ P(i \mid x, \tau) = \frac{\exp\!\bigl(u_i(x)/\tau\bigr)}{\displaystyle\sum_{j \in \mathcal{V}} \exp\!\bigl(u_j(x)/\tau\bigr)} \]
-            </div>
-
-            <p class="fragment fade-up">This admits an exact Random Utility representation:</p>
-
-            <div class="math-display fragment fade-up">
-              \[ U_i = u_i(x) + \tau\,\varepsilon_i, \quad \varepsilon_i \overset{\text{iid}}{\sim} \text{EV-I} \]
-            </div>
-          </div>
-
-          <ul class="clean">
-            <li class="fragment fade-up"><strong>$u_i(x)$</strong> — the pre-softmax logit is a <em>cardinal utility index</em> over tokens.</li>
-            <li class="fragment fade-up"><strong>$\tau$</strong> — temperature is the scale of the stochastic component.</li>
-            <li class="fragment fade-up"><strong>Not an analogy.</strong> This is the exact McFadden (1972) multinomial logit — a formal equivalence, not a metaphor.</li>
-            <li class="fragment fade-up"><strong>Implication.</strong> All of structural discrete choice econometrics is available for measuring LLM preferences.</li>
-          </ul>
+      <!-- ============================== 02. SECTION: INTRODUCTION ============================== -->
+      <section data-screen-label="02 Introduction divider" data-background-color="#034638">
+        <div class="section-divider">
+          <span class="num">PART 01</span>
+          <h2>Introduction</h2>
+          <p>LLMs as Economic Actors</p>
         </div>
-      </div>
-
-      <aside class="notes">
-        ~2 minutes. This is the paper's methodological foundation — spend time on it.
-        The key line is "not an analogy." The audience should leave understanding that
-        the identification is structural, not analogical. If challenged: yes, we need
-        single-token forced choice to keep the mapping clean; multi-token chain-of-thought
-        raises different identification challenges we flag as future work.
-      </aside>
-
-      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>04 / 14</span></div>
-    </section>
+      </section>
 
 
-    <!-- ============================== 05. SECTION: EXPERIMENTAL DESIGN ============================== -->
-    <section data-screen-label="05 Experimental Design divider" data-background-color="#034638">
-      <div class="section-divider">
-        <span class="num">PART 02</span>
-        <h2>Experimental Design</h2>
-        <p>A portfolio choice laboratory and a structural model of risk preference.</p>
-      </div>
-    </section>
+      <!-- ============================== 03. MOTIVATION ============================== -->
+      <section data-screen-label="03 Motivation">
+        <div class="slide-frame">
+          <span class="eyebrow">01 · Introduction</span>
+          <h2>Do LLMs need a utility function?</h2>
 
+          <style>
+            .reveal .larger-text p,
+            .reveal .larger-text li {
+              font-size: 45px !important;
+              line-height: 1.45;
+            }
 
-    <!-- ============================== 06. PORTFOLIO CHOICE LABORATORY ============================== -->
-    <section data-screen-label="06 Portfolio Choice Laboratory">
-      <div class="slide-frame">
-        <span class="eyebrow">02 · Experimental Design</span>
-        <h2>Portfolio choice laboratory</h2>
-        <h3>Binary menus over risky assets with known payoff moments.</h3>
+            .reveal .larger-text .label {
+              font-size: 30px !important;
+            }
 
-        <div class="two-col" style="margin-top: var(--gap-title);">
-          <div class="stack-lg">
-            <p>Each prompt presents a binary menu $\{A, B\}$ where the two options are portfolios with <strong>known expected return $\mu_i$ and standard deviation $\sigma_i$</strong>, fully observed by the researcher and directly shown to the model.</p>
+            /* Custom background for the Indifference Curve Results slide */
+            .graph-paper-state-results .backgrounds {
+              background-image:
+                url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
+                linear-gradient(var(--ink), var(--ink)),
+                linear-gradient(90deg, var(--ink), var(--ink)),
+                linear-gradient(var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+                linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+              background-size:
+                1000px 1000px,
+                60px 60px,
+                60px 60px,
+                100% 4px,
+                4px 100%,
+                20px 20px,
+                20px 20px,
+                100px 100px,
+                100px 100px !important;
+              background-position:
+                center center,
+                calc(100% - 40px) calc(50% + 205px),
+                calc(50% - 100px) 40px,
+                center calc(50% + 249px),
+                calc(50% - 151px) center,
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 50px) calc(50% + 50px),
+                calc(50% + 50px) calc(50% + 50px) !important;
+              background-repeat:
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                repeat,
+                repeat,
+                repeat,
+                repeat !important;
+            }
+          </style>
+          <div class="two-col larger-text" style="margin-top: 16px;">
             <ul class="clean">
-              <li class="fragment fade-up">Vary $(\mu, \sigma)$ systematically across menus — exogenous, controlled variation in the tradeoff.</li>
-              <li class="fragment fade-up">Prompt template is held fixed; only portfolio moments change across tasks.</li>
-              <li class="fragment fade-up">Position labels mirrored across canonical and reversed menus to control for order bias.</li>
+              <li class="fragment fade-up">LLMs are being deployed as autonomous economic decision-makers.</li>
+              <li class="fragment fade-up">LLMs are increasingly responsible for evaluating economic tradeoffs.</li>
+              <li class="fragment fade-up">Knowing how LLMs evaluate economic tradeoffs becomes critical.</li>
+              <li class="fragment fade-up">Each principal will want to align their AI agents with their own preferences.
+              </li>
+            </ul>
+
+            <div class="stack-lg">
+              <div class="panel fragment fade-up">
+                <div class="label">Research Question</div>
+                <p style="margin:0;">Do LLMs adhere to the rationality axioms of utility theory?</p>
+              </div>
+              <div class="panel fragment fade-up">
+                <div class="label">Why It Matters</div>
+                <p style="margin:0;">Agentic AI in economic contexts pose their own type of principal-agent problems.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          ~2 minutes. Reveal bullets one at a time. The key move is separating
+          reasoning capability from having coherent preferences — audiences in economics
+          will immediately recognize the distinction. End on the research questions and let
+          them sit before advancing.
+        </aside>
+      </section>
+
+      <!-- ============================== 03a. EXPERIMENTAL PROMPT ============================== -->
+      <section data-screen-label="03a Experimental Prompt">
+        <div class="slide-frame">
+          <span class="eyebrow">01 · Introduction</span>
+          <h2>A Typical Choice Experiment Prompt</h2>
+
+          <style>
+            .reveal .tcolorbox {
+              background: #f4f4f4;
+              border: 1px solid #999999;
+              padding: 32px 40px;
+              margin-top: 48px;
+              font-family: var(--mono);
+              font-size: 34px;
+              line-height: 1.5;
+              color: var(--ink);
+              text-align: left;
+              border-radius: 0px;
+              /* sharp corners */
+            }
+
+            /* Custom background for the Indifference Curve Results slide */
+            .graph-paper-state-results .backgrounds {
+              background-image:
+                url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
+                linear-gradient(var(--ink), var(--ink)),
+                linear-gradient(90deg, var(--ink), var(--ink)),
+                linear-gradient(var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+                linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+              background-size:
+                1000px 1000px,
+                60px 60px,
+                60px 60px,
+                100% 4px,
+                4px 100%,
+                20px 20px,
+                20px 20px,
+                100px 100px,
+                100px 100px !important;
+              background-position:
+                center center,
+                calc(100% - 40px) calc(50% + 205px),
+                calc(50% - 100px) 40px,
+                center calc(50% + 249px),
+                calc(50% - 151px) center,
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 50px) calc(50% + 50px),
+                calc(50% + 50px) calc(50% + 50px) !important;
+              background-repeat:
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                repeat,
+                repeat,
+                repeat,
+                repeat !important;
+            }
+          </style>
+
+          <div class="tcolorbox">
+            You have two options for your annual financial portfolio.<br>
+            Choose the portfolio you prefer and reply with A or B only.<br>
+            <br>
+            Option A offers an expected return of 8% and <br>a standard deviation
+            of 12%.<br>
+            <br>
+            Option B offers an expected return of 10% and <br>a standard deviation
+            of 15%.<br>
+            <br>
+            I choose is Option _______.
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== 03a. EXPERIMENTAL SUBJECTS ============================== -->
+      <section data-screen-label="03a Ideal Subjects">
+        <div class="slide-frame">
+          <span class="eyebrow">01 · Introduction</span>
+          <h2>LLMs Are Ideal Experimental Subjects</h2>
+
+          <div class="larger-text" style="margin-top: 32px;">
+            <ul class="clean">
+              <li class="fragment fade-up">Environmental control for <em>ceteris paribus</em> variation.</li>
+              <li class="fragment fade-up">Context control for counterfactual analysis.</li>
+              <li class="fragment fade-up">Every simulation is "real" to the AI.</li>
+              <li class="fragment fade-up">AI never gets tired of answering your questions.</li>
+              <li class="fragment fade-up">AIs are cheap and fast.</li>
             </ul>
           </div>
+        </div>
+      </section>
 
-          <div class="stack-lg">
-            <div class="panel fragment fade-up">
-              <div class="label">Observation Regime 1 — Logits</div>
-              <p style="margin:0;">Pre-softmax logits on the label tokens are directly observed via the API. Within-menu logit gap identifies utility directly.</p>
+
+      <!-- ============================== 03b. LLM INFERENCE ============================== -->
+      <section data-background-video="/images/presentations/how-transformers-work.mp4" data-background-video-loop
+        data-background-video-muted data-background-size="contain">
+      </section>
+
+      <section data-background-iframe="https://andreban.github.io/temperature-topk-visualizer/"
+        data-background-interactive>
+      </section>
+
+      <section data-screen-label="03b LLM Inference">
+        <div class="slide-frame">
+          <span class="eyebrow">01 · Introduction</span>
+          <h2>The Mechanics of LLM Generation</h2>
+
+          <style>
+            .inference-pipeline {
+              display: flex;
+              align-items: stretch;
+              justify-content: space-between;
+              gap: 16px;
+              margin-top: 48px;
+            }
+
+            .inference-step {
+              flex: 1;
+              background: var(--bg-alt);
+              border-radius: 8px;
+              padding: 24px;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              border-top: 4px solid var(--western-purple);
+            }
+
+            .inference-step.green {
+              border-top-color: var(--ivey-green);
+            }
+
+            .inference-step .label {
+              font-family: var(--sans);
+              font-size: 24px;
+              color: var(--western-purple);
+              letter-spacing: 0.14em;
+              text-transform: uppercase;
+              margin-bottom: 16px;
+              font-weight: 700;
+            }
+
+            .inference-step.green .label {
+              color: var(--ivey-green);
+            }
+
+            .inference-arrow {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 32px;
+              color: var(--light-grey);
+            }
+
+            .token-box {
+              background: #fff;
+              border: 1px solid var(--rule);
+              padding: 12px 16px;
+              border-radius: 6px;
+              font-family: var(--mono);
+              font-size: 24px;
+              margin-bottom: 12px;
+              display: flex;
+              justify-content: space-between;
+              color: var(--ink);
+            }
+
+            .token-box.highlight {
+              border-color: var(--ivey-green);
+              background: var(--ivey-green-tint);
+              color: var(--ivey-green);
+              font-weight: 600;
+            }
+
+            /* Custom background for the Indifference Curve Results slide */
+            .graph-paper-state-results .backgrounds {
+              background-image:
+                url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
+                linear-gradient(var(--ink), var(--ink)),
+                linear-gradient(90deg, var(--ink), var(--ink)),
+                linear-gradient(var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+                linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+              background-size:
+                1000px 1000px,
+                60px 60px,
+                60px 60px,
+                100% 4px,
+                4px 100%,
+                20px 20px,
+                20px 20px,
+                100px 100px,
+                100px 100px !important;
+              background-position:
+                center center,
+                calc(100% - 40px) calc(50% + 205px),
+                calc(50% - 100px) 40px,
+                center calc(50% + 249px),
+                calc(50% - 151px) center,
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 50px) calc(50% + 50px),
+                calc(50% + 50px) calc(50% + 50px) !important;
+              background-repeat:
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                repeat,
+                repeat,
+                repeat,
+                repeat !important;
+            }
+          </style>
+
+          <div class="inference-pipeline">
+            <!-- Step 1: Input -->
+            <div class="inference-step fragment fade-up">
+              <div class="label">Input Context</div>
+              <div style="display: flex; flex-direction: column; gap: 12px; margin-top: auto;">
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                  <span class="token-box" style="margin: 0;">Which</span>
+                  <span class="token-box" style="margin: 0;">do</span>
+                  <span class="token-box" style="margin: 0;">you</span>
+                  <span class="token-box" style="margin: 0;">prefer?</span>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                  <span class="token-box" style="margin: 0;">Option</span>
+                  <span class="token-box" style="margin: 0;">A:</span>
+                  <span class="token-box" style="margin: 0;">$\mu=8$%</span>
+                  <span class="token-box" style="margin: 0;">and</span>
+                  <span class="token-box" style="margin: 0;">$\sigma=12$%</span>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                  <span class="token-box" style="margin: 0;">Option</span>
+                  <span class="token-box" style="margin: 0;">B:</span>
+                  <span class="token-box" style="margin: 0;">$\mu=10$%</span>
+                  <span class="token-box" style="margin: 0;">and</span>
+                  <span class="token-box" style="margin: 0;">$\sigma=5$%</span>
+                </div>
+              </div>
             </div>
-            <div class="panel fragment fade-up">
-              <div class="label">Observation Regime 2 — Choices</div>
-              <p style="margin:0;">Only the sampled output token is observed. Standard MLE on the binary choice probability recovers structural parameters.</p>
+
+            <!-- Step 2: Transformer Box -->
+            <div class="fragment fade-up" style="display: flex; align-items: stretch; gap: 16px;">
+              <div class="inference-arrow" style="display: flex; align-items: center;">▶</div>
+              <div
+                style="background: var(--ivey-green); width: 160px; border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(3, 70, 56, 0.15);">
+                <span
+                  style="color: white; font-family: var(--sans); font-size: 40px; font-weight: 700; letter-spacing: 0.05em;">LLM</span>
+              </div>
+            </div>
+
+            <!-- Step 3: Logits -->
+            <div class="fragment fade-up" style="display: flex; align-items: stretch; gap: 16px; flex: 1;">
+              <div class="inference-arrow" style="display: flex; align-items: center;">▶</div>
+              <div class="inference-step" style="width: 100%;">
+                <div class="label">Final Projection Layer (Logits)</div>
+                <div style="margin-top: auto;">
+                  <div class="token-box">
+                    <span>"A"</span>
+                    <span>1.15</span>
+                  </div>
+                  <div class="token-box highlight">
+                    <span>"B"</span>
+                    <span>5.42</span>
+                  </div>
+                  <div class="token-box">
+                    <span>"C"</span>
+                    <span>-2.11</span>
+                  </div>
+                  <div
+                    style="text-align: center; font-size: 16px; color: var(--ink-soft); margin-top: 12px; font-family: var(--mono);">
+                    ... 100,000+ tokens</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="fragment fade-up"
+            style="margin-top: 48px; text-align: center; font-size: 26px; border-top: 1px solid var(--rule); padding-top: 24px;">
+            The logits represent the <strong>raw, unnormalized "preference scores"</strong> the model assigns to each
+            possible continuation.
+          </p>
+
+          <div class="fragment fade-up" style="display: flex; justify-content: center; margin-top: 32px;">
+            <div class="panel green" style="text-align: center; padding: 24px 48px; border-radius: 8px;">
+              <div style="font-size: 36px; margin-bottom: 16px;">
+                \[ \text{Context } x \xrightarrow{\quad \text{LLM} \quad} \text{Logit Scores } \bigl\{ u_i(x)
+                \bigr\}_{i \in \mathcal{V}} \]
+              </div>
+              <p style="font-size: 22px; color: var(--ink-soft); margin: 0; line-height: 1.4;">
+                The model acts as an evaluation function, mapping the input context $x$<br>to a specific logit score
+                $u_i(x)$ for every possible next token $i$.
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <aside class="notes">
-        ~1.5 minutes. Emphasize that both regimes identify the same structural parameter.
-        The logit regime is more precise (no sampling noise) but requires API access.
-        The choice regime applies whenever we can only observe sampled outputs.
-        Mention the positional mirroring — this handles the known position-bias problem
-        in LLM choice elicitation.
-      </aside>
+      <!-- ============================== 04. CORE INSIGHT ============================== -->
+      <section data-screen-label="04 Core Insight">
+        <div class="slide-frame">
+          <span class="eyebrow">01 · Introduction</span>
+          <h2>The core insight</h2>
+          <h3>An LLM's softmax is McFadden (1974)'s conditional logit.</h3>
 
-      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>06 / 14</span></div>
-    </section>
+          <div style="margin-top: 16px;">
+            <p style="font-size: 36px;">At each generation step, the LLM's logit vector over the vocabulary
+              $\mathcal{V}$ admits an exact Random Utility representation:</p>
 
-
-    <!-- ============================== 07. STRUCTURAL MODEL ============================== -->
-    <section data-screen-label="07 Structural Model">
-      <div class="slide-frame">
-        <span class="eyebrow">02 · Experimental Design</span>
-        <h2>Structural model</h2>
-        <h3>Quadratic expected utility as a benchmark preference specification.</h3>
-
-        <div class="two-col weighted" style="margin-top: var(--gap-title);">
-          <div class="stack-lg">
-            <p>Specializing the logit index to the portfolio setting, with $R_i = \sigma_i^2 + \mu_i^2$ as the raw second moment:</p>
-
-            <div class="math-display">
-              \[ V_i = \mu_i - \beta\, R_i \]
+            <div class="math-display" style="margin: 32px 0; text-align: center;">
+              \[ \underbrace{P(i \mid x, \tau) = \frac{\exp\!\bigl(u_i(x)/\tau\bigr)}{\displaystyle\sum_{j \in
+              \mathcal{V}}
+              \exp\!\bigl(u_j(x)/\tau\bigr)}}_{\text{Softmax: Probability of Selecting Logit $i$}} \quad \iff \quad
+              \underbrace{U_i = u_i(x) +
+              \tau\,\varepsilon_i, \quad \varepsilon_i \overset{\text{iid}}{\sim}
+              \text{EV-I}}_{\text{Random Utility Model}} \]
             </div>
 
-            <p class="fragment fade-up">Substituting into the logit spec $u_i = \kappa V_i + c$ gives the estimating equation:</p>
+            <style>
+              .reveal .core-insight-list li {
+                font-size: 36px !important;
+              }
 
-            <div class="math-display fragment fade-up">
-              \[ \Delta u_j = \alpha + \theta_1 \Delta\mu_j + \theta_2 \Delta R_j + \eta_j \]
+              /* Custom background for the Indifference Curve Results slide */
+              .graph-paper-state-results .backgrounds {
+                background-image:
+                  url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
+                  url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
+                  url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
+                  linear-gradient(var(--ink), var(--ink)),
+                  linear-gradient(90deg, var(--ink), var(--ink)),
+                  linear-gradient(var(--bg-alt) 1px, transparent 1px),
+                  linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+                  linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+                  linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+                background-size:
+                  1000px 1000px,
+                  60px 60px,
+                  60px 60px,
+                  100% 4px,
+                  4px 100%,
+                  20px 20px,
+                  20px 20px,
+                  100px 100px,
+                  100px 100px !important;
+                background-position:
+                  center center,
+                  calc(100% - 40px) calc(50% + 205px),
+                  calc(50% - 100px) 40px,
+                  center calc(50% + 249px),
+                  calc(50% - 151px) center,
+                  calc(50% + 10px) calc(50% + 10px),
+                  calc(50% + 10px) calc(50% + 10px),
+                  calc(50% + 50px) calc(50% + 50px),
+                  calc(50% + 50px) calc(50% + 50px) !important;
+                background-repeat:
+                  no-repeat,
+                  no-repeat,
+                  no-repeat,
+                  no-repeat,
+                  no-repeat,
+                  repeat,
+                  repeat,
+                  repeat,
+                  repeat !important;
+              }
+            </style>
+            <ul class="clean core-insight-list" style="margin-top: 32px;">
+              <li class="fragment fade-up"><strong>$u_i(x)$:</strong> the pre-softmax logit is a <em>cardinal utility
+                  index</em> over choices.</li>
+              <li class="fragment fade-up"><strong>$\tau$:</strong> temperature is the scale of the stochastic
+                component.</li>
+              <li class="fragment fade-up"><strong>Implication:</strong> All of structural discrete choice econometrics
+                is available for measuring LLM preferences.</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="notes">
+          ~2 minutes. This is the paper's methodological foundation — spend time on it.
+          The key line is "not an analogy." The audience should leave understanding that
+          the identification is structural, not analogical. If challenged: yes, we need
+          single-token forced choice to keep the mapping clean; multi-token chain-of-thought
+          raises different identification challenges we flag as future work.
+        </aside>
+      </section>
+
+      <!-- ============================== 04b. CORE INSIGHT PIPELINE ============================== -->
+      <section data-screen-label="04b Core Insight Pipeline">
+        <div class="slide-frame">
+          <span class="eyebrow">01 · Introduction</span>
+          <h2>The core insight</h2>
+          <h3>An LLM's softmax is McFadden (1974)'s conditional logit.</h3>
+
+          <div class="inference-pipeline" style="margin-top: 16px;">
+            <!-- Step 1: Input -->
+            <div class="inference-step">
+              <div class="label">Input Context = \(x\)</div>
+              <div style="display: flex; flex-direction: column; gap: 12px; margin-top: auto;">
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                  <span class="token-box" style="margin: 0;">Which</span>
+                  <span class="token-box" style="margin: 0;">do</span>
+                  <span class="token-box" style="margin: 0;">you</span>
+                  <span class="token-box" style="margin: 0;">prefer?</span>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                  <span class="token-box" style="margin: 0;">Option</span>
+                  <span class="token-box" style="margin: 0;">A:</span>
+                  <span class="token-box" style="margin: 0;">$\mu=8$%</span>
+                  <span class="token-box" style="margin: 0;">and</span>
+                  <span class="token-box" style="margin: 0;">$\sigma=12$%</span>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                  <span class="token-box" style="margin: 0;">Option</span>
+                  <span class="token-box" style="margin: 0;">B:</span>
+                  <span class="token-box" style="margin: 0;">$\mu=10$%</span>
+                  <span class="token-box" style="margin: 0;">and</span>
+                  <span class="token-box" style="margin: 0;">$\sigma=5$%</span>
+                </div>
+              </div>
             </div>
 
-            <p class="fragment fade-up">The structural risk parameter is the ratio:</p>
+            <!-- Step 2: Transformer Box -->
+            <div style="display: flex; align-items: stretch; gap: 16px;">
+              <div class="inference-arrow" style="display: flex; align-items: center;">▶</div>
+              <div
+                style="background: var(--ivey-green); width: 160px; border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(3, 70, 56, 0.15);">
+                <span
+                  style="color: white; font-family: var(--sans); font-size: 40px; font-weight: 700; letter-spacing: 0.05em;">LLM</span>
+              </div>
+            </div>
 
-            <div class="math-display fragment fade-up">
-              \[ \hat{\beta} = -\,\frac{\hat{\theta}_2}{\hat{\theta}_1} \]
+            <!-- Step 3: Logits -->
+            <div style="display: flex; align-items: stretch; gap: 16px; flex: 1;">
+              <div class="inference-arrow" style="display: flex; align-items: center;">▶</div>
+              <div class="inference-step" style="width: 100%;">
+                <div class="label">Final Projection Layer (Logits) = \(u\)</div>
+                <div style="margin-top: auto;">
+                  <div class="token-box">
+                    <span>"A"</span>
+                    <span>1.15</span>
+                  </div>
+                  <div class="token-box highlight">
+                    <span>"B"</span>
+                    <span>5.42</span>
+                  </div>
+                  <div class="token-box">
+                    <span>"C"</span>
+                    <span>-2.11</span>
+                  </div>
+                  <div
+                    style="text-align: center; font-size: 16px; color: var(--ink-soft); margin-top: 12px; font-family: var(--mono);">
+                    ... 100,000+ tokens</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="stack-lg">
-            <div class="axiom-row" style="grid-template-columns: 1fr; gap: 32px; margin-top: 0;">
-              <div class="axiom">
-                <div class="axiom-name">Completeness $\mathcal{C}$</div>
-                <p>How much probability mass falls on the menu label tokens? Values near 1 validate the revealed-preference interpretation.</p>
-              </div>
-              <div class="axiom">
-                <div class="axiom-name">Monotonicity $\mathcal{M}$</div>
-                <p>Does the model prefer the stochastically dominating portfolio? Fraction of dominance pairs correctly ordered.</p>
-              </div>
-              <div class="axiom">
-                <div class="axiom-name">Transitivity $\mathcal{T}$</div>
-                <p>Are rankings consistent across menus? Largest fraction of menus jointly rationalized by a single preference ordering.</p>
-              </div>
-            </div>
+          <div class="math-display fragment fade-up" style="margin: 64px 0 0 0; text-align: center;">
+            \[ \underbrace{P(i \mid x, \tau) = \frac{\exp\!\bigl(u_i(x)/\tau\bigr)}{\displaystyle\sum_{j \in
+            \mathcal{V}}
+            \exp\!\bigl(u_j(x)/\tau\bigr)}}_{\text{Softmax: Probability of Selecting Logit $i$}} \quad \iff \quad
+            \underbrace{U_i = u_i(x) +
+            \tau\,\varepsilon_i, \quad \varepsilon_i \overset{\text{iid}}{\sim}
+            \text{EV-I}}_{\text{Random Utility~Model}} \]
+          </div>
 
-            <div class="fragment fade-up" style="margin-top: 8px;">
-              <span class="tag tag-green">$\beta > 0$</span>&nbsp; Risk averse &nbsp;
-              <span class="tag tag-purple">$\beta < 0$</span>&nbsp; Risk seeking &nbsp;
-              <span class="tag tag-neutral">$\beta = 0$</span>&nbsp; Return-maximizer
+          <ul class="clean core-insight-list" style="margin-top: 0;">
+            <li class="fragment fade-up"><strong>$\tau$:</strong> temperature is the scale of the stochastic component.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============================== GRAPH PAPER ============================== -->
+      <section data-screen-label="12 Graph Paper" data-state="graph-paper-state">
+        <div class="slide-frame">
+          <div style="max-width: 700px; padding-right: 40px;">
+            <span class="eyebrow">04 · Extra</span>
+            <h2>Measuring Preferences</h2>
+            <div style="margin-top: 30px;">
+              <p style="font-size: 40px;"><b style="color: var(--ivey-green);">Complete:</b> must express some
+                preference or indifference.</p>
+              <br>
+              <p style="font-size: 40px;">The probability of selecting a choice label among the available options will
+                be approximately 1.</p>
+              <p style="font-size: 40px;">
+                \(
+                P(A \mid x, \tau) + P(B \mid x, \tau) \approx 1
+                \)
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <aside class="notes">
-        ~2.5 minutes. Build the equation sequence with fragments. The key is that
-        beta is identified by the ratio of the return slope to the risk slope —
-        standard structural logic the audience will recognize. The three axiom definitions
-        on the right are your validity diagnostics: they accompany every results table.
-        The color tags at the bottom are a quick legend for results slides.
-      </aside>
+      <section data-screen-label="12 Graph Paper" data-state="graph-paper-state-reflexive">
+        <div class="slide-frame">
+          <div style="max-width: 700px; padding-right: 40px;">
+            <span class="eyebrow">04 · Extra</span>
+            <h2>Measuring Preferences</h2>
+            <div style="margin-top: 30px;">
+              <p style="font-size: 40px;"><b style="color: var(--ivey-green);">Reflexive:</b> any bundle of goods is at
+                least as good as itself.</p>
+              <br>
+              <p style="font-size: 40px;">When options are identical, the probability of selecting either is the same.
+              </p>
+              <p style="font-size: 40px;">
+                \(
+                P(A \mid x, \tau) = P(B \mid x, \tau)
+                \)
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>07 / 14</span></div>
-    </section>
+      <section data-screen-label="12 Graph Paper" data-state="graph-paper-state-continuity">
+        <div class="slide-frame">
+          <div style="max-width: 650px; padding-right: 40px;">
+            <span class="eyebrow">04 · Extra</span>
+            <h2>Measuring Preferences</h2>
+            <div style="margin-top: 30px;">
+              <p style="font-size: 40px;"><b style="color: var(--ivey-green);">Continuity:</b> there is a "tipping
+                point" between being better than and worse than a given option.</p>
+              <br>
+              <p style="font-size: 40px;">Let $A\succ B\succ C$. There is a value $\epsilon\in [0,1]$ such that</p>
+              <p style="font-size: 40px;">
+                \(
+                (1-\epsilon)P(A \mid x, \tau) + \epsilon P(C \mid x, \tau)
+                \)
+              </p>
+              <p style="font-size: 40px;">
+                \(
+                = P(B \mid x, \tau)
+                \)
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-screen-label="12 Graph Paper" data-state="graph-paper-state">
+        <div class="slide-frame">
+          <div style="max-width: 650px; padding-right: 40px;">
+            <span class="eyebrow">04 · Extra</span>
+            <h2>Measuring Preferences</h2>
+            <div style="margin-top: 30px;">
+              <p style="font-size: 40px;"><b style="color: var(--ivey-green);">Strong monotonicity:</b> more (less) of a
+                good (bad) is always better.</p>
+              <br>
+              <p style="font-size: 40px;">The probability of selecting a dominant option will always be higher than a
+                non-dominant one.</p>
+              <p style="font-size: 40px;">
+                \(
+                P(A \mid x, \tau) > P(B \mid x, \tau)
+                \)
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-screen-label="12 Graph Paper" data-state="graph-paper-state-transitive">
+        <div class="slide-frame">
+          <div style="max-width: 650px; padding-right: 40px;">
+            <span class="eyebrow">04 · Extra</span>
+            <h2>Measuring Preferences</h2>
+            <div style="margin-top: 30px;">
+              <p style="font-size: 40px;"><b style="color: var(--ivey-green);">Transitive:</b> if $A\succ B$ and $B\succ
+                C$, then $A\succ C$.</p>
+              <br>
+              <p style="font-size: 40px;">The probability of selecting A will always be higher than B, and B higher than
+                C.</p>
+              <p style="font-size: 40px;">
+                \(
+                P(A \mid x, \tau) > P(B \mid x, \tau)
+                \)
+              </p>
+              <p style="font-size: 40px;">
+                \(
+                P(B \mid x, \tau) > P(C \mid x, \tau)
+                \)
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
-    <!-- ============================== 08. SECTION: RESULTS ============================== -->
-    <section data-screen-label="08 Results divider" data-background-color="#034638">
-      <div class="section-divider">
-        <span class="num">PART 03</span>
-        <h2>Results</h2>
-        <p>Rationality diagnostics, risk preference estimates, and the effect of fine-tuning.</p>
-      </div>
-    </section>
+      <!-- ============================== 05. SECTION: EXPERIMENTAL DESIGN ============================== -->
+      <section data-screen-label="05 Experimental Design divider" data-background-color="#034638">
+        <div class="section-divider">
+          <span class="num">PART 02</span>
+          <h2>Experimental Design</h2>
+          <p>A portfolio choice laboratory and a structural model of risk preference.</p>
+        </div>
+      </section>
 
 
-    <!-- ============================== 09. RATIONALITY DIAGNOSTICS ============================== -->
-    <section data-screen-label="09 Rationality Diagnostics">
-      <div class="slide-frame">
-        <span class="eyebrow">03 · Results</span>
-        <h2>Rationality diagnostics</h2>
-        <h3>Do LLMs satisfy the axioms of choice over risky portfolios?</h3>
+      <!-- ============================== 06. PORTFOLIO CHOICE LABORATORY ============================== -->
+      <section data-screen-label="06 Portfolio Choice Laboratory">
+        <div class="slide-frame">
+          <span class="eyebrow">02 · Experimental Design</span>
+          <h2>Portfolio choice laboratory</h2>
+          <h3>Binary menus over risky assets with known payoff moments.</h3>
 
-        <table style="margin-top: var(--gap-title);">
-          <thead>
-            <tr>
-              <th>Model</th>
-              <th class="num">Completeness $\mathcal{C}$</th>
-              <th class="num">Monotonicity $\mathcal{M}$</th>
-              <th class="num">Transitivity $\mathcal{T}$</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="subheader">
-              <td colspan="4">— Placeholder: results pending —</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td>Model A (base)</td>
-              <td class="num muted">—</td>
-              <td class="num muted">—</td>
-              <td class="num muted">—</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td>Model B (base)</td>
-              <td class="num muted">—</td>
-              <td class="num muted">—</td>
-              <td class="num muted">—</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td>Model C (base)</td>
-              <td class="num muted">—</td>
-              <td class="num muted">—</td>
-              <td class="num muted">—</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td>Model D (base)</td>
-              <td class="num muted">—</td>
-              <td class="num muted">—</td>
-              <td class="num muted">—</td>
-            </tr>
-          </tbody>
-        </table>
+          <div class="two-col" style="margin-top: 16px;">
+            <div class="stack-lg">
+              <p>Each prompt presents a binary menu $\{A, B\}$ where the two options are portfolios with <strong>known
+                  expected return $\mu_i$ and standard deviation $\sigma_i$</strong>, fully observed by the researcher
+                and directly shown to the model.</p>
+              <ul class="clean">
+                <li class="fragment fade-up">Vary $(\mu, \sigma)$ systematically across menus — exogenous, controlled
+                  variation in the tradeoff.</li>
+                <li class="fragment fade-up">Prompt template is held fixed; only portfolio moments change across tasks.
+                </li>
+                <li class="fragment fade-up">Position labels mirrored across canonical and reversed menus to control for
+                  order bias.</li>
+              </ul>
+            </div>
 
-        <p class="small fragment fade-up" style="margin-top: 32px;">All indices are in $[0, 1]$. Exact axiom satisfaction corresponds to a value of 1. Inference follows from the experimental design's within-menu structure.</p>
-      </div>
+            <div class="stack-lg">
+              <div class="panel fragment fade-up">
+                <div class="label">Observation Regime 1 — Logits</div>
+                <p style="margin:0;">Pre-softmax logits on the label tokens are directly observed via the API.
+                  Within-menu logit gap identifies utility directly.</p>
+              </div>
+              <div class="panel fragment fade-up">
+                <div class="label">Observation Regime 2 — Choices</div>
+                <p style="margin:0;">Only the sampled output token is observed. Standard MLE on the binary choice
+                  probability recovers structural parameters.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <aside class="notes">
-        ~1.5 minutes. Walk through the three columns in order: completeness first
-        (are the label tokens the relevant continuation?), then monotonicity
-        (does the model respect stochastic dominance?), then transitivity
-        (are rankings cycle-free?). These are necessary conditions for economic
-        coherence — a model that fails monotonicity is irrational in a strict sense.
-      </aside>
-
-      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>09 / 14</span></div>
-    </section>
+        <aside class="notes">
+          ~1.5 minutes. Emphasize that both regimes identify the same structural parameter.
+          The logit regime is more precise (no sampling noise) but requires API access.
+          The choice regime applies whenever we can only observe sampled outputs.
+          Mention the positional mirroring — this handles the known position-bias problem
+          in LLM choice elicitation.
+        </aside>
+      </section>
 
 
-    <!-- ============================== 10. RISK PREFERENCE ESTIMATES ============================== -->
-    <section data-screen-label="10 Risk Preference Estimates">
-      <div class="slide-frame">
-        <span class="eyebrow">03 · Results</span>
-        <h2>Estimated risk preferences</h2>
-        <h3>Structural $\hat{\beta}$ across frontier models, both observation regimes.</h3>
+      <!-- ============================== 07. STRUCTURAL MODEL ============================== -->
+      <section data-screen-label="07 Structural Model">
+        <div class="slide-frame">
+          <span class="eyebrow">02 · Experimental Design</span>
+          <h2>Structural model</h2>
+          <h3>Quadratic expected utility as a benchmark preference specification.</h3>
 
-        <div class="two-col" style="margin-top: var(--gap-title);">
-          <table>
+          <div class="two-col weighted" style="margin-top: 16px;">
+            <div class="stack-lg">
+              <p>Specializing the logit index to the portfolio setting, with $R_i = \sigma_i^2 + \mu_i^2$ as the raw
+                second moment:</p>
+
+              <div class="math-display">
+                \[ V_i = \mu_i - \beta\, R_i \]
+              </div>
+
+              <p class="fragment fade-up">Substituting into the logit spec $u_i = \kappa V_i + c$ gives the estimating
+                equation:</p>
+
+              <div class="math-display fragment fade-up">
+                \[ \Delta u_j = \alpha + \theta_1 \Delta\mu_j + \theta_2 \Delta R_j + \eta_j \]
+              </div>
+
+              <p class="fragment fade-up">The structural risk parameter is the ratio:</p>
+
+              <div class="math-display fragment fade-up">
+                \[ \hat{\beta} = -\,\frac{\hat{\theta}_2}{\hat{\theta}_1} \]
+              </div>
+            </div>
+
+            <div class="stack-lg">
+              <div class="axiom-row" style="grid-template-columns: 1fr; gap: 32px; margin-top: 0;">
+                <div class="axiom">
+                  <div class="axiom-name">Completeness $\mathcal{C}$</div>
+                  <p>How much probability mass falls on the menu label tokens? Values near 1 validate the
+                    revealed-preference interpretation.</p>
+                </div>
+                <div class="axiom">
+                  <div class="axiom-name">Monotonicity $\mathcal{M}$</div>
+                  <p>Does the model prefer the stochastically dominating portfolio? Fraction of dominance pairs
+                    correctly ordered.</p>
+                </div>
+                <div class="axiom">
+                  <div class="axiom-name">Transitivity $\mathcal{T}$</div>
+                  <p>Are rankings consistent across menus? Largest fraction of menus jointly rationalized by a single
+                    preference ordering.</p>
+                </div>
+              </div>
+
+              <div class="fragment fade-up" style="margin-top: 8px;">
+                <span class="tag tag-green">$\beta > 0$</span>&nbsp; Risk averse &nbsp;
+                <span class="tag tag-purple">$\beta < 0$</span>&nbsp; Risk seeking &nbsp;
+                    <span class="tag tag-neutral">$\beta = 0$</span>&nbsp; Return-maximizer
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          ~2.5 minutes. Build the equation sequence with fragments. The key is that
+          beta is identified by the ratio of the return slope to the risk slope —
+          standard structural logic the audience will recognize. The three axiom definitions
+          on the right are your validity diagnostics: they accompany every results table.
+          The color tags at the bottom are a quick legend for results slides.
+        </aside>
+      </section>
+
+
+      <!-- ============================== 08. SECTION: RESULTS ============================== -->
+      <section data-screen-label="08 Results divider" data-background-color="#034638">
+        <div class="section-divider">
+          <span class="num">PART 03</span>
+          <h2>Results</h2>
+          <p>Rationality diagnostics, risk preference estimates, and the effect of fine-tuning.</p>
+        </div>
+      </section>
+
+
+      <!-- ============================== 09. RATIONALITY DIAGNOSTICS ============================== -->
+      <section data-screen-label="09 Rationality Diagnostics">
+        <div class="slide-frame">
+          <span class="eyebrow">03 · Results</span>
+          <h2>Rationality diagnostics</h2>
+          <h3>Do LLMs satisfy the axioms of choice over risky portfolios?</h3>
+
+          <table style="margin-top: var(--gap-title);">
             <thead>
               <tr>
                 <th>Model</th>
-                <th class="num">$\hat{\beta}$ (logits)</th>
-                <th class="num">$\hat{\beta}$ (choices)</th>
-                <th class="num">Interpretation</th>
+                <th class="num">Completeness $\mathcal{C}$</th>
+                <th class="num">Monotonicity $\mathcal{M}$</th>
+                <th class="num">Transitivity $\mathcal{T}$</th>
               </tr>
             </thead>
             <tbody>
@@ -829,182 +1826,269 @@
             </tbody>
           </table>
 
-          <div class="stack-lg">
-            <div class="panel fragment fade-up">
-              <div class="label">Key Design Feature</div>
-              <p style="margin:0;">Because each model can be estimated from a large menu set, the aggregation problem motivating mixed-logit methods in human populations is attenuated — we recover a single $\hat{\beta}$ per model.</p>
-            </div>
-            <p class="small fragment fade-up">Inference for $\hat{\beta}$ uses the Delta method (logit regime: robust SEs; choice regime: Fieller-type intervals near weak-ratio cases).</p>
-          </div>
+          <p class="small fragment fade-up" style="margin-top: 32px;">All indices are in $[0, 1]$. Exact axiom
+            satisfaction corresponds to a value of 1. Inference follows from the experimental design's within-menu
+            structure.</p>
         </div>
-      </div>
 
-      <aside class="notes">
-        ~2 minutes. The two columns are the two observation regimes — they should
-        agree whenever the maintained assumptions hold, so consistency across regimes
-        is itself an internal validity check. Anticipate: "Why quadratic EU?" —
-        it's a benchmark, not a maintained truth; the appendix discusses prospect
-        theory extensions. Anticipate: "Do results differ by model family?" — yes,
-        that's the cross-model comparison the table is designed to show.
-      </aside>
-
-      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>10 / 14</span></div>
-    </section>
+        <aside class="notes">
+          ~1.5 minutes. Walk through the three columns in order: completeness first
+          (are the label tokens the relevant continuation?), then monotonicity
+          (does the model respect stochastic dominance?), then transitivity
+          (are rankings cycle-free?). These are necessary conditions for economic
+          coherence — a model that fails monotonicity is irrational in a strict sense.
+        </aside>
+      </section>
 
 
-    <!-- ============================== 11. FINE-TUNING AS PREFERENCE INTERVENTION ============================== -->
-    <section data-screen-label="11 Fine-Tuning">
-      <div class="slide-frame">
-        <span class="eyebrow">03 · Results</span>
-        <h2>Fine-tuning as preference intervention</h2>
-        <h3>Does RLHF / DPO shift the recovered structural risk parameter?</h3>
+      <!-- ============================== 10. RISK PREFERENCE ESTIMATES ============================== -->
+      <section data-screen-label="10 Risk Preference Estimates">
+        <div class="slide-frame">
+          <span class="eyebrow">03 · Results</span>
+          <h2>Estimated risk preferences</h2>
+          <h3>Structural $\hat{\beta}$ across frontier models, both observation regimes.</h3>
 
-        <div class="two-col" style="margin-top: var(--gap-title);">
-          <div class="stack-lg">
-            <p>We treat post-training alignment as a <strong>targeted preference induction treatment</strong>. The object of interest is the change in the structural parameter after fine-tuning:</p>
+          <div class="two-col" style="margin-top: 16px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th class="num">$\hat{\beta}$ (logits)</th>
+                  <th class="num">$\hat{\beta}$ (choices)</th>
+                  <th class="num">Interpretation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="subheader">
+                  <td colspan="4">— Placeholder: results pending —</td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>Model A (base)</td>
+                  <td class="num muted">—</td>
+                  <td class="num muted">—</td>
+                  <td class="num muted">—</td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>Model B (base)</td>
+                  <td class="num muted">—</td>
+                  <td class="num muted">—</td>
+                  <td class="num muted">—</td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>Model C (base)</td>
+                  <td class="num muted">—</td>
+                  <td class="num muted">—</td>
+                  <td class="num muted">—</td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>Model D (base)</td>
+                  <td class="num muted">—</td>
+                  <td class="num muted">—</td>
+                  <td class="num muted">—</td>
+                </tr>
+              </tbody>
+            </table>
 
-            <div class="math-display">
-              \[ \Delta\hat{\beta} = \hat{\beta}_{\text{ft}} - \hat{\beta}_{\text{base}} \]
-            </div>
-
-            <ul class="clean" style="margin-top: 0;">
-              <li class="fragment fade-up">Positive $\Delta\hat{\beta}$ — fine-tuning induced <em>more risk aversion</em>.</li>
-              <li class="fragment fade-up">Negative $\Delta\hat{\beta}$ — fine-tuning induced <em>more risk seeking</em>.</li>
-              <li class="fragment fade-up">$\Delta\hat{\beta} \approx 0$ — alignment left economic risk preferences largely unchanged.</li>
-            </ul>
-          </div>
-
-          <div class="stack-lg">
-            <div class="placeholder-tall fragment fade-up" style="flex: 1;">
-              base vs. fine-tuned $\hat{\beta}$ comparison
-            </div>
-            <p class="small fragment fade-up">If fine-tuning systematically shifts $\hat{\beta}$ in a predictable direction, alignment procedures can in principle be used as a tool for <em>economic preference targeting</em> in deployed systems.</p>
-          </div>
-        </div>
-      </div>
-
-      <aside class="notes">
-        ~1.5 minutes. This is the forward-looking slide. The key claim: we can
-        define an empirical object (Delta beta) that measures what fine-tuning
-        does to economic preferences. If that object is stable and targetable,
-        it opens a path to preference alignment in the economic sense — not just
-        rhetorical alignment. Anticipate: "Can you actually control this?" —
-        the answer is yes in principle; we show the first evidence on whether
-        existing RLHF pipelines shift it.
-      </aside>
-
-      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>11 / 14</span></div>
-    </section>
-
-
-    <!-- ============================== 12. SECTION: CONCLUSION ============================== -->
-    <section data-screen-label="12 Conclusion divider" data-background-color="#034638">
-      <div class="section-divider">
-        <span class="num">PART 04</span>
-        <h2>Conclusion</h2>
-        <p>Contributions, limitations, and implications for agentic AI deployment.</p>
-      </div>
-    </section>
-
-
-    <!-- ============================== 13. CONTRIBUTIONS & IMPLICATIONS ============================== -->
-    <section data-screen-label="13 Contributions">
-      <div class="slide-frame">
-        <span class="eyebrow">04 · Conclusion</span>
-        <h2>Contributions &amp; implications</h2>
-
-        <div class="two-col" style="margin-top: var(--gap-title);">
-          <ol class="clean">
-            <li class="fragment fade-up"><strong>A measurement framework.</strong> Formal equivalence between LLM softmax and the RUM places language model choice inside structural discrete choice methods — enabling recovery of cardinal utility indices from either logits or sampled choices.</li>
-            <li class="fragment fade-up"><strong>Rationality diagnostics.</strong> Three axiom-based indices — completeness, monotonicity, transitivity — quantify how far a given model deviates from economically coherent choice over risky portfolios.</li>
-            <li class="fragment fade-up"><strong>Fine-tuning as preference induction.</strong> Treating alignment training as an intervention on $\hat{\beta}$ provides the first structural evidence on whether existing pipelines shift economic risk preferences in a targetable direction.</li>
-          </ol>
-
-          <div class="stack-lg">
-            <div class="panel green fragment fade-up">
-              <div class="label">The Bottom Line</div>
-              <p style="margin:0;">Agentic AI cannot be deployed in an economically coherent and internally consistent way when the preferences governing its actions are neither <strong>measured</strong> nor <strong>targetable</strong>.</p>
-            </div>
-            <div class="stack fragment fade-up">
-              <p class="small muted"><strong style="color:var(--ink);">Scope.</strong> Results are identified within the portfolio choice domain. Portability to other domains is a distinct empirical question — one that requires a prior benchmark of the kind this paper establishes.</p>
+            <div class="stack-lg">
+              <div class="panel fragment fade-up">
+                <div class="label">Key Design Feature</div>
+                <p style="margin:0;">Because each model can be estimated from a large menu set, the aggregation problem
+                  motivating mixed-logit methods in human populations is attenuated — we recover a single $\hat{\beta}$
+                  per model.</p>
+              </div>
+              <p class="small fragment fade-up">Inference for $\hat{\beta}$ uses the Delta method (logit regime: robust
+                SEs; choice regime: Fieller-type intervals near weak-ratio cases).</p>
             </div>
           </div>
         </div>
-      </div>
 
-      <aside class="notes">
-        ~1.5 minutes. Three contributions in three bullets — don't editorialize.
-        The panel on the right is the punchline: make sure the audience leaves
-        with that sentence. The scope note pre-empts the obvious objection
-        ("but does this generalize?") — acknowledge it honestly.
-      </aside>
+        <aside class="notes">
+          ~2 minutes. The two columns are the two observation regimes — they should
+          agree whenever the maintained assumptions hold, so consistency across regimes
+          is itself an internal validity check. Anticipate: "Why quadratic EU?" —
+          it's a benchmark, not a maintained truth; the appendix discusses prospect
+          theory extensions. Anticipate: "Do results differ by model family?" — yes,
+          that's the cross-model comparison the table is designed to show.
+        </aside>
+      </section>
 
-      <div class="slide-footer"><span>Do LLMs Have a Utility Function?</span><span class="rule"></span><span>13 / 14</span></div>
-    </section>
 
+      <!-- ============================== 11. FINE-TUNING AS PREFERENCE INTERVENTION ============================== -->
+      <section data-screen-label="11 Fine-Tuning">
+        <div class="slide-frame">
+          <span class="eyebrow">03 · Results</span>
+          <h2>Fine-tuning as preference intervention</h2>
+          <h3>Does RLHF / DPO shift the recovered structural risk parameter?</h3>
 
-    <!-- ============================== 14. CLOSING / Q&A ============================== -->
-    <section data-screen-label="14 Thanks" data-background-color="#034638">
-      <div class="section-divider" style="justify-content: space-between;">
-        <div>
-          <span class="num">END · 04</span>
-          <h2 style="margin-top: 28px;">Thank you.</h2>
-          <p>Questions, critiques, and counter-examples warmly invited.</p>
+          <div class="two-col" style="margin-top: 16px;">
+            <div class="stack-lg">
+              <p>We treat post-training alignment as a <strong>targeted preference induction treatment</strong>. The
+                object of interest is the change in the structural parameter after fine-tuning:</p>
+
+              <div class="math-display">
+                \[ \Delta\hat{\beta} = \hat{\beta}_{\text{ft}} - \hat{\beta}_{\text{base}} \]
+              </div>
+
+              <ul class="clean" style="margin-top: 0;">
+                <li class="fragment fade-up">Positive $\Delta\hat{\beta}$ — fine-tuning induced <em>more risk
+                    aversion</em>.</li>
+                <li class="fragment fade-up">Negative $\Delta\hat{\beta}$ — fine-tuning induced <em>more risk
+                    seeking</em>.</li>
+                <li class="fragment fade-up">$\Delta\hat{\beta} \approx 0$ — alignment left economic risk preferences
+                  largely unchanged.</li>
+              </ul>
+            </div>
+
+            <div class="stack-lg">
+              <div class="placeholder-tall fragment fade-up" style="flex: 1;">
+                base vs. fine-tuned $\hat{\beta}$ comparison
+              </div>
+              <p class="small fragment fade-up">If fine-tuning systematically shifts $\hat{\beta}$ in a predictable
+                direction, alignment procedures can in principle be used as a tool for <em>economic preference
+                  targeting</em> in deployed systems.</p>
+            </div>
+          </div>
         </div>
-        <div style="display:grid; grid-template-columns: repeat(2, max-content); gap: 80px; align-items: end; font-family: var(--sans); color: rgba(255,255,255,0.85); font-size: var(--type-small); line-height: 1.5;">
-          <div><strong style="color:var(--sand); display:block; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; font-size:var(--type-tiny); margin-bottom:6px;">Joy Buchanan</strong>Brock School of Business<br>Samford University</div>
-          <div><strong style="color:var(--sand); display:block; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; font-size:var(--type-tiny); margin-bottom:6px;">Joshua Foster</strong>Ivey Business School<br>Western University</div>
+
+        <aside class="notes">
+          ~1.5 minutes. This is the forward-looking slide. The key claim: we can
+          define an empirical object (Delta beta) that measures what fine-tuning
+          does to economic preferences. If that object is stable and targetable,
+          it opens a path to preference alignment in the economic sense — not just
+          rhetorical alignment. Anticipate: "Can you actually control this?" —
+          the answer is yes in principle; we show the first evidence on whether
+          existing RLHF pipelines shift it.
+        </aside>
+      </section>
+
+
+      <!-- ============================== 13. SECTION: CONCLUSION ============================== -->
+      <section data-screen-label="12 Conclusion divider" data-background-color="#034638">
+        <div class="section-divider">
+          <span class="num">PART 04</span>
+          <h2>Conclusion</h2>
+          <p>Contributions, limitations, and implications for agentic AI deployment.</p>
         </div>
-      </div>
+      </section>
 
-      <aside class="notes">
-        Hold this slide for the entire Q&amp;A.
-        Anticipated questions:
-        (1) "Why single-token choice?" — Identification is clean; System 2 raises different challenges, flagged as future work.
-        (2) "Why quadratic EU?" — Benchmark, not maintained truth; appendix discusses alternatives including prospect theory.
-        (3) "Does this generalize beyond portfolios?" — Intentionally narrow scope; the portfolio domain is chosen because it's clean enough for structural interpretation.
-        (4) "Can you target fine-tuning to hit a specific beta?" — Open empirical question; paper establishes the measurement framework that makes targeting possible in principle.
-      </aside>
-    </section>
 
+      <!-- ============================== 13. CONTRIBUTIONS & IMPLICATIONS ============================== -->
+      <section data-screen-label="13 Contributions">
+        <div class="slide-frame">
+          <span class="eyebrow">04 · Conclusion</span>
+          <h2>Contributions &amp; implications</h2>
+
+          <div class="two-col" style="margin-top: 16px;">
+            <ol class="clean">
+              <li class="fragment fade-up"><strong>A measurement framework.</strong> Formal equivalence between LLM
+                softmax and the RUM places language model choice inside structural discrete choice methods — enabling
+                recovery of cardinal utility indices from either logits or sampled choices.</li>
+              <li class="fragment fade-up"><strong>Rationality diagnostics.</strong> Three axiom-based indices —
+                completeness, monotonicity, transitivity — quantify how far a given model deviates from economically
+                coherent choice over risky portfolios.</li>
+              <li class="fragment fade-up"><strong>Fine-tuning as preference induction.</strong> Treating alignment
+                training as an intervention on $\hat{\beta}$ provides the first structural evidence on whether existing
+                pipelines shift economic risk preferences in a targetable direction.</li>
+            </ol>
+
+            <div class="stack-lg">
+              <div class="panel green fragment fade-up">
+                <div class="label">The Bottom Line</div>
+                <p style="margin:0;">Agentic AI cannot be deployed in an economically coherent and internally consistent
+                  way when the preferences governing its actions are neither <strong>measured</strong> nor
+                  <strong>targetable</strong>.
+                </p>
+              </div>
+              <div class="stack fragment fade-up">
+                <p class="small muted"><strong style="color:var(--ink);">Scope.</strong> Results are identified within
+                  the portfolio choice domain. Portability to other domains is a distinct empirical question — one that
+                  requires a prior benchmark of the kind this paper establishes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          ~1.5 minutes. Three contributions in three bullets — don't editorialize.
+          The panel on the right is the punchline: make sure the audience leaves
+          with that sentence. The scope note pre-empts the obvious objection
+          ("but does this generalize?") — acknowledge it honestly.
+        </aside>
+      </section>
+
+
+      <!-- ============================== 14. CLOSING / Q&A ============================== -->
+      <section data-screen-label="14 Thanks" data-background-color="#034638">
+        <div class="section-divider" style="justify-content: space-between;">
+          <div>
+            <span class="num">END · 04</span>
+            <h2 style="margin-top: 28px;">Thank you.</h2>
+            <p>Questions, critiques, and counter-examples warmly invited.</p>
+          </div>
+          <div
+            style="display:grid; grid-template-columns: repeat(2, max-content); gap: 80px; align-items: end; font-family: var(--sans); color: rgba(255,255,255,0.85); font-size: var(--type-small); line-height: 1.5;">
+            <div><strong
+                style="color:var(--sand); display:block; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; font-size:var(--type-tiny); margin-bottom:6px;">Joy
+                Buchanan</strong>Brock School of Business<br>Samford University</div>
+            <div><strong
+                style="color:var(--sand); display:block; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; font-size:var(--type-tiny); margin-bottom:6px;">Joshua
+                Foster</strong>Ivey Business School<br>Western University</div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          Hold this slide for the entire Q&amp;A.
+          Anticipated questions:
+          (1) "Why single-token choice?" — Identification is clean; System 2 raises different challenges, flagged as
+          future work.
+          (2) "Why quadratic EU?" — Benchmark, not maintained truth; appendix discusses alternatives including prospect
+          theory.
+          (3) "Does this generalize beyond portfolios?" — Intentionally narrow scope; the portfolio domain is chosen
+          because it's clean enough for structural interpretation.
+          (4) "Can you target fine-tuning to hit a specific beta?" — Open empirical question; paper establishes the
+          measurement framework that makes targeting possible in principle.
+        </aside>
+      </section>
+
+    </div>
   </div>
-</div>
 
 
-<!-- reveal.js + plugins -->
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+  <!-- reveal.js + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
 
-<script>
-  Reveal.initialize({
-    hash: true,
-    slideNumber: false,
-    controls: true,
-    progress: true,
-    center: false,
-    transition: 'slide',
-    transitionSpeed: 'default',
-    backgroundTransition: 'fade',
-    width: 1920,
-    height: 1080,
-    margin: 0,
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      controls: true,
+      progress: true,
+      center: false,
+      transition: 'slide',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      width: 1920,
+      height: 1080,
+      margin: 0.04,
 
-    plugins: [ RevealHighlight, RevealNotes, RevealMath.MathJax3 ],
+      plugins: [RevealHighlight, RevealNotes, RevealMath.MathJax3],
 
-    mathjax3: {
-      mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      mathjax3: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        },
       },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-      },
-    },
-  });
-</script>
+    });
+  </script>
 
 </body>
+
 </html>

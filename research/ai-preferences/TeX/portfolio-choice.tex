@@ -1,0 +1,74 @@
+The structural framework in Section~\ref{sec:structural-model} connects the model's logit vector to a cardinal utility index $V_i$ through the scale parameter $\kappa$, but leaves the functional form of $V_i$ unrestricted. We now specialize that index to a portfolio choice environment in which each alternative is a one-period asset with observed expected return $\mu_i$ and standard deviation $\sigma_i$, so that the relevant tradeoff between return and risk is transparent, fully observed by the researcher, and directly presented to the model. The researcher then recovers variance and the raw second moment mechanically from the reported moments. This environment gives the structural parameters an economically interpretable domain while keeping the objects of choice under complete experimental control.
+
+In this environment, each prompt context $x_j$ presents a binary feasible portfolio set $C(x_j) = \{A,B\}$, where the two label tokens encode portfolios with observed central moments $(\mu_{Aj}, \sigma_{Aj})$ and $(\mu_{Bj}, \sigma_{Bj})$. Holding the rest of the prompt template fixed while varying these moments across menus gives a direct implementation of the measurement objects from Section~\ref{sec:structural-model} in a setting with economically interpretable alternatives. Consequently, the completeness index $\mathcal{C}(x_j,\tau)$ asks whether next-token probability remains on the portfolio labels, the monotonicity index $\mathcal{M}(x_j,\tau)$ is evaluated on menus with an experimentally imposed dominance order, and the transitivity index $\mathcal{T}(\mathcal{D})$ asks whether rankings across menus are consistent with a single context-invariant utility index.
+
+% The risk preferences recovered in this setting are therefore interpretable as a preference index over a well-defined class of risky allocations, but one that need not summarize behavior outside it. It is well-known that risk preferences are not globally consistent across domains among human subjects \citep{einav2012general, harrison2007naturally, schildberg2018risk}, and we explore the extent to which this is true for language models as well here.
+
+\subsection{Benchmark Utility Representation}
+
+Our maintained benchmark is quadratic expected utility, which serves as a useful approximation to the expected utilities of a diverse set of utility functions \citep{markowitz2014mean}. To express this compactly, let $R_i = E[x_i^2]$ denote the raw second moment of portfolio returns. The moments shown in the prompt then imply $R_i = \sigma_i^2 + \mu_i^2$, since $\sigma_i^2 = E[x_i^2] - E[x_i]^2$. Recovering structural risk preference parameters from discrete choices over financial alternatives with known payoff distributions has clear precedent in the empirical literature \citep{mester1996study, choi2007consistency, cohen2007estimating}.\footnote{Richer alternatives such as prospect theory, probability weighting, and disappointment aversion have been studied extensively \citep{kahneman1979prospect, gul1991theory, prelec1998probability, bruhin2010risk}.} For the label tokens that encode portfolios, we model the corresponding expected utility index as
+\begin{equation}\label{eq:eu}
+  V_i = \mu_i - \beta R_i,
+\end{equation}
+where $\beta > 0$ indicates risk aversion, $\beta < 0$ indicates risk seeking, and $\beta = 0$ collapses to expected-return maximization. Under Equation~\eqref{eq:eu}, whether portfolio $i$ is preferred to portfolio $i'$ when $\mu_i > \mu_{i'}$ and $R_i > R_{i'}$ depends entirely on whether $\beta \leq (\mu_i - \mu_{i'})/(R_i - R_{i'})$, so differences in $\beta$ translate directly into different portfolio rankings and, once the model selects among feasible allocations, different economic outcomes. The utility index $V_i$ is attached to the portfolio itself rather than to the menu in which it appears, so exact transitivity in this domain requires that a single value of $\beta$ to rationalize rankings across all menus in which the same portfolio appears. The benchmark monotonicity diagnostic studied in Section~\ref{sec:experimental-design} uses menus in which one portfolio has higher expected return and lower standard deviation. On the experimental grid these menus also imply lower $R_i$, so the maintained utility index predicts that the dominating portfolio should rank first for every $\beta > 0$.
+
+Substituting Equation~\eqref{eq:eu} into Equation~\eqref{eq:logit-spec} for the portfolio labels maps the observed portfolio moments into the pre-temperature logit index. Specifically, for alternative $i$ in menu $j$,
+\begin{equation}\label{eq:logit-moments}
+  u_{ij} = c + \kappa \mu_{ij} - \kappa \beta R_{ij},
+\end{equation}
+where the additive term $c$ is common within a menu and drops from within-menu comparisons. By imposing strategic variation in $(\mu_{ij}, R_{ij})$ across alternatives and menus, we can identify the structural parameters of interest. We therefore consider two observation regimes using this framework. When raw pre-softmax logits on the menu labels are observed, within-menu logit gaps can be used to identify the structural parameters directly. When only sampled choices are observed, we employ traditional random utility model estimation methods via maximum likelihood. We explore each of these in turn below. Appendix~\ref{app:identification} summarizes the identification conditions and design implications under both observation regimes.
+
+\subsection{Observed-Logit Estimation}
+
+When logits are observed, the data for menu $j$ are the two label logits together with the corresponding portfolio moments. Because the additive menu-specific level in Equation~\eqref{eq:logit-moments} is common to both options, estimation proceeds on the within-menu logit gap and does not require menu fixed effects. An equivalent stacked representation is
+\begin{equation}\label{eq:empirical-spec}
+  u_{ij} = \theta_{0j} + \alpha \mathbf{1}\{i=A\} + \theta_1 \mu_{ij} + \theta_2 R_{ij} + \varepsilon_{ij}
+\end{equation}
+where $u_{ij}$ is the raw logit for alternative $i$ in menu $j$, $\theta_{0j}$ absorbs the menu-specific level including the common term $c$ from Equation~\eqref{eq:logit-moments}, and $\alpha$ captures any systematic additive advantage of the option labeled A. With two observations per menu, this stacked equation is algebraically equivalent to the first-difference regression used for estimation.
+
+For a binary menu $j$ with options A and B, within-menu differencing yields
+\begin{equation}\label{eq:first-difference}
+  \Delta u_j = \alpha + \theta_1 \Delta \mu_j + \theta_2 \Delta R_j + \eta_j
+\end{equation}
+where $\Delta u_j = u_{Aj} - u_{Bj}$, $\Delta \mu_j = \mu_{Aj} - \mu_{Bj}$, $\Delta R_j = R_{Aj} - R_{Bj}$, and $\eta_j = \varepsilon_{Aj} - \varepsilon_{Bj}$. Estimation therefore runs on the logit gap with a pooled constant and the within-menu differences in moments. The intercept $\alpha$ is not a menu fixed effect. It captures only what survives differencing, namely a systematic additive advantage for the option labeled A, which is also the first-listed option under the experimental template. Pooling canonical menus with their positional mirrors is useful because the label reversal helps separate this constant position term from the slope coefficients.
+Because the dependent variable is the raw pre-temperature logit gap, decoding temperature does not affect the identifying equation or the precision of this estimator.
+
+Identification requires that the slope mapping from utility units to logit units be common across menus, that any positional effect enter as a common additive constant, and that the design matrix with rows $(\Delta \mu_j,\Delta R_j)$ have full rank. The reduced-form slopes imply
+\begin{equation}\label{eq:kappa-hat}
+  \hat{\kappa} = \hat{\theta}_1
+\end{equation}
+and
+\begin{equation}\label{eq:beta-hat}
+  \hat{\beta} = -\frac{\hat{\theta}_2}{\hat{\theta}_1}.
+\end{equation}
+Inference can use heteroskedasticity-robust standard errors for $(\hat{\theta}_1,\hat{\theta}_2)$. Since $\hat{\beta}$ is a ratio estimator, inference for $\hat{\beta}$ follows from the Delta method applied to the estimated covariance matrix.
+
+\subsection{Sampled-Choice Estimation}
+
+When only sampled choices are observed, let $y_j = 1$ if option A is chosen in menu $j$ and $y_j = 0$ otherwise. With $\Delta \mu_j = \mu_{Aj} - \mu_{Bj}$ and $\Delta R_j = R_{Aj} - R_{Bj}$, the binary choice probability is
+\begin{equation}\label{eq:revealed-prob}
+  p_j \equiv P(y_j = 1 \mid \Delta \mu_j, \Delta R_j)
+  = \Lambda(\gamma_1 \Delta \mu_j + \gamma_2 \Delta R_j),
+\end{equation}
+where $\Lambda(t) = \exp(t) / (1 + \exp(t))$, $\gamma_1 = \kappa / \tau$, and $\gamma_2 = -\kappa\beta / \tau$.
+Note that varying $\tau$ across menus does not add identifying content because it only rescales the common latent index. Therefore, in the benchmark design we hold $\tau = 1$ fixed across estimation menus, which preserves the native logit scale.
+
+Full-rank variation in $(\Delta \mu_j,\Delta R_j)$ identifies the reduced-form slopes. Choice data therefore identify $\beta = -\gamma_2/\gamma_1$ whenever $\gamma_1 \neq 0$. With one draw per menu, estimation proceeds by maximizing the Bernoulli log-likelihood\footnote{If the same menu were to be queried repeatedly, the same estimator could be written in equivalent aggregated binomial form with counts $(m_j,n_j)$.}
+\begin{equation}\label{eq:log-likelihood}
+  \mathcal{L}(\gamma_1, \gamma_2)
+  = \sum_{j=1}^N
+  \left[
+    y_j \ln p_j
+    + (1-y_j)\ln(1-p_j)
+  \right].
+\end{equation}
+
+Correct specification requires a fixed, though not necessarily known, $\tau$, conditional independence across repeated draws given the menu, and a decoding rule that preserves the relative odds of the two menu labels. In particular, any truncation must retain both labels and otherwise leave their relative odds unchanged \citep{mcfadden1972conditional,train2009discrete}. Separately, presentation effects such as option-order or position bias can alter the underlying label probabilities and must be controlled by the experimental design \citep{pezeshkpour2024large}. Under these conditions, together with the standard identification and regularity conditions stated above, maximum likelihood yields consistent estimates $\hat{\gamma}_1$ and $\hat{\gamma}_2$ \citep{newey1994large}. Because $\tau$ is exogenously imposed, the structural parameters can be recovered as
+\begin{equation}\label{eq:revealed-kappa}
+  \hat{\kappa} = \tau \hat{\gamma}_1
+\end{equation}
+and
+\begin{equation}\label{eq:beta-mle}
+  \hat{\beta} = -\frac{\hat{\gamma}_2}{\hat{\gamma}_1}.
+\end{equation}
+Inference for $\hat{\kappa}$ follows from the inverse Hessian. For $\hat{\beta}$, the Delta method is convenient away from weak-ratio cases, while Fieller-type or profile-likelihood confidence sets are preferable when $\hat{\gamma}_1$ is close to zero.
