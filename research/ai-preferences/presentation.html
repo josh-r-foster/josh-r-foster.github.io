@@ -945,7 +945,7 @@
         <div class="section-divider">
           <span class="num">PART 01</span>
           <h2>Introduction</h2>
-          <p>LLMs as Economic Actors</p>
+          <p style="font-size: 50px;">LLMs as Economic Actors</p>
         </div>
       </section>
 
@@ -1042,105 +1042,6 @@
         </aside>
       </section>
 
-      <!-- ============================== 03a. EXPERIMENTAL PROMPT ============================== -->
-      <section data-screen-label="03a Experimental Prompt">
-        <div class="slide-frame">
-          <span class="eyebrow">01 · Introduction</span>
-          <h2>A Typical Choice Experiment Prompt</h2>
-
-          <style>
-            .reveal .tcolorbox {
-              background: #f4f4f4;
-              border: 1px solid #999999;
-              padding: 32px 40px;
-              margin-top: 48px;
-              font-family: var(--mono);
-              font-size: 34px;
-              line-height: 1.5;
-              color: var(--ink);
-              text-align: left;
-              border-radius: 0px;
-              /* sharp corners */
-            }
-
-            /* Custom background for the Indifference Curve Results slide */
-            .graph-paper-state-results .backgrounds {
-              background-image:
-                url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
-                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
-                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
-                linear-gradient(var(--ink), var(--ink)),
-                linear-gradient(90deg, var(--ink), var(--ink)),
-                linear-gradient(var(--bg-alt) 1px, transparent 1px),
-                linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
-                linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
-                linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
-              background-size:
-                1000px 1000px,
-                60px 60px,
-                60px 60px,
-                100% 4px,
-                4px 100%,
-                20px 20px,
-                20px 20px,
-                100px 100px,
-                100px 100px !important;
-              background-position:
-                center center,
-                calc(100% - 40px) calc(50% + 205px),
-                calc(50% - 100px) 40px,
-                center calc(50% + 249px),
-                calc(50% - 151px) center,
-                calc(50% + 10px) calc(50% + 10px),
-                calc(50% + 10px) calc(50% + 10px),
-                calc(50% + 50px) calc(50% + 50px),
-                calc(50% + 50px) calc(50% + 50px) !important;
-              background-repeat:
-                no-repeat,
-                no-repeat,
-                no-repeat,
-                no-repeat,
-                no-repeat,
-                repeat,
-                repeat,
-                repeat,
-                repeat !important;
-            }
-          </style>
-
-          <div class="tcolorbox">
-            You have two options for your annual financial portfolio.<br>
-            Choose the portfolio you prefer and reply with A or B only.<br>
-            <br>
-            Option A offers an expected return of 8% and <br>a standard deviation
-            of 12%.<br>
-            <br>
-            Option B offers an expected return of 10% and <br>a standard deviation
-            of 15%.<br>
-            <br>
-            I choose is Option _______.
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================== 03a. EXPERIMENTAL SUBJECTS ============================== -->
-      <section data-screen-label="03a Ideal Subjects">
-        <div class="slide-frame">
-          <span class="eyebrow">01 · Introduction</span>
-          <h2>LLMs Are Ideal Experimental Subjects</h2>
-
-          <div class="larger-text" style="margin-top: 32px;">
-            <ul class="clean">
-              <li class="fragment fade-up">Environmental control for <em>ceteris paribus</em> variation.</li>
-              <li class="fragment fade-up">Context control for counterfactual analysis.</li>
-              <li class="fragment fade-up">Every simulation is "real" to the AI.</li>
-              <li class="fragment fade-up">AI never gets tired of answering your questions.</li>
-              <li class="fragment fade-up">AIs are cheap and fast.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
 
       <!-- ============================== 03b. LLM INFERENCE ============================== -->
       <section data-background-video="/images/presentations/how-transformers-work.mp4" data-background-video-loop
@@ -1151,7 +1052,7 @@
         data-background-interactive>
       </section>
 
-      <section data-screen-label="03b LLM Inference">
+      <!-- <section data-screen-label="03b LLM Inference">
         <div class="slide-frame">
           <span class="eyebrow">01 · Introduction</span>
           <h2>The Mechanics of LLM Generation</h2>
@@ -1268,92 +1169,91 @@
           </style>
 
           <div class="inference-pipeline">
-            <!-- Step 1: Input -->
-            <div class="inference-step fragment fade-up">
-              <div class="label">Input Context</div>
-              <div style="display: flex; flex-direction: column; gap: 12px; margin-top: auto;">
-                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-                  <span class="token-box" style="margin: 0;">Which</span>
-                  <span class="token-box" style="margin: 0;">do</span>
-                  <span class="token-box" style="margin: 0;">you</span>
-                  <span class="token-box" style="margin: 0;">prefer?</span>
-                </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-                  <span class="token-box" style="margin: 0;">Option</span>
-                  <span class="token-box" style="margin: 0;">A:</span>
-                  <span class="token-box" style="margin: 0;">$\mu=8$%</span>
-                  <span class="token-box" style="margin: 0;">and</span>
-                  <span class="token-box" style="margin: 0;">$\sigma=12$%</span>
-                </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-                  <span class="token-box" style="margin: 0;">Option</span>
-                  <span class="token-box" style="margin: 0;">B:</span>
-                  <span class="token-box" style="margin: 0;">$\mu=10$%</span>
-                  <span class="token-box" style="margin: 0;">and</span>
-                  <span class="token-box" style="margin: 0;">$\sigma=5$%</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Step 2: Transformer Box -->
-            <div class="fragment fade-up" style="display: flex; align-items: stretch; gap: 16px;">
-              <div class="inference-arrow" style="display: flex; align-items: center;">▶</div>
-              <div
-                style="background: var(--ivey-green); width: 160px; border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(3, 70, 56, 0.15);">
-                <span
-                  style="color: white; font-family: var(--sans); font-size: 40px; font-weight: 700; letter-spacing: 0.05em;">LLM</span>
-              </div>
-            </div>
-
-            <!-- Step 3: Logits -->
-            <div class="fragment fade-up" style="display: flex; align-items: stretch; gap: 16px; flex: 1;">
-              <div class="inference-arrow" style="display: flex; align-items: center;">▶</div>
-              <div class="inference-step" style="width: 100%;">
-                <div class="label">Final Projection Layer (Logits)</div>
-                <div style="margin-top: auto;">
-                  <div class="token-box">
-                    <span>"A"</span>
-                    <span>1.15</span>
-                  </div>
-                  <div class="token-box highlight">
-                    <span>"B"</span>
-                    <span>5.42</span>
-                  </div>
-                  <div class="token-box">
-                    <span>"C"</span>
-                    <span>-2.11</span>
-                  </div>
-                  <div
-                    style="text-align: center; font-size: 16px; color: var(--ink-soft); margin-top: 12px; font-family: var(--mono);">
-                    ... 100,000+ tokens</div>
-                </div>
-              </div>
-            </div>
+            
+      <div class="inference-step fragment fade-up">
+        <div class="label">Input Context</div>
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: auto;">
+          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <span class="token-box" style="margin: 0;">Which</span>
+            <span class="token-box" style="margin: 0;">do</span>
+            <span class="token-box" style="margin: 0;">you</span>
+            <span class="token-box" style="margin: 0;">prefer?</span>
           </div>
-
-          <p class="fragment fade-up"
-            style="margin-top: 48px; text-align: center; font-size: 26px; border-top: 1px solid var(--rule); padding-top: 24px;">
-            The logits represent the <strong>raw, unnormalized "preference scores"</strong> the model assigns to each
-            possible continuation.
-          </p>
-
-          <div class="fragment fade-up" style="display: flex; justify-content: center; margin-top: 32px;">
-            <div class="panel green" style="text-align: center; padding: 24px 48px; border-radius: 8px;">
-              <div style="font-size: 36px; margin-bottom: 16px;">
-                \[ \text{Context } x \xrightarrow{\quad \text{LLM} \quad} \text{Logit Scores } \bigl\{ u_i(x)
-                \bigr\}_{i \in \mathcal{V}} \]
-              </div>
-              <p style="font-size: 22px; color: var(--ink-soft); margin: 0; line-height: 1.4;">
-                The model acts as an evaluation function, mapping the input context $x$<br>to a specific logit score
-                $u_i(x)$ for every possible next token $i$.
-              </p>
-            </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <span class="token-box" style="margin: 0;">Option</span>
+            <span class="token-box" style="margin: 0;">A:</span>
+            <span class="token-box" style="margin: 0;">$\mu=8$%</span>
+            <span class="token-box" style="margin: 0;">and</span>
+            <span class="token-box" style="margin: 0;">$\sigma=12$%</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <span class="token-box" style="margin: 0;">Option</span>
+            <span class="token-box" style="margin: 0;">B:</span>
+            <span class="token-box" style="margin: 0;">$\mu=10$%</span>
+            <span class="token-box" style="margin: 0;">and</span>
+            <span class="token-box" style="margin: 0;">$\sigma=5$%</span>
           </div>
         </div>
-      </section>
+      </div>
+
+      
+      <div class="fragment fade-up" style="display: flex; align-items: stretch; gap: 16px;">
+        <div class="inference-arrow" style="display: flex; align-items: center;">▶</div>
+        <div
+          style="background: var(--ivey-green); width: 160px; border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(3, 70, 56, 0.15);">
+          <span
+            style="color: white; font-family: var(--sans); font-size: 40px; font-weight: 700; letter-spacing: 0.05em;">LLM</span>
+        </div>
+      </div>
+
+      <div class="fragment fade-up" style="display: flex; align-items: stretch; gap: 16px; flex: 1;">
+        <div class="inference-arrow" style="display: flex; align-items: center;">▶</div>
+        <div class="inference-step" style="width: 100%;">
+          <div class="label">Final Projection Layer (Logits)</div>
+          <div style="margin-top: auto;">
+            <div class="token-box">
+              <span>"A"</span>
+              <span>1.15</span>
+            </div>
+            <div class="token-box highlight">
+              <span>"B"</span>
+              <span>5.42</span>
+            </div>
+            <div class="token-box">
+              <span>"C"</span>
+              <span>-2.11</span>
+            </div>
+            <div
+              style="text-align: center; font-size: 16px; color: var(--ink-soft); margin-top: 12px; font-family: var(--mono);">
+              ... 100,000+ tokens</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="fragment fade-up"
+      style="margin-top: 48px; text-align: center; font-size: 26px; border-top: 1px solid var(--rule); padding-top: 24px;">
+      The logits represent the <strong>raw, unnormalized "preference scores"</strong> the model assigns to each
+      possible continuation.
+    </p>
+
+    <div class="fragment fade-up" style="display: flex; justify-content: center; margin-top: 32px;">
+      <div class="panel green" style="text-align: center; padding: 24px 48px; border-radius: 8px;">
+        <div style="font-size: 36px; margin-bottom: 16px;">
+          \[ \text{Context } x \xrightarrow{\quad \text{LLM} \quad} \text{Logit Scores } \bigl\{ u_i(x)
+          \bigr\}_{i \in \mathcal{V}} \]
+        </div>
+        <p style="font-size: 22px; color: var(--ink-soft); margin: 0; line-height: 1.4;">
+          The model acts as an evaluation function, mapping the input context $x$<br>to a specific logit score
+          $u_i(x)$ for every possible next token $i$.
+        </p>
+      </div>
+    </div>
+  </div>
+  </section> -->
 
       <!-- ============================== 04. CORE INSIGHT ============================== -->
-      <section data-screen-label="04 Core Insight">
+      <!-- <section data-screen-label="04 Core Insight">
         <div class="slide-frame">
           <span class="eyebrow">01 · Introduction</span>
           <h2>The core insight</h2>
@@ -1439,14 +1339,166 @@
           single-token forced choice to keep the mapping clean; multi-token chain-of-thought
           raises different identification challenges we flag as future work.
         </aside>
+      </section> -->
+
+      <!-- ============================== 03a. EXPERIMENTAL PROMPT ============================== -->
+      <section data-screen-label="03a Experimental Prompt">
+        <div class="slide-frame">
+          <span class="eyebrow">01 · Introduction</span>
+          <h2>A Typical Choice Experiment Prompt</h2>
+
+          <style>
+            .reveal .tcolorbox {
+              background: #f4f4f4;
+              border: 1px solid #999999;
+              padding: 32px 40px;
+              margin-top: 48px;
+              font-family: var(--mono);
+              font-size: 34px;
+              line-height: 1.5;
+              color: var(--ink);
+              text-align: left;
+              border-radius: 0px;
+              /* sharp corners */
+            }
+
+            /* Custom background for the Indifference Curve Results slide */
+            .graph-paper-state-results .backgrounds {
+              background-image:
+                url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
+                linear-gradient(var(--ink), var(--ink)),
+                linear-gradient(90deg, var(--ink), var(--ink)),
+                linear-gradient(var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+                linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+              background-size:
+                1000px 1000px,
+                60px 60px,
+                60px 60px,
+                100% 4px,
+                4px 100%,
+                20px 20px,
+                20px 20px,
+                100px 100px,
+                100px 100px !important;
+              background-position:
+                center center,
+                calc(100% - 40px) calc(50% + 205px),
+                calc(50% - 100px) 40px,
+                center calc(50% + 249px),
+                calc(50% - 151px) center,
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 50px) calc(50% + 50px),
+                calc(50% + 50px) calc(50% + 50px) !important;
+              background-repeat:
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                repeat,
+                repeat,
+                repeat,
+                repeat !important;
+            }
+          </style>
+
+          <div class="tcolorbox">
+            You have two options for your annual financial portfolio.<br>
+            Choose the portfolio you prefer and reply with A or B only.<br>
+            <br>
+            Option A offers an expected return of 8% and <br>a standard deviation
+            of 12%.<br>
+            <br>
+            Option B offers an expected return of 10% and <br>a standard deviation
+            of 15%.<br>
+            <br>
+            I choose is Option _______.
+          </div>
+        </div>
       </section>
 
       <!-- ============================== 04b. CORE INSIGHT PIPELINE ============================== -->
       <section data-screen-label="04b Core Insight Pipeline">
         <div class="slide-frame">
           <span class="eyebrow">01 · Introduction</span>
-          <h2>The core insight</h2>
-          <h3>An LLM's softmax is McFadden (1974)'s conditional logit.</h3>
+          <h2>The Core Insight</h2>
+          <h3>An LLM's choice mechanism is McFadden (1974)'s conditional logit.</h3>
+
+          <style>
+            .inference-pipeline {
+              display: flex;
+              align-items: stretch;
+              justify-content: space-between;
+              gap: 16px;
+              margin-top: 48px;
+            }
+
+            .inference-step {
+              flex: 1;
+              background: var(--bg-alt);
+              border-radius: 8px;
+              padding: 24px;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              border-top: 4px solid var(--western-purple);
+            }
+
+            .inference-step.green {
+              border-top-color: var(--ivey-green);
+            }
+
+            .inference-step .label {
+              font-family: var(--sans);
+              font-size: 24px;
+              color: var(--western-purple);
+              letter-spacing: 0.14em;
+              text-transform: uppercase;
+              margin-bottom: 16px;
+              font-weight: 700;
+            }
+
+            .inference-step.green .label {
+              color: var(--ivey-green);
+            }
+
+            .inference-arrow {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 32px;
+              color: var(--light-grey);
+            }
+
+            .token-box {
+              background: #fff;
+              border: 1px solid var(--rule);
+              padding: 12px 16px;
+              border-radius: 6px;
+              font-family: var(--mono);
+              font-size: 24px;
+              margin-bottom: 12px;
+              display: flex;
+              justify-content: space-between;
+              color: var(--ink);
+            }
+
+            .token-box.highlight {
+              border-color: var(--ivey-green);
+              background: var(--ivey-green-tint);
+              color: var(--ivey-green);
+              font-weight: 600;
+            }
+
+            .reveal .core-insight-list li {
+              font-size: 36px !important;
+            }
+          </style>
 
           <div class="inference-pipeline" style="margin-top: 16px;">
             <!-- Step 1: Input -->
@@ -1512,21 +1564,393 @@
             </div>
           </div>
 
-          <div class="math-display fragment fade-up" style="margin: 64px 0 0 0; text-align: center;">
-            \[ \underbrace{P(i \mid x, \tau) = \frac{\exp\!\bigl(u_i(x)/\tau\bigr)}{\displaystyle\sum_{j \in
-            \mathcal{V}}
-            \exp\!\bigl(u_j(x)/\tau\bigr)}}_{\text{Softmax: Probability of Selecting Logit $i$}} \quad \iff \quad
-            \underbrace{U_i = u_i(x) +
-            \tau\,\varepsilon_i, \quad \varepsilon_i \overset{\text{iid}}{\sim}
-            \text{EV-I}}_{\text{Random Utility~Model}} \]
-          </div>
+          <div class="fragment fade-up">
+            <div class="math-display" style="margin: 64px 0 0 0; text-align: center;">
+              \[ \underbrace{P(i \mid x, \tau) = \frac{\exp\!\bigl(u_i(x)/\tau\bigr)}{\displaystyle\sum_{j \in
+              \mathcal{V}}
+              \exp\!\bigl(u_j(x)/\tau\bigr)}}_{\text{Softmax: Probability of Selecting Logit $i$}} \quad \iff \quad
+              \underbrace{U_i = u_i(x) +
+              \tau\,\varepsilon_i, \quad \varepsilon_i \overset{\text{iid}}{\sim}
+              \text{EV-I}}_{\text{Random Utility from Selecting Logit $i$}} \]
+            </div>
 
-          <ul class="clean core-insight-list" style="margin-top: 0;">
-            <li class="fragment fade-up"><strong>$\tau$:</strong> temperature is the scale of the stochastic component.
-            </li>
-          </ul>
+            <ul class="clean core-insight-list" style="margin-top: 0;">
+              <li><strong>$\tau$:</strong> temperature scale of the stochastic component.
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
+
+
+      <!-- ============================== 08b. INDIFFERENCE CURVE ============================== -->
+      <section data-screen-label="08b Indifference Curve">
+        <div class="slide-frame">
+          <span class="eyebrow">03 · Results</span>
+          <h2>Llama 3.1 8B Indifference Curve</h2>
+          <!-- <h3>Position-corrected logit gap across the (σ, μ) grid — Llama 3.1 8B Instruct.</h3> -->
+
+          <div style="display: flex; justify-content: center; align-items: center; flex: 1; margin-top: 8px;">
+            <canvas id="indifference-canvas" width="1400" height="720" style="border-radius: 4px;"></canvas>
+          </div>
+
+          <div style="display: flex; gap: 48px; justify-content: center; margin-top: 12px;">
+            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
+              <span
+                style="display:inline-block;width:18px;height:18px;background:#b2182b;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>
+              Prefers grid bundle
+            </span>
+            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
+              <span
+                style="display:inline-block;width:18px;height:18px;background:#2166ac;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>
+              Prefers base bundle
+            </span>
+            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
+              <span
+                style="display:inline-block;width:3px;height:18px;background:var(--ivey-green);vertical-align:middle;margin-right:6px;border-radius:1px;"></span>
+              Empirical indifference curve (Δz = 0)
+            </span>
+            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
+              <span
+                style="display:inline-block;width:12px;height:12px;background:var(--western-purple);border-radius:50%;vertical-align:middle;margin-right:6px;"></span>
+              Base bundle (σ=30, μ=10)
+            </span>
+          </div>
+        </div>
+
+        <script>
+          // Self-contained indifference curve renderer
+          (function () {
+            const CANVAS_ID = 'indifference-canvas';
+            const DATA_URL = 'data/indifference_grid.json';
+
+            // Design tokens (matching presentation CSS)
+            const COLORS = {
+              iveyGreen: '#034638',
+              westernPurple: '#4F2683',
+              ink: '#000000',
+              inkSoft: '#63666A',
+              rule: '#A8A99E',
+              bgAlt: '#f3f2ee',
+            };
+
+            // RdBu diverging colormap (11-step)
+            const RDBU = [
+              [103, 0, 31], [178, 24, 43], [214, 96, 77], [244, 165, 130], [253, 219, 199],
+              [247, 247, 247],
+              [209, 229, 240], [146, 197, 222], [67, 147, 195], [33, 102, 172], [5, 48, 97]
+            ];
+
+            function lerpColor(a, b, t) {
+              return [
+                Math.round(a[0] + (b[0] - a[0]) * t),
+                Math.round(a[1] + (b[1] - a[1]) * t),
+                Math.round(a[2] + (b[2] - a[2]) * t)
+              ];
+            }
+
+            function scoreToColor(val, maxVal) {
+              // Map [-maxVal, +maxVal] to [0, 1] for colormap lookup
+              // Positive score = prefers grid = red; negative = prefers base = blue
+              let t = 0.5 - (val / (2 * maxVal));  // invert: positive→red (low index)
+              t = Math.max(0, Math.min(1, t));
+              const idx = t * (RDBU.length - 1);
+              const lo = Math.floor(idx);
+              const hi = Math.min(lo + 1, RDBU.length - 1);
+              const frac = idx - lo;
+              const c = lerpColor(RDBU[lo], RDBU[hi], frac);
+              return `rgb(${c[0]},${c[1]},${c[2]})`;
+            }
+
+            // Marching squares contour extraction for level=0
+            function extractContourSegments(sigma, mu, scores, level) {
+              const segments = [];
+              const nMu = scores.length;
+              const nSigma = scores[0].length;
+
+              for (let i = 0; i < nMu - 1; i++) {
+                for (let j = 0; j < nSigma - 1; j++) {
+                  const v00 = scores[i][j];
+                  const v10 = scores[i + 1][j];
+                  const v01 = scores[i][j + 1];
+                  const v11 = scores[i + 1][j + 1];
+
+                  if (v00 == null || v10 == null || v01 == null || v11 == null) continue;
+
+                  const b00 = v00 >= level ? 1 : 0;
+                  const b10 = v10 >= level ? 1 : 0;
+                  const b01 = v01 >= level ? 1 : 0;
+                  const b11 = v11 >= level ? 1 : 0;
+                  const cellCase = b00 | (b01 << 1) | (b11 << 2) | (b10 << 3);
+
+                  if (cellCase === 0 || cellCase === 15) continue;
+
+                  const s0 = sigma[j], s1 = sigma[j + 1];
+                  const m0 = mu[i], m1 = mu[i + 1];
+
+                  function interpH(va, vb, ca, cb) {
+                    const t = (level - va) / (vb - va);
+                    return ca + t * (cb - ca);
+                  }
+
+                  // Edge midpoints via linear interpolation
+                  const top = { sigma: interpH(v00, v01, s0, s1), mu: m0 };
+                  const bottom = { sigma: interpH(v10, v11, s0, s1), mu: m1 };
+                  const left = { sigma: s0, mu: interpH(v00, v10, m0, m1) };
+                  const right = { sigma: s1, mu: interpH(v01, v11, m0, m1) };
+
+                  const edgePairs = {
+                    1: [[left, top]],
+                    2: [[top, right]],
+                    3: [[left, right]],
+                    4: [[right, bottom]],
+                    5: [[left, bottom], [top, right]],  // saddle
+                    6: [[top, bottom]],
+                    7: [[left, bottom]],
+                    8: [[bottom, left]],
+                    9: [[bottom, top]],
+                    10: [[left, top], [right, bottom]],  // saddle
+                    11: [[right, bottom]],
+                    12: [[right, left]],
+                    13: [[top, right]],
+                    14: [[top, left]],
+                  };
+
+                  const pairs = edgePairs[cellCase];
+                  if (pairs) {
+                    for (const [a, b] of pairs) {
+                      segments.push(a, b);
+                    }
+                  }
+                }
+              }
+              return segments;
+            }
+
+            function render(data) {
+              const canvas = document.getElementById(CANVAS_ID);
+              if (!canvas) return;
+              const ctx = canvas.getContext('2d');
+              const W = canvas.width;
+              const H = canvas.height;
+
+              const { sigma, mu, scores, base_mu, base_sigma } = data;
+              const nSigma = sigma.length;
+              const nMu = mu.length;
+
+              // Plot area margins
+              const margin = { top: 24, right: 80, bottom: 64, left: 80 };
+              const plotW = W - margin.left - margin.right;
+              const plotH = H - margin.top - margin.bottom;
+
+              const sigmaMin = sigma[0], sigmaMax = sigma[nSigma - 1];
+              const muMin = mu[0], muMax = mu[nMu - 1];
+
+              function toX(s) { return margin.left + ((s - sigmaMin) / (sigmaMax - sigmaMin)) * plotW; }
+              function toY(m) { return margin.top + plotH - ((m - muMin) / (muMax - muMin)) * plotH; }
+
+              // Clear
+              ctx.fillStyle = '#ffffff';
+              ctx.fillRect(0, 0, W, H);
+
+              // --- Grid lines ---
+              ctx.strokeStyle = COLORS.bgAlt;
+              ctx.lineWidth = 1;
+              // Vertical grid lines (sigma ticks)
+              for (let s = Math.ceil(sigmaMin / 5) * 5; s <= sigmaMax; s += 5) {
+                const x = toX(s);
+                ctx.beginPath(); ctx.moveTo(x, margin.top); ctx.lineTo(x, margin.top + plotH); ctx.stroke();
+              }
+              // Horizontal grid lines (mu ticks)
+              for (let m = Math.ceil(muMin / 2) * 2; m <= muMax; m += 2) {
+                const y = toY(m);
+                ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(margin.left + plotW, y); ctx.stroke();
+              }
+
+              // --- Heatmap ---
+              const maxVal = Math.max(0.1, ...scores.flat().filter(v => v != null).map(Math.abs));
+              const cellW = plotW / (nSigma - 1);
+              const cellH = plotH / (nMu - 1);
+
+              for (let i = 0; i < nMu; i++) {
+                for (let j = 0; j < nSigma; j++) {
+                  const val = scores[i][j];
+                  if (val == null) continue;
+                  const x = toX(sigma[j]) - cellW / 2;
+                  const y = toY(mu[i]) - cellH / 2;
+                  ctx.fillStyle = scoreToColor(val, maxVal);
+                  ctx.globalAlpha = 0.85;
+                  ctx.fillRect(x, y, cellW + 0.5, cellH + 0.5);
+                }
+              }
+              ctx.globalAlpha = 1.0;
+
+              // --- Contour (Δz = 0) ---
+              const segments = extractContourSegments(sigma, mu, scores, 0.0);
+              ctx.strokeStyle = COLORS.iveyGreen;
+              ctx.lineWidth = 3.5;
+              ctx.lineCap = 'round';
+              for (let k = 0; k < segments.length; k += 2) {
+                const a = segments[k];
+                const b = segments[k + 1];
+                ctx.beginPath();
+                ctx.moveTo(toX(a.sigma), toY(a.mu));
+                ctx.lineTo(toX(b.sigma), toY(b.mu));
+                ctx.stroke();
+              }
+
+              // --- Base bundle marker ---
+              const bx = toX(base_sigma);
+              const by = toY(base_mu);
+              // Outer glow
+              ctx.beginPath();
+              ctx.arc(bx, by, 14, 0, 2 * Math.PI);
+              ctx.fillStyle = 'rgba(79, 38, 131, 0.18)';
+              ctx.fill();
+              // Dot
+              ctx.beginPath();
+              ctx.arc(bx, by, 8, 0, 2 * Math.PI);
+              ctx.fillStyle = COLORS.westernPurple;
+              ctx.fill();
+              ctx.strokeStyle = '#ffffff';
+              ctx.lineWidth = 2;
+              ctx.stroke();
+
+              // --- Axes ---
+              ctx.strokeStyle = COLORS.ink;
+              ctx.lineWidth = 2;
+              // x-axis
+              ctx.beginPath();
+              ctx.moveTo(margin.left, margin.top + plotH);
+              ctx.lineTo(margin.left + plotW, margin.top + plotH);
+              ctx.stroke();
+              // y-axis
+              ctx.beginPath();
+              ctx.moveTo(margin.left, margin.top);
+              ctx.lineTo(margin.left, margin.top + plotH);
+              ctx.stroke();
+
+              // --- Tick labels ---
+              ctx.fillStyle = COLORS.inkSoft;
+              ctx.font = '500 18px Arial, Helvetica, sans-serif';
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'top';
+              for (let s = Math.ceil(sigmaMin / 5) * 5; s <= sigmaMax; s += 5) {
+                const x = toX(s);
+                ctx.fillText(s.toString(), x, margin.top + plotH + 8);
+              }
+              ctx.textAlign = 'right';
+              ctx.textBaseline = 'middle';
+              for (let m = Math.ceil(muMin / 2) * 2; m <= muMax; m += 2) {
+                const y = toY(m);
+                ctx.fillText(m.toString(), margin.left - 12, y);
+              }
+
+              // --- Axis labels ---
+              ctx.fillStyle = COLORS.ink;
+              ctx.font = 'bold italic 24px Arial, Helvetica, sans-serif';
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'top';
+              ctx.fillText('σ  (Risk)', margin.left + plotW / 2, margin.top + plotH + 32);
+
+              ctx.save();
+              ctx.translate(24, margin.top + plotH / 2);
+              ctx.rotate(-Math.PI / 2);
+              ctx.textBaseline = 'middle';
+              ctx.fillText('μ  (Expected Return)', 0, 0);
+              ctx.restore();
+
+              // --- Color bar ---
+              const barX = margin.left + plotW + 16;
+              const barW = 18;
+              const barTop = margin.top;
+              const barH = plotH;
+              for (let py = 0; py < barH; py++) {
+                const t = py / barH;  // 0 = top (high mu = red), 1 = bottom (blue)
+                const val = maxVal * (1 - 2 * t);
+                ctx.fillStyle = scoreToColor(val, maxVal);
+                ctx.fillRect(barX, barTop + py, barW, 1.5);
+              }
+              ctx.strokeStyle = COLORS.rule;
+              ctx.lineWidth = 1;
+              ctx.strokeRect(barX, barTop, barW, barH);
+
+              // Color bar labels
+              ctx.fillStyle = COLORS.inkSoft;
+              ctx.font = '500 14px Arial, Helvetica, sans-serif';
+              ctx.textAlign = 'left';
+              ctx.textBaseline = 'top';
+              ctx.fillText('+' + maxVal.toFixed(1), barX + barW + 6, barTop - 2);
+              ctx.textBaseline = 'middle';
+              ctx.fillText('0', barX + barW + 6, barTop + barH / 2);
+              ctx.textBaseline = 'bottom';
+              ctx.fillText('−' + maxVal.toFixed(1), barX + barW + 6, barTop + barH + 2);
+
+              // Color bar title (rotated)
+              ctx.save();
+              ctx.fillStyle = COLORS.inkSoft;
+              ctx.font = '500 14px Arial, Helvetica, sans-serif';
+              ctx.translate(barX + barW + 48, barTop + barH / 2);
+              ctx.rotate(-Math.PI / 2);
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'middle';
+              ctx.fillText('Δz  (logit gap)', 0, 0);
+              ctx.restore();
+            }
+
+            // Load data and render when the slide becomes visible
+            let dataCache = null;
+
+            function loadAndRender() {
+              if (dataCache) {
+                render(dataCache);
+                return;
+              }
+              fetch(DATA_URL)
+                .then(r => r.json())
+                .then(d => { dataCache = d; render(d); })
+                .catch(e => console.error('Indifference grid load error:', e));
+            }
+
+            // Render on DOMContentLoaded and on slide change
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(loadAndRender, 200);
+              });
+            } else {
+              setTimeout(loadAndRender, 200);
+            }
+
+            // Re-render when navigating to the slide (Reveal event)
+            if (typeof Reveal !== 'undefined') {
+              Reveal.on('slidechanged', (evt) => {
+                if (evt.currentSlide && evt.currentSlide.querySelector('#' + CANVAS_ID)) {
+                  setTimeout(loadAndRender, 50);
+                }
+              });
+            } else {
+              document.addEventListener('DOMContentLoaded', () => {
+                if (typeof Reveal !== 'undefined') {
+                  Reveal.on('slidechanged', (evt) => {
+                    if (evt.currentSlide && evt.currentSlide.querySelector('#' + CANVAS_ID)) {
+                      setTimeout(loadAndRender, 50);
+                    }
+                  });
+                }
+              });
+            }
+          })();
+        </script>
+
+        <aside class="notes">
+          ~1 minute. This is the visual payoff: the audience sees the indifference curve
+          directly in (σ, μ) space. The upward slope confirms the model is risk-averse —
+          it requires more expected return to accept more risk. The heatmap shows the full
+          preference surface; the green contour is the empirical indifference locus (Δz = 0).
+          The purple dot is the base bundle used in all pairwise comparisons.
+        </aside>
+      </section>
+
 
       <!-- ============================== GRAPH PAPER ============================== -->
       <section data-screen-label="12 Graph Paper" data-state="graph-paper-state">
@@ -1559,7 +1983,7 @@
               <p style="font-size: 40px;"><b style="color: var(--ivey-green);">Reflexive:</b> any bundle of goods is at
                 least as good as itself.</p>
               <br>
-              <p style="font-size: 40px;">When options are identical, the probability of selecting either is the same.
+              <p style="font-size: 40px;">When options are identical, their probability of selection will be the same.
               </p>
               <p style="font-size: 40px;">
                 \(
@@ -1649,7 +2073,7 @@
         <div class="section-divider">
           <span class="num">PART 02</span>
           <h2>Experimental Design</h2>
-          <p>A portfolio choice laboratory and a structural model of risk preference.</p>
+          <p style="font-size: 50px;">A portfolio choice laboratory and a structural model of risk preference.</p>
         </div>
       </section>
 
@@ -1698,6 +2122,25 @@
           Mention the positional mirroring — this handles the known position-bias problem
           in LLM choice elicitation.
         </aside>
+      </section>
+
+
+      <!-- ============================== 03a. EXPERIMENTAL SUBJECTS ============================== -->
+      <section data-screen-label="03a Ideal Subjects">
+        <div class="slide-frame">
+          <span class="eyebrow">01 · Introduction</span>
+          <h2>LLMs Are Ideal Experimental Subjects</h2>
+
+          <div class="larger-text" style="margin-top: 32px;">
+            <ul class="clean">
+              <li class="fragment fade-up">Environmental control for <em>ceteris paribus</em> variation.</li>
+              <li class="fragment fade-up">Context control for counterfactual analysis.</li>
+              <li class="fragment fade-up">Every simulation is "real" to the AI.</li>
+              <li class="fragment fade-up">AI never gets tired of answering your questions.</li>
+              <li class="fragment fade-up">AIs are cheap and fast.</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
 
