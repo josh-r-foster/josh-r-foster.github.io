@@ -1,0 +1,1370 @@
+    /* ---------- Design tokens ---------- */
+    :root {
+      /* Ivey brand palette */
+      --ivey-green: #034638;
+      --ivey-green-tint: #e6ede9;
+      --western-purple: #4F2683;
+      --western-purple-tint: #ede7f3;
+      --black: #000000;
+      --grey: #63666A;
+      --light-grey: #97999B;
+      --warm-grey: #7E7F74;
+      --light-warm-grey: #A8A99E;
+      --sand: #C5B783;
+      --bright-green: #A6BB48;
+      --turquoise: #0097A0;
+
+      --bg: #ffffff;
+      --bg-alt: #f3f2ee;
+      --ink: #000000;
+      --ink-soft: #63666A;
+      --rule: #A8A99E;
+      --accent: var(--ivey-green);
+      --accent-soft: var(--ivey-green-tint);
+      --accent-2: var(--western-purple);
+      --accent-2-soft: var(--western-purple-tint);
+
+      --sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      --serif: Georgia, "Times New Roman", Times, serif;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+      --type-eyebrow: 20px;
+      --type-title: 56px;
+      --type-subtitle: 36px;
+      --type-body: 26px;
+      --type-small: 22px;
+      --type-tiny: 18px;
+
+      --pad-x: 60px;
+      --pad-top: 60px;
+      --pad-bottom: 120px;
+      --gap-title: 20px;
+      --gap-item: 16px;
+    }
+
+    /* ---------- Reveal overrides ---------- */
+    html,
+    body {
+      background: var(--bg);
+    }
+
+    .reveal {
+      font-family: var(--sans);
+      color: var(--ink);
+      font-weight: 400;
+    }
+
+    .reveal .slides {
+      text-align: left;
+    }
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+      box-sizing: border-box;
+      height: 100%;
+    }
+
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4 {
+      font-family: var(--sans);
+      color: var(--ink);
+      text-transform: none;
+      letter-spacing: -0.01em;
+      font-weight: 700;
+      line-height: 1.08;
+      margin: 0;
+    }
+
+    .reveal h1 {
+      font-size: var(--type-title);
+      font-weight: 400;
+      font-family: var(--serif);
+      letter-spacing: -0.015em;
+    }
+
+    .reveal h2 {
+      font-size: var(--type-title);
+      font-weight: 700;
+    }
+
+    .reveal h3 {
+      font-size: var(--type-subtitle);
+      font-weight: 500;
+    }
+
+    .reveal p,
+    .reveal li {
+      font-size: var(--type-body);
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    .reveal small,
+    .reveal .small {
+      font-size: var(--type-small);
+      color: var(--ink-soft);
+    }
+
+    .reveal a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-soft);
+    }
+
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: var(--type-eyebrow);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: var(--gap-title);
+      display: block;
+    }
+
+    .slide-frame {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .slide-frame>h2 {
+      margin-bottom: var(--gap-title);
+    }
+
+    .slide-frame>h3 {
+      margin-top: 8px;
+      margin-bottom: var(--gap-title);
+      color: var(--ink-soft);
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .two-col.weighted {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .two-col.wide {
+      grid-template-columns: 1.3fr 0.7fr;
+    }
+
+    ul.clean,
+    ol.clean {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.clean li,
+    ol.clean li {
+      padding: 12px 0 12px 32px;
+      position: relative;
+      border-top: 1px solid var(--rule);
+    }
+
+    ul.clean li:last-child {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    ul.clean li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(12px + 0.725em - 1px);
+      width: 18px;
+      height: 2px;
+      background: var(--ivey-green);
+    }
+
+    ol.clean {
+      counter-reset: step;
+    }
+
+    ol.clean li {
+      counter-increment: step;
+      padding-left: 64px;
+    }
+
+    ol.clean li::before {
+      content: counter(step, decimal-leading-zero);
+      font-family: var(--sans);
+      font-size: var(--type-small);
+      color: var(--western-purple);
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+      top: 22px;
+      width: auto;
+      height: auto;
+      background: transparent;
+      letter-spacing: 0.04em;
+    }
+
+
+
+
+    .reveal .controls {
+      bottom: 24px !important;
+      right: 20px !important;
+    }
+
+    .reveal .slide-number {
+      background: transparent !important;
+      color: var(--ink-soft) !important;
+      font-family: var(--sans) !important;
+      font-size: var(--type-tiny) !important;
+      letter-spacing: 0.08em !important;
+      font-weight: 700 !important;
+      bottom: 25px !important;
+      right: 120px !important;
+    }
+
+    .slide-footer {
+      position: absolute;
+      left: var(--pad-x);
+      right: 220px;
+      /* Space for number and controls */
+      bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--sans);
+      font-size: var(--type-tiny);
+      color: var(--ink-soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      background: transparent;
+      padding: 0;
+      z-index: 100;
+    }
+
+    .slide-footer .rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+      margin: 0 24px;
+    }
+
+    .title-slide {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .title-slide h1 {
+      font-family: var(--serif);
+      font-size: 108px;
+      font-weight: 400;
+      line-height: 1.02;
+      max-width: 16ch;
+      color: var(--ivey-green);
+      letter-spacing: -0.02em;
+    }
+
+    .title-slide .lede {
+      font-family: var(--sans);
+      font-size: 40px;
+      color: var(--ink-soft);
+      font-style: italic;
+      margin-top: 32px;
+      max-width: 28ch;
+    }
+
+    .title-slide .meta {
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      gap: 80px;
+      align-items: end;
+    }
+
+    .title-slide .meta div {
+      font-family: var(--sans);
+      font-size: 40px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    .title-slide .meta strong {
+      display: block;
+      color: var(--ivey-green);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 40px;
+      margin-bottom: 6px;
+    }
+
+    .section-divider {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--ivey-green);
+      margin: calc(-1 * var(--pad-top)) calc(-1 * var(--pad-x)) calc(-1 * var(--pad-bottom));
+      padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+      color: #ffffff;
+    }
+
+    .section-divider .num {
+      font-family: var(--sans);
+      font-size: 32px;
+      color: var(--sand);
+      letter-spacing: 0.22em;
+      font-weight: 700;
+    }
+
+    .section-divider h2 {
+      color: #ffffff;
+      font-family: var(--serif);
+      font-size: 128px;
+      font-weight: 400;
+      margin-top: 28px;
+      letter-spacing: -0.015em;
+    }
+
+    .section-divider p {
+      color: rgba(255, 255, 255, 0.85);
+      font-family: var(--sans);
+      font-style: italic;
+      font-size: var(--type-subtitle);
+      margin-top: 32px;
+      max-width: 24ch;
+    }
+
+    .pull-quote {
+      font-family: var(--serif);
+      font-size: 64px;
+      line-height: 1.18;
+      font-style: italic;
+      font-weight: 400;
+      max-width: 22ch;
+      color: var(--ink);
+      text-wrap: pretty;
+    }
+
+    .pull-quote::before {
+      content: "\201C";
+      color: var(--accent);
+      margin-right: 6px;
+    }
+
+    .pull-quote::after {
+      content: "\201D";
+      color: var(--accent);
+    }
+
+    .quote-attr {
+      margin-top: 32px;
+      font-family: var(--mono);
+      font-size: var(--type-small);
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+    }
+
+    .reveal .math-display {
+      background: var(--bg-alt);
+      border-left: 0;
+      padding: 16px 24px;
+      margin: 0;
+      border-radius: 2px;
+      font-size: 28px;
+    }
+
+    .reveal mjx-container {
+      color: var(--ink);
+    }
+
+    .reveal mjx-container[display="true"] {
+      margin: 0 !important;
+    }
+
+    .reveal pre {
+      box-shadow: none;
+      width: 100%;
+      margin: 0;
+      background: var(--ivey-green);
+      border-radius: 4px;
+      font-size: var(--type-small);
+    }
+
+    .reveal pre code {
+      font-family: var(--mono);
+      font-size: 22px;
+      line-height: 1.45;
+      padding: 28px 32px;
+      max-height: 640px;
+      border-radius: 4px;
+    }
+
+    .reveal table {
+      font-family: var(--sans);
+      border-collapse: collapse;
+      width: 100%;
+      font-size: var(--type-body);
+    }
+
+    .reveal table th,
+    .reveal table td {
+      text-align: left;
+      padding: 22px 24px;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .reveal table thead th {
+      font-family: var(--sans);
+      font-size: var(--type-small);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ivey-green);
+      font-weight: 700;
+      border-bottom: 2px solid var(--ivey-green);
+    }
+
+    .reveal table tbody td.num {
+      font-family: var(--mono);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .reveal table th.num {
+      text-align: right;
+    }
+
+    .reveal table tr.highlight td {
+      background: var(--ivey-green-tint);
+      font-weight: 700;
+      color: var(--ivey-green);
+    }
+
+    .reveal table tr.subheader td {
+      background: var(--bg-alt);
+      font-size: var(--type-small);
+      color: var(--ink-soft);
+      font-style: italic;
+      padding: 10px 24px;
+      border-bottom: none;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+      margin-top: var(--gap-title);
+    }
+
+    .stat-row-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+      margin-top: var(--gap-title);
+    }
+
+    .stat {
+      border-top: 2px solid var(--ivey-green);
+      padding-top: 24px;
+    }
+
+    .stat .num {
+      font-family: var(--serif);
+      font-size: 96px;
+      line-height: 1;
+      font-weight: 400;
+      color: var(--ivey-green);
+      font-feature-settings: "lnum";
+    }
+
+    .stat .num .unit {
+      font-size: 48px;
+      color: var(--ink-soft);
+      margin-left: 6px;
+      font-family: var(--sans);
+    }
+
+    .stat .label {
+      font-family: var(--sans);
+      font-size: var(--type-tiny);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink-soft);
+      margin-top: 16px;
+      font-weight: 700;
+    }
+
+    .panel {
+      background: var(--bg-alt);
+      padding: 24px 32px;
+      border-radius: 2px;
+      border-left: 4px solid var(--western-purple);
+    }
+
+    .panel.green {
+      border-left-color: var(--ivey-green);
+    }
+
+    .panel .label {
+      font-family: var(--sans);
+      font-size: var(--type-tiny);
+      color: var(--western-purple);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .panel.green .label {
+      color: var(--ivey-green);
+    }
+
+    /* Three-column rationality axioms layout */
+    .axiom-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: var(--gap-title);
+    }
+
+    .axiom {
+      border-top: 3px solid var(--ivey-green);
+      padding-top: 28px;
+    }
+
+    .axiom .axiom-name {
+      font-family: var(--sans);
+      font-size: var(--type-small);
+      font-weight: 700;
+      color: var(--ivey-green);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 16px;
+    }
+
+    .axiom .axiom-index {
+      font-family: var(--mono);
+      font-size: var(--type-small);
+      color: var(--western-purple);
+      margin-bottom: 20px;
+    }
+
+    .axiom p {
+      font-size: var(--type-small);
+    }
+
+    .reveal .fragment.fade-up {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .35s ease, transform .35s ease;
+    }
+
+    .reveal .fragment.fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal .progress {
+      color: var(--accent);
+      height: 4px;
+    }
+
+    .reveal .controls {
+      color: var(--accent);
+    }
+
+    .muted {
+      color: var(--ink-soft);
+    }
+
+    .mono {
+      font-family: var(--mono);
+    }
+
+    .stack>*+* {
+      margin-top: var(--gap-item);
+    }
+
+    .stack-lg>*+* {
+      margin-top: var(--gap-title);
+    }
+
+    .placeholder {
+      background:
+        repeating-linear-gradient(135deg,
+          var(--bg-alt) 0 16px,
+          #e7e1d3 16px 32px);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: var(--type-small);
+      color: var(--ink-soft);
+      aspect-ratio: 16 / 10;
+    }
+
+    .placeholder-tall {
+      background:
+        repeating-linear-gradient(135deg,
+          var(--bg-alt) 0 16px,
+          #e7e1d3 16px 32px);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: var(--type-small);
+      color: var(--ink-soft);
+      min-height: 240px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: var(--type-tiny);
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+
+    .tag-green {
+      background: var(--ivey-green-tint);
+      color: var(--ivey-green);
+    }
+
+    .tag-purple {
+      background: var(--western-purple-tint);
+      color: var(--western-purple);
+    }
+
+    .tag-neutral {
+      background: var(--bg-alt);
+      color: var(--ink-soft);
+    }
+
+    [class*="graph-paper-state"] .backgrounds {
+      background-color: var(--bg) !important;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eσ%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eμ%3C/text%3E%3C/svg%3E"),
+        linear-gradient(var(--ink), var(--ink)),
+        linear-gradient(90deg, var(--ink), var(--ink)),
+        linear-gradient(var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+        linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+      background-size:
+        60px 60px,
+        60px 60px,
+        100% 4px,
+        4px 100%,
+        20px 20px,
+        20px 20px,
+        100px 100px,
+        100px 100px !important;
+      background-position:
+        calc(100% - 40px) calc(50% + 205px),
+        calc(50% - 100px) 40px,
+        center calc(50% + 249px),
+        calc(50% - 151px) center,
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 50px) calc(50% + 50px),
+        calc(50% + 50px) calc(50% + 50px) !important;
+      background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat,
+        repeat,
+        repeat,
+        repeat !important;
+    }
+
+    [class*="graph-paper-state"] .backgrounds::before {
+      content: "B";
+      position: absolute;
+      box-sizing: border-box;
+      width: 60px;
+      height: 60px;
+      top: 50%;
+      left: calc(50% + 100px);
+      transform: translate(calc(-12px + 1px), calc(-40px + 1px));
+      z-index: 10;
+
+      font-family: var(--sans);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--black);
+      text-align: left;
+      padding-left: 28px;
+      line-height: 24px;
+
+      background-image: radial-gradient(circle at 12px 40px, var(--western-purple) 7.5px, transparent 8px);
+      background-repeat: no-repeat;
+    }
+
+    [class*="graph-paper-state"] .backgrounds::after {
+      content: "A";
+      position: absolute;
+      box-sizing: border-box;
+      width: 60px;
+      height: 60px;
+      top: calc(50% - 100px);
+      left: 50%;
+      transform: translate(calc(-12px + 1px), calc(-40px + 1px));
+      z-index: 10;
+
+      font-family: var(--sans);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--black);
+      text-align: left;
+      padding-left: 28px;
+      line-height: 24px;
+
+      background-image: radial-gradient(circle at 12px 40px, var(--western-purple) 7.5px, transparent 8px);
+      background-repeat: no-repeat;
+    }
+
+    /* Custom positions for the Reflexive slide */
+    .graph-paper-state-reflexive .backgrounds::after {
+      top: 50%;
+      left: 50%;
+      content: "A, B";
+      width: 100px;
+    }
+
+    .graph-paper-state-reflexive .backgrounds::before {
+      display: none;
+    }
+
+    /* Custom background for the Continuity slide to add Point C */
+    .graph-paper-state-continuity .backgrounds {
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='12' cy='40' r='7.5' fill='%234F2683' /%3E%3Ctext x='28' y='45' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='black'%3EC%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eσ%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eμ%3C/text%3E%3C/svg%3E"),
+        linear-gradient(var(--ink), var(--ink)),
+        linear-gradient(90deg, var(--ink), var(--ink)),
+        linear-gradient(var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+        linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+      background-size:
+        60px 60px,
+        60px 60px,
+        60px 60px,
+        100% 4px,
+        4px 100%,
+        20px 20px,
+        20px 20px,
+        100px 100px,
+        100px 100px !important;
+      background-position:
+        calc(50% + 219px) calc(50% + 91px),
+        /* Point C (100px right, 100px down from B) */
+        calc(100% - 40px) calc(50% + 205px),
+        calc(50% - 100px) 40px,
+        center calc(50% + 249px),
+        calc(50% - 151px) center,
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 50px) calc(50% + 50px),
+        calc(50% + 50px) calc(50% + 50px) !important;
+      background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat,
+        repeat,
+        repeat,
+        repeat !important;
+    }
+
+    /* Custom background for the Transitive slide to add Point C (North-East of A and B) */
+    .graph-paper-state-transitive .backgrounds {
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='12' cy='40' r='7.5' fill='%234F2683' /%3E%3Ctext x='28' y='45' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='black'%3EC%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eσ%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eμ%3C/text%3E%3C/svg%3E"),
+        linear-gradient(var(--ink), var(--ink)),
+        linear-gradient(90deg, var(--ink), var(--ink)),
+        linear-gradient(var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+        linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+      background-size:
+        60px 60px,
+        60px 60px,
+        60px 60px,
+        100% 4px,
+        4px 100%,
+        20px 20px,
+        20px 20px,
+        100px 100px,
+        100px 100px !important;
+      background-position:
+        calc(50% + 219px) calc(50% - 149px),
+        /* Point C (100px right of B, 100px up from A) */
+        calc(100% - 40px) calc(50% + 205px),
+        calc(50% - 100px) 40px,
+        center calc(50% + 249px),
+        calc(50% - 151px) center,
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 50px) calc(50% + 50px),
+        calc(50% + 50px) calc(50% + 50px) !important;
+      background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat,
+        repeat,
+        repeat,
+        repeat !important;
+    }
+
+    /* Custom background for the Indifference Curve Results slide */
+    .graph-paper-state-results .backgrounds {
+      background-image:
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
+        linear-gradient(var(--ink), var(--ink)),
+        linear-gradient(90deg, var(--ink), var(--ink)),
+        linear-gradient(var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+        linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+        linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+      background-size:
+        1000px 1000px,
+        60px 60px,
+        60px 60px,
+        100% 4px,
+        4px 100%,
+        20px 20px,
+        20px 20px,
+        100px 100px,
+        100px 100px !important;
+      background-position:
+        center center,
+        calc(100% - 40px) calc(50% + 205px),
+        calc(50% - 100px) 40px,
+        center calc(50% + 249px),
+        calc(50% - 151px) center,
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 10px) calc(50% + 10px),
+        calc(50% + 50px) calc(50% + 50px),
+        calc(50% + 50px) calc(50% + 50px) !important;
+      background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat,
+        repeat,
+        repeat,
+        repeat !important;
+    }
+
+/* Extracted from individual slides */
+            .reveal .larger-text p,
+            .reveal .larger-text li {
+              font-size: 45px !important;
+              line-height: 1.45;
+            }
+
+            .reveal .larger-text .label {
+              font-size: 30px !important;
+            }
+
+            /* Custom background for the Indifference Curve Results slide */
+            .graph-paper-state-results .backgrounds {
+              background-image:
+                url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
+                linear-gradient(var(--ink), var(--ink)),
+                linear-gradient(90deg, var(--ink), var(--ink)),
+                linear-gradient(var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+                linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+              background-size:
+                1000px 1000px,
+                60px 60px,
+                60px 60px,
+                100% 4px,
+                4px 100%,
+                20px 20px,
+                20px 20px,
+                100px 100px,
+                100px 100px !important;
+              background-position:
+                center center,
+                calc(100% - 40px) calc(50% + 205px),
+                calc(50% - 100px) 40px,
+                center calc(50% + 249px),
+                calc(50% - 151px) center,
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 50px) calc(50% + 50px),
+                calc(50% + 50px) calc(50% + 50px) !important;
+              background-repeat:
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                repeat,
+                repeat,
+                repeat,
+                repeat !important;
+            }
+            .gen-chain {
+              display: flex;
+              align-items: stretch;
+              justify-content: center;
+              gap: 20px;
+              margin-top: 48px;
+            }
+
+            .gen-box {
+              background: var(--bg-alt);
+              padding: 24px 32px;
+              border-radius: 8px;
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+            }
+
+            .gen-box .gen-label {
+              font-family: var(--sans);
+              font-size: 20px;
+              text-transform: uppercase;
+              letter-spacing: 0.1em;
+              margin-bottom: 12px;
+              font-weight: 700;
+            }
+
+            .gen-arrow {
+              display: flex;
+              align-items: center;
+              font-size: 42px;
+              color: var(--light-grey);
+            }
+
+            .gen-llm {
+              background: var(--ivey-green);
+              color: white;
+              padding: 24px 48px;
+              border-radius: 8px;
+              font-weight: 700;
+              font-family: var(--sans);
+              font-size: 48px;
+              letter-spacing: 0.05em;
+              box-shadow: 0 8px 24px rgba(3, 70, 56, 0.15);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            .gen-softmax {
+              background: var(--western-purple);
+              color: white;
+              padding: 24px 32px;
+              border-radius: 8px;
+              font-weight: 700;
+              font-family: var(--sans);
+              font-size: 36px;
+              letter-spacing: 0.05em;
+              box-shadow: 0 8px 24px rgba(79, 38, 131, 0.15);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            .logit-row,
+            .prob-row {
+              display: flex;
+              gap: 8px;
+              font-family: var(--mono);
+              font-size: 24px;
+            }
+
+            .row-cell {
+              padding: 10px 16px;
+              border-radius: 4px;
+              background: white;
+              border: 1px solid var(--rule);
+              color: var(--ink);
+              display: flex;
+              align-items: center;
+              white-space: nowrap;
+            }
+
+            .row-cell.token {
+              justify-content: center;
+              min-width: 60px;
+            }
+
+            .row-cell.value {
+              flex: 1;
+              justify-content: flex-start;
+            }
+
+            .logit-row.top .row-cell {
+              border-color: var(--ivey-green);
+              background: var(--ivey-green-tint);
+              color: var(--ivey-green);
+              font-weight: 600;
+            }
+
+            .prob-row.top .row-cell {
+              border-color: var(--western-purple);
+              background: var(--western-purple-tint);
+              color: var(--western-purple);
+              font-weight: 600;
+            }
+            .inference-pipeline {
+              display: flex;
+              align-items: stretch;
+              justify-content: space-between;
+              gap: 16px;
+              margin-top: 48px;
+            }
+
+            .inference-step {
+              flex: 1;
+              background: var(--bg-alt);
+              border-radius: 8px;
+              padding: 24px;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              border-top: 4px solid var(--western-purple);
+            }
+
+            .inference-step.green {
+              border-top-color: var(--ivey-green);
+            }
+
+            .inference-step .label {
+              font-family: var(--sans);
+              font-size: 24px;
+              color: var(--western-purple);
+              letter-spacing: 0.14em;
+              text-transform: uppercase;
+              margin-bottom: 16px;
+              font-weight: 700;
+            }
+
+            .inference-step.green .label {
+              color: var(--ivey-green);
+            }
+
+            .inference-arrow {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 32px;
+              color: var(--light-grey);
+            }
+
+            .token-box {
+              background: #fff;
+              border: 1px solid var(--rule);
+              padding: 12px 16px;
+              border-radius: 6px;
+              font-family: var(--mono);
+              font-size: 24px;
+              margin-bottom: 12px;
+              display: flex;
+              justify-content: space-between;
+              color: var(--ink);
+            }
+
+            .token-box.highlight {
+              border-color: var(--ivey-green);
+              background: var(--ivey-green-tint);
+              color: var(--ivey-green);
+              font-weight: 600;
+            }
+
+            /* Custom background for the Indifference Curve Results slide */
+            .graph-paper-state-results .backgrounds {
+              background-image:
+                url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
+                linear-gradient(var(--ink), var(--ink)),
+                linear-gradient(90deg, var(--ink), var(--ink)),
+                linear-gradient(var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+                linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+              background-size:
+                1000px 1000px,
+                60px 60px,
+                60px 60px,
+                100% 4px,
+                4px 100%,
+                20px 20px,
+                20px 20px,
+                100px 100px,
+                100px 100px !important;
+              background-position:
+                center center,
+                calc(100% - 40px) calc(50% + 205px),
+                calc(50% - 100px) 40px,
+                center calc(50% + 249px),
+                calc(50% - 151px) center,
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 50px) calc(50% + 50px),
+                calc(50% + 50px) calc(50% + 50px) !important;
+              background-repeat:
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                repeat,
+                repeat,
+                repeat,
+                repeat !important;
+            }
+              .reveal .core-insight-list li {
+                font-size: 36px !important;
+              }
+
+              /* Custom background for the Indifference Curve Results slide */
+              .graph-paper-state-results .backgrounds {
+                background-image:
+                  url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
+                  url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
+                  url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
+                  linear-gradient(var(--ink), var(--ink)),
+                  linear-gradient(90deg, var(--ink), var(--ink)),
+                  linear-gradient(var(--bg-alt) 1px, transparent 1px),
+                  linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+                  linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+                  linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+                background-size:
+                  1000px 1000px,
+                  60px 60px,
+                  60px 60px,
+                  100% 4px,
+                  4px 100%,
+                  20px 20px,
+                  20px 20px,
+                  100px 100px,
+                  100px 100px !important;
+                background-position:
+                  center center,
+                  calc(100% - 40px) calc(50% + 205px),
+                  calc(50% - 100px) 40px,
+                  center calc(50% + 249px),
+                  calc(50% - 151px) center,
+                  calc(50% + 10px) calc(50% + 10px),
+                  calc(50% + 10px) calc(50% + 10px),
+                  calc(50% + 50px) calc(50% + 50px),
+                  calc(50% + 50px) calc(50% + 50px) !important;
+                background-repeat:
+                  no-repeat,
+                  no-repeat,
+                  no-repeat,
+                  no-repeat,
+                  no-repeat,
+                  repeat,
+                  repeat,
+                  repeat,
+                  repeat !important;
+              }
+            .reveal .tcolorbox {
+              background: #f4f4f4;
+              border: 1px solid #999999;
+              padding: 32px 40px;
+              margin-top: 48px;
+              font-family: var(--mono);
+              font-size: 34px;
+              line-height: 1.5;
+              color: var(--ink);
+              text-align: left;
+              border-radius: 0px;
+              /* sharp corners */
+            }
+
+            /* Custom background for the Indifference Curve Results slide */
+            .graph-paper-state-results .backgrounds {
+              background-image:
+                url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
+                linear-gradient(var(--ink), var(--ink)),
+                linear-gradient(90deg, var(--ink), var(--ink)),
+                linear-gradient(var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
+                linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
+                linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
+              background-size:
+                1000px 1000px,
+                60px 60px,
+                60px 60px,
+                100% 4px,
+                4px 100%,
+                20px 20px,
+                20px 20px,
+                100px 100px,
+                100px 100px !important;
+              background-position:
+                center center,
+                calc(100% - 40px) calc(50% + 205px),
+                calc(50% - 100px) 40px,
+                center calc(50% + 249px),
+                calc(50% - 151px) center,
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 10px) calc(50% + 10px),
+                calc(50% + 50px) calc(50% + 50px),
+                calc(50% + 50px) calc(50% + 50px) !important;
+              background-repeat:
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                no-repeat,
+                repeat,
+                repeat,
+                repeat,
+                repeat !important;
+            }
+            .inference-pipeline {
+              display: flex;
+              align-items: stretch;
+              justify-content: space-between;
+              gap: 16px;
+              margin-top: 48px;
+            }
+
+            .inference-step {
+              flex: 1;
+              background: var(--bg-alt);
+              border-radius: 8px;
+              padding: 24px;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              border-top: 4px solid var(--western-purple);
+            }
+
+            .inference-step.green {
+              border-top-color: var(--ivey-green);
+            }
+
+            .inference-step .label {
+              font-family: var(--sans);
+              font-size: 24px;
+              color: var(--western-purple);
+              letter-spacing: 0.14em;
+              text-transform: uppercase;
+              margin-bottom: 16px;
+              font-weight: 700;
+            }
+
+            .inference-step.green .label {
+              color: var(--ivey-green);
+            }
+
+            .inference-arrow {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 32px;
+              color: var(--light-grey);
+            }
+
+            .token-box {
+              background: #fff;
+              border: 1px solid var(--rule);
+              padding: 12px 16px;
+              border-radius: 6px;
+              font-family: var(--mono);
+              font-size: 24px;
+              margin-bottom: 12px;
+              display: flex;
+              justify-content: space-between;
+              color: var(--ink);
+            }
+
+            .token-box.highlight {
+              border-color: var(--ivey-green);
+              background: var(--ivey-green-tint);
+              color: var(--ivey-green);
+              font-weight: 600;
+            }
+
+            .insight-row {
+              display: flex;
+              gap: 8px;
+              margin-bottom: 12px;
+              font-family: var(--mono);
+              font-size: 24px;
+            }
+
+            .insight-cell {
+              background: #fff;
+              border: 1px solid var(--rule);
+              padding: 12px 16px;
+              border-radius: 6px;
+              display: flex;
+              align-items: center;
+              color: var(--ink);
+            }
+
+            .insight-cell.token {
+              justify-content: center;
+              min-width: 60px;
+            }
+
+            .insight-cell.value {
+              flex: 1;
+            }
+
+            .insight-row.highlight .insight-cell {
+              border-color: var(--ivey-green);
+              background: var(--ivey-green-tint);
+              color: var(--ivey-green);
+              font-weight: 600;
+            }
+
+            .insight-row.highlight-purple .insight-cell {
+              border-color: var(--western-purple);
+              background: var(--western-purple-tint);
+              color: var(--western-purple);
+              font-weight: 600;
+            }
+
+            .reveal .core-insight-list li {
+              font-size: 36px !important;
+            }

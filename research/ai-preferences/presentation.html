@@ -18,896 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <style>
-    /* ---------- Design tokens ---------- */
-    :root {
-      /* Ivey brand palette */
-      --ivey-green: #034638;
-      --ivey-green-tint: #e6ede9;
-      --western-purple: #4F2683;
-      --western-purple-tint: #ede7f3;
-      --black: #000000;
-      --grey: #63666A;
-      --light-grey: #97999B;
-      --warm-grey: #7E7F74;
-      --light-warm-grey: #A8A99E;
-      --sand: #C5B783;
-      --bright-green: #A6BB48;
-      --turquoise: #0097A0;
-
-      --bg: #ffffff;
-      --bg-alt: #f3f2ee;
-      --ink: #000000;
-      --ink-soft: #63666A;
-      --rule: #A8A99E;
-      --accent: var(--ivey-green);
-      --accent-soft: var(--ivey-green-tint);
-      --accent-2: var(--western-purple);
-      --accent-2-soft: var(--western-purple-tint);
-
-      --sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
-      --serif: Georgia, "Times New Roman", Times, serif;
-      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
-      --type-eyebrow: 20px;
-      --type-title: 56px;
-      --type-subtitle: 36px;
-      --type-body: 26px;
-      --type-small: 22px;
-      --type-tiny: 18px;
-
-      --pad-x: 60px;
-      --pad-top: 60px;
-      --pad-bottom: 120px;
-      --gap-title: 20px;
-      --gap-item: 16px;
-    }
-
-    /* ---------- Reveal overrides ---------- */
-    html,
-    body {
-      background: var(--bg);
-    }
-
-    .reveal {
-      font-family: var(--sans);
-      color: var(--ink);
-      font-weight: 400;
-    }
-
-    .reveal .slides {
-      text-align: left;
-    }
-
-    .reveal .slides>section,
-    .reveal .slides>section>section {
-      padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
-      box-sizing: border-box;
-      height: 100%;
-    }
-
-    .reveal h1,
-    .reveal h2,
-    .reveal h3,
-    .reveal h4 {
-      font-family: var(--sans);
-      color: var(--ink);
-      text-transform: none;
-      letter-spacing: -0.01em;
-      font-weight: 700;
-      line-height: 1.08;
-      margin: 0;
-    }
-
-    .reveal h1 {
-      font-size: var(--type-title);
-      font-weight: 400;
-      font-family: var(--serif);
-      letter-spacing: -0.015em;
-    }
-
-    .reveal h2 {
-      font-size: var(--type-title);
-      font-weight: 700;
-    }
-
-    .reveal h3 {
-      font-size: var(--type-subtitle);
-      font-weight: 500;
-    }
-
-    .reveal p,
-    .reveal li {
-      font-size: var(--type-body);
-      line-height: 1.45;
-      color: var(--ink);
-    }
-
-    .reveal small,
-    .reveal .small {
-      font-size: var(--type-small);
-      color: var(--ink-soft);
-    }
-
-    .reveal a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent-soft);
-    }
-
-    .eyebrow {
-      font-family: var(--sans);
-      font-size: var(--type-eyebrow);
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: var(--gap-title);
-      display: block;
-    }
-
-    .slide-frame {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .slide-frame>h2 {
-      margin-bottom: var(--gap-title);
-    }
-
-    .slide-frame>h3 {
-      margin-top: 8px;
-      margin-bottom: var(--gap-title);
-      color: var(--ink-soft);
-      font-weight: 400;
-      font-style: italic;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: start;
-    }
-
-    .two-col.weighted {
-      grid-template-columns: 1.1fr 0.9fr;
-    }
-
-    .two-col.wide {
-      grid-template-columns: 1.3fr 0.7fr;
-    }
-
-    ul.clean,
-    ol.clean {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    ul.clean li,
-    ol.clean li {
-      padding: 12px 0 12px 32px;
-      position: relative;
-      border-top: 1px solid var(--rule);
-    }
-
-    ul.clean li:last-child {
-      border-bottom: 1px solid var(--rule);
-    }
-
-    ul.clean li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: calc(12px + 0.725em - 1px);
-      width: 18px;
-      height: 2px;
-      background: var(--ivey-green);
-    }
-
-    ol.clean {
-      counter-reset: step;
-    }
-
-    ol.clean li {
-      counter-increment: step;
-      padding-left: 64px;
-    }
-
-    ol.clean li::before {
-      content: counter(step, decimal-leading-zero);
-      font-family: var(--sans);
-      font-size: var(--type-small);
-      color: var(--western-purple);
-      font-weight: 700;
-      position: absolute;
-      left: 0;
-      top: 22px;
-      width: auto;
-      height: auto;
-      background: transparent;
-      letter-spacing: 0.04em;
-    }
-
-
-
-
-    .reveal .controls {
-      bottom: 24px !important;
-      right: 20px !important;
-    }
-
-    .reveal .slide-number {
-      background: transparent !important;
-      color: var(--ink-soft) !important;
-      font-family: var(--sans) !important;
-      font-size: var(--type-tiny) !important;
-      letter-spacing: 0.08em !important;
-      font-weight: 700 !important;
-      bottom: 25px !important;
-      right: 120px !important;
-    }
-
-    .slide-footer {
-      position: absolute;
-      left: var(--pad-x);
-      right: 220px;
-      /* Space for number and controls */
-      bottom: 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: var(--sans);
-      font-size: var(--type-tiny);
-      color: var(--ink-soft);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 700;
-      background: transparent;
-      padding: 0;
-      z-index: 100;
-    }
-
-    .slide-footer .rule {
-      flex: 1;
-      height: 1px;
-      background: var(--rule);
-      margin: 0 24px;
-    }
-
-    .title-slide {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .title-slide h1 {
-      font-family: var(--serif);
-      font-size: 108px;
-      font-weight: 400;
-      line-height: 1.02;
-      max-width: 16ch;
-      color: var(--ivey-green);
-      letter-spacing: -0.02em;
-    }
-
-    .title-slide .lede {
-      font-family: var(--sans);
-      font-size: 40px;
-      color: var(--ink-soft);
-      font-style: italic;
-      margin-top: 32px;
-      max-width: 28ch;
-    }
-
-    .title-slide .meta {
-      display: grid;
-      grid-template-columns: repeat(3, max-content);
-      gap: 80px;
-      align-items: end;
-    }
-
-    .title-slide .meta div {
-      font-family: var(--sans);
-      font-size: 40px;
-      color: var(--ink-soft);
-      line-height: 1.5;
-    }
-
-    .title-slide .meta strong {
-      display: block;
-      color: var(--ivey-green);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 40px;
-      margin-bottom: 6px;
-    }
-
-    .section-divider {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: var(--ivey-green);
-      margin: calc(-1 * var(--pad-top)) calc(-1 * var(--pad-x)) calc(-1 * var(--pad-bottom));
-      padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
-      color: #ffffff;
-    }
-
-    .section-divider .num {
-      font-family: var(--sans);
-      font-size: 32px;
-      color: var(--sand);
-      letter-spacing: 0.22em;
-      font-weight: 700;
-    }
-
-    .section-divider h2 {
-      color: #ffffff;
-      font-family: var(--serif);
-      font-size: 128px;
-      font-weight: 400;
-      margin-top: 28px;
-      letter-spacing: -0.015em;
-    }
-
-    .section-divider p {
-      color: rgba(255, 255, 255, 0.85);
-      font-family: var(--sans);
-      font-style: italic;
-      font-size: var(--type-subtitle);
-      margin-top: 32px;
-      max-width: 24ch;
-    }
-
-    .pull-quote {
-      font-family: var(--serif);
-      font-size: 64px;
-      line-height: 1.18;
-      font-style: italic;
-      font-weight: 400;
-      max-width: 22ch;
-      color: var(--ink);
-      text-wrap: pretty;
-    }
-
-    .pull-quote::before {
-      content: "\201C";
-      color: var(--accent);
-      margin-right: 6px;
-    }
-
-    .pull-quote::after {
-      content: "\201D";
-      color: var(--accent);
-    }
-
-    .quote-attr {
-      margin-top: 32px;
-      font-family: var(--mono);
-      font-size: var(--type-small);
-      color: var(--ink-soft);
-      letter-spacing: 0.04em;
-    }
-
-    .reveal .math-display {
-      background: var(--bg-alt);
-      border-left: 0;
-      padding: 16px 24px;
-      margin: 0;
-      border-radius: 2px;
-      font-size: 28px;
-    }
-
-    .reveal mjx-container {
-      color: var(--ink);
-    }
-
-    .reveal mjx-container[display="true"] {
-      margin: 0 !important;
-    }
-
-    .reveal pre {
-      box-shadow: none;
-      width: 100%;
-      margin: 0;
-      background: var(--ivey-green);
-      border-radius: 4px;
-      font-size: var(--type-small);
-    }
-
-    .reveal pre code {
-      font-family: var(--mono);
-      font-size: 22px;
-      line-height: 1.45;
-      padding: 28px 32px;
-      max-height: 640px;
-      border-radius: 4px;
-    }
-
-    .reveal table {
-      font-family: var(--sans);
-      border-collapse: collapse;
-      width: 100%;
-      font-size: var(--type-body);
-    }
-
-    .reveal table th,
-    .reveal table td {
-      text-align: left;
-      padding: 22px 24px;
-      border: none;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .reveal table thead th {
-      font-family: var(--sans);
-      font-size: var(--type-small);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--ivey-green);
-      font-weight: 700;
-      border-bottom: 2px solid var(--ivey-green);
-    }
-
-    .reveal table tbody td.num {
-      font-family: var(--mono);
-      text-align: right;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .reveal table th.num {
-      text-align: right;
-    }
-
-    .reveal table tr.highlight td {
-      background: var(--ivey-green-tint);
-      font-weight: 700;
-      color: var(--ivey-green);
-    }
-
-    .reveal table tr.subheader td {
-      background: var(--bg-alt);
-      font-size: var(--type-small);
-      color: var(--ink-soft);
-      font-style: italic;
-      padding: 10px 24px;
-      border-bottom: none;
-    }
-
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 60px;
-      margin-top: var(--gap-title);
-    }
-
-    .stat-row-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 48px;
-      margin-top: var(--gap-title);
-    }
-
-    .stat {
-      border-top: 2px solid var(--ivey-green);
-      padding-top: 24px;
-    }
-
-    .stat .num {
-      font-family: var(--serif);
-      font-size: 96px;
-      line-height: 1;
-      font-weight: 400;
-      color: var(--ivey-green);
-      font-feature-settings: "lnum";
-    }
-
-    .stat .num .unit {
-      font-size: 48px;
-      color: var(--ink-soft);
-      margin-left: 6px;
-      font-family: var(--sans);
-    }
-
-    .stat .label {
-      font-family: var(--sans);
-      font-size: var(--type-tiny);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--ink-soft);
-      margin-top: 16px;
-      font-weight: 700;
-    }
-
-    .panel {
-      background: var(--bg-alt);
-      padding: 24px 32px;
-      border-radius: 2px;
-      border-left: 4px solid var(--western-purple);
-    }
-
-    .panel.green {
-      border-left-color: var(--ivey-green);
-    }
-
-    .panel .label {
-      font-family: var(--sans);
-      font-size: var(--type-tiny);
-      color: var(--western-purple);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      font-weight: 700;
-    }
-
-    .panel.green .label {
-      color: var(--ivey-green);
-    }
-
-    /* Three-column rationality axioms layout */
-    .axiom-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-      margin-top: var(--gap-title);
-    }
-
-    .axiom {
-      border-top: 3px solid var(--ivey-green);
-      padding-top: 28px;
-    }
-
-    .axiom .axiom-name {
-      font-family: var(--sans);
-      font-size: var(--type-small);
-      font-weight: 700;
-      color: var(--ivey-green);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-bottom: 16px;
-    }
-
-    .axiom .axiom-index {
-      font-family: var(--mono);
-      font-size: var(--type-small);
-      color: var(--western-purple);
-      margin-bottom: 20px;
-    }
-
-    .axiom p {
-      font-size: var(--type-small);
-    }
-
-    .reveal .fragment.fade-up {
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity .35s ease, transform .35s ease;
-    }
-
-    .reveal .fragment.fade-up.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .reveal .progress {
-      color: var(--accent);
-      height: 4px;
-    }
-
-    .reveal .controls {
-      color: var(--accent);
-    }
-
-    .muted {
-      color: var(--ink-soft);
-    }
-
-    .mono {
-      font-family: var(--mono);
-    }
-
-    .stack>*+* {
-      margin-top: var(--gap-item);
-    }
-
-    .stack-lg>*+* {
-      margin-top: var(--gap-title);
-    }
-
-    .placeholder {
-      background:
-        repeating-linear-gradient(135deg,
-          var(--bg-alt) 0 16px,
-          #e7e1d3 16px 32px);
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--mono);
-      font-size: var(--type-small);
-      color: var(--ink-soft);
-      aspect-ratio: 16 / 10;
-    }
-
-    .placeholder-tall {
-      background:
-        repeating-linear-gradient(135deg,
-          var(--bg-alt) 0 16px,
-          #e7e1d3 16px 32px);
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--mono);
-      font-size: var(--type-small);
-      color: var(--ink-soft);
-      min-height: 240px;
-    }
-
-    .tag {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: var(--type-tiny);
-      letter-spacing: 0.08em;
-      padding: 6px 14px;
-      border-radius: 2px;
-      font-weight: 600;
-    }
-
-    .tag-green {
-      background: var(--ivey-green-tint);
-      color: var(--ivey-green);
-    }
-
-    .tag-purple {
-      background: var(--western-purple-tint);
-      color: var(--western-purple);
-    }
-
-    .tag-neutral {
-      background: var(--bg-alt);
-      color: var(--ink-soft);
-    }
-
-    [class*="graph-paper-state"] .backgrounds {
-      background-color: var(--bg) !important;
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eσ%3C/text%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eμ%3C/text%3E%3C/svg%3E"),
-        linear-gradient(var(--ink), var(--ink)),
-        linear-gradient(90deg, var(--ink), var(--ink)),
-        linear-gradient(var(--bg-alt) 1px, transparent 1px),
-        linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
-        linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
-        linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
-      background-size:
-        60px 60px,
-        60px 60px,
-        100% 4px,
-        4px 100%,
-        20px 20px,
-        20px 20px,
-        100px 100px,
-        100px 100px !important;
-      background-position:
-        calc(100% - 40px) calc(50% + 205px),
-        calc(50% - 100px) 40px,
-        center calc(50% + 249px),
-        calc(50% - 151px) center,
-        calc(50% + 10px) calc(50% + 10px),
-        calc(50% + 10px) calc(50% + 10px),
-        calc(50% + 50px) calc(50% + 50px),
-        calc(50% + 50px) calc(50% + 50px) !important;
-      background-repeat:
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        repeat,
-        repeat,
-        repeat,
-        repeat !important;
-    }
-
-    [class*="graph-paper-state"] .backgrounds::before {
-      content: "B";
-      position: absolute;
-      box-sizing: border-box;
-      width: 60px;
-      height: 60px;
-      top: 50%;
-      left: calc(50% + 100px);
-      transform: translate(calc(-12px + 1px), calc(-40px + 1px));
-      z-index: 10;
-
-      font-family: var(--sans);
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--black);
-      text-align: left;
-      padding-left: 28px;
-      line-height: 24px;
-
-      background-image: radial-gradient(circle at 12px 40px, var(--western-purple) 7.5px, transparent 8px);
-      background-repeat: no-repeat;
-    }
-
-    [class*="graph-paper-state"] .backgrounds::after {
-      content: "A";
-      position: absolute;
-      box-sizing: border-box;
-      width: 60px;
-      height: 60px;
-      top: calc(50% - 100px);
-      left: 50%;
-      transform: translate(calc(-12px + 1px), calc(-40px + 1px));
-      z-index: 10;
-
-      font-family: var(--sans);
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--black);
-      text-align: left;
-      padding-left: 28px;
-      line-height: 24px;
-
-      background-image: radial-gradient(circle at 12px 40px, var(--western-purple) 7.5px, transparent 8px);
-      background-repeat: no-repeat;
-    }
-
-    /* Custom positions for the Reflexive slide */
-    .graph-paper-state-reflexive .backgrounds::after {
-      top: 50%;
-      left: 50%;
-      content: "A, B";
-      width: 100px;
-    }
-
-    .graph-paper-state-reflexive .backgrounds::before {
-      display: none;
-    }
-
-    /* Custom background for the Continuity slide to add Point C */
-    .graph-paper-state-continuity .backgrounds {
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='12' cy='40' r='7.5' fill='%234F2683' /%3E%3Ctext x='28' y='45' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='black'%3EC%3C/text%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eσ%3C/text%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eμ%3C/text%3E%3C/svg%3E"),
-        linear-gradient(var(--ink), var(--ink)),
-        linear-gradient(90deg, var(--ink), var(--ink)),
-        linear-gradient(var(--bg-alt) 1px, transparent 1px),
-        linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
-        linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
-        linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
-      background-size:
-        60px 60px,
-        60px 60px,
-        60px 60px,
-        100% 4px,
-        4px 100%,
-        20px 20px,
-        20px 20px,
-        100px 100px,
-        100px 100px !important;
-      background-position:
-        calc(50% + 219px) calc(50% + 91px),
-        /* Point C (100px right, 100px down from B) */
-        calc(100% - 40px) calc(50% + 205px),
-        calc(50% - 100px) 40px,
-        center calc(50% + 249px),
-        calc(50% - 151px) center,
-        calc(50% + 10px) calc(50% + 10px),
-        calc(50% + 10px) calc(50% + 10px),
-        calc(50% + 50px) calc(50% + 50px),
-        calc(50% + 50px) calc(50% + 50px) !important;
-      background-repeat:
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        repeat,
-        repeat,
-        repeat,
-        repeat !important;
-    }
-
-    /* Custom background for the Transitive slide to add Point C (North-East of A and B) */
-    .graph-paper-state-transitive .backgrounds {
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='12' cy='40' r='7.5' fill='%234F2683' /%3E%3Ctext x='28' y='45' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='black'%3EC%3C/text%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eσ%3C/text%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='0' y='45' font-family='Arial, sans-serif' font-size='40' font-weight='bold' font-style='italic' fill='black'%3Eμ%3C/text%3E%3C/svg%3E"),
-        linear-gradient(var(--ink), var(--ink)),
-        linear-gradient(90deg, var(--ink), var(--ink)),
-        linear-gradient(var(--bg-alt) 1px, transparent 1px),
-        linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
-        linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
-        linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
-      background-size:
-        60px 60px,
-        60px 60px,
-        60px 60px,
-        100% 4px,
-        4px 100%,
-        20px 20px,
-        20px 20px,
-        100px 100px,
-        100px 100px !important;
-      background-position:
-        calc(50% + 219px) calc(50% - 149px),
-        /* Point C (100px right of B, 100px up from A) */
-        calc(100% - 40px) calc(50% + 205px),
-        calc(50% - 100px) 40px,
-        center calc(50% + 249px),
-        calc(50% - 151px) center,
-        calc(50% + 10px) calc(50% + 10px),
-        calc(50% + 10px) calc(50% + 10px),
-        calc(50% + 50px) calc(50% + 50px),
-        calc(50% + 50px) calc(50% + 50px) !important;
-      background-repeat:
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        repeat,
-        repeat,
-        repeat,
-        repeat !important;
-    }
-
-    /* Custom background for the Indifference Curve Results slide */
-    .graph-paper-state-results .backgrounds {
-      background-image:
-        url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
-        linear-gradient(var(--ink), var(--ink)),
-        linear-gradient(90deg, var(--ink), var(--ink)),
-        linear-gradient(var(--bg-alt) 1px, transparent 1px),
-        linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
-        linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
-        linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
-      background-size:
-        1000px 1000px,
-        60px 60px,
-        60px 60px,
-        100% 4px,
-        4px 100%,
-        20px 20px,
-        20px 20px,
-        100px 100px,
-        100px 100px !important;
-      background-position:
-        center center,
-        calc(100% - 40px) calc(50% + 205px),
-        calc(50% - 100px) 40px,
-        center calc(50% + 249px),
-        calc(50% - 151px) center,
-        calc(50% + 10px) calc(50% + 10px),
-        calc(50% + 10px) calc(50% + 10px),
-        calc(50% + 50px) calc(50% + 50px),
-        calc(50% + 50px) calc(50% + 50px) !important;
-      background-repeat:
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        repeat,
-        repeat,
-        repeat,
-        repeat !important;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -956,61 +67,6 @@
           <span class="eyebrow">01 · Introduction</span>
           <h2>Do LLMs need a utility function?</h2>
 
-          <style>
-            .reveal .larger-text p,
-            .reveal .larger-text li {
-              font-size: 45px !important;
-              line-height: 1.45;
-            }
-
-            .reveal .larger-text .label {
-              font-size: 30px !important;
-            }
-
-            /* Custom background for the Indifference Curve Results slide */
-            .graph-paper-state-results .backgrounds {
-              background-image:
-                url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
-                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
-                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
-                linear-gradient(var(--ink), var(--ink)),
-                linear-gradient(90deg, var(--ink), var(--ink)),
-                linear-gradient(var(--bg-alt) 1px, transparent 1px),
-                linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
-                linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
-                linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
-              background-size:
-                1000px 1000px,
-                60px 60px,
-                60px 60px,
-                100% 4px,
-                4px 100%,
-                20px 20px,
-                20px 20px,
-                100px 100px,
-                100px 100px !important;
-              background-position:
-                center center,
-                calc(100% - 40px) calc(50% + 205px),
-                calc(50% - 100px) 40px,
-                center calc(50% + 249px),
-                calc(50% - 151px) center,
-                calc(50% + 10px) calc(50% + 10px),
-                calc(50% + 10px) calc(50% + 10px),
-                calc(50% + 50px) calc(50% + 50px),
-                calc(50% + 50px) calc(50% + 50px) !important;
-              background-repeat:
-                no-repeat,
-                no-repeat,
-                no-repeat,
-                no-repeat,
-                no-repeat,
-                repeat,
-                repeat,
-                repeat,
-                repeat !important;
-            }
-          </style>
           <div class="two-col larger-text" style="margin-top: 16px;">
             <ul class="clean">
               <li class="fragment fade-up">AI agents are being deployed as autonomous decision-makers.</li>
@@ -1046,6 +102,16 @@
       </section>
 
 
+      <!-- ============================== 02. SECTION: HOW LLMS WORK   ============================== -->
+      <section data-screen-label="02 How LLMs Work divider" data-background-color="#034638">
+        <div class="section-divider">
+          <span class="num">PART 01</span>
+          <h2>How LLMs Work</h2>
+          <p style="font-size: 50px;">Choices from Autoregressive Distributions</p>
+        </div>
+      </section>
+
+
       <!-- ============================== 03b. LLM INFERENCE ============================== -->
       <section data-background-video="/images/presentations/how-transformers-work.mp4" data-background-video-loop
         data-background-video-muted data-background-size="contain">
@@ -1060,114 +126,6 @@
           <span class="eyebrow">01 · Introduction</span>
           <h2>How LLMs Generate Text</h2>
 
-          <style>
-            .gen-chain {
-              display: flex;
-              align-items: stretch;
-              justify-content: center;
-              gap: 20px;
-              margin-top: 48px;
-            }
-
-            .gen-box {
-              background: var(--bg-alt);
-              padding: 24px 32px;
-              border-radius: 8px;
-              text-align: center;
-              display: flex;
-              flex-direction: column;
-              justify-content: flex-start;
-            }
-
-            .gen-box .gen-label {
-              font-family: var(--sans);
-              font-size: 20px;
-              text-transform: uppercase;
-              letter-spacing: 0.1em;
-              margin-bottom: 12px;
-              font-weight: 700;
-            }
-
-            .gen-arrow {
-              display: flex;
-              align-items: center;
-              font-size: 42px;
-              color: var(--light-grey);
-            }
-
-            .gen-llm {
-              background: var(--ivey-green);
-              color: white;
-              padding: 24px 48px;
-              border-radius: 8px;
-              font-weight: 700;
-              font-family: var(--sans);
-              font-size: 48px;
-              letter-spacing: 0.05em;
-              box-shadow: 0 8px 24px rgba(3, 70, 56, 0.15);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            }
-
-            .gen-softmax {
-              background: var(--western-purple);
-              color: white;
-              padding: 24px 32px;
-              border-radius: 8px;
-              font-weight: 700;
-              font-family: var(--sans);
-              font-size: 36px;
-              letter-spacing: 0.05em;
-              box-shadow: 0 8px 24px rgba(79, 38, 131, 0.15);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            }
-
-            .logit-row,
-            .prob-row {
-              display: flex;
-              gap: 8px;
-              font-family: var(--mono);
-              font-size: 24px;
-            }
-
-            .row-cell {
-              padding: 10px 16px;
-              border-radius: 4px;
-              background: white;
-              border: 1px solid var(--rule);
-              color: var(--ink);
-              display: flex;
-              align-items: center;
-              white-space: nowrap;
-            }
-
-            .row-cell.token {
-              justify-content: center;
-              min-width: 60px;
-            }
-
-            .row-cell.value {
-              flex: 1;
-              justify-content: flex-start;
-            }
-
-            .logit-row.top .row-cell {
-              border-color: var(--ivey-green);
-              background: var(--ivey-green-tint);
-              color: var(--ivey-green);
-              font-weight: 600;
-            }
-
-            .prob-row.top .row-cell {
-              border-color: var(--western-purple);
-              background: var(--western-purple-tint);
-              color: var(--western-purple);
-              font-weight: 600;
-            }
-          </style>
 
           <div class="gen-chain">
             <!-- Input Context -->
@@ -1279,360 +237,12 @@
         </div>
       </section>
 
-      <!-- <section data-screen-label="03b LLM Inference">
-        <div class="slide-frame">
-          <span class="eyebrow">01 · Introduction</span>
-          <h2>The Mechanics of LLM Generation</h2>
-
-          <style>
-            .inference-pipeline {
-              display: flex;
-              align-items: stretch;
-              justify-content: space-between;
-              gap: 16px;
-              margin-top: 48px;
-            }
-
-            .inference-step {
-              flex: 1;
-              background: var(--bg-alt);
-              border-radius: 8px;
-              padding: 24px;
-              position: relative;
-              display: flex;
-              flex-direction: column;
-              border-top: 4px solid var(--western-purple);
-            }
-
-            .inference-step.green {
-              border-top-color: var(--ivey-green);
-            }
-
-            .inference-step .label {
-              font-family: var(--sans);
-              font-size: 24px;
-              color: var(--western-purple);
-              letter-spacing: 0.14em;
-              text-transform: uppercase;
-              margin-bottom: 16px;
-              font-weight: 700;
-            }
-
-            .inference-step.green .label {
-              color: var(--ivey-green);
-            }
-
-            .inference-arrow {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 32px;
-              color: var(--light-grey);
-            }
-
-            .token-box {
-              background: #fff;
-              border: 1px solid var(--rule);
-              padding: 12px 16px;
-              border-radius: 6px;
-              font-family: var(--mono);
-              font-size: 24px;
-              margin-bottom: 12px;
-              display: flex;
-              justify-content: space-between;
-              color: var(--ink);
-            }
-
-            .token-box.highlight {
-              border-color: var(--ivey-green);
-              background: var(--ivey-green-tint);
-              color: var(--ivey-green);
-              font-weight: 600;
-            }
-
-            /* Custom background for the Indifference Curve Results slide */
-            .graph-paper-state-results .backgrounds {
-              background-image:
-                url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
-                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
-                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
-                linear-gradient(var(--ink), var(--ink)),
-                linear-gradient(90deg, var(--ink), var(--ink)),
-                linear-gradient(var(--bg-alt) 1px, transparent 1px),
-                linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
-                linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
-                linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
-              background-size:
-                1000px 1000px,
-                60px 60px,
-                60px 60px,
-                100% 4px,
-                4px 100%,
-                20px 20px,
-                20px 20px,
-                100px 100px,
-                100px 100px !important;
-              background-position:
-                center center,
-                calc(100% - 40px) calc(50% + 205px),
-                calc(50% - 100px) 40px,
-                center calc(50% + 249px),
-                calc(50% - 151px) center,
-                calc(50% + 10px) calc(50% + 10px),
-                calc(50% + 10px) calc(50% + 10px),
-                calc(50% + 50px) calc(50% + 50px),
-                calc(50% + 50px) calc(50% + 50px) !important;
-              background-repeat:
-                no-repeat,
-                no-repeat,
-                no-repeat,
-                no-repeat,
-                no-repeat,
-                repeat,
-                repeat,
-                repeat,
-                repeat !important;
-            }
-          </style>
-
-          <div class="inference-pipeline">
-            
-      <div class="inference-step fragment fade-up">
-        <div class="label">Input Context</div>
-        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: auto;">
-          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="token-box" style="margin: 0;">Which</span>
-            <span class="token-box" style="margin: 0;">do</span>
-            <span class="token-box" style="margin: 0;">you</span>
-            <span class="token-box" style="margin: 0;">prefer?</span>
-          </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="token-box" style="margin: 0;">Option</span>
-            <span class="token-box" style="margin: 0;">A:</span>
-            <span class="token-box" style="margin: 0;">$\mu=8$%</span>
-            <span class="token-box" style="margin: 0;">and</span>
-            <span class="token-box" style="margin: 0;">$\sigma=12$%</span>
-          </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="token-box" style="margin: 0;">Option</span>
-            <span class="token-box" style="margin: 0;">B:</span>
-            <span class="token-box" style="margin: 0;">$\mu=10$%</span>
-            <span class="token-box" style="margin: 0;">and</span>
-            <span class="token-box" style="margin: 0;">$\sigma=5$%</span>
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="fragment fade-up" style="display: flex; align-items: stretch; gap: 16px;">
-        <div class="inference-arrow" style="display: flex; align-items: center;">▶</div>
-        <div
-          style="background: var(--ivey-green); width: 160px; border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(3, 70, 56, 0.15);">
-          <span
-            style="color: white; font-family: var(--sans); font-size: 40px; font-weight: 700; letter-spacing: 0.05em;">LLM</span>
-        </div>
-      </div>
-
-      <div class="fragment fade-up" style="display: flex; align-items: stretch; gap: 16px; flex: 1;">
-        <div class="inference-arrow" style="display: flex; align-items: center;">▶</div>
-        <div class="inference-step" style="width: 100%;">
-          <div class="label">Final Projection Layer (Logits)</div>
-          <div style="margin-top: auto;">
-            <div class="token-box">
-              <span>"A"</span>
-              <span>1.15</span>
-            </div>
-            <div class="token-box highlight">
-              <span>"B"</span>
-              <span>5.42</span>
-            </div>
-            <div class="token-box">
-              <span>"C"</span>
-              <span>-2.11</span>
-            </div>
-            <div
-              style="text-align: center; font-size: 16px; color: var(--ink-soft); margin-top: 12px; font-family: var(--mono);">
-              ... 100,000+ tokens</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <p class="fragment fade-up"
-      style="margin-top: 48px; text-align: center; font-size: 26px; border-top: 1px solid var(--rule); padding-top: 24px;">
-      The logits represent the <strong>raw, unnormalized "preference scores"</strong> the model assigns to each
-      possible continuation.
-    </p>
-
-    <div class="fragment fade-up" style="display: flex; justify-content: center; margin-top: 32px;">
-      <div class="panel green" style="text-align: center; padding: 24px 48px; border-radius: 8px;">
-        <div style="font-size: 36px; margin-bottom: 16px;">
-          \[ \text{Context } x \xrightarrow{\quad \text{LLM} \quad} \text{Logit Scores } \bigl\{ u_i(x)
-          \bigr\}_{i \in \mathcal{V}} \]
-        </div>
-        <p style="font-size: 22px; color: var(--ink-soft); margin: 0; line-height: 1.4;">
-          The model acts as an evaluation function, mapping the input context $x$<br>to a specific logit score
-          $u_i(x)$ for every possible next token $i$.
-        </p>
-      </div>
-    </div>
-  </div>
-  </section> -->
-
-      <!-- ============================== 04. CORE INSIGHT ============================== -->
-      <!-- <section data-screen-label="04 Core Insight">
-        <div class="slide-frame">
-          <span class="eyebrow">01 · Introduction</span>
-          <h2>The core insight</h2>
-          <h3>An LLM's softmax is McFadden (1974)'s conditional logit.</h3>
-
-          <div style="margin-top: 16px;">
-            <p style="font-size: 36px;">At each generation step, the LLM's logit vector over the vocabulary
-              $\mathcal{V}$ admits an exact Random Utility representation:</p>
-
-            <div class="math-display" style="margin: 32px 0; text-align: center;">
-              \[ \underbrace{P(i \mid x, \tau) = \frac{\exp\!\bigl(u_i(x)/\tau\bigr)}{\displaystyle\sum_{j \in
-              \mathcal{V}}
-              \exp\!\bigl(u_j(x)/\tau\bigr)}}_{\text{Softmax: Probability of Selecting Logit $i$}} \quad \iff \quad
-              \underbrace{U_i = u_i(x) +
-              \tau\,\varepsilon_i, \quad \varepsilon_i \overset{\text{iid}}{\sim}
-              \text{EV-I}}_{\text{Random Utility Model}} \]
-            </div>
-
-            <style>
-              .reveal .core-insight-list li {
-                font-size: 36px !important;
-              }
-
-              /* Custom background for the Indifference Curve Results slide */
-              .graph-paper-state-results .backgrounds {
-                background-image:
-                  url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
-                  url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
-                  url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
-                  linear-gradient(var(--ink), var(--ink)),
-                  linear-gradient(90deg, var(--ink), var(--ink)),
-                  linear-gradient(var(--bg-alt) 1px, transparent 1px),
-                  linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
-                  linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
-                  linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
-                background-size:
-                  1000px 1000px,
-                  60px 60px,
-                  60px 60px,
-                  100% 4px,
-                  4px 100%,
-                  20px 20px,
-                  20px 20px,
-                  100px 100px,
-                  100px 100px !important;
-                background-position:
-                  center center,
-                  calc(100% - 40px) calc(50% + 205px),
-                  calc(50% - 100px) 40px,
-                  center calc(50% + 249px),
-                  calc(50% - 151px) center,
-                  calc(50% + 10px) calc(50% + 10px),
-                  calc(50% + 10px) calc(50% + 10px),
-                  calc(50% + 50px) calc(50% + 50px),
-                  calc(50% + 50px) calc(50% + 50px) !important;
-                background-repeat:
-                  no-repeat,
-                  no-repeat,
-                  no-repeat,
-                  no-repeat,
-                  no-repeat,
-                  repeat,
-                  repeat,
-                  repeat,
-                  repeat !important;
-              }
-            </style>
-            <ul class="clean core-insight-list" style="margin-top: 32px;">
-              <li class="fragment fade-up"><strong>$u_i(x)$:</strong> the pre-softmax logit is a <em>cardinal utility
-                  index</em> over choices.</li>
-              <li class="fragment fade-up"><strong>$\tau$:</strong> temperature is the scale of the stochastic
-                component.</li>
-              <li class="fragment fade-up"><strong>Implication:</strong> All of structural discrete choice econometrics
-                is available for measuring LLM preferences.</li>
-            </ul>
-          </div>
-        </div>
-
-        <aside class="notes">
-          ~2 minutes. This is the paper's methodological foundation — spend time on it.
-          The key line is "not an analogy." The audience should leave understanding that
-          the identification is structural, not analogical. If challenged: yes, we need
-          single-token forced choice to keep the mapping clean; multi-token chain-of-thought
-          raises different identification challenges we flag as future work.
-        </aside>
-      </section> -->
 
       <!-- ============================== 03a. EXPERIMENTAL PROMPT ============================== -->
       <section data-screen-label="03a Experimental Prompt">
         <div class="slide-frame">
           <span class="eyebrow">01 · Introduction</span>
           <h2>A Typical Choice Experiment Prompt</h2>
-
-          <style>
-            .reveal .tcolorbox {
-              background: #f4f4f4;
-              border: 1px solid #999999;
-              padding: 32px 40px;
-              margin-top: 48px;
-              font-family: var(--mono);
-              font-size: 34px;
-              line-height: 1.5;
-              color: var(--ink);
-              text-align: left;
-              border-radius: 0px;
-              /* sharp corners */
-            }
-
-            /* Custom background for the Indifference Curve Results slide */
-            .graph-paper-state-results .backgrounds {
-              background-image:
-                url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271000%27%20height%3D%271000%27%3E%3Cpath%20d%3D%27M%20451.0%2C720.4864864864871%20L%20451.0084352165208%2C716.0%20L%20456.9989868844255%2C711.0%20L%20457.679231653593%2C706.0%20L%20460.9973062124839%2C701.0%20L%20461.0%2C700.9986543783482%20L%20471.0%2C699.7527169146526%20L%20480.99511084628193%2C701.0%20L%20481.0%2C701.0024458847988%20L%20491.0%2C701.0041977042374%20L%20501.0%2C703.5039126617552%20L%20506.01008203107097%2C701.0%20L%20511.0%2C698.5076870255217%20L%20515.9884320238232%2C701.0%20L%20521.0%2C702.6696344987586%20L%20531.0%2C701.0022645273244%20L%20541.0%2C701.00132302729%20L%20541.0026456103219%2C701.0%20L%20541.0309843246791%2C696.0%20L%20541.0%2C695.9845220122909%20L%20536.0094659378913%2C691.0%20L%20541.0%2C686.0139573195845%20L%20541.0279103817469%2C686.0%20L%20546.0136584919194%2C681.0%20L%20547.6785743364273%2C676.0%20L%20551.0%2C673.5083982287372%20L%20561.0%2C674.3373623968772%20L%20571.0%2C673.5063707388531%20L%20576.0114796988581%2C671.0%20L%20581.0%2C666.0166872399762%20L%20590.9906814744656%2C671.0%20L%20591.0%2C671.0015523366484%20L%20601.0%2C671.0012216475953%20L%20601.002443531514%2C671.0%20L%20601.0338770963361%2C666.0%20L%20611.0%2C661.0255922004723%20L%20621.0%2C661.0072859050163%20L%20631.0%2C662.2511451080982%20L%20633.000396686145%2C661.0%20L%20636.0060164492011%2C656.0%20L%20641.0%2C655.3755781153978%20L%20651.0%2C651.0%20L%20651.0%2C651.0%20L%20661.0%2C647.5205762980557%20L%20671.0%2C646.6515253077567%20L%20681.0%2C647.0410375928476%20L%20690.9944474613915%2C646.0%20L%20681.0%2C641.003431750864%20L%20671.0%2C641.011624896569%20L%20670.9303231302865%2C641.0%20L%20671.0%2C640.9941837724712%20L%20681.0%2C640.9965707806123%20L%20691.0%2C636.8330156358018%20L%20701.0%2C638.4989336989223%20L%20711.0%2C636.000648150737%20L%20711.0077803203661%2C636.0%20L%20711.0%2C635.9987049263585%20L%20701.0%2C632.6678599901487%20L%20691.0%2C634.7507908678583%20L%20683.4920941907083%2C631.0%20L%20691.0%2C626.0018538081791%20L%20701.0%2C629.748003552628%20L%20711.0%2C627.2490806056379%20L%20720.993596975333%2C626.0%20L%20711.0%2C621.0047246014569%20L%20710.9952667058562%2C621.0%20L%20711.0%2C620.9984247407174%20L%20721.0%2C620.995933843636%20L%20731.0%2C616.0014085901155%20L%20741.0%2C619.3291487934295%20L%20746.0117385206415%2C621.0%20L%20751.0%2C623.5006495987773%20L%20752.663772611133%2C621.0%20L%20756.9995485230909%2C616.0%20L%20752.6663996887801%2C611.0%20L%20756.0016882579276%2C606.0%20L%20754.9962419890614%2C601.0%20L%20757.0059482955845%2C596.0%20L%20757.665081153677%2C591.0%20L%20756.0096622779583%2C586.0%20L%20759.5721821162028%2C581.0%20L%20757.6724815762304%2C576.0%20L%20754.3340368185517%2C571.0%20L%20744.3331469015029%2C571.0%20L%20741.0%2C572.664609868568%20L%20731.0%2C572.667581245046%20L%20728.4960804733187%2C571.0%20L%20721.0%2C611.0015255840444%20L%20720.9954196025742%2C611.0%20L%20721.0%2C610.9977143031291%20L%20731.0%2C607.6647181713287%20L%20741.0%2C607.6672173060012%20L%20747.6677344071752%2C611.0%20L%20741.0%2C613.5012683820023%20L%20731.0%2C615.9985906802062%20L%20721.0%2C611.0015255840444%20L%20731.0%2C604.3362121081268%20L%20725.9890695163499%2C601.0%20L%20731.0%2C597.665549614871%20L%20741.0%2C599.3325374165557%20L%20744.3380455012357%2C601.0%20L%20741.0%2C603.5008000243818%20L%20731.0%2C604.3362121081268%20L%20801.0%2C591.008329512456%20L%20801.0055419971527%2C591.0%20L%20801.0294735880095%2C586.0%20L%20804.3383162743871%2C581.0%20L%20803.0067752124884%2C576.0%20L%20801.0%2C574.74624378413%20L%20798.4920571958182%2C576.0%20L%20797.6618195130136%2C581.0%20L%20800.9705010252228%2C586.0%20L%20800.995841900671%2C591.0%20L%20801.0%2C591.008329512456%20L%20851.0%2C584.3385731683082%20L%20853.8570400732568%2C581.0%20L%20852.6712818517699%2C576.0%20L%20851.0%2C574.3296992614956%20L%20848.99348522269%2C576.0%20L%20841.006177453059%2C581.0%20L%20851.0%2C584.3385731683082%27%20fill%3D%27none%27%20stroke%3D%27%25234F2683%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%27651.0%27%20cy%3D%27651.0%27%20r%3D%277.5%27%20fill%3D%27%25234F2683%27/%3E%3Ctext%20x%3D%27667.0%27%20y%3D%27656.0%27%20font-family%3D%27Arial%2C%20sans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27bold%27%20fill%3D%27black%27%3EBase%20Bundle%3C/text%3E%3C/svg%3E"),
-                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eσ%3C/text%3E%3C/svg%3E"),
-                url("data:image/svg+xml,%3Csvg xmlns=\x27http://www.w3.org/2000/svg\x27 width=\x2760\x27 height=\x2760\x27%3E%3Ctext x=\x270\x27 y=\x2745\x27 font-family=\x27Arial, sans-serif\x27 font-size=\x2740\x27 font-weight=\x27bold\x27 font-style=\x27italic\x27 fill=\x27black\x27%3Eμ%3C/text%3E%3C/svg%3E"),
-                linear-gradient(var(--ink), var(--ink)),
-                linear-gradient(90deg, var(--ink), var(--ink)),
-                linear-gradient(var(--bg-alt) 1px, transparent 1px),
-                linear-gradient(90deg, var(--bg-alt) 1px, transparent 1px),
-                linear-gradient(var(--ivey-green-tint) 2px, transparent 2px),
-                linear-gradient(90deg, var(--ivey-green-tint) 2px, transparent 2px) !important;
-              background-size:
-                1000px 1000px,
-                60px 60px,
-                60px 60px,
-                100% 4px,
-                4px 100%,
-                20px 20px,
-                20px 20px,
-                100px 100px,
-                100px 100px !important;
-              background-position:
-                center center,
-                calc(100% - 40px) calc(50% + 205px),
-                calc(50% - 100px) 40px,
-                center calc(50% + 249px),
-                calc(50% - 151px) center,
-                calc(50% + 10px) calc(50% + 10px),
-                calc(50% + 10px) calc(50% + 10px),
-                calc(50% + 50px) calc(50% + 50px),
-                calc(50% + 50px) calc(50% + 50px) !important;
-              background-repeat:
-                no-repeat,
-                no-repeat,
-                no-repeat,
-                no-repeat,
-                no-repeat,
-                repeat,
-                repeat,
-                repeat,
-                repeat !important;
-            }
-          </style>
 
           <div
             style="text-align: left; font-family: var(--sans); font-size: 22px; font-weight: 700; color: var(--western-purple); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 48px; margin-bottom: -32px; padding-left: 2px;">
@@ -1663,118 +273,6 @@
           <span class="eyebrow">01 · Introduction</span>
           <h2>The Core Insight</h2>
           <h3>The LLM's choice mechanism is McFadden (1974)'s conditional logit.</h3>
-
-          <style>
-            .inference-pipeline {
-              display: flex;
-              align-items: stretch;
-              justify-content: space-between;
-              gap: 16px;
-              margin-top: 48px;
-            }
-
-            .inference-step {
-              flex: 1;
-              background: var(--bg-alt);
-              border-radius: 8px;
-              padding: 24px;
-              position: relative;
-              display: flex;
-              flex-direction: column;
-              border-top: 4px solid var(--western-purple);
-            }
-
-            .inference-step.green {
-              border-top-color: var(--ivey-green);
-            }
-
-            .inference-step .label {
-              font-family: var(--sans);
-              font-size: 24px;
-              color: var(--western-purple);
-              letter-spacing: 0.14em;
-              text-transform: uppercase;
-              margin-bottom: 16px;
-              font-weight: 700;
-            }
-
-            .inference-step.green .label {
-              color: var(--ivey-green);
-            }
-
-            .inference-arrow {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 32px;
-              color: var(--light-grey);
-            }
-
-            .token-box {
-              background: #fff;
-              border: 1px solid var(--rule);
-              padding: 12px 16px;
-              border-radius: 6px;
-              font-family: var(--mono);
-              font-size: 24px;
-              margin-bottom: 12px;
-              display: flex;
-              justify-content: space-between;
-              color: var(--ink);
-            }
-
-            .token-box.highlight {
-              border-color: var(--ivey-green);
-              background: var(--ivey-green-tint);
-              color: var(--ivey-green);
-              font-weight: 600;
-            }
-
-            .insight-row {
-              display: flex;
-              gap: 8px;
-              margin-bottom: 12px;
-              font-family: var(--mono);
-              font-size: 24px;
-            }
-
-            .insight-cell {
-              background: #fff;
-              border: 1px solid var(--rule);
-              padding: 12px 16px;
-              border-radius: 6px;
-              display: flex;
-              align-items: center;
-              color: var(--ink);
-            }
-
-            .insight-cell.token {
-              justify-content: center;
-              min-width: 60px;
-            }
-
-            .insight-cell.value {
-              flex: 1;
-            }
-
-            .insight-row.highlight .insight-cell {
-              border-color: var(--ivey-green);
-              background: var(--ivey-green-tint);
-              color: var(--ivey-green);
-              font-weight: 600;
-            }
-
-            .insight-row.highlight-purple .insight-cell {
-              border-color: var(--western-purple);
-              background: var(--western-purple-tint);
-              color: var(--western-purple);
-              font-weight: 600;
-            }
-
-            .reveal .core-insight-list li {
-              font-size: 36px !important;
-            }
-          </style>
 
           <div class="inference-pipeline" style="margin-top: 16px;">
             <!-- Step 1: Input -->
@@ -1900,372 +398,13 @@
       </section>
 
 
-      <!-- ============================== 08b. INDIFFERENCE CURVE ============================== -->
-      <section data-screen-label="08b Indifference Curve">
-        <div class="slide-frame">
-          <span class="eyebrow">03 · Results</span>
-          <h2>Llama 3.1 8B Indifference Curve</h2>
-          <!-- <h3>Position-corrected logit gap across the (σ, μ) grid — Llama 3.1 8B Instruct.</h3> -->
-
-          <div style="display: flex; justify-content: center; align-items: center; flex: 1; margin-top: 8px;">
-            <canvas id="indifference-canvas" width="1400" height="720" style="border-radius: 4px;"></canvas>
-          </div>
-
-          <div style="display: flex; gap: 48px; justify-content: center; margin-top: 12px;">
-            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
-              <span
-                style="display:inline-block;width:18px;height:18px;background:#b2182b;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>
-              Prefers grid bundle
-            </span>
-            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
-              <span
-                style="display:inline-block;width:18px;height:18px;background:#2166ac;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>
-              Prefers base bundle
-            </span>
-            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
-              <span
-                style="display:inline-block;width:3px;height:18px;background:var(--ivey-green);vertical-align:middle;margin-right:6px;border-radius:1px;"></span>
-              Empirical indifference curve (Δz = 0)
-            </span>
-            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
-              <span
-                style="display:inline-block;width:12px;height:12px;background:var(--western-purple);border-radius:50%;vertical-align:middle;margin-right:6px;"></span>
-              Base bundle (σ=30, μ=10)
-            </span>
-          </div>
+      <!-- ============================== 02. SECTION: UTILITY AXIOMS ============================== -->
+      <section data-screen-label="02 Utility Axioms divider" data-background-color="#034638">
+        <div class="section-divider">
+          <span class="num">PART 01</span>
+          <h2>Utility Axioms</h2>
+          <p style="font-size: 50px;">Testing the Economic Rationality of LLMs</p>
         </div>
-
-        <script>
-          // Self-contained indifference curve renderer
-          (function () {
-            const CANVAS_ID = 'indifference-canvas';
-            const DATA_URL = 'data/indifference_grid.json';
-
-            // Design tokens (matching presentation CSS)
-            const COLORS = {
-              iveyGreen: '#034638',
-              westernPurple: '#4F2683',
-              ink: '#000000',
-              inkSoft: '#63666A',
-              rule: '#A8A99E',
-              bgAlt: '#f3f2ee',
-            };
-
-            // RdBu diverging colormap (11-step)
-            const RDBU = [
-              [103, 0, 31], [178, 24, 43], [214, 96, 77], [244, 165, 130], [253, 219, 199],
-              [247, 247, 247],
-              [209, 229, 240], [146, 197, 222], [67, 147, 195], [33, 102, 172], [5, 48, 97]
-            ];
-
-            function lerpColor(a, b, t) {
-              return [
-                Math.round(a[0] + (b[0] - a[0]) * t),
-                Math.round(a[1] + (b[1] - a[1]) * t),
-                Math.round(a[2] + (b[2] - a[2]) * t)
-              ];
-            }
-
-            function scoreToColor(val, maxVal) {
-              // Map [-maxVal, +maxVal] to [0, 1] for colormap lookup
-              // Positive score = prefers grid = red; negative = prefers base = blue
-              let t = 0.5 - (val / (2 * maxVal));  // invert: positive→red (low index)
-              t = Math.max(0, Math.min(1, t));
-              const idx = t * (RDBU.length - 1);
-              const lo = Math.floor(idx);
-              const hi = Math.min(lo + 1, RDBU.length - 1);
-              const frac = idx - lo;
-              const c = lerpColor(RDBU[lo], RDBU[hi], frac);
-              return `rgb(${c[0]},${c[1]},${c[2]})`;
-            }
-
-            // Marching squares contour extraction for level=0
-            function extractContourSegments(sigma, mu, scores, level) {
-              const segments = [];
-              const nMu = scores.length;
-              const nSigma = scores[0].length;
-
-              for (let i = 0; i < nMu - 1; i++) {
-                for (let j = 0; j < nSigma - 1; j++) {
-                  const v00 = scores[i][j];
-                  const v10 = scores[i + 1][j];
-                  const v01 = scores[i][j + 1];
-                  const v11 = scores[i + 1][j + 1];
-
-                  if (v00 == null || v10 == null || v01 == null || v11 == null) continue;
-
-                  const b00 = v00 >= level ? 1 : 0;
-                  const b10 = v10 >= level ? 1 : 0;
-                  const b01 = v01 >= level ? 1 : 0;
-                  const b11 = v11 >= level ? 1 : 0;
-                  const cellCase = b00 | (b01 << 1) | (b11 << 2) | (b10 << 3);
-
-                  if (cellCase === 0 || cellCase === 15) continue;
-
-                  const s0 = sigma[j], s1 = sigma[j + 1];
-                  const m0 = mu[i], m1 = mu[i + 1];
-
-                  function interpH(va, vb, ca, cb) {
-                    const t = (level - va) / (vb - va);
-                    return ca + t * (cb - ca);
-                  }
-
-                  // Edge midpoints via linear interpolation
-                  const top = { sigma: interpH(v00, v01, s0, s1), mu: m0 };
-                  const bottom = { sigma: interpH(v10, v11, s0, s1), mu: m1 };
-                  const left = { sigma: s0, mu: interpH(v00, v10, m0, m1) };
-                  const right = { sigma: s1, mu: interpH(v01, v11, m0, m1) };
-
-                  const edgePairs = {
-                    1: [[left, top]],
-                    2: [[top, right]],
-                    3: [[left, right]],
-                    4: [[right, bottom]],
-                    5: [[left, bottom], [top, right]],  // saddle
-                    6: [[top, bottom]],
-                    7: [[left, bottom]],
-                    8: [[bottom, left]],
-                    9: [[bottom, top]],
-                    10: [[left, top], [right, bottom]],  // saddle
-                    11: [[right, bottom]],
-                    12: [[right, left]],
-                    13: [[top, right]],
-                    14: [[top, left]],
-                  };
-
-                  const pairs = edgePairs[cellCase];
-                  if (pairs) {
-                    for (const [a, b] of pairs) {
-                      segments.push(a, b);
-                    }
-                  }
-                }
-              }
-              return segments;
-            }
-
-            function render(data) {
-              const canvas = document.getElementById(CANVAS_ID);
-              if (!canvas) return;
-              const ctx = canvas.getContext('2d');
-              const W = canvas.width;
-              const H = canvas.height;
-
-              const { sigma, mu, scores, base_mu, base_sigma } = data;
-              const nSigma = sigma.length;
-              const nMu = mu.length;
-
-              // Plot area margins
-              const margin = { top: 24, right: 120, bottom: 64, left: 80 };
-              const plotW = W - margin.left - margin.right;
-              const plotH = H - margin.top - margin.bottom;
-
-              const sigmaMin = sigma[0], sigmaMax = sigma[nSigma - 1];
-              const muMin = mu[0], muMax = mu[nMu - 1];
-
-              function toX(s) { return margin.left + ((s - sigmaMin) / (sigmaMax - sigmaMin)) * plotW; }
-              function toY(m) { return margin.top + plotH - ((m - muMin) / (muMax - muMin)) * plotH; }
-
-              // Clear
-              ctx.fillStyle = '#ffffff';
-              ctx.fillRect(0, 0, W, H);
-
-              // --- Grid lines ---
-              ctx.strokeStyle = COLORS.bgAlt;
-              ctx.lineWidth = 1;
-              // Vertical grid lines (sigma ticks)
-              for (let s = Math.ceil(sigmaMin / 5) * 5; s <= sigmaMax; s += 5) {
-                const x = toX(s);
-                ctx.beginPath(); ctx.moveTo(x, margin.top); ctx.lineTo(x, margin.top + plotH); ctx.stroke();
-              }
-              // Horizontal grid lines (mu ticks)
-              for (let m = Math.ceil(muMin / 2) * 2; m <= muMax; m += 2) {
-                const y = toY(m);
-                ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(margin.left + plotW, y); ctx.stroke();
-              }
-
-              // --- Heatmap ---
-              const maxVal = Math.max(0.1, ...scores.flat().filter(v => v != null).map(Math.abs));
-              const cellW = plotW / (nSigma - 1);
-              const cellH = plotH / (nMu - 1);
-
-              for (let i = 0; i < nMu; i++) {
-                for (let j = 0; j < nSigma; j++) {
-                  const val = scores[i][j];
-                  if (val == null) continue;
-                  const x = toX(sigma[j]) - cellW / 2;
-                  const y = toY(mu[i]) - cellH / 2;
-                  ctx.fillStyle = scoreToColor(val, maxVal);
-                  ctx.globalAlpha = 0.85;
-                  ctx.fillRect(x, y, cellW + 0.5, cellH + 0.5);
-                }
-              }
-              ctx.globalAlpha = 1.0;
-
-              // --- Contour (Δz = 0) ---
-              const segments = extractContourSegments(sigma, mu, scores, 0.0);
-              ctx.strokeStyle = COLORS.iveyGreen;
-              ctx.lineWidth = 3.5;
-              ctx.lineCap = 'round';
-              for (let k = 0; k < segments.length; k += 2) {
-                const a = segments[k];
-                const b = segments[k + 1];
-                ctx.beginPath();
-                ctx.moveTo(toX(a.sigma), toY(a.mu));
-                ctx.lineTo(toX(b.sigma), toY(b.mu));
-                ctx.stroke();
-              }
-
-              // --- Base bundle marker ---
-              const bx = toX(base_sigma);
-              const by = toY(base_mu);
-              // Outer glow
-              ctx.beginPath();
-              ctx.arc(bx, by, 14, 0, 2 * Math.PI);
-              ctx.fillStyle = 'rgba(79, 38, 131, 0.18)';
-              ctx.fill();
-              // Dot
-              ctx.beginPath();
-              ctx.arc(bx, by, 8, 0, 2 * Math.PI);
-              ctx.fillStyle = COLORS.westernPurple;
-              ctx.fill();
-              ctx.strokeStyle = '#ffffff';
-              ctx.lineWidth = 2;
-              ctx.stroke();
-
-              // --- Axes ---
-              ctx.strokeStyle = COLORS.ink;
-              ctx.lineWidth = 2;
-              // x-axis
-              ctx.beginPath();
-              ctx.moveTo(margin.left, margin.top + plotH);
-              ctx.lineTo(margin.left + plotW, margin.top + plotH);
-              ctx.stroke();
-              // y-axis
-              ctx.beginPath();
-              ctx.moveTo(margin.left, margin.top);
-              ctx.lineTo(margin.left, margin.top + plotH);
-              ctx.stroke();
-
-              // --- Tick labels ---
-              ctx.fillStyle = COLORS.inkSoft;
-              ctx.font = '500 18px Arial, Helvetica, sans-serif';
-              ctx.textAlign = 'center';
-              ctx.textBaseline = 'top';
-              for (let s = Math.ceil(sigmaMin / 5) * 5; s <= sigmaMax; s += 5) {
-                const x = toX(s);
-                ctx.fillText(s.toString(), x, margin.top + plotH + 8);
-              }
-              ctx.textAlign = 'right';
-              ctx.textBaseline = 'middle';
-              for (let m = Math.ceil(muMin / 2) * 2; m <= muMax; m += 2) {
-                const y = toY(m);
-                ctx.fillText(m.toString(), margin.left - 12, y);
-              }
-
-              // --- Axis labels ---
-              ctx.fillStyle = COLORS.ink;
-              ctx.font = 'bold italic 24px Arial, Helvetica, sans-serif';
-              ctx.textAlign = 'center';
-              ctx.textBaseline = 'top';
-              ctx.fillText('σ  (Risk)', margin.left + plotW / 2, margin.top + plotH + 32);
-
-              ctx.save();
-              ctx.translate(24, margin.top + plotH / 2);
-              ctx.rotate(-Math.PI / 2);
-              ctx.textBaseline = 'middle';
-              ctx.fillText('μ  (Expected Return)', 0, 0);
-              ctx.restore();
-
-              // --- Color bar ---
-              const barX = margin.left + plotW + 16;
-              const barW = 18;
-              const barTop = margin.top;
-              const barH = plotH;
-              for (let py = 0; py < barH; py++) {
-                const t = py / barH;  // 0 = top (high mu = red), 1 = bottom (blue)
-                const val = maxVal * (1 - 2 * t);
-                ctx.fillStyle = scoreToColor(val, maxVal);
-                ctx.fillRect(barX, barTop + py, barW, 1.5);
-              }
-              ctx.strokeStyle = COLORS.rule;
-              ctx.lineWidth = 1;
-              ctx.strokeRect(barX, barTop, barW, barH);
-
-              // Color bar labels
-              ctx.fillStyle = COLORS.inkSoft;
-              ctx.font = '500 14px Arial, Helvetica, sans-serif';
-              ctx.textAlign = 'left';
-              ctx.textBaseline = 'top';
-              ctx.fillText('+' + maxVal.toFixed(1), barX + barW + 6, barTop - 2);
-              ctx.textBaseline = 'middle';
-              ctx.fillText('0', barX + barW + 6, barTop + barH / 2);
-              ctx.textBaseline = 'bottom';
-              ctx.fillText('−' + maxVal.toFixed(1), barX + barW + 6, barTop + barH + 2);
-
-              // Color bar title (rotated)
-              ctx.save();
-              ctx.fillStyle = COLORS.inkSoft;
-              ctx.font = '500 14px Arial, Helvetica, sans-serif';
-              ctx.translate(barX + barW + 48, barTop + barH / 2);
-              ctx.rotate(-Math.PI / 2);
-              ctx.textAlign = 'center';
-              ctx.textBaseline = 'middle';
-              ctx.fillText('Δz  (logit gap)', 0, 0);
-              ctx.restore();
-            }
-
-            // Load data and render when the slide becomes visible
-            let dataCache = null;
-
-            function loadAndRender() {
-              if (dataCache) {
-                render(dataCache);
-                return;
-              }
-              fetch(DATA_URL)
-                .then(r => r.json())
-                .then(d => { dataCache = d; render(d); })
-                .catch(e => console.error('Indifference grid load error:', e));
-            }
-
-            // Render on DOMContentLoaded and on slide change
-            if (document.readyState === 'loading') {
-              document.addEventListener('DOMContentLoaded', () => {
-                setTimeout(loadAndRender, 200);
-              });
-            } else {
-              setTimeout(loadAndRender, 200);
-            }
-
-            // Re-render when navigating to the slide (Reveal event)
-            if (typeof Reveal !== 'undefined') {
-              Reveal.on('slidechanged', (evt) => {
-                if (evt.currentSlide && evt.currentSlide.querySelector('#' + CANVAS_ID)) {
-                  setTimeout(loadAndRender, 50);
-                }
-              });
-            } else {
-              document.addEventListener('DOMContentLoaded', () => {
-                if (typeof Reveal !== 'undefined') {
-                  Reveal.on('slidechanged', (evt) => {
-                    if (evt.currentSlide && evt.currentSlide.querySelector('#' + CANVAS_ID)) {
-                      setTimeout(loadAndRender, 50);
-                    }
-                  });
-                }
-              });
-            }
-          })();
-        </script>
-
-        <aside class="notes">
-          ~1 minute. This is the visual payoff: the audience sees the indifference curve
-          directly in (σ, μ) space. The upward slope confirms the model is risk-averse —
-          it requires more expected return to accept more risk. The heatmap shows the full
-          preference surface; the green contour is the empirical indifference locus (Δz = 0).
-          The purple dot is the base bundle used in all pairwise comparisons.
-        </aside>
       </section>
 
 
@@ -2274,7 +413,7 @@
         <div class="slide-frame">
           <div style="max-width: 700px; padding-right: 40px;">
             <span class="eyebrow">04 · Extra</span>
-            <h2>Measuring Preferences</h2>
+            <h2>Utility Axioms</h2>
             <div style="margin-top: 30px;">
               <p style="font-size: 40px;"><b style="color: var(--ivey-green);">Complete:</b> must express some
                 preference or indifference.</p>
@@ -2295,7 +434,7 @@
         <div class="slide-frame">
           <div style="max-width: 700px; padding-right: 40px;">
             <span class="eyebrow">04 · Extra</span>
-            <h2>Measuring Preferences</h2>
+            <h2>Utility Axioms</h2>
             <div style="margin-top: 30px;">
               <p style="font-size: 40px;"><b style="color: var(--ivey-green);">Reflexive:</b> any bundle of goods is at
                 least as good as itself.</p>
@@ -2316,7 +455,7 @@
         <div class="slide-frame">
           <div style="max-width: 650px; padding-right: 40px;">
             <span class="eyebrow">04 · Extra</span>
-            <h2>Measuring Preferences</h2>
+            <h2>Utility Axioms</h2>
             <div style="margin-top: 30px;">
               <p style="font-size: 40px;"><b style="color: var(--ivey-green);">Continuity:</b> there is a "tipping
                 point" between being better than and worse than a given option.</p>
@@ -2341,7 +480,7 @@
         <div class="slide-frame">
           <div style="max-width: 650px; padding-right: 40px;">
             <span class="eyebrow">04 · Extra</span>
-            <h2>Measuring Preferences</h2>
+            <h2>Utility Axioms</h2>
             <div style="margin-top: 30px;">
               <p style="font-size: 40px;"><b style="color: var(--ivey-green);">Strong monotonicity:</b> more (less) of a
                 good (bad) is always better.</p>
@@ -2362,7 +501,7 @@
         <div class="slide-frame">
           <div style="max-width: 650px; padding-right: 40px;">
             <span class="eyebrow">04 · Extra</span>
-            <h2>Measuring Preferences</h2>
+            <h2>Utility Axioms</h2>
             <div style="margin-top: 30px;">
               <p style="font-size: 40px;"><b style="color: var(--ivey-green);">Transitive:</b> if $A\succ B$ and $B\succ
                 C$, then $A\succ C$.</p>
@@ -2402,33 +541,25 @@
           <h2>Portfolio choice laboratory</h2>
           <h3>Binary menus over risky assets with known payoff moments.</h3>
 
-          <div class="two-col" style="margin-top: 16px;">
-            <div class="stack-lg">
-              <p>Each prompt presents a binary menu $\{A, B\}$ where the two options are portfolios with <strong>known
-                  expected return $\mu_i$ and standard deviation $\sigma_i$</strong>, fully observed by the researcher
-                and directly shown to the model.</p>
-              <ul class="clean">
-                <li class="fragment fade-up">Vary $(\mu, \sigma)$ systematically across menus — exogenous, controlled
-                  variation in the tradeoff.</li>
-                <li class="fragment fade-up">Prompt template is held fixed; only portfolio moments change across tasks.
-                </li>
-                <li class="fragment fade-up">Position labels mirrored across canonical and reversed menus to control for
-                  order bias.</li>
-              </ul>
-            </div>
+          <div
+            style="text-align: left; font-family: var(--sans); font-size: 22px; font-weight: 700; color: var(--western-purple); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 48px; margin-bottom: -32px; padding-left: 2px;">
+            Experimenter prompt:</div>
+          <div class="tcolorbox" style="margin-top: 40px;">
+            You have two options for your annual financial portfolio.<br>
+            Choose the portfolio you prefer and reply with A or B only.<br>
+            <br>
+            Option A offers an expected return of [\(\mu_A\)]% and a standard deviation
+            of [\(\sigma_A\)]%.<br>
+            <br>
+            Option B offers an expected return of [\(\mu_B\)]% and a standard deviation
+            of [\(\sigma_B\)]%.
+          </div>
 
-            <div class="stack-lg">
-              <div class="panel fragment fade-up">
-                <div class="label">Observation Regime 1 — Logits</div>
-                <p style="margin:0;">Pre-softmax logits on the label tokens are directly observed via the API.
-                  Within-menu logit gap identifies utility directly.</p>
-              </div>
-              <div class="panel fragment fade-up">
-                <div class="label">Observation Regime 2 — Choices</div>
-                <p style="margin:0;">Only the sampled output token is observed. Standard MLE on the binary choice
-                  probability recovers structural parameters.</p>
-              </div>
-            </div>
+          <div
+            style="text-align: left; font-family: var(--sans); font-size: 22px; font-weight: 700; color: var(--ivey-green); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 32px; margin-bottom: -32px; padding-left: 2px;">
+            Subject response:</div>
+          <div class="tcolorbox" style="margin-top: 40px;">
+            I choose is Option _______.
           </div>
         </div>
 
@@ -2442,6 +573,26 @@
       </section>
 
 
+      <!-- ============================== 03a. EXPERIMENTAL SUBJECTS ============================== -->
+      <section data-screen-label="03a Ideal Subjects">
+        <div class="slide-frame">
+          <span class="eyebrow">01 · Introduction</span>
+          <h2>LLMs Are Ideal Experimental Subjects</h2>
+
+          <div class="larger-text two-col" style="margin-top: 32px;">
+            <ul class="clean">
+              <li class="fragment fade-up">Environmental control for <em>ceteris paribus</em> variation.</li>
+              <li class="fragment fade-up">AIs are cheap and fast.</li>
+            </ul>
+            <ul class="clean">
+              <li class="fragment fade-up">AI never gets tired of answering your questions.</li>
+              <li class="fragment fade-up">Every simulation is "real" to the AI.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
       <!-- ============================== PLATO'S CAVE ============================== -->
       <section data-screen-label="Plato's Cave">
         <h2>LLMs Live in Plato's Cave, We Project the Shadows</h2>
@@ -2451,27 +602,9 @@
         </div>
       </section>
 
-      <!-- ============================== 03a. EXPERIMENTAL SUBJECTS ============================== -->
-      <section data-screen-label="03a Ideal Subjects">
-        <div class="slide-frame">
-          <span class="eyebrow">01 · Introduction</span>
-          <h2>LLMs Are Ideal Experimental Subjects</h2>
-
-          <div class="larger-text" style="margin-top: 32px;">
-            <ul class="clean">
-              <li class="fragment fade-up">Environmental control for <em>ceteris paribus</em> variation.</li>
-              <li class="fragment fade-up">Context control for counterfactual analysis.</li>
-              <li class="fragment fade-up">Every simulation is "real" to the AI.</li>
-              <li class="fragment fade-up">AI never gets tired of answering your questions.</li>
-              <li class="fragment fade-up">AIs are cheap and fast.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
 
       <!-- ============================== 07. STRUCTURAL MODEL ============================== -->
-      <section data-screen-label="07 Structural Model">
+      <!-- <section data-screen-label="07 Structural Model">
         <div class="slide-frame">
           <span class="eyebrow">02 · Experimental Design</span>
           <h2>Structural model</h2>
@@ -2535,7 +668,7 @@
           on the right are your validity diagnostics: they accompany every results table.
           The color tags at the bottom are a quick legend for results slides.
         </aside>
-      </section>
+      </section> -->
 
 
       <!-- ============================== 08. SECTION: RESULTS ============================== -->
@@ -2543,10 +676,55 @@
         <div class="section-divider">
           <span class="num">PART 03</span>
           <h2>Results</h2>
-          <p>Rationality diagnostics, risk preference estimates, and the effect of fine-tuning.</p>
+          <p>Rationality diagnostics, and inducing specific preferences.</p>
         </div>
       </section>
 
+      <!-- ============================== 08b. INDIFFERENCE CURVE ============================== -->
+      <section data-screen-label="08b Indifference Curve">
+        <div class="slide-frame">
+          <span class="eyebrow">03 · Results</span>
+          <h2>Llama 3.1 8B Indifference Curve</h2>
+          <!-- <h3>Position-corrected logit gap across the (σ, μ) grid — Llama 3.1 8B Instruct.</h3> -->
+
+          <div style="display: flex; justify-content: center; align-items: center; flex: 1; margin-top: 8px;">
+            <canvas id="indifference-canvas" width="1400" height="720" style="border-radius: 4px;"></canvas>
+          </div>
+
+          <div style="display: flex; gap: 48px; justify-content: center; margin-top: 12px;">
+            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
+              <span
+                style="display:inline-block;width:18px;height:18px;background:#b2182b;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>
+              Prefers grid bundle
+            </span>
+            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
+              <span
+                style="display:inline-block;width:18px;height:18px;background:#2166ac;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>
+              Prefers base bundle
+            </span>
+            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
+              <span
+                style="display:inline-block;width:3px;height:18px;background:var(--ivey-green);vertical-align:middle;margin-right:6px;border-radius:1px;"></span>
+              Empirical indifference curve (Δz = 0)
+            </span>
+            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
+              <span
+                style="display:inline-block;width:12px;height:12px;background:var(--western-purple);border-radius:50%;vertical-align:middle;margin-right:6px;"></span>
+              Base bundle (σ=30, μ=10)
+            </span>
+          </div>
+        </div>
+
+        <script src="indifference_curve.js"></script>
+
+        <aside class="notes">
+          ~1 minute. This is the visual payoff: the audience sees the indifference curve
+          directly in (σ, μ) space. The upward slope confirms the model is risk-averse —
+          it requires more expected return to accept more risk. The heatmap shows the full
+          preference surface; the green contour is the empirical indifference locus (Δz = 0).
+          The purple dot is the base bundle used in all pairwise comparisons.
+        </aside>
+      </section>
 
       <!-- ============================== 09. RATIONALITY DIAGNOSTICS ============================== -->
       <section data-screen-label="09 Rationality Diagnostics">
@@ -2559,17 +737,21 @@
             <thead>
               <tr>
                 <th>Model</th>
-                <th class="num">Completeness $\mathcal{C}$</th>
-                <th class="num">Monotonicity $\mathcal{M}$</th>
-                <th class="num">Transitivity $\mathcal{T}$</th>
+                <th class="num">Complete</th>
+                <th class="num">Reflexive</th>
+                <th class="num">Continuity</th>
+                <th class="num">Monotonicity</th>
+                <th class="num">Transitive</th>
               </tr>
             </thead>
             <tbody>
               <tr class="subheader">
-                <td colspan="4">— Placeholder: results pending —</td>
+                <td colspan="6">— Placeholder: results pending —</td>
               </tr>
               <tr class="fragment fade-up">
                 <td>Model A (base)</td>
+                <td class="num muted">—</td>
+                <td class="num muted">—</td>
                 <td class="num muted">—</td>
                 <td class="num muted">—</td>
                 <td class="num muted">—</td>
@@ -2579,15 +761,21 @@
                 <td class="num muted">—</td>
                 <td class="num muted">—</td>
                 <td class="num muted">—</td>
+                <td class="num muted">—</td>
+                <td class="num muted">—</td>
               </tr>
               <tr class="fragment fade-up">
                 <td>Model C (base)</td>
                 <td class="num muted">—</td>
                 <td class="num muted">—</td>
                 <td class="num muted">—</td>
+                <td class="num muted">—</td>
+                <td class="num muted">—</td>
               </tr>
               <tr class="fragment fade-up">
                 <td>Model D (base)</td>
+                <td class="num muted">—</td>
+                <td class="num muted">—</td>
                 <td class="num muted">—</td>
                 <td class="num muted">—</td>
                 <td class="num muted">—</td>
@@ -2611,7 +799,7 @@
 
 
       <!-- ============================== 10. RISK PREFERENCE ESTIMATES ============================== -->
-      <section data-screen-label="10 Risk Preference Estimates">
+      <!-- <section data-screen-label="10 Risk Preference Estimates">
         <div class="slide-frame">
           <span class="eyebrow">03 · Results</span>
           <h2>Estimated risk preferences</h2>
@@ -2679,15 +867,15 @@
           theory extensions. Anticipate: "Do results differ by model family?" — yes,
           that's the cross-model comparison the table is designed to show.
         </aside>
-      </section>
+      </section> -->
 
 
       <!-- ============================== 11. FINE-TUNING AS PREFERENCE INTERVENTION ============================== -->
       <section data-screen-label="11 Fine-Tuning">
         <div class="slide-frame">
           <span class="eyebrow">03 · Results</span>
-          <h2>Fine-tuning as preference intervention</h2>
-          <h3>Does RLHF / DPO shift the recovered structural risk parameter?</h3>
+          <h2>Fine-tuning Preferences</h2>
+          <!-- <h3>Does RLHF / DPO shift the recovered structural risk parameter?</h3>
 
           <div class="two-col" style="margin-top: 16px;">
             <div class="stack-lg">
@@ -2727,7 +915,7 @@
           rhetorical alignment. Anticipate: "Can you actually control this?" —
           the answer is yes in principle; we show the first evidence on whether
           existing RLHF pipelines shift it.
-        </aside>
+        </aside> -->
       </section>
 
 
@@ -2747,7 +935,7 @@
           <span class="eyebrow">04 · Conclusion</span>
           <h2>Contributions &amp; implications</h2>
 
-          <div class="two-col" style="margin-top: 16px;">
+          <!-- <div class="two-col" style="margin-top: 16px;">
             <ol class="clean">
               <li class="fragment fade-up"><strong>A measurement framework.</strong> Formal equivalence between LLM
                 softmax and the RUM places language model choice inside structural discrete choice methods — enabling
@@ -2782,7 +970,7 @@
           The panel on the right is the punchline: make sure the audience leaves
           with that sentence. The scope note pre-empts the obvious objection
           ("but does this generalize?") — acknowledge it honestly.
-        </aside>
+        </aside> -->
       </section>
 
 
@@ -2791,8 +979,8 @@
         <div class="section-divider" style="justify-content: space-between;">
           <div>
             <span class="num">END · 04</span>
-            <h2 style="margin-top: 28px;">Thank you.</h2>
-            <p>Questions, critiques, and counter-examples warmly invited.</p>
+            <h2 style="margin-top: 28px;">Thank you.<br>Fin.</h2>
+            <!-- <p>Questions, critiques, and counter-examples warmly invited.</p> -->
           </div>
           <div
             style="display:grid; grid-template-columns: repeat(2, max-content); gap: 80px; align-items: end; font-family: var(--sans); color: rgba(255,255,255,0.85); font-size: var(--type-small); line-height: 1.5;">
