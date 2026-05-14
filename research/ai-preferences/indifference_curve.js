@@ -1,7 +1,6 @@
           // Self-contained indifference curve renderer
           (function () {
-            const CANVAS_ID = 'indifference-canvas';
-            const DATA_URL = 'data/indifference_grid.json';
+            // Note: CANVAS_ID and DATA_URL constants removed to support multiple plots.
 
             // Design tokens (matching presentation CSS)
             const COLORS = {
@@ -106,8 +105,7 @@
               return segments;
             }
 
-            function render(data) {
-              const canvas = document.getElementById(CANVAS_ID);
+            function render(canvas, data) {
               if (!canvas) return;
               const ctx = canvas.getContext('2d');
               const W = canvas.width;
@@ -277,42 +275,49 @@
               ctx.restore();
             }
 
-            // Load data and render when the slide becomes visible
-            let dataCache = null;
+            function loadAndRender(canvas) {
+              const dataUrl = canvas.dataset.url;
+              if (!dataUrl) return;
 
-            function loadAndRender() {
-              if (dataCache) {
-                render(dataCache);
+              if (canvas.dataCache) {
+                render(canvas, canvas.dataCache);
                 return;
               }
-              fetch(DATA_URL)
+              fetch(dataUrl)
                 .then(r => r.json())
-                .then(d => { dataCache = d; render(d); })
+                .then(d => { canvas.dataCache = d; render(canvas, d); })
                 .catch(e => console.error('Indifference grid load error:', e));
+            }
+
+            function initAll() {
+              const canvases = document.querySelectorAll('.indifference-canvas');
+              canvases.forEach(canvas => loadAndRender(canvas));
             }
 
             // Render on DOMContentLoaded and on slide change
             if (document.readyState === 'loading') {
               document.addEventListener('DOMContentLoaded', () => {
-                setTimeout(loadAndRender, 200);
+                setTimeout(initAll, 200);
               });
             } else {
-              setTimeout(loadAndRender, 200);
+              setTimeout(initAll, 200);
             }
 
             // Re-render when navigating to the slide (Reveal event)
             if (typeof Reveal !== 'undefined') {
               Reveal.on('slidechanged', (evt) => {
-                if (evt.currentSlide && evt.currentSlide.querySelector('#' + CANVAS_ID)) {
-                  setTimeout(loadAndRender, 50);
+                if (evt.currentSlide) {
+                  const canvases = evt.currentSlide.querySelectorAll('.indifference-canvas');
+                  canvases.forEach(canvas => setTimeout(() => loadAndRender(canvas), 50));
                 }
               });
             } else {
               document.addEventListener('DOMContentLoaded', () => {
                 if (typeof Reveal !== 'undefined') {
                   Reveal.on('slidechanged', (evt) => {
-                    if (evt.currentSlide && evt.currentSlide.querySelector('#' + CANVAS_ID)) {
-                      setTimeout(loadAndRender, 50);
+                    if (evt.currentSlide) {
+                      const canvases = evt.currentSlide.querySelectorAll('.indifference-canvas');
+                      canvases.forEach(canvas => setTimeout(() => loadAndRender(canvas), 50));
                     }
                   });
                 }
