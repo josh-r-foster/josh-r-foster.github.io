@@ -398,6 +398,54 @@
       </section>
 
 
+      <!-- ============================== 08b. INDIFFERENCE CURVE ============================== -->
+      <section data-screen-label="08b Indifference Curve">
+        <div class="slide-frame">
+          <span class="eyebrow">03 · Results</span>
+          <h2>Llama 3.1 8B Indifference Curve</h2>
+          <!-- <h3>Position-corrected logit gap across the (σ, μ) grid — Llama 3.1 8B Instruct.</h3> -->
+
+          <div style="display: flex; justify-content: center; align-items: center; flex: 1; margin-top: 8px;">
+            <canvas class="indifference-canvas" data-url="data/indifference_grid.json" width="1400" height="720"
+              style="border-radius: 4px;"></canvas>
+          </div>
+
+          <div style="display: flex; gap: 48px; justify-content: center; margin-top: 12px;">
+            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
+              <span
+                style="display:inline-block;width:18px;height:18px;background:#b2182b;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>
+              Prefers grid bundle
+            </span>
+            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
+              <span
+                style="display:inline-block;width:18px;height:18px;background:#2166ac;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>
+              Prefers base bundle
+            </span>
+            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
+              <span
+                style="display:inline-block;width:3px;height:18px;background:var(--ivey-green);vertical-align:middle;margin-right:6px;border-radius:1px;"></span>
+              Empirical indifference curve (Δz = 0)
+            </span>
+            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
+              <span
+                style="display:inline-block;width:12px;height:12px;background:var(--western-purple);border-radius:50%;vertical-align:middle;margin-right:6px;"></span>
+              Base bundle (σ=30, μ=10)
+            </span>
+          </div>
+        </div>
+
+        <script src="indifference_curve.js"></script>
+
+        <aside class="notes">
+          ~1 minute. This is the visual payoff: the audience sees the indifference curve
+          directly in (σ, μ) space. The upward slope confirms the model is risk-averse —
+          it requires more expected return to accept more risk. The heatmap shows the full
+          preference surface; the green contour is the empirical indifference locus (Δz = 0).
+          The purple dot is the base bundle used in all pairwise comparisons.
+        </aside>
+      </section>
+
+
       <!-- ============================== 02. SECTION: UTILITY AXIOMS ============================== -->
       <section data-screen-label="02 Utility Axioms divider" data-background-color="#034638">
         <div class="section-divider">
@@ -680,52 +728,6 @@
         </div>
       </section>
 
-      <!-- ============================== 08b. INDIFFERENCE CURVE ============================== -->
-      <section data-screen-label="08b Indifference Curve">
-        <div class="slide-frame">
-          <span class="eyebrow">03 · Results</span>
-          <h2>Llama 3.1 8B Indifference Curve</h2>
-          <!-- <h3>Position-corrected logit gap across the (σ, μ) grid — Llama 3.1 8B Instruct.</h3> -->
-
-          <div style="display: flex; justify-content: center; align-items: center; flex: 1; margin-top: 8px;">
-            <canvas class="indifference-canvas" data-url="data/indifference_grid.json" width="1400" height="720"
-              style="border-radius: 4px;"></canvas>
-          </div>
-
-          <div style="display: flex; gap: 48px; justify-content: center; margin-top: 12px;">
-            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
-              <span
-                style="display:inline-block;width:18px;height:18px;background:#b2182b;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>
-              Prefers grid bundle
-            </span>
-            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
-              <span
-                style="display:inline-block;width:18px;height:18px;background:#2166ac;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>
-              Prefers base bundle
-            </span>
-            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
-              <span
-                style="display:inline-block;width:3px;height:18px;background:var(--ivey-green);vertical-align:middle;margin-right:6px;border-radius:1px;"></span>
-              Empirical indifference curve (Δz = 0)
-            </span>
-            <span style="font-family: var(--mono); font-size: var(--type-tiny); color: var(--ink-soft);">
-              <span
-                style="display:inline-block;width:12px;height:12px;background:var(--western-purple);border-radius:50%;vertical-align:middle;margin-right:6px;"></span>
-              Base bundle (σ=30, μ=10)
-            </span>
-          </div>
-        </div>
-
-        <script src="indifference_curve.js"></script>
-
-        <aside class="notes">
-          ~1 minute. This is the visual payoff: the audience sees the indifference curve
-          directly in (σ, μ) space. The upward slope confirms the model is risk-averse —
-          it requires more expected return to accept more risk. The heatmap shows the full
-          preference surface; the green contour is the empirical indifference locus (Δz = 0).
-          The purple dot is the base bundle used in all pairwise comparisons.
-        </aside>
-      </section>
 
       <!-- ============================== 09. RATIONALITY DIAGNOSTICS ============================== -->
       <section data-screen-label="09 Rationality Diagnostics">
