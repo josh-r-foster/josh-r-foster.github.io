@@ -85,8 +85,8 @@
               </div>
               <div class="panel fragment fade-up">
                 <div class="label">Why It Matters</div>
-                <p style="margin:0;">Each principal deploying AI agents will want to engineer their AI agents to have
-                  specific preferences.
+                <p style="margin:0;">Each principal deploying AI agents will want to understand their preferences, and
+                  potentially engineer alignment with the principal's preferences.
                 </p>
               </div>
             </div>
@@ -651,74 +651,6 @@
       </section>
 
 
-      <!-- ============================== 07. STRUCTURAL MODEL ============================== -->
-      <!-- <section data-screen-label="07 Structural Model">
-        <div class="slide-frame">
-          <span class="eyebrow">02 · Experimental Design</span>
-          <h2>Structural model</h2>
-          <h3>Quadratic expected utility as a benchmark preference specification.</h3>
-
-          <div class="two-col weighted" style="margin-top: 16px;">
-            <div class="stack-lg">
-              <p>Specializing the logit index to the portfolio setting, with $R_i = \sigma_i^2 + \mu_i^2$ as the raw
-                second moment:</p>
-
-              <div class="math-display">
-                \[ V_i = \mu_i - \beta\, R_i \]
-              </div>
-
-              <p class="fragment fade-up">Substituting into the logit spec $u_i = \kappa V_i + c$ gives the estimating
-                equation:</p>
-
-              <div class="math-display fragment fade-up">
-                \[ \Delta u_j = \alpha + \theta_1 \Delta\mu_j + \theta_2 \Delta R_j + \eta_j \]
-              </div>
-
-              <p class="fragment fade-up">The structural risk parameter is the ratio:</p>
-
-              <div class="math-display fragment fade-up">
-                \[ \hat{\beta} = -\,\frac{\hat{\theta}_2}{\hat{\theta}_1} \]
-              </div>
-            </div>
-
-            <div class="stack-lg">
-              <div class="axiom-row" style="grid-template-columns: 1fr; gap: 32px; margin-top: 0;">
-                <div class="axiom">
-                  <div class="axiom-name">Completeness $\mathcal{C}$</div>
-                  <p>How much probability mass falls on the menu label tokens? Values near 1 validate the
-                    revealed-preference interpretation.</p>
-                </div>
-                <div class="axiom">
-                  <div class="axiom-name">Monotonicity $\mathcal{M}$</div>
-                  <p>Does the model prefer the stochastically dominating portfolio? Fraction of dominance pairs
-                    correctly ordered.</p>
-                </div>
-                <div class="axiom">
-                  <div class="axiom-name">Transitivity $\mathcal{T}$</div>
-                  <p>Are rankings consistent across menus? Largest fraction of menus jointly rationalized by a single
-                    preference ordering.</p>
-                </div>
-              </div>
-
-              <div class="fragment fade-up" style="margin-top: 8px;">
-                <span class="tag tag-green">$\beta > 0$</span>&nbsp; Risk averse &nbsp;
-                <span class="tag tag-purple">$\beta < 0$</span>&nbsp; Risk seeking &nbsp;
-                    <span class="tag tag-neutral">$\beta = 0$</span>&nbsp; Return-maximizer
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <aside class="notes">
-          ~2.5 minutes. Build the equation sequence with fragments. The key is that
-          beta is identified by the ratio of the return slope to the risk slope —
-          standard structural logic the audience will recognize. The three axiom definitions
-          on the right are your validity diagnostics: they accompany every results table.
-          The color tags at the bottom are a quick legend for results slides.
-        </aside>
-      </section> -->
-
-
       <!-- ============================== 08. SECTION: RESULTS ============================== -->
       <section data-screen-label="08 Results divider" data-background-color="#034638">
         <div class="section-divider">
@@ -789,14 +721,6 @@
                 <td class="num">0.9238</td>
               </tr>
               <tr class="fragment fade-up">
-                <td>Llama 3.1 (8B StructGap Epoch 0)</td>
-                <td class="num">0.9736</td>
-                <td class="num">0.9062</td>
-                <td class="num muted">—</td>
-                <td class="num">1.0000</td>
-                <td class="num">0.9945</td>
-              </tr>
-              <tr class="fragment fade-up">
                 <td>Llama 3.1 (8B Instruct)</td>
                 <td class="num">0.9021</td>
                 <td class="num">0.9250</td>
@@ -836,78 +760,6 @@
           coherence — a model that fails monotonicity is irrational in a strict sense.
         </aside>
       </section>
-
-
-      <!-- ============================== 10. RISK PREFERENCE ESTIMATES ============================== -->
-      <!-- <section data-screen-label="10 Risk Preference Estimates">
-        <div class="slide-frame">
-          <span class="eyebrow">03 · Results</span>
-          <h2>Estimated risk preferences</h2>
-          <h3>Structural $\hat{\beta}$ across frontier models, both observation regimes.</h3>
-
-          <div class="two-col" style="margin-top: 16px;">
-            <table>
-              <thead>
-                <tr>
-                  <th>Model</th>
-                  <th class="num">$\hat{\beta}$ (logits)</th>
-                  <th class="num">$\hat{\beta}$ (choices)</th>
-                  <th class="num">Interpretation</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="subheader">
-                  <td colspan="4">— Placeholder: results pending —</td>
-                </tr>
-                <tr class="fragment fade-up">
-                  <td>Model A (base)</td>
-                  <td class="num muted">—</td>
-                  <td class="num muted">—</td>
-                  <td class="num muted">—</td>
-                </tr>
-                <tr class="fragment fade-up">
-                  <td>Model B (base)</td>
-                  <td class="num muted">—</td>
-                  <td class="num muted">—</td>
-                  <td class="num muted">—</td>
-                </tr>
-                <tr class="fragment fade-up">
-                  <td>Model C (base)</td>
-                  <td class="num muted">—</td>
-                  <td class="num muted">—</td>
-                  <td class="num muted">—</td>
-                </tr>
-                <tr class="fragment fade-up">
-                  <td>Model D (base)</td>
-                  <td class="num muted">—</td>
-                  <td class="num muted">—</td>
-                  <td class="num muted">—</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div class="stack-lg">
-              <div class="panel fragment fade-up">
-                <div class="label">Key Design Feature</div>
-                <p style="margin:0;">Because each model can be estimated from a large menu set, the aggregation problem
-                  motivating mixed-logit methods in human populations is attenuated — we recover a single $\hat{\beta}$
-                  per model.</p>
-              </div>
-              <p class="small fragment fade-up">Inference for $\hat{\beta}$ uses the Delta method (logit regime: robust
-                SEs; choice regime: Fieller-type intervals near weak-ratio cases).</p>
-            </div>
-          </div>
-        </div>
-
-        <aside class="notes">
-          ~2 minutes. The two columns are the two observation regimes — they should
-          agree whenever the maintained assumptions hold, so consistency across regimes
-          is itself an internal validity check. Anticipate: "Why quadratic EU?" —
-          it's a benchmark, not a maintained truth; the appendix discusses prospect
-          theory extensions. Anticipate: "Do results differ by model family?" — yes,
-          that's the cross-model comparison the table is designed to show.
-        </aside>
-      </section> -->
 
 
       <!-- ============================== 08b. INDIFFERENCE CURVE ============================== -->
@@ -956,55 +808,6 @@
       </section>
 
 
-      <!-- ============================== 11. FINE-TUNING AS PREFERENCE INTERVENTION ============================== -->
-      <section data-screen-label="11 Fine-Tuning">
-        <div class="slide-frame">
-          <span class="eyebrow">03 · Results</span>
-          <h2>Fine-tuning Preferences</h2>
-          <!-- <h3>Does RLHF / DPO shift the recovered structural risk parameter?</h3>
-
-          <div class="two-col" style="margin-top: 16px;">
-            <div class="stack-lg">
-              <p>We treat post-training alignment as a <strong>targeted preference induction treatment</strong>. The
-                object of interest is the change in the structural parameter after fine-tuning:</p>
-
-              <div class="math-display">
-                \[ \Delta\hat{\beta} = \hat{\beta}_{\text{ft}} - \hat{\beta}_{\text{base}} \]
-              </div>
-
-              <ul class="clean" style="margin-top: 0;">
-                <li class="fragment fade-up">Positive $\Delta\hat{\beta}$ — fine-tuning induced <em>more risk
-                    aversion</em>.</li>
-                <li class="fragment fade-up">Negative $\Delta\hat{\beta}$ — fine-tuning induced <em>more risk
-                    seeking</em>.</li>
-                <li class="fragment fade-up">$\Delta\hat{\beta} \approx 0$ — alignment left economic risk preferences
-                  largely unchanged.</li>
-              </ul>
-            </div>
-
-            <div class="stack-lg">
-              <div class="placeholder-tall fragment fade-up" style="flex: 1;">
-                base vs. fine-tuned $\hat{\beta}$ comparison
-              </div>
-              <p class="small fragment fade-up">If fine-tuning systematically shifts $\hat{\beta}$ in a predictable
-                direction, alignment procedures can in principle be used as a tool for <em>economic preference
-                  targeting</em> in deployed systems.</p>
-            </div>
-          </div>
-        </div>
-
-        <aside class="notes">
-          ~1.5 minutes. This is the forward-looking slide. The key claim: we can
-          define an empirical object (Delta beta) that measures what fine-tuning
-          does to economic preferences. If that object is stable and targetable,
-          it opens a path to preference alignment in the economic sense — not just
-          rhetorical alignment. Anticipate: "Can you actually control this?" —
-          the answer is yes in principle; we show the first evidence on whether
-          existing RLHF pipelines shift it.
-        </aside> -->
-      </section>
-
-
       <!-- ============================== 13. SECTION: CONCLUSION ============================== -->
       <section data-screen-label="12 Conclusion divider" data-background-color="#034638">
         <div class="section-divider">
@@ -1021,22 +824,22 @@
           <span class="eyebrow">04 · Conclusion</span>
           <h2>Contributions &amp; implications</h2>
 
-          <!-- <div class="two-col" style="margin-top: 16px;">
+          <div class="two-col" style="margin-top: 16px;">
             <ol class="clean">
               <li class="fragment fade-up"><strong>A measurement framework.</strong> Formal equivalence between LLM
-                softmax and the RUM places language model choice inside structural discrete choice methods — enabling
-                recovery of cardinal utility indices from either logits or sampled choices.</li>
-              <li class="fragment fade-up"><strong>Rationality diagnostics.</strong> Three axiom-based indices —
-                completeness, monotonicity, transitivity — quantify how far a given model deviates from economically
-                coherent choice over risky portfolios.</li>
-              <li class="fragment fade-up"><strong>Fine-tuning as preference induction.</strong> Treating alignment
-                training as an intervention on $\hat{\beta}$ provides the first structural evidence on whether existing
-                pipelines shift economic risk preferences in a targetable direction.</li>
+                softmax and the RUM places language model choice inside structural discrete choice methods, enabling
+                recovery of cardinal utility indices directly from a model's logit outputs.</li>
+              <li class="fragment fade-up"><strong>Rationality diagnostics.</strong> Five axiom-based indices
+                (completeness,
+                reflexivity, continuity, monotonicity, and transitivity) quantify evidence for the existence of a
+                utility function representing a model's preferences over risky portfolios.</li>
+              <li class="fragment fade-up"><strong>Fine-tuning as preference induction.</strong> Existing
+                alignment pipelines allow for us to engineer the preferences of LLMs in a targetable way.</li>
             </ol>
 
             <div class="stack-lg">
               <div class="panel green fragment fade-up">
-                <div class="label">The Bottom Line</div>
+                <div class="label">The Upshot</div>
                 <p style="margin:0;">Agentic AI cannot be deployed in an economically coherent and internally consistent
                   way when the preferences governing its actions are neither <strong>measured</strong> nor
                   <strong>targetable</strong>.
@@ -1044,7 +847,8 @@
               </div>
               <div class="stack fragment fade-up">
                 <p class="small muted"><strong style="color:var(--ink);">Scope.</strong> Results are identified within
-                  the portfolio choice domain. Portability to other domains is a distinct empirical question — one that
+                  the portfolio choice domain. Portability to other domains is a distinct empirical question, and one
+                  that
                   requires a prior benchmark of the kind this paper establishes.</p>
               </div>
             </div>
@@ -1056,7 +860,7 @@
           The panel on the right is the punchline: make sure the audience leaves
           with that sentence. The scope note pre-empts the obvious objection
           ("but does this generalize?") — acknowledge it honestly.
-        </aside> -->
+        </aside>
       </section>
 
 
