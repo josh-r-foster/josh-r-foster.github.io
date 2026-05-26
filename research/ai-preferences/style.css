@@ -898,6 +898,16 @@
               font-size: 30px !important;
             }
 
+            .reveal .medium-text p,
+            .reveal .medium-text li {
+              font-size: 35px !important;
+              line-height: 1.45;
+            }
+
+            .reveal .medium-text .label {
+              font-size: 24px !important;
+            }
+
             /* Custom background for the Indifference Curve Results slide */
             .graph-paper-state-results .backgrounds {
               background-image:
