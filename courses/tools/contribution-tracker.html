@@ -1,57 +1,132 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#034638">
+    <title>Ivey Contribution Tracker</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="contribution-tracker.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="contribution-tracker.html" aria-label="Contribution tracker home">
+        <img src="/images/teaching/Ivey-Main-Logo-Transparent.png" alt="Ivey Business School">
+        <span>
+          <small>Classroom tools</small>
+          <strong id="app-title">Contribution tracker</strong>
+        </span>
+      </a>
+      <span id="save-status" class="save-status" role="status" aria-live="polite">Stored on this device</span>
+    </header>
 
-	<head>
-		<meta charset="utf-8">
+    <main>
+      <section id="setup-panel" class="setup-panel" aria-labelledby="setup-title">
+        <div class="setup-copy">
+          <p class="eyebrow">New or saved session</p>
+          <h1 id="setup-title">Set up your tracker</h1>
+          <p>Choose the class and how you are contributing. Your work stays in this browser until you download it.</p>
+        </div>
 
-		<title>Ivey Contribution Tracker</title>
+        <form id="setup-form" class="setup-form">
+          <label>
+            Tracker mode
+            <select id="mode-select" name="mode">
+              <option value="instructor">Instructor tracking</option>
+              <option value="peer">Peer feedback</option>
+            </select>
+          </label>
 
-		<meta name="author" content="Joshua Foster, Ph.D.">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <label>
+            Class
+            <select id="course-select" name="course">
+              <option value="4654">4654</option>
+              <option value="4654-1">4654 · Section 1</option>
+              <option value="4654-2">4654 · Section 2</option>
+              <option value="9483">9483</option>
+              <option value="custom">Custom roster</option>
+            </select>
+          </label>
 
-		<link rel="icon" type="image/png" href="https://www.ivey.uwo.ca/favicon.ico">
-		<link rel="stylesheet" href="/courses/contribution-tracker.css">
-	</head>
+          <label>
+            Class date
+            <input id="session-date" name="sessionDate" type="date" required>
+          </label>
 
-	<body>
-		<div style="text-align: center;" id="names-prompt">
-			<img src="/images/teaching/Ivey-Main-Full-Signature.jpeg" width="400px">
-			<form>
-			  <input type="text" id="names" name="names" placeholder="Enter students' names, separated by semicolons..." size="50"><br><br>
-			  <input type="button" id="submit-names" value="Make Contributions Template" onclick="makeTemplate()">
-			</form>
-		</div>
-		<div class="student-container" id="students">
-		</div>
-		<button onclick="export2txt()" id="export-button" style="display: none;">Export contribution data</button>
-	</body>
+          <label id="reviewer-field" class="is-hidden">
+            Your name <span class="optional">optional</span>
+            <input id="reviewer-name" name="reviewerName" type="text" autocomplete="name" placeholder="Included in the downloaded file">
+          </label>
 
-	<script type="text/javascript"> 
-		function display_c(){
-			var refresh=1000; // Refresh rate in milli seconds
-			mytime=setTimeout('display_ct()',refresh)
-		}
+          <details id="roster-details" class="roster-details">
+            <summary>Use a different roster</summary>
+            <label>
+              One student per line, or separate names with semicolons
+              <textarea id="custom-roster" name="customRoster" rows="7" placeholder="Alex Morgan&#10;Jordan Lee"></textarea>
+            </label>
+            <p>Names entered here are stored only on this device and replace the selected class roster for this session.</p>
+          </details>
 
-		function display_ct() {
-			var today = new Date();
-			var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
-			document.getElementById('ct').style.color = "#582C83";
-			document.getElementById('ct').innerHTML = time;
-			display_c();
-		 }
-	</script>
+          <button class="primary-action" type="submit">Open tracker</button>
+          <button id="setup-import-button" class="text-action" type="button">Restore from a backup</button>
+        </form>
+      </section>
 
-	<script>
-		var input = document.getElementById("names");
-		input.addEventListener("keypress", function(event) {
-		  if (event.key === "Enter") {
-		    event.preventDefault();
-		    document.getElementById("submit-names").click();
-		  }
-		});
-	</script>
+      <section id="tracker-panel" class="tracker-panel" hidden>
+        <div class="workspace-heading">
+          <div>
+            <p id="session-label" class="eyebrow"></p>
+            <h1 id="workspace-title">Contribution tracker</h1>
+          </div>
+          <div class="session-summary" aria-live="polite">
+            <strong id="total-count">0</strong>
+            <span>contributions</span>
+          </div>
+        </div>
 
-	<script src="/courses/contribution-tracker.js"></script>
+        <aside id="peer-instructions" class="peer-instructions" hidden>
+          <strong>Giving peer feedback</strong>
+          <p>Use the counter when a classmate contributes, select the qualities you observed, and add a constructive note when useful. Your feedback saves here automatically. When you finish, download the backup and email it to <a href="mailto:jfoster@ivey.ca">jfoster@ivey.ca</a>.</p>
+        </aside>
+
+        <div class="toolbar" aria-label="Tracker controls">
+          <label class="search-field">
+            <span class="visually-hidden">Find a student</span>
+            <input id="student-search" type="search" placeholder="Find a student…" autocomplete="off">
+          </label>
+          <label class="sort-field">
+            <span>Sort</span>
+            <select id="sort-select">
+              <option value="name">Name</option>
+              <option value="count">Most contributions</option>
+            </select>
+          </label>
+          <button id="undo-button" class="secondary-action" type="button" disabled>Undo</button>
+          <button id="change-session-button" class="secondary-action" type="button">Change session</button>
+        </div>
+
+        <p id="empty-results" class="empty-results" hidden>No students match that search.</p>
+        <div id="person-container" class="student-grid"></div>
+
+        <footer class="action-bar">
+          <div>
+            <strong id="action-title">Ready when you are</strong>
+            <span id="action-description">Nothing is sent automatically.</span>
+          </div>
+          <div class="action-buttons">
+            <button id="import-button" class="secondary-action" type="button">Restore backup</button>
+            <button id="csv-button" class="secondary-action" type="button">Download CSV</button>
+            <button id="export-button" class="primary-action" type="button">Download backup</button>
+            <button id="reset-button" class="danger-action" type="button">Reset session</button>
+          </div>
+        </footer>
+      </section>
+
+      <input id="import-file" type="file" accept="application/json,.json" hidden>
+      <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    </main>
+
+    <script src="contribution-tracker.config.js" defer></script>
+    <script src="contribution-tracker.js" defer></script>
+  </body>
 </html>
