@@ -68,6 +68,22 @@ committed as static assets. To upgrade, download a newer
 `dist/` and `plugin/` directories into this repo, and verify a representative
 slide deck still renders.
 
+## Contribution tracker
+
+The canonical classroom tracker is `courses/tools/contribution-tracker.html`.
+It supports instructor and peer-feedback modes for the configured 4654 and
+9483 rosters. Mode and class can be selected on the setup screen or supplied
+with query parameters, for example:
+
+```text
+/courses/tools/contribution-tracker.html?course=4654-1&mode=instructor
+/courses/tools/contribution-tracker.html?course=9483&mode=peer
+```
+
+Rosters and rubric labels live in `contribution-tracker.config.js`; shared
+behaviour lives in `contribution-tracker.js`. The older course-specific HTML
+pages remain as redirects for existing bookmarks.
+
 ## License
 
 Site content © Joshua Foster. Theme open-sourced under the
