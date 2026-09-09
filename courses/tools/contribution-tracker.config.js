@@ -21,18 +21,23 @@
       code: "4654",
       label: "4654",
       students: [
-        "Amandine Prioux", "Anthony Pham", "Audrey Ghilain", "Brandon Jones",
-        "Chloe Bissell", "David Hascal", "David Kang", "Declan O'Neill",
-        "Emily Kim", "Emily Qin", "Gauri Pasbola", "Gavin Barclay",
-        "Hailey Tang", "Isabel Yuan", "Jamie White", "Jane Wang",
-        "Jennifer Bitton", "Joey Lisser", "Joyce Liu", "Junaid Rana",
-        "Kate McCallum", "Katie Werner", "Kayla DeAngelis", "Kayla Whitnell",
-        "Lauren Um", "Lena Tang Qiu", "Makenzie Shirley", "Mara Lerf",
-        "Max Leibovich", "Noah Roddis", "Nunu Mequanint", "Orianna Lui",
-        "Palina Radzioshkina", "Patrick Westdal", "Ryan Smith", "Sam Lu",
-        "Saniya Niyoosha", "Shane Gitlin", "Siqi Man", "Sue Han",
-        "Tanner Spadafora", "Tej Sharma", "Theo Kalff", "Timothy Haluk",
-        "Tristan Gilchrist", "Wenqi Shen", "Yiling Yang"
+        'Aaron Katz', 'Aasim Siddiqui', 'Alex Baldwin', 'Alex Sangara', 
+        'Alexander Mccurley', 'Anika Skrzypek', 'Antonia Travnicek', 
+        'Arjun Singh', 'Ben Symons', 'Bobby Dowhan', 'Cali Martin', 
+        'Carson Berall', 'Claire Kuo', 'Cristian Casiero', 'Curtis Li', 
+        'Daniel Yuan', 'Debbie Wang', 'Denis Granulo', 'Dorie Dwosh', 
+        'Duaa Ali', 'Elaine Chen', 'Emily Cao', 'Esther Fu', 'Ethan Won', 
+        'Gabriel Iannetti', 'Himanshu Jethani', 'Isabella Pan', 'Ishaan Sharma', 
+        'Jerry Wu', 'Jessica Chen', 'Joseph Birdsell-Farrow', 'Julia Colangelo', 
+        'Julia Gotovsky', 'Kaitlyn Oliver', 'Katy Wong', 'Kelly Lee', 
+        'Kiarash Lotfalizadeh', 'Lea Jantosovicova', 'Leah DeFrancesco', 
+        'Leon Mu', 'Lily Gulerce', 'Lindsay Lam', 'Luca Roma', 'Melissa Huang', 
+        'Meryl Tu', 'Michela Ye', 'Molly Jin', 'Nate Samuel', 'Neik Patel', 
+        'Nick Yan', 'Nora Welsby', 'Olivia Capirchio', 'Paige Radin', 'Rui Xi Qiu', 
+        'Sam Sayari', 'Sanjana Khanna', 'Sebastian Opoka', 'Shakran Gazi', 
+        'Shiven Sharma', 'Sierra Knapton', 'Silvia Xie', 'Sofia Tischler', 
+        'Sophia Emer', 'Spencer Colebeck', 'Stephanie Li', 'Sukhman Sunner', 
+        'Sylvia Liu', 'Trevor Messenger', 'Will Houslander', 'Yingying Ping'
       ]
     },
     "4654-1": {
@@ -76,17 +81,11 @@
       code: "9483",
       label: "9483",
       students: [
-        "Aaditya Geed", "Aanal Patel", "Adam Meadows", "Akber Amanulla Khan",
-        "Alan Hwang", "Alice Wu", "Aliya Nazeer", "Angelita Martin",
-        "Bella Natasha Diego", "Calvin Zehr", "Chaitanya Gandhi", "Cherry Qian",
-        "Derek Adam", "DHDan Hicks", "Elisabeth Iannucci", "Iain Smith",
-        "Ishani Adityan", "Ishi Khamesra", "Jennifer Estrada", "Josh Ge",
-        "Judith Osemeke", "Kayla Vargas", "Kendall Zhang", "Kiera Treloar",
-        "Mac Astritis", "Maro Egbedi", "May El Damatty", "Michael Schumacher",
-        "Olamide Adeboboye", "Princess Adeniran", "Quoc Lap Nguyen",
-        "Ramnik Minhas", "Rio Baudisch-McCabe", "Robert Gray", "Sam Macy",
-        "Sangeetha Sambamoorthy", "Sean Morris", "Sifan Wang",
-        "Silvia Pacheco Diaz", "Valentina Efionayi"
+        'Aabiyeh Parveen', 'Bella Anwan', 'Callum Russell', 'Damien Wu', 
+        'Daniel Priezjev', 'Devapriya Anitha Sreekumar', 'Emilie Smit-de Bree', 
+        'Ev Cook', 'Gaurav Agarwal', 'Joseph Ma', 'Ken Prakash', 'Kriti Gupta', 
+        'Manav Poddar', 'Matthew Tewkesbury', 'Nola Alabi', 'Sahana Kapur', 
+        'Simon Okafor', 'Taylor Lee', 'Tillie Pham', 'Udayan Sahai', 'Zichen Liu',
       ]
     }
   };
