@@ -25,7 +25,7 @@
         'Alexander Mccurley', 'Anika Skrzypek', 'Antonia Travnicek', 
         'Arjun Singh', 'Ben Symons', 'Bobby Dowhan', 'Cali Martin', 
         'Carson Berall', 'Claire Kuo', 'Cristian Casiero', 'Curtis Li', 
-        'Daniel Yuan', 'Debbie Wang', 'Denis Granulo', 'Dorie Dwosh', 
+        'Daniel Yuan', 'Denis Granulo', 'Dorie Dwosh', 
         'Duaa Ali', 'Elaine Chen', 'Emily Cao', 'Esther Fu', 'Ethan Won', 
         'Gabriel Iannetti', 'Himanshu Jethani', 'Isabella Pan', 'Ishaan Sharma', 
         'Jerry Wu', 'Jessica Chen', 'Joseph Birdsell-Farrow', 'Julia Colangelo', 
