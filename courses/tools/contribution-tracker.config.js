@@ -81,11 +81,12 @@
       code: "9483",
       label: "9483",
       students: [
-        'Aabiyeh Parveen', 'Bella Anwan', 'Callum Russell', 'Damien Wu', 
-        'Daniel Priezjev', 'Devapriya Anitha Sreekumar', 'Emilie Smit-de Bree', 
-        'Ev Cook', 'Gaurav Agarwal', 'Joseph Ma', 'Ken Prakash', 'Kriti Gupta', 
-        'Manav Poddar', 'Matthew Tewkesbury', 'Nola Alabi', 'Sahana Kapur', 
-        'Simon Okafor', 'Taylor Lee', 'Tillie Pham', 'Udayan Sahai', 'Zichen Liu',
+        'Gaurav Agarwal', 'Devapriya Anitha Sreekumar', 'Bella Anwan', 'Nora Arman',
+        'Ev Cook', 'Jehan Dhalwani', 'Kriti Gupta', 'Sahana Kapur',
+        'Mehika Kumbhkarni', 'Damon Le', 'Zichen Liu', 'Simon Okafor',
+        'Aabiyeh Parveen', 'Tillie Pham', 'Daniel Priezjev', 'Callum Russell',
+        'Udayan Sahai', 'Laila Saili', 'Emilie Smit-de Bree', 'Matthew Tewkesbury',
+        'Damien Wu',
       ]
     }
   };
