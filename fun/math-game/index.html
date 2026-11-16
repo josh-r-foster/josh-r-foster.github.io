@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Story Math Adventure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky-top: #bfe6ff;
+    --sky-bottom: #fff3d6;
+    --card: #ffffff;
+    --ink: #2d2a4a;
+    --soft-ink: #6b678f;
+    --purple: #7c5cff;
+    --purple-dark: #5b3fe0;
+    --pink: #ff6fae;
+    --green: #2fbf71;
+    --green-dark: #1f9c59;
+    --orange: #ff9f43;
+    --yellow: #ffd23f;
+    --line: #e6e2f5;
+    --hint-bg: #fff7e0;
+    --good-bg: #e6f9ee;
+    --shadow: 0 6px 0 rgba(45, 42, 74, 0.12);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 100%) fixed;
+    background-color: var(--sky-bottom);
+    min-height: 100vh;
+    -webkit-tap-highlight-color: transparent;
+  }
+  button { font-family: inherit; color: inherit; cursor: pointer; border: none; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 16px 16px 40px; }
+  .hidden { display: none !important; }
+
+  /* ---------- Home ---------- */
+  .hero { text-align: center; margin: 8px 0 18px; }
+  .mascot { font-size: 64px; display: inline-block; animation: bob 2.6s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-8px) rotate(3deg); } }
+  h1 { font-size: clamp(28px, 6vw, 42px); margin: 4px 0 2px; line-height: 1.1; }
+  .sub { color: var(--soft-ink); font-size: 18px; margin: 0; }
+  .name-btn { background: none; color: var(--soft-ink); font-size: 14px; text-decoration: underline; padding: 4px; }
+
+  .panel {
+    background: var(--card); border-radius: 24px; padding: 18px; margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .panel h2 { margin: 0 0 12px; font-size: 21px; }
+  .choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .choice {
+    background: #f4f1ff; border: 3px solid transparent; border-radius: 18px; padding: 12px 6px;
+    font-size: 17px; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 4px;
+    transition: transform .1s, border-color .15s, background .15s;
+  }
+  .choice .big { font-size: 34px; line-height: 1; }
+  .choice small { font-weight: 400; color: var(--soft-ink); font-size: 13px; }
+  .choice:active { transform: scale(.96); }
+  .choice[aria-pressed="true"] { border-color: var(--purple); background: #ebe5ff; }
+
+  .start-btn {
+    display: block; width: 100%; font-size: 26px; font-weight: 700; color: #fff;
+    background: var(--green); border-radius: 22px; padding: 16px; margin: 6px 0 18px;
+    box-shadow: 0 6px 0 var(--green-dark); transition: transform .1s, box-shadow .1s;
+  }
+  .start-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--green-dark); }
+
+  .book-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .book-head span { color: var(--soft-ink); font-size: 15px; }
+  .stickers { display: grid; grid-template-columns: repeat(auto-fill, minmax(48px, 1fr)); gap: 8px; }
+  .sticker {
+    aspect-ratio: 1; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+    font-size: 30px; background: #fff8e8; border: 2px dashed #f1dca8;
+  }
+  .sticker.empty { color: #d9cfa8; font-size: 20px; font-weight: 600; background: #fbfaf5; border-color: #ece7d6; }
+
+  /* ---------- Play ---------- */
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+  .icon-btn {
+    background: var(--card); width: 48px; height: 48px; border-radius: 16px; font-size: 22px;
+    box-shadow: var(--shadow); flex: none;
+  }
+  .icon-btn:active { transform: translateY(3px); }
+  .progress { display: flex; gap: 8px; }
+  .dot {
+    width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,.7);
+    border: 3px solid #fff; display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .dot.now { border-color: var(--purple); background: #fff; }
+  .dot.pop { animation: pop .5s ease; }
+  @keyframes pop { 0% { transform: scale(.4); } 70% { transform: scale(1.25); } 100% { transform: scale(1); } }
+
+  .story-card { background: var(--card); border-radius: 26px; padding: 18px 18px 16px; box-shadow: var(--shadow); }
+  .scene { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .scene-icon { font-size: 54px; line-height: 1; animation: bob 3s ease-in-out infinite; }
+  .badge { display: inline-block; font-size: 14px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
+  .badge.mult { background: #ffe3f0; color: #c2306f; }
+  .badge.div { background: #e0f0ff; color: #1d6fc0; }
+  .story { font-size: clamp(20px, 4.6vw, 25px); line-height: 1.4; margin: 6px 0 10px; }
+  .story b { color: var(--purple-dark); background: #f1edff; padding: 0 6px; border-radius: 8px; }
+  .read-btn {
+    background: #f4f1ff; color: var(--purple-dark); font-size: 15px; font-weight: 600;
+    padding: 8px 14px; border-radius: 999px;
+  }
+
+  .answer-row { display: flex; align-items: center; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
+  .answer-box {
+    min-width: 120px; height: 66px; padding: 0 16px; border-radius: 18px; border: 4px solid var(--line);
+    font-size: 40px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+    background: #fbfaff; letter-spacing: 2px;
+  }
+  .answer-box.empty::after { content: "?"; color: #cfc8ea; }
+  .answer-box.right { border-color: var(--green); background: var(--good-bg); color: var(--green-dark); }
+  .answer-box.shake { animation: shake .4s; }
+  @keyframes shake { 20%,60% { transform: translateX(-7px); } 40%,80% { transform: translateX(7px); } }
+  .unit { font-size: 19px; color: var(--soft-ink); }
+
+  .feedback { margin-top: 14px; }
+  .bubble {
+    display: flex; gap: 12px; align-items: flex-start; border-radius: 20px; padding: 12px 14px;
+    background: var(--hint-bg); font-size: 19px; line-height: 1.4; animation: slideIn .3s ease;
+  }
+  .bubble.good { background: var(--good-bg); }
+  .bubble .who { font-size: 36px; line-height: 1; flex: none; }
+  .bubble .eq { display: inline-block; margin-top: 6px; font-weight: 700; font-size: 24px; color: var(--purple-dark); }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  .pic { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; justify-content: center; }
+  .grp {
+    background: #fff; border: 3px solid var(--line); border-radius: 16px; padding: 6px;
+    display: flex; flex-wrap: wrap; gap: 2px; justify-content: center; align-content: center;
+    max-width: 128px; opacity: 0; animation: popIn .35s ease forwards;
+  }
+  .grp span { font-size: 22px; line-height: 1.1; }
+  .pic.small .grp { max-width: 96px; padding: 4px; }
+  .pic.small .grp span { font-size: 15px; }
+  .pic.tiny .grp { max-width: 82px; padding: 3px; border-width: 2px; }
+  .pic.tiny .grp span { font-size: 11px; }
+  @keyframes popIn { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
+  .pic-caption { text-align: center; color: var(--soft-ink); font-size: 16px; margin-top: 8px; }
+
+  .pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+  .key {
+    background: var(--card); font-size: 30px; font-weight: 600; height: 62px; border-radius: 18px;
+    box-shadow: var(--shadow); transition: transform .08s, box-shadow .08s;
+  }
+  .key:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(45,42,74,.12); }
+  .key.back { color: var(--soft-ink); font-size: 26px; }
+  .check-btn {
+    grid-column: 1 / -1; height: 66px; border-radius: 20px; font-size: 26px; font-weight: 700; color: #fff;
+    background: var(--purple); box-shadow: 0 6px 0 var(--purple-dark); transition: transform .08s, box-shadow .08s;
+  }
+  .check-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--purple-dark); }
+  .check-btn.next { background: var(--green); box-shadow: 0 6px 0 var(--green-dark); }
+  .pad.locked .key { opacity: .35; pointer-events: none; }
+
+  /* ---------- Done ---------- */
+  .done { text-align: center; }
+  .done h1 { margin-top: 10px; }
+  .done-stars { font-size: 44px; letter-spacing: 6px; margin: 10px 0; }
+  .new-sticker {
+    font-size: 110px; line-height: 1; margin: 16px auto 4px; width: 170px; height: 170px; border-radius: 40px;
+    display: flex; align-items: center; justify-content: center; background: #fff8e8;
+    border: 4px dashed #f1c96a; animation: reveal .9s cubic-bezier(.2, 1.6, .4, 1) both;
+  }
+  @keyframes reveal { from { transform: scale(0) rotate(-200deg); } to { transform: none; } }
+  .done p { font-size: 20px; margin: 8px 0; }
+  .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+  .btn-row button {
+    font-size: 21px; font-weight: 700; padding: 16px 10px; border-radius: 20px; color: #fff;
+  }
+  .again { background: var(--green); box-shadow: 0 6px 0 var(--green-dark); }
+  .home { background: var(--purple); box-shadow: 0 6px 0 var(--purple-dark); }
+
+  /* ---------- Confetti ---------- */
+  .confetti {
+    position: fixed; top: -20px; width: 12px; height: 16px; border-radius: 3px; z-index: 50; pointer-events: none;
+    animation: fall linear forwards;
+  }
+  @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: .8; } }
+
+  @media (max-width: 480px) {
+    .choice { font-size: 15px; padding: 10px 4px; }
+    .choice .big { font-size: 28px; }
+    .dot { width: 28px; height: 28px; font-size: 15px; }
+    .progress { gap: 5px; }
+    .key { height: 56px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= HOME ================= -->
+  <section id="home">
+    <div class="hero">
+      <div class="mascot" aria-hidden="true">🦉</div>
+      <h1 id="title">Rhone's Story Math</h1>
+      <p class="sub">Solve fun little stories with times and sharing!</p>
+      <button class="name-btn" id="nameBtn">Not Rhone? Change name</button>
+    </div>
+
+    <div class="panel">
+      <h2>What do you want to practice?</h2>
+      <div class="choices" id="opChoices">
+        <button class="choice" data-op="mult"><span class="big">✖️</span>Times<small>multiply</small></button>
+        <button class="choice" data-op="div"><span class="big">➗</span>Sharing<small>divide</small></button>
+        <button class="choice" data-op="mix"><span class="big">🔀</span>Mix<small>a bit of both</small></button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>How tricky?</h2>
+      <div class="choices" id="levelChoices">
+        <button class="choice" data-level="easy"><span class="big">🐣</span>Easy<small>numbers 2–5</small></button>
+        <button class="choice" data-level="medium"><span class="big">🐥</span>Medium<small>numbers 2–10</small></button>
+        <button class="choice" data-level="tricky"><span class="big">🦅</span>Tricky<small>numbers 2–12</small></button>
+      </div>
+    </div>
+
+    <button class="start-btn" id="startBtn">Let's go! ▶</button>
+
+    <div class="panel">
+      <div class="book-head">
+        <h2>📒 My Sticker Book</h2>
+        <span id="bookCount"></span>
+      </div>
+      <p class="sub" style="font-size:15px;margin:-4px 0 12px">Finish a round of 5 stories to win a new sticker!</p>
+      <div class="stickers" id="stickerGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= PLAY ================= -->
+  <section id="play" class="hidden">
+    <div class="topbar">
+      <button class="icon-btn" id="quitBtn" aria-label="Go home">🏠</button>
+      <div class="progress" id="progress"></div>
+      <button class="icon-btn" id="muteBtn" aria-label="Sound on or off">🔊</button>
+    </div>
+
+    <div class="story-card">
+      <div class="scene">
+        <div class="scene-icon" id="sceneIcon" aria-hidden="true">🍪</div>
+        <div>
+          <span class="badge" id="badge"></span>
+          <div style="color:var(--soft-ink);font-size:15px;margin-top:4px" id="storyNum"></div>
+        </div>
+      </div>
+      <p class="story" id="story"></p>
+      <button class="read-btn" id="readBtn">🔈 Read it to me</button>
+
+      <div class="answer-row">
+        <div class="answer-box empty" id="answerBox" aria-live="polite"></div>
+        <div class="unit" id="unit"></div>
+      </div>
+
+      <div class="feedback" id="feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="pad" id="pad">
+      <button class="key" data-k="1">1</button>
+      <button class="key" data-k="2">2</button>
+      <button class="key" data-k="3">3</button>
+      <button class="key" data-k="4">4</button>
+      <button class="key" data-k="5">5</button>
+      <button class="key" data-k="6">6</button>
+      <button class="key" data-k="7">7</button>
+      <button class="key" data-k="8">8</button>
+      <button class="key" data-k="9">9</button>
+      <button class="key back" data-k="back" aria-label="Delete">⌫</button>
+      <button class="key" data-k="0">0</button>
+      <button class="key back" data-k="clear" aria-label="Clear">✕</button>
+      <button class="check-btn" id="checkBtn">Check ✔</button>
+    </div>
+  </section>
+
+  <!-- ================= DONE ================= -->
+  <section id="done" class="hidden done">
+    <div class="mascot" aria-hidden="true">🦉</div>
+    <h1 id="doneTitle">Round complete!</h1>
+    <div class="done-stars" id="doneStars"></div>
+    <p id="doneMsg"></p>
+    <div class="new-sticker" id="newSticker"></div>
+    <p id="stickerMsg"></p>
+    <div class="btn-row">
+      <button class="again" id="againBtn">Play again 🔁</button>
+      <button class="home" id="homeBtn">Home 🏠</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- Storage (safe) ---------------- */
+  var store = {
+    get: function (k, d) {
+      try { var v = localStorage.getItem("storymath." + k); return v === null ? d : JSON.parse(v); }
+      catch (e) { return d; }
+    },
+    set: function (k, v) {
+      try { localStorage.setItem("storymath." + k, JSON.stringify(v)); } catch (e) {}
+    }
+  };
+
+  /* ---------------- Helpers ---------------- */
+  function $(id) { return document.getElementById(id); }
+  function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = arr[i]; arr[i] = arr[j]; arr[j] = t; }
+    return arr;
+  }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function n(x) { return "<b>" + x + "</b>"; } // highlight numbers in stories
+
+  /* ---------------- Settings ---------------- */
+  var LEVELS = {
+    easy:   { min: 2, max: 5 },
+    medium: { min: 2, max: 10 },
+    tricky: { min: 2, max: 12 }
+  };
+  var ROUND_SIZE = 5;
+  var STICKERS = ["🦄","🐉","🦋","🐬","🦖","🐼","🦊","🐨","🦁","🐯","🐸","🦜","🐢","🌈","🚀",
+                  "🍦","🧁","🎨","🎸","👑","💎","🌻","🍉","🐳","🦩","🐝","🦔","⚡","🏰","🐙"];
+
+  var playerName = store.get("name", "Rhone");
+  var settings = { op: store.get("op", "mult"), level: store.get("level", "easy") };
+  var muted = store.get("muted", false);
+
+  /* ---------------- Story templates ----------------
+     a = number of groups, b = number in each group, t = total (a*b)
+     mult:   a × b = ?
+     share:  t ÷ a = ?   (answer b)
+     groups: t ÷ b = ?   (answer a)
+  -------------------------------------------------- */
+  var TEMPLATES = [
+    { icon: "🍪", item: "🍫", gs: "cookies", is: "chocolate chips", su: "chips on each cookie",
+      mult:   function (a, b, w) { return w + " baked " + n(a) + " cookies. Each cookie has " + n(b) + " chocolate chips. How many chocolate chips are there in all?"; },
+      share:  function (t, a, w) { return w + " has " + n(t) + " chocolate chips to share equally on " + n(a) + " cookies. How many chips go on each cookie?"; },
+      groups: function (t, b, w) { return w + " has " + n(t) + " chocolate chips. Each cookie needs " + n(b) + " chips. How many cookies can " + w + " make?"; } },
+
+    { icon: "🐞", item: "⚫", gs: "ladybugs", is: "spots", su: "spots on each ladybug",
+      mult:   function (a, b, w) { return w + " found " + n(a) + " ladybugs in the garden. Each ladybug has " + n(b) + " spots. How many spots are there altogether?"; },
+      share:  function (t, a, w) { return n(a) + " ladybugs have " + n(t) + " spots in all. Every ladybug has the same number of spots. How many spots does each ladybug have?"; },
+      groups: function (t, b, w) { return w + " counted " + n(t) + " spots on some ladybugs. Each ladybug has " + n(b) + " spots. How many ladybugs are there?"; } },
+
+    { icon: "🌳", item: "🍎", gs: "trees", is: "apples", su: "apples from each tree",
+      mult:   function (a, b, w) { return "There are " + n(a) + " apple trees in the orchard. " + w + " picks " + n(b) + " apples from each tree. How many apples does " + w + " pick?"; },
+      share:  function (t, a, w) { return w + " picked " + n(t) + " apples from " + n(a) + " trees, the same number from each tree. How many apples came from each tree?"; },
+      groups: function (t, b, w) { return w + " picked " + n(t) + " apples, taking " + n(b) + " apples from each tree. How many trees did " + w + " pick from?"; } },
+
+    { icon: "🐠", item: "🐠", gs: "tanks", is: "fish", su: "fish in each tank",
+      mult:   function (a, b, w) { return "The pet store has " + n(a) + " fish tanks. Each tank has " + n(b) + " fish swimming in it. How many fish are there in all?"; },
+      share:  function (t, a, w) { return "The pet store has " + n(t) + " fish to put into " + n(a) + " tanks. Each tank gets the same number. How many fish go in each tank?"; },
+      groups: function (t, b, w) { return "The pet store has " + n(t) + " fish. Each tank holds " + n(b) + " fish. How many tanks do they need?"; } },
+
+    { icon: "🍩", item: "🍩", gs: "boxes", is: "donuts", su: "donuts in each box",
+      mult:   function (a, b, w) { return w + " bought " + n(a) + " boxes of donuts. Each box has " + n(b) + " donuts. How many donuts did " + w + " buy?"; },
+      share:  function (t, a, w) { return w + " has " + n(t) + " donuts to pack into " + n(a) + " boxes, with the same number in each box. How many donuts go in each box?"; },
+      groups: function (t, b, w) { return w + " has " + n(t) + " donuts. Each box holds " + n(b) + " donuts. How many boxes can " + w + " fill?"; } },
+
+    { icon: "🎈", item: "🎈", gs: "bunches", is: "balloons", su: "balloons in each bunch",
+      mult:   function (a, b, w) { return "For the party, " + w + " made " + n(a) + " bunches of balloons. Each bunch has " + n(b) + " balloons. How many balloons are there?"; },
+      share:  function (t, a, w) { return w + " has " + n(t) + " balloons to tie into " + n(a) + " equal bunches. How many balloons are in each bunch?"; },
+      groups: function (t, b, w) { return w + " has " + n(t) + " balloons and puts " + n(b) + " in each bunch. How many bunches can " + w + " make?"; } },
+
+    { icon: "🐰", item: "🥕", gs: "bunnies", is: "carrots", su: "carrots for each bunny",
+      mult:   function (a, b, w) { return w + " is feeding " + n(a) + " hungry bunnies. Each bunny eats " + n(b) + " carrots. How many carrots does " + w + " need?"; },
+      share:  function (t, a, w) { return w + " has " + n(t) + " carrots to share equally with " + n(a) + " bunnies. How many carrots does each bunny get?"; },
+      groups: function (t, b, w) { return w + " has " + n(t) + " carrots. Each bunny eats " + n(b) + " carrots. How many bunnies can " + w + " feed?"; } },
+
+    { icon: "🎁", item: "🍬", gs: "party bags", is: "candies", su: "candies in each bag",
+      mult:   function (a, b, w) { return w + " is making " + n(a) + " party bags. Each bag gets " + n(b) + " candies. How many candies does " + w + " need?"; },
+      share:  function (t, a, w) { return w + " has " + n(t) + " candies to split evenly into " + n(a) + " party bags. How many candies go in each bag?"; },
+      groups: function (t, b, w) { return w + " has " + n(t) + " candies and puts " + n(b) + " in each party bag. How many bags can " + w + " fill?"; } },
+
+    { icon: "🍓", item: "🍓", gs: "rows", is: "strawberry plants", su: "plants in each row",
+      mult:   function (a, b, w) { return w + " planted " + n(a) + " rows of strawberries. Each row has " + n(b) + " plants. How many strawberry plants are there?"; },
+      share:  function (t, a, w) { return w + " planted " + n(t) + " strawberry plants in " + n(a) + " equal rows. How many plants are in each row?"; },
+      groups: function (t, b, w) { return w + " planted " + n(t) + " strawberry plants with " + n(b) + " plants in each row. How many rows are there?"; } },
+
+    { icon: "🐧", item: "🐟", gs: "penguins", is: "fish", su: "fish for each penguin",
+      mult:   function (a, b, w) { return "At the zoo, " + n(a) + " penguins are waiting for lunch. Each penguin eats " + n(b) + " fish. How many fish does the zookeeper need?"; },
+      share:  function (t, a, w) { return "The zookeeper has " + n(t) + " fish for " + n(a) + " penguins. Each penguin gets the same amount. How many fish does each penguin get?"; },
+      groups: function (t, b, w) { return "The zookeeper has " + n(t) + " fish. Each penguin eats " + n(b) + " fish. How many penguins can be fed?"; } },
+
+    { icon: "📚", item: "📕", gs: "shelves", is: "books", su: "books on each shelf",
+      mult:   function (a, b, w) { return w + "'s bookcase has " + n(a) + " shelves. Each shelf holds " + n(b) + " books. How many books are on the bookcase?"; },
+      share:  function (t, a, w) { return w + " has " + n(t) + " books to put on " + n(a) + " shelves, the same number on each. How many books go on each shelf?"; },
+      groups: function (t, b, w) { return w + " has " + n(t) + " books. Each shelf holds " + n(b) + " books. How many shelves will " + w + " fill?"; } },
+
+    { icon: "🍕", item: "🔴", gs: "pizzas", is: "pepperonis", su: "pepperonis on each pizza",
+      mult:   function (a, b, w) { return w + " made " + n(a) + " mini pizzas. Each pizza has " + n(b) + " pepperonis on top. How many pepperonis did " + w + " use?"; },
+      share:  function (t, a, w) { return w + " has " + n(t) + " pepperonis to put on " + n(a) + " mini pizzas, the same number on each. How many pepperonis go on each pizza?"; },
+      groups: function (t, b, w) { return w + " has " + n(t) + " pepperonis. Each mini pizza gets " + n(b) + ". How many pizzas can " + w + " make?"; } },
+
+    { icon: "⭐", item: "⭐", gs: "pages", is: "star stickers", su: "stickers on each page",
+      mult:   function (a, b, w) { return w + "'s sticker book has " + n(a) + " pages. Each page has " + n(b) + " star stickers. How many star stickers are there?"; },
+      share:  function (t, a, w) { return w + " has " + n(t) + " star stickers to spread evenly over " + n(a) + " pages. How many stickers go on each page?"; },
+      groups: function (t, b, w) { return w + " has " + n(t) + " star stickers and puts " + n(b) + " on each page. How many pages will " + w + " fill?"; } },
+
+    { icon: "🐔", item: "🥚", gs: "hens", is: "eggs", su: "eggs from each hen",
+      mult:   function (a, b, w) { return "There are " + n(a) + " hens on the farm. Each hen laid " + n(b) + " eggs this week. How many eggs is that?"; },
+      share:  function (t, a, w) { return n(a) + " hens laid " + n(t) + " eggs this week. Each hen laid the same number. How many eggs did each hen lay?"; },
+      groups: function (t, b, w) { return "The hens laid " + n(t) + " eggs this week. Each hen laid " + n(b) + " eggs. How many hens are there?"; } },
+
+    // Fixed-number stories: the "each" number never changes, so only use "how many groups?" division.
+    { icon: "🐶", item: "🐾", fixed: 4, gs: "puppies", is: "paws",
+      mult:   function (a, b, w) { return n(a) + " puppies are playing at the dog park. Each puppy has " + n(4) + " paws. How many paws are there?"; },
+      groups: function (t, b, w) { return w + " counted " + n(t) + " paws at the dog park. Each puppy has " + n(4) + " paws. How many puppies are there?"; } },
+
+    { icon: "🐙", item: "〰️", fixed: 8, gs: "octopuses", is: "arms",
+      mult:   function (a, b, w) { return n(a) + " octopuses are swimming at the aquarium. Each octopus has " + n(8) + " arms. How many arms are wiggling?"; },
+      groups: function (t, b, w) { return w + " counted " + n(t) + " wiggly arms at the aquarium. Each octopus has " + n(8) + " arms. How many octopuses are there?"; } }
+  ];
+
+  var CHARACTERS = ["__NAME__", "__NAME__", "__NAME__", "Luna", "Milo", "Captain Waffles", "Pip the Penguin"];
+
+  /* ---------------- Problem generation ---------------- */
+  function makeRound() {
+    var lv = LEVELS[settings.level];
+    var pool = shuffle(TEMPLATES.filter(function (t) { return !t.fixed || (t.fixed >= lv.min && t.fixed <= lv.max); }));
+    var round = [], seen = {};
+    for (var i = 0; i < ROUND_SIZE; i++) {
+      var tpl = pool[i % pool.length], p, tries = 0;
+      do {
+        p = makeProblem(tpl, lv);
+        tries++;
+      } while (seen[p.key] && tries < 20);
+      seen[p.key] = true;
+      round.push(p);
+    }
+    return round;
+  }
+
+  function makeProblem(tpl, lv) {
+    var a = rand(lv.min, lv.max);
+    var b = tpl.fixed || rand(lv.min, lv.max);
+    // On medium/tricky, nudge away from too many 2s so it stays interesting.
+    if (lv.max > 5 && a === 2 && Math.random() < 0.5) a = rand(3, lv.max);
+    if (lv.max > 5 && !tpl.fixed && b === 2 && Math.random() < 0.5) b = rand(3, lv.max);
+    var t = a * b;
+
+    var type;
+    if (settings.op === "mult") type = "mult";
+    else if (settings.op === "div") type = tpl.share ? pick(["share", "groups"]) : "groups";
+    else type = Math.random() < 0.5 ? "mult" : (tpl.share ? pick(["share", "groups"]) : "groups");
+
+    var who = pick(CHARACTERS).replace("__NAME__", playerName);
+    var p = { tpl: tpl, a: a, b: b, t: t, type: type, key: type + a + "x" + b };
+    if (type === "mult") {
+      p.text = tpl.mult(a, b, who); p.ans = t; p.unit = tpl.is;
+      p.eq = a + " × " + b + " = " + t;
+    } else if (type === "share") {
+      p.text = tpl.share(t, a, who); p.ans = b; p.unit = tpl.su;
+      p.eq = t + " ÷ " + a + " = " + b;
+    } else {
+      p.text = tpl.groups(t, b, who); p.ans = a; p.unit = tpl.gs;
+      p.eq = t + " ÷ " + b + " = " + a;
+    }
+    return p;
+  }
+
+  function hintText(p) {
+    var b = p.b, a = p.a, t = p.t;
+    if (p.type === "mult") {
+      var counts = a > 2 ? b + ", " + (2 * b) + ", …" : b + ", …";
+      return "There are <b>" + a + "</b> groups with <b>" + b + "</b> in each group. That's " + a + " × " + b +
+             ". Try skip counting by " + b + "s: " + counts + " Keep going " + a + " times!";
+    }
+    if (p.type === "share") {
+      return "We're sharing <b>" + t + "</b> into <b>" + a + "</b> equal groups. Think: " + a + " × <b>?</b> = " + t +
+             ". What number times " + a + " makes " + t + "?";
+    }
+    return "How many groups of <b>" + b + "</b> fit into <b>" + t + "</b>? Think: <b>?</b> × " + b + " = " + t +
+           ". Skip count by " + b + "s until you reach " + t + "!";
+  }
+
+  // As a hint, the caption only restates the story (no answer); once solved it shows the whole thing.
+  function pictureCaption(p, solved) {
+    if (solved || p.type === "mult") return p.a + " " + p.tpl.gs + " with " + p.b + " " + p.tpl.is + " each";
+    if (p.type === "share") return p.t + " " + p.tpl.is + " shared into " + p.a + " equal groups. How many in one group?";
+    return p.t + " " + p.tpl.is + " in groups of " + p.b + ". How many groups?";
+  }
+
+  /* ---------------- Sound ---------------- */
+  var actx = null;
+  function tones(freqs, step) {
+    if (muted) return;
+    step = step || 0.11;
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+      freqs.forEach(function (f, i) {
+        var o = actx.createOscillator(), g = actx.createGain();
+        var t0 = actx.currentTime + i * step;
+        o.type = "sine"; o.frequency.value = f;
+        g.gain.setValueAtTime(0.0001, t0);
+        g.gain.exponentialRampToValueAtTime(0.18, t0 + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, t0 + step + 0.18);
+        o.connect(g); g.connect(actx.destination);
+        o.start(t0); o.stop(t0 + step + 0.2);
+      });
+    } catch (e) {}
+  }
+  var sfx = {
+    tap:   function () { tones([660], 0.04); },
+    right: function () { tones([523, 659, 784]); },
+    oops:  function () { tones([392, 349], 0.14); },
+    party: function () { tones([523, 659, 784, 1047, 784, 1047], 0.1); }
+  };
+
+  function speak(text) {
+    try {
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text.replace(/<[^>]+>/g, ""));
+      u.rate = 0.9; u.pitch = 1.05;
+      window.speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+
+  /* ---------------- Confetti ---------------- */
+  function confetti(count) {
+    var colors = ["#ff6fae", "#7c5cff", "#ffd23f", "#2fbf71", "#3fb6ff", "#ff9f43"];
+    for (var i = 0; i < count; i++) {
+      var c = el("div", "confetti");
+      c.style.left = Math.random() * 100 + "vw";
+      c.style.background = pick(colors);
+      c.style.animationDuration = (1.6 + Math.random() * 1.6) + "s";
+      c.style.animationDelay = (Math.random() * 0.4) + "s";
+      c.style.transform = "rotate(" + rand(0, 360) + "deg)";
+      document.body.appendChild(c);
+      setTimeout((function (node) { return function () { node.remove(); }; })(c), 3800);
+    }
+  }
+
+  /* ---------------- Screens ---------------- */
+  function show(id) {
+    ["home", "play", "done"].forEach(function (s) { $(s).classList.toggle("hidden", s !== id); });
+    window.scrollTo(0, 0);
+  }
+
+  /* ---------------- Home ---------------- */
+  function renderHome() {
+    $("title").textContent = playerName + "'s Story Math";
+    $("nameBtn").textContent = "Not " + playerName + "? Change name";
+    document.querySelectorAll("#opChoices .choice").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.dataset.op === settings.op ? "true" : "false");
+    });
+    document.querySelectorAll("#levelChoices .choice").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.dataset.level === settings.level ? "true" : "false");
+    });
+    var owned = store.get("stickers", []);
+    var grid = $("stickerGrid"); grid.innerHTML = "";
+    STICKERS.forEach(function (s) {
+      var have = owned.indexOf(s) !== -1;
+      grid.appendChild(el("div", "sticker" + (have ? "" : " empty"), have ? s : "?"));
+    });
+    var stars = store.get("totalStars", 0);
+    $("bookCount").textContent = owned.length + " / " + STICKERS.length + " stickers · ⭐ " + stars + " stars";
+  }
+
+  $("opChoices").addEventListener("click", function (e) {
+    var b = e.target.closest(".choice"); if (!b) return;
+    settings.op = b.dataset.op; store.set("op", settings.op); sfx.tap(); renderHome();
+  });
+  $("levelChoices").addEventListener("click", function (e) {
+    var b = e.target.closest(".choice"); if (!b) return;
+    settings.level = b.dataset.level; store.set("level", settings.level); sfx.tap(); renderHome();
+  });
+  $("nameBtn").addEventListener("click", function () {
+    var v = window.prompt("What's your name?", playerName);
+    if (v && v.trim()) { playerName = v.trim().slice(0, 20); store.set("name", playerName); renderHome(); }
+  });
+  $("startBtn").addEventListener("click", startRound);
+
+  /* ---------------- Play ---------------- */
+  var S = null;
+
+  function startRound() {
+    S = { round: makeRound(), idx: 0, stars: 0, results: [] };
+    show("play");
+    loadProblem();
+  }
+
+  function renderProgress() {
+    var bar = $("progress"); bar.innerHTML = "";
+    for (var i = 0; i < ROUND_SIZE; i++) {
+      var r = S.results[i];
+      var d = el("div", "dot" + (i === S.idx && r === undefined ? " now" : ""), r === "star" ? "⭐" : r === "ok" ? "💜" : "");
+      if (i === S.idx && r !== undefined) d.classList.add("pop");
+      bar.appendChild(d);
+    }
+  }
+
+  function loadProblem() {
+    var p = S.round[S.idx];
+    S.input = ""; S.tries = 0; S.solved = false;
+    $("sceneIcon").textContent = p.tpl.icon;
+    var badge = $("badge");
+    badge.className = "badge " + (p.type === "mult" ? "mult" : "div");
+    badge.textContent = p.type === "mult" ? "✖️ Times story" : "➗ Sharing story";
+    $("storyNum").textContent = "Story " + (S.idx + 1) + " of " + ROUND_SIZE;
+    $("story").innerHTML = p.text;
+    $("unit").textContent = p.unit;
+    $("feedback").innerHTML = "";
+    $("pad").classList.remove("locked");
+    var cb = $("checkBtn"); cb.textContent = "Check ✔"; cb.classList.remove("next");
+    $("answerBox").classList.remove("right");
+    updateAnswer();
+    renderProgress();
+  }
+
+  function updateAnswer() {
+    var box = $("answerBox");
+    box.textContent = S.input;
+    box.classList.toggle("empty", S.input === "");
+  }
+
+  function press(k) {
+    if (!S || S.solved) return;
+    if (k === "back") S.input = S.input.slice(0, -1);
+    else if (k === "clear") S.input = "";
+    else if (S.input.length < 3) S.input = (S.input === "0" ? "" : S.input) + k;
+    sfx.tap();
+    updateAnswer();
+  }
+
+  function bubble(kind, who, html) {
+    var b = el("div", "bubble" + (kind === "good" ? " good" : ""));
+    b.appendChild(el("div", "who", who));
+    var body = el("div"); body.innerHTML = html;
+    b.appendChild(body);
+    return b;
+  }
+
+  function picture(p, solved) {
+    var wrap = el("div");
+    var pic = el("div", "pic");
+    if (p.t > 70) pic.classList.add("tiny"); else if (p.t > 30) pic.classList.add("small");
+    for (var i = 0; i < p.a; i++) {
+      var g = el("div", "grp");
+      g.style.animationDelay = (i * 0.08) + "s";
+      for (var j = 0; j < p.b; j++) g.appendChild(el("span", null, p.tpl.item));
+      pic.appendChild(g);
+    }
+    wrap.appendChild(pic);
+    wrap.appendChild(el("div", "pic-caption", pictureCaption(p, solved)));
+    return wrap;
+  }
+
+  var PRAISE = ["Awesome!", "You got it!", "Super smart!", "Math wizard! 🧙", "Nailed it!", "Woo-hoo!", "Brilliant!", "High five! 🙌"];
+  var OOPS = ["Hmm, not quite — here's a clue!", "Good try! Let's use a hint.", "So close! Want a clue?"];
+
+  function check() {
+    if (!S) return;
+    if (S.solved) { next(); return; }
+    var box = $("answerBox");
+    if (S.input === "") {
+      box.classList.remove("shake"); void box.offsetWidth; box.classList.add("shake");
+      return;
+    }
+    var p = S.round[S.idx];
+    var v = parseInt(S.input, 10);
+    var fb = $("feedback");
+
+    if (v === p.ans) {
+      S.solved = true;
+      var firstTry = S.tries === 0;
+      S.results[S.idx] = "star"; S.stars++;
+      box.classList.add("right");
+      fb.innerHTML = "";
+      fb.appendChild(bubble("good", "🦉",
+        "<b>" + pick(PRAISE) + "</b> " + (firstTry ? "First try! " : "You kept trying and got it! ") +
+        "<br><span class='eq'>" + p.eq + "</span>"));
+      fb.appendChild(picture(p, true));
+      sfx.right(); confetti(firstTry ? 30 : 18);
+      finishProblem();
+      return;
+    }
+
+    S.tries++;
+    sfx.oops();
+    var dir = v > p.ans ? "That's a little too big." : "That's a little too small.";
+    var shown = S.input;
+    S.input = ""; updateAnswer();
+    box.classList.remove("shake"); void box.offsetWidth; box.classList.add("shake");
+    fb.innerHTML = "";
+
+    if (S.tries === 1) {
+      fb.appendChild(bubble("hint", "🦉", "<b>" + pick(OOPS) + "</b> " + dir + "<br>" + hintText(p)));
+    } else if (S.tries === 2) {
+      fb.appendChild(bubble("hint", "🦉", "<b>" + shown + " isn't it.</b> " + dir + " Let's draw it! Count the picture to help you." +
+        "<br>" + hintText(p)));
+      fb.appendChild(picture(p));
+    } else {
+      S.solved = true;
+      S.results[S.idx] = "ok";
+      S.input = String(p.ans); updateAnswer();
+      fb.appendChild(bubble("hint", "🦉",
+        "That one was tricky! The answer is <b>" + p.ans + "</b>. Look at the picture and see how it works:" +
+        "<br><span class='eq'>" + p.eq + "</span><br>You'll get the next one! 💪"));
+      fb.appendChild(picture(p, true));
+      finishProblem();
+    }
+  }
+
+  function finishProblem() {
+    $("pad").classList.add("locked");
+    var cb = $("checkBtn");
+    cb.classList.add("next");
+    cb.textContent = S.idx === ROUND_SIZE - 1 ? "Finish round 🎉" : "Next story ➜";
+    renderProgress();
+  }
+
+  function next() {
+    try { window.speechSynthesis && window.speechSynthesis.cancel(); } catch (e) {}
+    S.idx++;
+    if (S.idx >= ROUND_SIZE) { endRound(); return; }
+    loadProblem();
+  }
+
+  function endRound() {
+    var total = store.get("totalStars", 0) + S.stars;
+    store.set("totalStars", total);
+
+    var stars = "";
+    for (var i = 0; i < ROUND_SIZE; i++) stars += S.results[i] === "star" ? "⭐" : "💜";
+    $("doneStars").textContent = stars;
+
+    var msg;
+    if (S.stars === ROUND_SIZE) msg = "All " + ROUND_SIZE + " stars! You're a story math superstar, " + playerName + "!";
+    else if (S.stars >= 3) msg = "You earned " + S.stars + " stars. Great job, " + playerName + "!";
+    else msg = "You earned " + S.stars + " star" + (S.stars === 1 ? "" : "s") + " and practiced hard. Every story makes your brain stronger!";
+    $("doneTitle").textContent = S.stars === ROUND_SIZE ? "Perfect round!" : "Round complete!";
+    $("doneMsg").textContent = msg;
+
+    var owned = store.get("stickers", []);
+    var unowned = STICKERS.filter(function (s) { return owned.indexOf(s) === -1; });
+    var sticker;
+    if (unowned.length) {
+      sticker = pick(unowned); owned.push(sticker); store.set("stickers", owned);
+      $("stickerMsg").textContent = "New sticker for your book! (" + owned.length + " of " + STICKERS.length + ")";
+    } else {
+      sticker = pick(STICKERS);
+      $("stickerMsg").textContent = "You've collected every sticker! Here's a bonus high five! 🙌";
+    }
+    var ns = $("newSticker");
+    ns.textContent = sticker;
+    ns.style.animation = "none"; void ns.offsetWidth; ns.style.animation = "";
+
+    show("done");
+    sfx.party(); confetti(70);
+  }
+
+  /* ---------------- Wiring ---------------- */
+  $("pad").addEventListener("click", function (e) {
+    var k = e.target.closest(".key"); if (k) press(k.dataset.k);
+  });
+  $("checkBtn").addEventListener("click", check);
+  $("readBtn").addEventListener("click", function () {
+    if (!S) return;
+    var p = S.round[S.idx];
+    speak(p.text);
+  });
+  $("quitBtn").addEventListener("click", function () {
+    try { window.speechSynthesis && window.speechSynthesis.cancel(); } catch (e) {}
+    S = null; renderHome(); show("home");
+  });
+  function renderMute() { $("muteBtn").textContent = muted ? "🔇" : "🔊"; }
+  $("muteBtn").addEventListener("click", function () { muted = !muted; store.set("muted", muted); renderMute(); });
+  $("againBtn").addEventListener("click", startRound);
+  $("homeBtn").addEventListener("click", function () { S = null; renderHome(); show("home"); });
+
+  document.addEventListener("keydown", function (e) {
+    if ($("play").classList.contains("hidden") || !S) {
+      if (e.key === "Enter" && !$("done").classList.contains("hidden")) { e.preventDefault(); startRound(); }
+      return;
+    }
+    if (/^[0-9]$/.test(e.key)) { press(e.key); e.preventDefault(); }
+    else if (e.key === "Backspace") { press("back"); e.preventDefault(); }
+    else if (e.key === "Enter") { check(); e.preventDefault(); }
+  });
+
+  if (!("speechSynthesis" in window)) $("readBtn").classList.add("hidden");
+  renderMute();
+  renderHome();
+})();
+</script>
+</body>
+</html>
